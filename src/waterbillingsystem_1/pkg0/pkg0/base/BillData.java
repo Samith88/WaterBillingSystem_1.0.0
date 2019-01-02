@@ -78,11 +78,19 @@ public class BillData {
         this.Month = Month;
     }
 
+    public int getMonthlyUsageUnit() {
+        return MonthlyUsageUnit;
+    }
+
+    public void setMonthlyUsageUnit(int MonthlyUsageUnit) {
+        this.MonthlyUsageUnit = MonthlyUsageUnit;
+    }
+    
     private int    mbid;
     private int    cid;
     private String nic;
     private int NewMeter;
     private boolean Sramadhana;
     private boolean AbsentCharge;
-    
+    private int MonthlyUsageUnit;    
 }

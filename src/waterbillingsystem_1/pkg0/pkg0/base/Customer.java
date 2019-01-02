@@ -98,6 +98,14 @@ public class Customer {
     public void setLastPayment(double lastPayment) {
         this.lastPayment = lastPayment;
     }
+
+    public String getCname() {
+        return cname;
+    }
+
+    public void setCname(String cname) {
+        this.cname = cname;
+    }    
     
     private int  cid;
     private String  nic;
@@ -110,6 +118,8 @@ public class Customer {
     private double  TotalOutstandingAmount ;
     private int  MeterNo ;
     private double lastPayment;
+    private String cname;
+
 
     
 }

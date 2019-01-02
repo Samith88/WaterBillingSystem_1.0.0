@@ -14,6 +14,4 @@ public class ChargingDetails {
     public static double SramadhanaCharge=25.00;
     public static double AbsentCharge=25.00;
     public static double FixedCharge=300.00;
-    
-    
 }

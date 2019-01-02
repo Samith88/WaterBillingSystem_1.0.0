@@ -10,7 +10,7 @@ import waterbillingsystem_1.pkg0.pkg0.DateDetails;
 import waterbillingsystem_1.pkg0.pkg0.base.BillData;
 import waterbillingsystem_1.pkg0.pkg0.base.Customer;
 import waterbillingsystem_1.pkg0.pkg0.base.MonthlyBillDetails;
-import waterbillingsystem_1.pkg0.pkg0.dao.getExistingCustomer;
+import waterbillingsystem_1.pkg0.pkg0.dao.CustomerDataDatabase;
 import waterbillingsystem_1.pkg0.pkg0.dao.getUnitPrices;
 
 /**
@@ -39,9 +39,9 @@ public class BillDataProcessor {
     
         monthlyBillDetails.setInvoiceNo(generateInvoiceNo(billData.getCid()));
         monthlyBillDetails.setCid(billData.getCid());
-        monthlyBillDetails.setGroup(getExistingCustomer.getGroupFromNIC(billData.getNic()));
+        monthlyBillDetails.setGroup(CustomerDataDatabase.getGroupFromNIC(billData.getNic()));
         
-        Customer customer = getExistingCustomer.getCustomer(billData.getNic());
+        Customer customer = CustomerDataDatabase.getCustomer(billData.getNic());
         
         monthlyBillDetails.setOldMeter(customer.getCurrentMeter());
         monthlyBillDetails.setNewMeter(billData.getNewMeter());
@@ -62,6 +62,7 @@ public class BillDataProcessor {
                 monthlyBillDetails.getSramadhana()+monthlyBillDetails.getAbsentCharge());
         monthlyBillDetails.setTotalOutstandingMonthly(monthlyBillDetails.getCurrentTotalAmount()+monthlyBillDetails.getTotalMonthlyAmount());
         monthlyBillDetails.setMonth(billData.getMonth());
+        monthlyBillDetails.setMonthlyUsageUnit(billData.getMonthlyUsageUnit());
         
         return monthlyBillDetails;
     }

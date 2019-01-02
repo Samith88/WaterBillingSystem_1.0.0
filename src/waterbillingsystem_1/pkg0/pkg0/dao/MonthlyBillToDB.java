@@ -19,10 +19,10 @@ public class MonthlyBillToDB {
         
         InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
         return insertUpdateDeleteClass.insertUpdateDeleteDB("insert into BillData (mbid,cid,nic,NewMeter,Sramadhana,"
-                + "AbsentCharge,Month,OldMeter) values "
+                + "AbsentCharge,Month,OldMeter,MonthlyUsageUnit) values "
                 + "('"+billData.getMbid()+"','"+billData.getCid()+"','"+billData.getNic()+"','"+billData.getNewMeter()+"'"
                 + ",'"+billData.isSramadhana()+"','"+billData.isAbsentCharge()+"','"+billData.getMonth()+"'"
-                + ",'"+billData.getOldMeter()+"')");    
+                + ",'"+billData.getOldMeter()+"','"+billData.getMonthlyUsageUnit()+"')");    
     }
     
     public boolean putMonthlyBillDetails(MonthlyBillDetails monthlyBillDetails){
@@ -32,13 +32,14 @@ public class MonthlyBillToDB {
         return insertUpdateDeleteClass.insertUpdateDeleteDB("insert into MonthlyBillDetails(InvoiceNo,cid,nic,Group,OldMeter,"
                 + "NewMeter,MonthlyConsumption,"
                 + "CurrentTotalAmount,FixedCharge,Sramadhana,AbsentCharge,TotalMonthlyAmount,Month,"
-                + "TotalOutstandingMonthly) values('"+monthlyBillDetails.getInvoiceNo()+"','"+monthlyBillDetails.getCid()+"',"
+                + "TotalOutstandingMonthly,MonthlyUsageUnit) values('"+monthlyBillDetails.getInvoiceNo()+"','"+monthlyBillDetails.getCid()+"',"
                 + "'"+monthlyBillDetails.getNic()+"','"+monthlyBillDetails.getGroup()+"','"+monthlyBillDetails.getOldMeter()+"',"
                 + "'"+monthlyBillDetails.getNewMeter()+"',"
                 + ",'"+monthlyBillDetails.getMonthlyConsumption()+"','"+monthlyBillDetails.getCurrentTotalAmount()+"',"
                 + "'"+monthlyBillDetails.getFixedCharge()+"','"+monthlyBillDetails.getSramadhana()+"',"
                 + "'"+monthlyBillDetails.getAbsentCharge()+"','"+monthlyBillDetails.getTotalMonthlyAmount()+"',"
-                + "'"+monthlyBillDetails.getMonth()+"','"+monthlyBillDetails.getTotalOutstandingMonthly()+"')");
+                + "'"+monthlyBillDetails.getMonth()+"','"+monthlyBillDetails.getTotalOutstandingMonthly()+"'"
+                + "'"+monthlyBillDetails.getMonthlyUsageUnit()+"')");
     }
     
 }

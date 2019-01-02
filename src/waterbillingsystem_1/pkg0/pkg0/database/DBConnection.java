@@ -15,8 +15,8 @@ import org.sqlite.SQLiteConfig;
  * @author UDISSSA1
  */
 public class DBConnection {
-    private static Connection connection;
-    private static Connection readConnection;
+    public static Connection connection;
+    public static Connection readConnection;
     
     public static Connection connect() throws Exception{
         String url = "jdbc:sqlite:waterbill.db";

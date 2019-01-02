@@ -124,11 +124,21 @@ public class MonthlyBillDetails {
     public void setMonth(int Month) {
         this.Month = Month;
     }    
+    
+    public int getMonthlyUsageUnit() {
+        return MonthlyUsageUnit;
+    }
+
+    public void setMonthlyUsageUnit(int MonthlyUsageUnit) {
+        this.MonthlyUsageUnit = MonthlyUsageUnit;
+    }
+
     private int  InvoiceNo;
     private int   cid;
     private String nic;
     private int OldMeter;
     private int NewMeter;
+    private int MonthlyUsageUnit;
     private double MonthlyConsumption;
     private double CurrentTotalAmount;
     private double FixedCharge;

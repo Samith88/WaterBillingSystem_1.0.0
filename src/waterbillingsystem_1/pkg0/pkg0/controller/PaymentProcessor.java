@@ -8,7 +8,7 @@ package waterbillingsystem_1.pkg0.pkg0.controller;
 import java.util.Calendar;
 import waterbillingsystem_1.pkg0.pkg0.DateDetails;
 import waterbillingsystem_1.pkg0.pkg0.base.Payment;
-import waterbillingsystem_1.pkg0.pkg0.dao.getExistingCustomer;
+import waterbillingsystem_1.pkg0.pkg0.dao.CustomerDataDatabase;
 
 /**
  *
@@ -22,7 +22,7 @@ public class PaymentProcessor {
         
         payment.setPyid(generatePaymentId(payment.getCid()));
         
-        payment.setCid(getExistingCustomer.getCIDFromNIC(payment.getNic()));
+        payment.setCid(CustomerDataDatabase.getCIDFromNIC(payment.getNic()));
         payment.setNewOutStandingTotal(payment.getOldOutStandingTotal() - payment.getAmount());
         
         return payment;

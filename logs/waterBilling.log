@@ -1,3 +1,10 @@
 2018-12-30 13:59:30 DEBUG [main] (testdbConnect.java:35) - Connection to SQLite has been established.
 2018-12-30 14:00:30 DEBUG [main] (testdbConnect.java:35) - Connection to SQLite has been established.
 2018-12-30 14:03:40 DEBUG [main] (testdbConnect.java:34) - Connection to SQLite has been established.
+2019-01-01 18:43:52 DEBUG [AWT-EventQueue-0] (InsertUpdateDeleteClass.java:32) - org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (table Customer has no column named cname)
+2019-01-01 18:44:37 DEBUG [AWT-EventQueue-0] (InsertUpdateDeleteClass.java:32) - org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_TRIGGER]  A RAISE function within a trigger fired, causing the SQL statement to abort (Customer Id or NIC already exist)
+2019-01-01 18:44:52 DEBUG [AWT-EventQueue-0] (EnterCustomer.java:237) - User data inserted :454354343v
+2019-01-01 19:42:52 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:23) - java.sql.SQLException: The database has been closed
+2019-01-01 19:59:22 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:23) - java.sql.SQLException: The database has been closed
+2019-01-01 20:04:45 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:23) - java.sql.SQLException: The database has been closed
+2019-01-01 20:13:03 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:23) - java.sql.SQLException: The database has been closed
