@@ -103,6 +103,11 @@ public class EnterCustomer extends javax.swing.JFrame {
 
         btnCDFClear.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnCDFClear.setText(" Clear Data");
+        btnCDFClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCDFClearActionPerformed(evt);
+            }
+        });
 
         btnCDFEnter.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnCDFEnter.setText("Enter Customer");
@@ -260,6 +265,18 @@ public class EnterCustomer extends javax.swing.JFrame {
             Logger.getLogger(EnterCustomer.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_formWindowOpened
+
+    private void btnCDFClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDFClearActionPerformed
+        // TODO add your handling code here:
+        txtCustomername.setText("");
+        txtCustomerNIC.setText("");
+        cmbGroupId.setSelectedIndex(0);
+        txtCustomerAd1.setText("");
+        txtCustomerAd2.setText("");
+        txtCustomerAd3.setText("");
+        txtCustomerNo.setText("");
+        txtCustomerMno.setText("");
+    }//GEN-LAST:event_btnCDFClearActionPerformed
 
     /**
      * @param args the command line arguments

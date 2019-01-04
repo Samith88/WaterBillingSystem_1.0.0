@@ -26,7 +26,7 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <Component id="btnGDClear" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                       <Component id="btnGDEnter" min="-2" pref="126" max="-2" attributes="0"/>
@@ -35,17 +35,17 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="GDLblGID" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
-                          <Component id="GDLblGName" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
-                          <Component id="GDLbLoc" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="GDLbDesc" alignment="0" min="-2" pref="77" max="-2" attributes="0"/>
+                          <Component id="UDLblUPId" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                          <Component id="UDLblLower" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                          <Component id="UDLbLUpper" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="UDLbPrice" alignment="0" min="-2" pref="77" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtGroupLoc" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtGroupName" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtGroupId" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txUnitPriceUpper" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txUnitPriceLower" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txUnitPriceId" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txUnitPrice" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -53,7 +53,7 @@
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="GDLabelMain" min="-2" max="-2" attributes="0"/>
+              <Component id="UDLabelMain" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="223" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -62,28 +62,28 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-              <Component id="GDLabelMain" min="-2" max="-2" attributes="0"/>
+              <Component id="UDLabelMain" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="GDLblGID" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtGroupId" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="UDLblUPId" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txUnitPriceId" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="GDLblGName" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtGroupName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="UDLblLower" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txUnitPriceLower" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="GDLbLoc" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtGroupLoc" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="UDLbLUpper" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txUnitPriceUpper" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="GDLbDesc" min="-2" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="53" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="UDLbPrice" min="-2" max="-2" attributes="0"/>
+                  <Component id="txUnitPrice" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="61" max="32767" attributes="0"/>
+              <EmptySpace pref="94" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnGDClear" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnGDEnterAnother" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -95,77 +95,13 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="GDLabelMain">
+    <Component class="javax.swing.JLabel" name="UDLabelMain">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Group Data Form"/>
+        <Property name="text" type="java.lang.String" value="Unit Data Form"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="GDLblGID">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="12" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Group Id"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtGroupId">
-    </Component>
-    <Component class="javax.swing.JLabel" name="GDLblGName">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="12" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Group Name"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtGroupName">
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtGroupLoc">
-    </Component>
-    <Component class="javax.swing.JLabel" name="GDLbLoc">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="12" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Location"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="GDLbDesc">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="12" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Description"/>
-      </Properties>
-    </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-      <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-      </AuxValues>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JTextArea" name="txtGroupDesc">
-          <Properties>
-            <Property name="columns" type="int" value="20"/>
-            <Property name="rows" type="int" value="5"/>
-          </Properties>
-        </Component>
-      </SubComponents>
-    </Container>
-    <Component class="javax.swing.JButton" name="btnGDClear">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="11" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value=" Clear Bill Data"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGDClearActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnGDEnter">
       <Properties>
@@ -178,6 +114,14 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGDEnterActionPerformed"/>
       </Events>
     </Component>
+    <Component class="javax.swing.JLabel" name="UDLblUPId">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Unit Price Id"/>
+      </Properties>
+    </Component>
     <Component class="javax.swing.JButton" name="btnGDEnterAnother">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -185,6 +129,49 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Another Bill"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txUnitPriceId">
+    </Component>
+    <Component class="javax.swing.JLabel" name="UDLblLower">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Unit Lower Value"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txUnitPriceLower">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txUnitPriceUpper">
+    </Component>
+    <Component class="javax.swing.JLabel" name="UDLbLUpper">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Unit Upper Value"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="UDLbPrice">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Unit Price"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnGDClear">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value=" Clear Bill Data"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGDClearActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txUnitPrice">
     </Component>
   </SubComponents>
 </Form>

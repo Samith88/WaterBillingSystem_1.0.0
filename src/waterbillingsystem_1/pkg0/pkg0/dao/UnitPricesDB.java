@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import waterbillingsystem_1.pkg0.pkg0.base.UnitPrice;
 import waterbillingsystem_1.pkg0.pkg0.database.DBConnection;
+import waterbillingsystem_1.pkg0.pkg0.database.InsertUpdateDeleteClass;
 import waterbillingsystem_1.pkg0.pkg0.database.RetrieveClass;
 import waterbillingsystem_1.pkg0.pkg0.logging.getLogger;
 
@@ -22,7 +23,7 @@ import waterbillingsystem_1.pkg0.pkg0.logging.getLogger;
  *
  * @author UDISSSA1
  */
-public class getUnitPrices {
+public class UnitPricesDB {
     
     public static List<UnitPrice> getUnitPricesFromDB() throws Exception{
         RetrieveClass retrieveClass =new RetrieveClass();
@@ -31,9 +32,9 @@ public class getUnitPrices {
             ResultSet rs  = retrieveClass.getResultsFormDB("select * from unit_price");
             while (rs.next()) {
                 UnitPrice unitPrice=new UnitPrice();
-                unitPrice.setUid(rs.getInt("uid"));
-                unitPrice.setUid(rs.getInt("lower"));
-                unitPrice.setUid(rs.getInt("upper"));
+                unitPrice.setUid(rs.getString("uid"));
+                unitPrice.setLower(rs.getInt("lower"));
+                unitPrice.setUpper(rs.getInt("upper"));
                 unitPrice.setPrice(rs.getDouble("price"));
                 //rs.getInt("id") +  "\t" + rs.getString("name") + "\t" +rs.getDouble("capacity"));
                 unitprices.add(unitPrice);
@@ -45,4 +46,11 @@ public class getUnitPrices {
         return unitprices;
     }
     
+    public boolean putUnitPrices(UnitPrice unitPrice){
+    
+        String sql="insert into UnitPrice(uid,lower,upper,price) values ('"+unitPrice.getUid()+"',"
+                + "'"+unitPrice.getLower()+"','"+unitPrice.getUpper()+"','"+unitPrice.getPrice()+"')";
+        InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
+        return insertUpdateDeleteClass.insertUpdateDeleteDB(sql);
+    }
 }

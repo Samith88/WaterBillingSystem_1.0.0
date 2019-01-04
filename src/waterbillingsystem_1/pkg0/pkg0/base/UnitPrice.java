@@ -11,11 +11,11 @@ package waterbillingsystem_1.pkg0.pkg0.base;
  */
 public class UnitPrice {
 
-    public int getUid() {
+    public String getUid() {
         return uid;
     }
 
-    public void setUid(int uid) {
+    public void setUid(String uid) {
         this.uid = uid;
     }
 
@@ -43,7 +43,7 @@ public class UnitPrice {
         this.price = price;
     }
     
-    private int  uid  ; 
+    private String  uid  ; 
     private int lower ;
     private int upper ;
     private double price ;

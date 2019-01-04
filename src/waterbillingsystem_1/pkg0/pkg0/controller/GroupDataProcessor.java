@@ -14,9 +14,9 @@ import waterbillingsystem_1.pkg0.pkg0.dao.GroupDetailsDB;
  */
 public class GroupDataProcessor {
     
-    public void putGroup(Group group){
+    public boolean putGroup(Group group){
         GroupDetailsDB groupDetailsDB = new GroupDetailsDB();
-        groupDetailsDB.putGroup(group);
+        return groupDetailsDB.putGroup(group);
     }
     
 }

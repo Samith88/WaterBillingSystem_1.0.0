@@ -51,7 +51,7 @@ public class CalculateUsageBill {
         
         List<UnitPrice> unitprices=new ArrayList<>();
         UnitPrice unitPrice=new UnitPrice();
-        unitPrice.setUid(1);
+        unitPrice.setUid("1");
         unitPrice.setLower(0);
         unitPrice.setUpper(10);
         unitPrice.setPrice(50.00);
@@ -59,7 +59,7 @@ public class CalculateUsageBill {
         unitprices.add(unitPrice);
         unitPrice=new UnitPrice();
         
-        unitPrice.setUid(2);
+        unitPrice.setUid("2");
         unitPrice.setLower(10);
         unitPrice.setUpper(15);
         unitPrice.setPrice(75.00); 
@@ -67,7 +67,7 @@ public class CalculateUsageBill {
         unitprices.add(unitPrice);  
         unitPrice=new UnitPrice();
         
-        unitPrice.setUid(3);
+        unitPrice.setUid("3");
         unitPrice.setLower(15);
         unitPrice.setUpper(100);
         unitPrice.setPrice(100.00); 

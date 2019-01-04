@@ -6,19 +6,19 @@
 package waterbillingsystem_1.pkg0.pkg0.view;
 
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
-import waterbillingsystem_1.pkg0.pkg0.base.Group;
-import waterbillingsystem_1.pkg0.pkg0.controller.GroupDataProcessor;
+import waterbillingsystem_1.pkg0.pkg0.base.UnitPrice;
+import waterbillingsystem_1.pkg0.pkg0.controller.UnitPriceProcessor;
 
 /**
  *
  * @author UDISSSA1
  */
-public class EnterGroup extends javax.swing.JFrame {
+public class EnterUnitPrice extends javax.swing.JFrame {
 
     /**
-     * Creates new form EnterGroup
+     * Creates new form EnterUnitPrices
      */
-    public EnterGroup() {
+    public EnterUnitPrice() {
         initComponents();
     }
 
@@ -31,48 +31,23 @@ public class EnterGroup extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        GDLabelMain = new javax.swing.JLabel();
-        GDLblGID = new javax.swing.JLabel();
-        txtGroupId = new javax.swing.JTextField();
-        GDLblGName = new javax.swing.JLabel();
-        txtGroupName = new javax.swing.JTextField();
-        txtGroupLoc = new javax.swing.JTextField();
-        GDLbLoc = new javax.swing.JLabel();
-        GDLbDesc = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtGroupDesc = new javax.swing.JTextArea();
-        btnGDClear = new javax.swing.JButton();
+        UDLabelMain = new javax.swing.JLabel();
         btnGDEnter = new javax.swing.JButton();
+        UDLblUPId = new javax.swing.JLabel();
         btnGDEnterAnother = new javax.swing.JButton();
+        txUnitPriceId = new javax.swing.JTextField();
+        UDLblLower = new javax.swing.JLabel();
+        txUnitPriceLower = new javax.swing.JTextField();
+        txUnitPriceUpper = new javax.swing.JTextField();
+        UDLbLUpper = new javax.swing.JLabel();
+        UDLbPrice = new javax.swing.JLabel();
+        btnGDClear = new javax.swing.JButton();
+        txUnitPrice = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        GDLabelMain.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        GDLabelMain.setText("Group Data Form");
-
-        GDLblGID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        GDLblGID.setText("Group Id");
-
-        GDLblGName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        GDLblGName.setText("Group Name");
-
-        GDLbLoc.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        GDLbLoc.setText("Location");
-
-        GDLbDesc.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        GDLbDesc.setText("Description");
-
-        txtGroupDesc.setColumns(20);
-        txtGroupDesc.setRows(5);
-        jScrollPane1.setViewportView(txtGroupDesc);
-
-        btnGDClear.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnGDClear.setText(" Clear Bill Data");
-        btnGDClear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGDClearActionPerformed(evt);
-            }
-        });
+        UDLabelMain.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        UDLabelMain.setText("Unit Data Form");
 
         btnGDEnter.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnGDEnter.setText("Enter Bill");
@@ -82,8 +57,28 @@ public class EnterGroup extends javax.swing.JFrame {
             }
         });
 
+        UDLblUPId.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        UDLblUPId.setText("Unit Price Id");
+
         btnGDEnterAnother.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnGDEnterAnother.setText("Another Bill");
+
+        UDLblLower.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        UDLblLower.setText("Unit Lower Value");
+
+        UDLbLUpper.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        UDLbLUpper.setText("Unit Upper Value");
+
+        UDLbPrice.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        UDLbPrice.setText("Unit Price");
+
+        btnGDClear.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnGDClear.setText(" Clear Bill Data");
+        btnGDClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGDClearActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,44 +95,44 @@ public class EnterGroup extends javax.swing.JFrame {
                         .addComponent(btnGDEnterAnother, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(GDLblGID, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(GDLblGName, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(GDLbLoc)
-                            .addComponent(GDLbDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(UDLblUPId, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(UDLblLower, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(UDLbLUpper)
+                            .addComponent(UDLbPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtGroupLoc)
-                            .addComponent(txtGroupName)
-                            .addComponent(txtGroupId)
-                            .addComponent(jScrollPane1))))
+                            .addComponent(txUnitPriceUpper)
+                            .addComponent(txUnitPriceLower)
+                            .addComponent(txUnitPriceId)
+                            .addComponent(txUnitPrice))))
                 .addGap(61, 61, 61))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(GDLabelMain)
+                .addComponent(UDLabelMain)
                 .addGap(223, 223, 223))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(65, 65, 65)
-                .addComponent(GDLabelMain)
+                .addComponent(UDLabelMain)
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(GDLblGID)
-                    .addComponent(txtGroupId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(UDLblUPId)
+                    .addComponent(txUnitPriceId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(GDLblGName)
-                    .addComponent(txtGroupName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(UDLblLower)
+                    .addComponent(txUnitPriceLower, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(GDLbLoc)
-                    .addComponent(txtGroupLoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(UDLbLUpper)
+                    .addComponent(txUnitPriceUpper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(GDLbDesc)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(UDLbPrice)
+                    .addComponent(txUnitPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGDClear)
                     .addComponent(btnGDEnterAnother)
@@ -150,26 +145,26 @@ public class EnterGroup extends javax.swing.JFrame {
 
     private void btnGDEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDEnterActionPerformed
 
-        Group group = new Group();
-        
-        group.setGid(txtGroupId.getText());
-        group.setGname(txtGroupName.getText());
-        group.setLocation(txtGroupLoc.getText());
-        group.setDescription(txtGroupDesc.getText());
-        
-        GroupDataProcessor groupDataProcessor=new GroupDataProcessor();
-        if(groupDataProcessor.putGroup(group))
-            JOptionPaneCustom.infoBox("Group data inserted successfully", "Group Data Insertion");
+        UnitPrice unitPrice = new UnitPrice();
+
+        unitPrice.setUid(txUnitPriceId.getText());
+        unitPrice.setLower(Integer.parseInt(txUnitPriceLower.getText()));
+        unitPrice.setUpper(Integer.parseInt(txUnitPriceUpper.getText()));
+        unitPrice.setPrice(Double.parseDouble(txUnitPrice.getText()));
+
+        UnitPriceProcessor unitPriceProcessor=new UnitPriceProcessor();
+        if(unitPriceProcessor.putUnitPrice(unitPrice))
+            JOptionPaneCustom.infoBox("Unit Price insertion successfully", "Unit Price Insertion");
         else
-            JOptionPaneCustom.errorBox("Group data insertion error", "Group Data Insertion");
+            JOptionPaneCustom.errorBox("Unit Price insertion error", "Unit Price Insertion");
     }//GEN-LAST:event_btnGDEnterActionPerformed
 
     private void btnGDClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDClearActionPerformed
         // TODO add your handling code here:
-        txtGroupId.setText("");
-        txtGroupName.setText("");
-        txtGroupLoc.setText("");
-        txtGroupDesc.setText("");
+        txUnitPriceId.setText("");
+        txUnitPriceLower.setText("");
+        txUnitPriceUpper.setText("");
+        txUnitPrice.setText("");
     }//GEN-LAST:event_btnGDClearActionPerformed
 
     /**
@@ -189,31 +184,32 @@ public class EnterGroup extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EnterGroup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EnterUnitPrice.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
         
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new EnterGroup().setVisible(true);
+            new EnterUnitPrice().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel GDLabelMain;
-    private javax.swing.JLabel GDLbDesc;
-    private javax.swing.JLabel GDLbLoc;
-    private javax.swing.JLabel GDLblGID;
-    private javax.swing.JLabel GDLblGName;
+    private javax.swing.JLabel UDLabelMain;
+    private javax.swing.JLabel UDLbLUpper;
+    private javax.swing.JLabel UDLbPrice;
+    private javax.swing.JLabel UDLblLower;
+    private javax.swing.JLabel UDLblUPId;
     private javax.swing.JButton btnGDClear;
     private javax.swing.JButton btnGDEnter;
     private javax.swing.JButton btnGDEnterAnother;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea txtGroupDesc;
-    private javax.swing.JTextField txtGroupId;
-    private javax.swing.JTextField txtGroupLoc;
-    private javax.swing.JTextField txtGroupName;
+    private javax.swing.JTextField txUnitPrice;
+    private javax.swing.JTextField txUnitPriceId;
+    private javax.swing.JTextField txUnitPriceLower;
+    private javax.swing.JTextField txUnitPriceUpper;
     // End of variables declaration//GEN-END:variables
 }

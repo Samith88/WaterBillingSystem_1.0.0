@@ -22,7 +22,7 @@ public class GroupDetailsDB {
     
     public boolean putGroup(Group group){
         InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
-        return insertUpdateDeleteClass.insertUpdateDeleteDB("insert into [group]'(gid,gname,location,description) values ('"+group.getGid()+"',"
+        return insertUpdateDeleteClass.insertUpdateDeleteDB("insert into [group](gid,gname,location,description) values ('"+group.getGid()+"',"
                 + "'"+group.getGname()+"','"+group.getLocation()+"','"+group.getDescription()+"')");
     }
     

@@ -36,7 +36,7 @@ public class EnterPayment extends javax.swing.JFrame {
 
         PDLabelMain = new javax.swing.JLabel();
         PDLblNIC = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmdNIC = new javax.swing.JComboBox<>();
         txtPaymentNIC = new javax.swing.JTextField();
         PDLblCID = new javax.swing.JLabel();
         txtPaymentCID = new javax.swing.JTextField();
@@ -57,7 +57,7 @@ public class EnterPayment extends javax.swing.JFrame {
         PDLblNIC.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         PDLblNIC.setText("Customer NIC");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select NIC" }));
+        cmdNIC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select NIC" }));
 
         PDLblCID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         PDLblCID.setText("Customer Id");
@@ -74,6 +74,11 @@ public class EnterPayment extends javax.swing.JFrame {
 
         btnPDClear.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnPDClear.setText(" Clear Bill Data");
+        btnPDClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPDClearActionPerformed(evt);
+            }
+        });
 
         btnPDEnter.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnPDEnter.setText("Enter Bill");
@@ -98,7 +103,7 @@ public class EnterPayment extends javax.swing.JFrame {
                         .addGap(79, 79, 79)
                         .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -124,7 +129,7 @@ public class EnterPayment extends javax.swing.JFrame {
                                     .addComponent(txtPaymentCID)
                                     .addComponent(txtPaymentNIC)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cmdNIC, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE)))))
                         .addGap(60, 60, 60))))
         );
@@ -138,7 +143,7 @@ public class EnterPayment extends javax.swing.JFrame {
                     .addComponent(PDLblNIC)
                     .addComponent(txtPaymentNIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(3, 3, 3)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmdNIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(PDLblCID)
@@ -183,6 +188,16 @@ public class EnterPayment extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnPDEnterActionPerformed
 
+    private void btnPDClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDClearActionPerformed
+        // TODO add your handling code here:
+        txtPaymentNIC.setText("");
+        txtPaymentCID.setText("");
+        txtPaymentAmount.setText("");
+        cmbMonth.setSelectedIndex(0);
+        cmbYear.setSelectedIndex(0);
+        cmdNIC.setSelectedItem("Select NIC");
+    }//GEN-LAST:event_btnPDClearActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -223,7 +238,7 @@ public class EnterPayment extends javax.swing.JFrame {
     private javax.swing.JButton btnPDEnterAnother;
     private javax.swing.JComboBox<String> cmbMonth;
     private javax.swing.JComboBox<String> cmbYear;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> cmdNIC;
     private javax.swing.JTextField txtPaymentAmount;
     private javax.swing.JTextField txtPaymentCID;
     private javax.swing.JTextField txtPaymentNIC;

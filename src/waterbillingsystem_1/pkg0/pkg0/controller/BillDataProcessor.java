@@ -12,7 +12,7 @@ import waterbillingsystem_1.pkg0.pkg0.base.Customer;
 import waterbillingsystem_1.pkg0.pkg0.base.MonthlyBillDetails;
 import waterbillingsystem_1.pkg0.pkg0.dao.CustomerDataDatabase;
 import waterbillingsystem_1.pkg0.pkg0.dao.MonthlyBillDB;
-import waterbillingsystem_1.pkg0.pkg0.dao.getUnitPrices;
+import waterbillingsystem_1.pkg0.pkg0.dao.UnitPricesDB;
 
 /**
  *
@@ -48,7 +48,7 @@ public class BillDataProcessor {
         
         monthlyBillDetails.setOldMeter(customer.getCurrentMeter());
         monthlyBillDetails.setNewMeter(billData.getNewMeter());
-        monthlyBillDetails.setMonthlyConsumption(CalculateUsageBill.calculateConsumingBill(billData, getUnitPrices.getUnitPricesFromDB()));
+        monthlyBillDetails.setMonthlyConsumption(CalculateUsageBill.calculateConsumingBill(billData, UnitPricesDB.getUnitPricesFromDB()));
         monthlyBillDetails.setFixedCharge(ChargingDetails.FixedCharge);
         if(billData.isAbsentCharge())
             monthlyBillDetails.setAbsentCharge(ChargingDetails.AbsentCharge);
