@@ -20,7 +20,7 @@ import waterbillingsystem_1.pkg0.pkg0.logging.getLogger;
  */
 public class GroupDetailsDB {
     
-    public static boolean putGroup(Group group){
+    public boolean putGroup(Group group){
         InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
         return insertUpdateDeleteClass.insertUpdateDeleteDB("insert into [group]'(gid,gname,location,description) values ('"+group.getGid()+"',"
                 + "'"+group.getGname()+"','"+group.getLocation()+"','"+group.getDescription()+"')");
@@ -34,7 +34,7 @@ public class GroupDetailsDB {
             ResultSet rs  = retrieveClass.getResultsFormDB("select * from [group]");
             while (rs.next()) {
                 group =new Group();
-		group.setGid(rs.getInt("gid"));
+		group.setGid(rs.getString("gid"));
                 group.setGname(rs.getString("groupName"));
                 group.setLocation(rs.getString("location"));
                 group.setDescription(rs.getString("description"));
@@ -55,7 +55,7 @@ public class GroupDetailsDB {
         try{
             ResultSet rs  = retrieveClass.getResultsFormDB("select * from [group] where gid='"+groupId+"'");
             while (rs.next()) {
-		group.setGid(rs.getInt("gid"));
+		group.setGid(rs.getString("gid"));
                 group.setGname(rs.getString("groupName"));
                 group.setLocation(rs.getString("location"));
                 group.setDescription(rs.getString("description"));

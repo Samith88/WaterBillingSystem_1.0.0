@@ -11,11 +11,11 @@ package waterbillingsystem_1.pkg0.pkg0.base;
  */
 public class Group {
 
-    public int getGid() {
+    public String getGid() {
         return gid;
     }
 
-    public void setGid(int gid) {
+    public void setGid(String gid) {
         this.gid = gid;
     }
 
@@ -43,7 +43,7 @@ public class Group {
         this.description = description;
     }
     
-    private int gid;
+    private String gid;
     private String gname;
     private String location;
     private String description ;
