@@ -5,20 +5,17 @@
  */
 package waterbillingsystem_1.pkg0.pkg0.base;
 
-import java.sql.Date;
-
-
 /**
  *
  * @author UDISSSA1
  */
 public class Payment {
 
-    public int getPyid() {
+    public String getPyid() {
         return pyid;
     }
 
-    public void setPyid(int pyid) {
+    public void setPyid(String pyid) {
         this.pyid = pyid;
     }
 
@@ -30,11 +27,11 @@ public class Payment {
         this.amount = amount;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return Date;
     }
 
-    public void setDate(Date Date) {
+    public void setDate(String Date) {
         this.Date = Date;
     }
 
@@ -46,11 +43,11 @@ public class Payment {
         this.oldOutStandingTotal = oldOutStandingTotal;
     }
 
-    public int getCid() {
+    public String getCid() {
         return cid;
     }
 
-    public void setCid(int cid) {
+    public void setCid(String cid) {
         this.cid = cid;
     }
     public String getNic() {
@@ -71,11 +68,11 @@ public class Payment {
         this.NewOutStandingTotal = NewOutStandingTotal;
     }
 
-    private int	pyid;
-    private int cid;
+    private String pyid;
+    private String cid;
     private String nic;
     private double amount;
-    private Date Date;
+    private String Date;
     private double oldOutStandingTotal;
     
 }

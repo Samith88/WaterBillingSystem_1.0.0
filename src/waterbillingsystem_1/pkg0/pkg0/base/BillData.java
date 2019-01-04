@@ -11,19 +11,19 @@ package waterbillingsystem_1.pkg0.pkg0.base;
  */
 public class BillData {
 
-    public int getMbid() {
+    public String getMbid() {
         return mbid;
     }
 
-    public void setMbid(int mbid) {
+    public void setMbid(String mbid) {
         this.mbid = mbid;
     }
 
-    public int getCid() {
+    public String getCid() {
         return cid;
     }
 
-    public void setCid(int cid) {
+    public void setCid(String cid) {
         this.cid = cid;
     }
 
@@ -70,11 +70,11 @@ public class BillData {
     }
 
 
-    public int getMonth() {
+    public String getMonth() {
         return Month;
     }
 
-    public void setMonth(int Month) {
+    public void setMonth(String Month) {
         this.Month = Month;
     }
 
@@ -86,12 +86,12 @@ public class BillData {
         this.MonthlyUsageUnit = MonthlyUsageUnit;
     }
     
-    private int    mbid;
-    private int    cid;
+    private String    mbid;
+    private String    cid;
     private String nic;
     private int NewMeter;
     private boolean Sramadhana;
     private boolean AbsentCharge;
     private int MonthlyUsageUnit; 
-    private int Month;
+    private String Month;
 }

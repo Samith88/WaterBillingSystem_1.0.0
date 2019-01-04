@@ -27,7 +27,7 @@ public class CustomerDataDatabase {
         try{
             ResultSet rs  = retrieveClass.getResultsFormDB("select * from customer where nic='"+nic+"'");
             while (rs.next()) {
-                customer.setCid(rs.getInt("cid"));
+                customer.setCid(rs.getString("cid"));
                 customer.setNic(rs.getString("nic"));
                 customer.setAddress_1(rs.getString("address_1"));
                 customer.setAddress_2(rs.getString("address_2"));
@@ -48,15 +48,15 @@ public class CustomerDataDatabase {
         return customer;
     }
     
-    public static int getCIDFromNIC(String nic) throws Exception{
+    public static String getCIDFromNIC(String nic) throws Exception{
         
         RetrieveClass retrieveClass =new RetrieveClass();
-        int cid=0;
+        String cid="";
         
         try{
             ResultSet rs  = retrieveClass.getResultsFormDB("select * from customer where nic='"+nic+"'");
             while (rs.next()) {
-                cid= rs.getInt("cid");
+                cid= rs.getString("cid");
             }
             DBConnection.disconnect();
         } catch (SQLException e) {

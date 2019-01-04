@@ -33,11 +33,11 @@ public class ProcessPayment {
         ResultSet rs = retrieveClass.getResultsFormDB("select * from Payment where pid='"+pid+"'");
         Payment payment=new Payment();
         while(rs.next()){
-            payment.setPyid(rs.getInt("pyid"));
-            payment.setCid(rs.getInt("cid"));
+            payment.setPyid(rs.getString("pyid"));
+            payment.setCid(rs.getString("cid"));
             payment.setNic(rs.getString("nic"));
             payment.setAmount(rs.getDouble("amount"));
-            payment.setDate(rs.getDate("Date"));
+            payment.setDate(rs.getString("Date"));
             payment.setOldOutStandingTotal(rs.getDouble("oldOutStandingTotal"));
             payment.setNewOutStandingTotal(rs.getDouble("NewOutStandingTotal"));
         }

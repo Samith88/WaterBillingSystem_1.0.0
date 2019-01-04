@@ -39,7 +39,7 @@
                           <Group type="102" attributes="0">
                               <Component id="BDLblUnits" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                              <Component id="txtCustomerUsage" max="32767" attributes="0"/>
+                              <Component id="txtPaymentAmt" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="BDLblUnits1" min="-2" max="-2" attributes="0"/>
@@ -117,7 +117,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="BDLblUnits" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtCustomerUsage" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtPaymentAmt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -223,7 +223,7 @@
         </Property>
       </AccessibilityProperties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtCustomerUsage">
+    <Component class="javax.swing.JTextField" name="txtPaymentAmt">
     </Component>
     <Component class="javax.swing.JCheckBox" name="ckBoxSramadhana">
       <Properties>

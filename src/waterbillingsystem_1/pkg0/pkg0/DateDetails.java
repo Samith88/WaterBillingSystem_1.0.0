@@ -14,19 +14,19 @@ import java.util.Calendar;
 public class DateDetails {
     
     private static final Calendar calendar = Calendar.getInstance();
-    public static int getDateMonth(){
-        return calendar.get(Calendar.MONTH) +calendar.get(Calendar.YEAR);
+    public static String getDateMonth(){
+        return String.valueOf(calendar.get(Calendar.MONTH)) +String.valueOf(calendar.get(Calendar.YEAR));
     }
 
-    public static int getDateDate(){
-        return calendar.get(Calendar.DATE)+calendar.get(Calendar.MONTH)+calendar.get(Calendar.YEAR);
+    public static String getDateDate(){
+        return String.valueOf(calendar.get(Calendar.DATE))+String.valueOf(calendar.get(Calendar.MONTH))+String.valueOf(calendar.get(Calendar.YEAR));
     }   
     
-    public static int getDateYear(){
-        return calendar.get(Calendar.YEAR);
+    public static String  getDateYear(){
+        return String.valueOf(calendar.get(Calendar.YEAR));
     }       
  
-    public static int getDateHour(){
-        return calendar.get(Calendar.HOUR);
+    public static String getDateHour(){
+        return String.valueOf(calendar.get(Calendar.HOUR));
     }      
 }

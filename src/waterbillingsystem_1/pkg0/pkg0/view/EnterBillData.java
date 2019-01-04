@@ -43,7 +43,7 @@ public class EnterBillData extends javax.swing.JFrame {
         BDLblUnits = new javax.swing.JLabel();
         radioUnits = new javax.swing.JRadioButton();
         radioMeter = new javax.swing.JRadioButton();
-        txtCustomerUsage = new javax.swing.JTextField();
+        txtPaymentAmt = new javax.swing.JTextField();
         ckBoxSramadhana = new javax.swing.JCheckBox();
         ckBoxAbsentFee = new javax.swing.JCheckBox();
         BDLblUnits1 = new javax.swing.JLabel();
@@ -119,7 +119,7 @@ public class EnterBillData extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(BDLblUnits)
                                 .addGap(32, 32, 32)
-                                .addComponent(txtCustomerUsage))
+                                .addComponent(txtPaymentAmt))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(BDLblUnits1)
                                 .addGap(79, 79, 79)
@@ -178,7 +178,7 @@ public class EnterBillData extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BDLblUnits)
-                    .addComponent(txtCustomerUsage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPaymentAmt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(radioMeter)
@@ -211,11 +211,11 @@ public class EnterBillData extends javax.swing.JFrame {
         boolean overall = false;
         BillData billData=new BillData();
         billData.setNic(txtCustomerNIC.getText());
-        billData.setCid(Integer.parseInt(txtCustomerCID.getText()));
+        billData.setCid(txtCustomerCID.getText());
         if(radioUnits.isSelected())
-            billData.setMonthlyUsageUnit(Integer.parseInt(txtCustomerUsage.getText()));
+            billData.setMonthlyUsageUnit(Integer.parseInt(txtPaymentAmt.getText()));
         if(radioMeter.isSelected())
-            billData.setNewMeter(Integer.parseInt(txtCustomerUsage.getText()));
+            billData.setNewMeter(Integer.parseInt(txtPaymentAmt.getText()));
         if(ckBoxSramadhana.isSelected())
             billData.setSramadhana(true);
         else
@@ -225,7 +225,7 @@ public class EnterBillData extends javax.swing.JFrame {
         else
             billData.setAbsentCharge(false);
         
-        billData.setMonth(Integer.parseInt(cmbMonth.getSelectedItem().toString().split("-")[0]+cmbYear.getSelectedItem().toString()));
+        billData.setMonth(cmbMonth.getSelectedItem().toString().split("-")[0]+cmbYear.getSelectedItem().toString());
         
         BillDataProcessor BillDataProcessor=new BillDataProcessor();
         if(BillDataProcessor.putBillData(billData))
@@ -301,6 +301,6 @@ public class EnterBillData extends javax.swing.JFrame {
     private javax.swing.JRadioButton radioUnits;
     private javax.swing.JTextField txtCustomerCID;
     private javax.swing.JTextField txtCustomerNIC;
-    private javax.swing.JTextField txtCustomerUsage;
+    private javax.swing.JTextField txtPaymentAmt;
     // End of variables declaration//GEN-END:variables
 }

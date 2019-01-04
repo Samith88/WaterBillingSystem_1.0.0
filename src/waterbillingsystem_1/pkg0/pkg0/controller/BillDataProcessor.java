@@ -20,8 +20,8 @@ import waterbillingsystem_1.pkg0.pkg0.dao.getUnitPrices;
  */
 public class BillDataProcessor {
     
-    private int getBillId(int customerId){
-        return customerId+DateDetails.getDateMonth();
+    private String getBillId(String customerId){
+        return customerId+Integer.parseInt(DateDetails.getDateMonth()) ;
     }
     
     public boolean putBillData(BillData billData){
@@ -33,7 +33,7 @@ public class BillDataProcessor {
         return MonthlyBillDB.putBillData(billData);
     }
     
-    private int generateInvoiceNo(int customerId){
+    private String generateInvoiceNo(String customerId){
         return customerId+DateDetails.getDateMonth();
     }
     

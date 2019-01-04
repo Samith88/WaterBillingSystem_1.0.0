@@ -5,6 +5,13 @@
  */
 package waterbillingsystem_1.pkg0.pkg0.view;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import waterbillingsystem_1.pkg0.pkg0.DateDetails;
+import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
+import waterbillingsystem_1.pkg0.pkg0.base.Payment;
+import waterbillingsystem_1.pkg0.pkg0.controller.PaymentProcessor;
+
 /**
  *
  * @author UDISSSA1
@@ -56,7 +63,7 @@ public class EnterPayment extends javax.swing.JFrame {
         PDLblCID.setText("Customer Id");
 
         PDLbAmount.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        PDLbAmount.setText("Monthly Unit Usage");
+        PDLbAmount.setText("Payment Amount");
 
         PDLbMonth.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         PDLbMonth.setText("Billing Month");
@@ -95,31 +102,30 @@ public class EnterPayment extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(PDLblNIC, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(PDLblCID, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(32, 32, 32)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtPaymentCID)
-                                    .addComponent(txtPaymentNIC)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(PDLbAmount)
-                                .addGap(31, 31, 31)
-                                .addComponent(txtPaymentAmount))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(151, 151, 151)
-                                .addComponent(PDLabelMain)
-                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(btnPDClear)
                                 .addGap(66, 66, 66)
                                 .addComponent(btnPDEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(70, 70, 70)
-                                .addComponent(btnPDEnterAnother, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnPDEnterAnother, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(151, 151, 151)
+                                .addComponent(PDLabelMain)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(PDLblNIC, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(PDLblCID, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(PDLbAmount))
+                                .addGap(32, 32, 32)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtPaymentAmount)
+                                    .addComponent(txtPaymentCID)
+                                    .addComponent(txtPaymentNIC)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))))
                         .addGap(60, 60, 60))))
         );
         layout.setVerticalGroup(
@@ -160,6 +166,21 @@ public class EnterPayment extends javax.swing.JFrame {
 
     private void btnPDEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDEnterActionPerformed
         // TODO add your handling code here:
+        Payment payment=new Payment();
+        payment.setCid(txtPaymentCID.getText());
+        payment.setCid(txtPaymentNIC.getText());
+        payment.setAmount(Double.parseDouble(txtPaymentAmount.getText()));
+        payment.setDate(DateDetails.getDateDate());
+        
+        PaymentProcessor PaymentProcessor=new PaymentProcessor();
+        try {
+            PaymentProcessor.putPayment(payment);
+            JOptionPaneCustom.infoBox("Payment data inserted successfully", "Payment Data Insertion");
+            Logger.getLogger(EnterPayment.class.getName()).log(Level.SEVERE, null, "Payment data inserted successfully :"+payment.getPyid() );
+        } catch (Exception ex) {
+            JOptionPaneCustom.errorBox("Payment data inserted error :"+ex.getMessage(), "Payment Data Insertion");
+            Logger.getLogger(EnterPayment.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnPDEnterActionPerformed
 
     /**

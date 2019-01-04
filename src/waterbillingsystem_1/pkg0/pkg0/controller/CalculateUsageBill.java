@@ -43,8 +43,8 @@ public class CalculateUsageBill {
     
     public static void main(String[] args) {
         BillData MonthlyBill=new BillData();
-        MonthlyBill.setCid(10);
-        MonthlyBill.setMonth(112018);
+        MonthlyBill.setCid("10");
+        MonthlyBill.setMonth("112018");
         MonthlyBill.setNewMeter(490);
         MonthlyBill.setNic("12121212");
         MonthlyBill.setOldMeter(400);

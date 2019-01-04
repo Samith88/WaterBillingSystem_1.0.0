@@ -11,19 +11,19 @@ package waterbillingsystem_1.pkg0.pkg0.base;
  */
 public class MonthlyBillDetails {
 
-    public int getInvoiceNo() {
+    public String getInvoiceNo() {
         return InvoiceNo;
     }
 
-    public void setInvoiceNo(int InvoiceNo) {
+    public void setInvoiceNo(String InvoiceNo) {
         this.InvoiceNo = InvoiceNo;
     }
 
-    public int getCid() {
+    public String getCid() {
         return cid;
     }
 
-    public void setCid(int cid) {
+    public void setCid(String cid) {
         this.cid = cid;
     }
 
@@ -117,11 +117,11 @@ public class MonthlyBillDetails {
         this.Group = Group;
     }
 
-    public int getMonth() {
+    public String getMonth() {
         return Month;
     }
 
-    public void setMonth(int Month) {
+    public void setMonth(String Month) {
         this.Month = Month;
     }    
     
@@ -133,8 +133,8 @@ public class MonthlyBillDetails {
         this.MonthlyUsageUnit = MonthlyUsageUnit;
     }
 
-    private int  InvoiceNo;
-    private int   cid;
+    private String  InvoiceNo;
+    private String   cid;
     private String nic;
     private int OldMeter;
     private int NewMeter;
@@ -145,7 +145,7 @@ public class MonthlyBillDetails {
     private double Sramadhana;
     private double AbsentCharge;
     private double TotalMonthlyAmount;
-    private int Month;
+    private String Month;
     private double TotalOutstandingMonthly;
     
 }

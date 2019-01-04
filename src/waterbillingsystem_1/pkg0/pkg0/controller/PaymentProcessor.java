@@ -5,10 +5,10 @@
  */
 package waterbillingsystem_1.pkg0.pkg0.controller;
 
-import java.util.Calendar;
 import waterbillingsystem_1.pkg0.pkg0.DateDetails;
 import waterbillingsystem_1.pkg0.pkg0.base.Payment;
 import waterbillingsystem_1.pkg0.pkg0.dao.CustomerDataDatabase;
+import waterbillingsystem_1.pkg0.pkg0.dao.ProcessPayment;
 
 /**
  *
@@ -18,17 +18,18 @@ public class PaymentProcessor {
 
     public PaymentProcessor() {
     }
-    public Payment getPayment(Payment payment) throws Exception{
+    public boolean putPayment(Payment payment) throws Exception{
         
         payment.setPyid(generatePaymentId(payment.getCid()));
         
         payment.setCid(CustomerDataDatabase.getCIDFromNIC(payment.getNic()));
         payment.setNewOutStandingTotal(payment.getOldOutStandingTotal() - payment.getAmount());
         
-        return payment;
+        ProcessPayment processPayment=new ProcessPayment();
+        return processPayment.insertPayment(payment);
     }
     
-    private int generatePaymentId(int customerId){
+    private String generatePaymentId(String customerId){
         return customerId+DateDetails.getDateDate();
     }
     

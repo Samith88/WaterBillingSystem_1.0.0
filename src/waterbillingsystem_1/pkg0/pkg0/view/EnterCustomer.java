@@ -233,7 +233,7 @@ public class EnterCustomer extends javax.swing.JFrame {
         // TODO add your handling code here:
         Customer customer=new Customer();
         
-        customer.setCid(Integer.parseInt(txtCustomerNo.getText()) );
+        customer.setCid(txtCustomerNo.getText());
         customer.setNic(txtCustomerNIC.getText() );
         customer.setGid(Integer.parseInt(cmbGroupId.getSelectedItem().toString().split("-")[1]));
         customer.setAddress_1(txtCustomerAd1.getText());
