@@ -41,7 +41,7 @@ public class CustomerDataDatabase {
                 customer.setCname(rs.getString("cname"));
                 //rs.getInt("id") +  "\t" + rs.getString("name") + "\t" +rs.getDouble("capacity"));
             }
-            DBConnection.readDisconnect();
+            DBConnection.disconnect();
         } catch (SQLException e) {
             getLogger.getLog().debug(e.toString());
         }     
@@ -58,7 +58,7 @@ public class CustomerDataDatabase {
             while (rs.next()) {
                 cid= rs.getInt("cid");
             }
-            DBConnection.readDisconnect();
+            DBConnection.disconnect();
         } catch (SQLException e) {
             getLogger.getLog().debug(e.toString());
         }     
@@ -76,7 +76,7 @@ public class CustomerDataDatabase {
             while (rs.next()) {
                 gname= rs.getString("groupName");
             }
-            DBConnection.readDisconnect();
+            DBConnection.disconnect();
         } catch (SQLException e) {
             getLogger.getLog().debug(e.toString());
         }     

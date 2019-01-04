@@ -41,7 +41,7 @@ public class ProcessPayment {
             payment.setOldOutStandingTotal(rs.getDouble("oldOutStandingTotal"));
             payment.setNewOutStandingTotal(rs.getDouble("NewOutStandingTotal"));
         }
-        DBConnection.readDisconnect();
+        DBConnection.disconnect();
         return payment;
     }
     

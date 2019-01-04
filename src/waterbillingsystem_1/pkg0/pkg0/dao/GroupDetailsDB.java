@@ -22,16 +22,16 @@ public class GroupDetailsDB {
     
     public static boolean putGroup(Group group){
         InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
-        return insertUpdateDeleteClass.insertUpdateDeleteDB("insert into group(gid,gname,location,description) values ('"+group.getGid()+"',"
+        return insertUpdateDeleteClass.insertUpdateDeleteDB("insert into [group]'(gid,gname,location,description) values ('"+group.getGid()+"',"
                 + "'"+group.getGname()+"','"+group.getLocation()+"','"+group.getDescription()+"')");
     }
     
-    public List<Group> getGroup(){
+    public List<Group> getGroup() throws Exception{
         RetrieveClass retrieveClass =new RetrieveClass();
         List<Group> groups=new ArrayList<Group>();  
         Group group=null;
         try{
-            ResultSet rs  = retrieveClass.getResultsFormDB("select * from group");
+            ResultSet rs  = retrieveClass.getResultsFormDB("select * from [group]");
             while (rs.next()) {
                 group =new Group();
 		group.setGid(rs.getInt("gid"));
@@ -41,7 +41,7 @@ public class GroupDetailsDB {
                 
                 groups.add(group);
             }
-            DBConnection.readDisconnect();
+            DBConnection.disconnect();
         } catch (SQLException e) {
             getLogger.getLog().debug(e.toString());
         }     
@@ -49,33 +49,33 @@ public class GroupDetailsDB {
     }
       
     
-    public Group getAGroup(int groupId){
+    public Group getAGroup(int groupId) throws Exception{
         RetrieveClass retrieveClass =new RetrieveClass();  
         Group group=new Group();
         try{
-            ResultSet rs  = retrieveClass.getResultsFormDB("select * from group where gid='"+groupId+"'");
+            ResultSet rs  = retrieveClass.getResultsFormDB("select * from [group] where gid='"+groupId+"'");
             while (rs.next()) {
 		group.setGid(rs.getInt("gid"));
                 group.setGname(rs.getString("groupName"));
                 group.setLocation(rs.getString("location"));
                 group.setDescription(rs.getString("description"));
             }
-            DBConnection.readDisconnect();
+            DBConnection.disconnect();
         } catch (SQLException e) {
             getLogger.getLog().debug(e.toString());
         }     
         return group;        
     }
 
-    public static List<String> getGroupAString(){
+    public List<String> getGroupAString() throws Exception{
         RetrieveClass retrieveClass =new RetrieveClass();
         List<String> groupIds=new ArrayList<String>();  
         try{
-            ResultSet rs  = retrieveClass.getResultsFormDB("select gid,gname from group");
+            ResultSet rs  = retrieveClass.getResultsFormDB("select gid,gname from [group]");
             while (rs.next()) {
-                groupIds.add(rs.getString(0)+"-"+rs.getString(1));
+                groupIds.add(rs.getInt("gid")+"-"+rs.getString("gname"));
             }
-            DBConnection.readDisconnect();
+            DBConnection.disconnect();
         } catch (SQLException e) {
             getLogger.getLog().debug(e.toString());
         }     

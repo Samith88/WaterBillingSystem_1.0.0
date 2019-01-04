@@ -27,21 +27,140 @@ public class EnterPayment extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        PDLabelMain = new javax.swing.JLabel();
+        PDLblNIC = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        txtPaymentNIC = new javax.swing.JTextField();
+        PDLblCID = new javax.swing.JLabel();
+        txtPaymentCID = new javax.swing.JTextField();
+        txtPaymentAmount = new javax.swing.JTextField();
+        PDLbAmount = new javax.swing.JLabel();
+        PDLbMonth = new javax.swing.JLabel();
+        cmbMonth = new javax.swing.JComboBox<>();
+        cmbYear = new javax.swing.JComboBox<>();
+        btnPDClear = new javax.swing.JButton();
+        btnPDEnter = new javax.swing.JButton();
+        btnPDEnterAnother = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        PDLabelMain.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        PDLabelMain.setText("Payment Data Form");
+
+        PDLblNIC.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        PDLblNIC.setText("Customer NIC");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select NIC" }));
+
+        PDLblCID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        PDLblCID.setText("Customer Id");
+
+        PDLbAmount.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        PDLbAmount.setText("Monthly Unit Usage");
+
+        PDLbMonth.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        PDLbMonth.setText("Billing Month");
+
+        cmbMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01-January", "02-February", "03-March", "04-April", "05-May", "06-June", "07-July", "08-August", "09-September", "10-Octomber", "11-November", "12-December" }));
+
+        cmbYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035" }));
+
+        btnPDClear.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnPDClear.setText(" Clear Bill Data");
+
+        btnPDEnter.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnPDEnter.setText("Enter Bill");
+        btnPDEnter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPDEnterActionPerformed(evt);
+            }
+        });
+
+        btnPDEnterAnother.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnPDEnterAnother.setText("Another Bill");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(PDLbMonth)
+                        .addGap(79, 79, 79)
+                        .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(PDLblNIC, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(PDLblCID, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(32, 32, 32)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtPaymentCID)
+                                    .addComponent(txtPaymentNIC)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(PDLbAmount)
+                                .addGap(31, 31, 31)
+                                .addComponent(txtPaymentAmount))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(151, 151, 151)
+                                .addComponent(PDLabelMain)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnPDClear)
+                                .addGap(66, 66, 66)
+                                .addComponent(btnPDEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(70, 70, 70)
+                                .addComponent(btnPDEnterAnother, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(60, 60, 60))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(PDLabelMain)
+                .addGap(49, 49, 49)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PDLblNIC)
+                    .addComponent(txtPaymentNIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PDLblCID)
+                    .addComponent(txtPaymentCID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PDLbAmount)
+                    .addComponent(txtPaymentAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(PDLbMonth)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(60, 60, 60)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnPDClear)
+                    .addComponent(btnPDEnterAnother)
+                    .addComponent(btnPDEnter))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnPDEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDEnterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPDEnterActionPerformed
 
     /**
      * @param args the command line arguments
@@ -59,25 +178,33 @@ public class EnterPayment extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EnterPayment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EnterPayment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EnterPayment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(EnterPayment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
+        //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new EnterPayment().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new EnterPayment().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel PDLabelMain;
+    private javax.swing.JLabel PDLbAmount;
+    private javax.swing.JLabel PDLbMonth;
+    private javax.swing.JLabel PDLblCID;
+    private javax.swing.JLabel PDLblNIC;
+    private javax.swing.JButton btnPDClear;
+    private javax.swing.JButton btnPDEnter;
+    private javax.swing.JButton btnPDEnterAnother;
+    private javax.swing.JComboBox<String> cmbMonth;
+    private javax.swing.JComboBox<String> cmbYear;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JTextField txtPaymentAmount;
+    private javax.swing.JTextField txtPaymentCID;
+    private javax.swing.JTextField txtPaymentNIC;
     // End of variables declaration//GEN-END:variables
 }

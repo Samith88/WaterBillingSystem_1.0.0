@@ -38,7 +38,7 @@ public class getUnitPrices {
                 //rs.getInt("id") +  "\t" + rs.getString("name") + "\t" +rs.getDouble("capacity"));
                 unitprices.add(unitPrice);
             }
-            DBConnection.readDisconnect();
+            DBConnection.disconnect();
         } catch (SQLException e) {
             getLogger.getLog().debug(e.toString());
         }

@@ -8,3 +8,10 @@
 2019-01-01 19:59:22 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:23) - java.sql.SQLException: The database has been closed
 2019-01-01 20:04:45 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:23) - java.sql.SQLException: The database has been closed
 2019-01-01 20:13:03 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:23) - java.sql.SQLException: The database has been closed
+2019-01-02 19:45:56 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:23) - java.sql.SQLException: The database has been closed
+2019-01-02 19:48:48 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:23) - java.sql.SQLException: The database has been closed
+2019-01-02 19:52:11 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:23) - java.sql.SQLException: The database has been closed
+2019-01-02 19:52:59 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:23) - java.sql.SQLException: The database has been closed
+2019-01-02 19:55:48 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:23) - org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "group": syntax error)
+2019-01-02 19:57:17 DEBUG [AWT-EventQueue-0] (GroupDetailsDB.java:80) - java.sql.SQLException: column 0 out of bounds [1,2]
+2019-01-02 20:07:36 DEBUG [AWT-EventQueue-0] (GroupDetailsDB.java:80) - java.sql.SQLException: column 0 out of bounds [1,2]

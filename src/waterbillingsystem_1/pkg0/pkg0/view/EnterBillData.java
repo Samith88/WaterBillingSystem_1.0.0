@@ -5,6 +5,12 @@
  */
 package waterbillingsystem_1.pkg0.pkg0.view;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
+import waterbillingsystem_1.pkg0.pkg0.base.BillData;
+import waterbillingsystem_1.pkg0.pkg0.controller.BillDataProcessor;
+
 /**
  *
  * @author UDISSSA1
@@ -27,6 +33,7 @@ public class EnterBillData extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         CDFLabelMain = new javax.swing.JLabel();
         BDLblNIC = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -62,9 +69,11 @@ public class EnterBillData extends javax.swing.JFrame {
         BDLblUnits.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BDLblUnits.setText("Monthly Unit Usage");
 
+        buttonGroup1.add(radioUnits);
         radioUnits.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        radioUnits.setText("Monthly unit usage in units");
+        radioUnits.setText("Monthly unit usage");
 
+        buttonGroup1.add(radioMeter);
         radioMeter.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         radioMeter.setText("Current units in meter");
 
@@ -86,6 +95,11 @@ public class EnterBillData extends javax.swing.JFrame {
 
         btnBDEnter.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnBDEnter.setText("Enter Bill");
+        btnBDEnter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBDEnterActionPerformed(evt);
+            }
+        });
 
         btnBDEnterAnother.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnBDEnterAnother.setText("Another Bill");
@@ -105,18 +119,19 @@ public class EnterBillData extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(BDLblUnits)
                                 .addGap(32, 32, 32)
-                                .addComponent(txtCustomerUsage, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE))
+                                .addComponent(txtCustomerUsage))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(BDLblUnits1)
-                                    .addComponent(btnBDClear))
-                                .addGap(70, 70, 70)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnBDEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(BDLblUnits1)
+                                .addGap(79, 79, 79)
+                                .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(55, 55, 55)))))
+                                .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnBDClear)
+                                .addGap(66, 66, 66)
+                                .addComponent(btnBDEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnBDEnterAnother, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(57, 57, 57))
             .addGroup(layout.createSequentialGroup()
                 .addGap(72, 72, 72)
@@ -133,14 +148,11 @@ public class EnterBillData extends javax.swing.JFrame {
                                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(58, 58, 58))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnBDEnterAnother, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(radioUnits)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(radioMeter)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(radioUnits)
+                        .addGap(27, 27, 27)
+                        .addComponent(radioMeter)
+                        .addGap(76, 76, 76))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(123, 123, 123)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,7 +180,7 @@ public class EnterBillData extends javax.swing.JFrame {
                     .addComponent(BDLblUnits)
                     .addComponent(txtCustomerUsage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(radioMeter)
                     .addComponent(radioUnits))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -184,13 +196,62 @@ public class EnterBillData extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBDClear)
-                    .addComponent(btnBDEnter)
-                    .addComponent(btnBDEnterAnother))
+                    .addComponent(btnBDEnterAnother)
+                    .addComponent(btnBDEnter))
                 .addGap(46, 46, 46))
         );
 
+        radioMeter.getAccessibleContext().setAccessibleParent(radioMeter);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBDEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBDEnterActionPerformed
+        // TODO add your handling code here:
+        boolean overall = false;
+        BillData billData=new BillData();
+        billData.setNic(txtCustomerNIC.getText());
+        billData.setCid(Integer.parseInt(txtCustomerCID.getText()));
+        if(radioUnits.isSelected())
+            billData.setMonthlyUsageUnit(Integer.parseInt(txtCustomerUsage.getText()));
+        if(radioMeter.isSelected())
+            billData.setNewMeter(Integer.parseInt(txtCustomerUsage.getText()));
+        if(ckBoxSramadhana.isSelected())
+            billData.setSramadhana(true);
+        else
+            billData.setSramadhana(false);
+        if(ckBoxAbsentFee.isSelected())
+            billData.setAbsentCharge(true);
+        else
+            billData.setAbsentCharge(false);
+        
+        billData.setMonth(Integer.parseInt(cmbMonth.getSelectedItem().toString().split("-")[0]+cmbYear.getSelectedItem().toString()));
+        
+        BillDataProcessor BillDataProcessor=new BillDataProcessor();
+        if(BillDataProcessor.putBillData(billData))
+        {
+            java.util.logging.Logger.getLogger(EnterBillData.class.getName()).log(java.util.logging.Level.SEVERE, null, billData.getMbid()+": Successfully data inserted");
+            overall =true;
+        }
+        else
+            overall =false;
+        BillDataProcessor billDataProcessor=new BillDataProcessor();
+        
+        try {
+            if(billDataProcessor.setMonthlyBillDetails(billData))
+            {
+               java.util.logging.Logger.getLogger(EnterBillData.class.getName()).log(java.util.logging.Level.SEVERE, null, billData.getMbid()+": with MonthlyBillDetails successfully data inserted"); 
+               overall =true;
+            }   
+            else
+                overall =false;
+                } catch (Exception ex) {
+            Logger.getLogger(EnterBillData.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPaneCustom.errorBox("Bill data inserted error: " +ex.getMessage(), "Bill Data Insertion");
+        }
+        if(overall)
+            JOptionPaneCustom.infoBox("Bill data inserted successfully", "Bill Data Insertion");
+    }//GEN-LAST:event_btnBDEnterActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,22 +269,16 @@ public class EnterBillData extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EnterBillData.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EnterBillData.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EnterBillData.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(EnterBillData.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
+        //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new EnterBillData().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new EnterBillData().setVisible(true);
         });
     }
 
@@ -236,6 +291,7 @@ public class EnterBillData extends javax.swing.JFrame {
     private javax.swing.JButton btnBDClear;
     private javax.swing.JButton btnBDEnter;
     private javax.swing.JButton btnBDEnterAnother;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JCheckBox ckBoxAbsentFee;
     private javax.swing.JCheckBox ckBoxSramadhana;
     private javax.swing.JComboBox<String> cmbMonth;

@@ -15,10 +15,10 @@ import waterbillingsystem_1.pkg0.pkg0.logging.getLogger;
  */
 public class RetrieveClass {
     
-    public ResultSet getResultsFormDB(String sql){
+    public ResultSet getResultsFormDB(String sql) throws Exception{
         ResultSet result = null;
         try {
-            result = DBConnection.readConnect().createStatement().executeQuery(sql);
+            result = DBConnection.connect().createStatement().executeQuery(sql);
         } catch (SQLException e) {
             getLogger.getLog().debug(e.toString());
         }

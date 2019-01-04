@@ -28,13 +28,12 @@ public class DBConnection {
         connection.close();
     }
     
-    public static void readDisconnect() throws SQLException{
+    public static void readDisconnect1() throws SQLException{
         readConnection.close();
     }
     
-    public static Connection readConnect() throws SQLException{
+    public static Connection readConnect1() throws SQLException{
         SQLiteConfig config = new SQLiteConfig();
-
         config.setReadOnly(true);
         readConnection = DriverManager.getConnection("jdbc:sqlite:sample.db",config.toProperties());
         return readConnection;

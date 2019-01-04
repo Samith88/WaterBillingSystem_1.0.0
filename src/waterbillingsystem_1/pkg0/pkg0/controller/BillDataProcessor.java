@@ -11,6 +11,7 @@ import waterbillingsystem_1.pkg0.pkg0.base.BillData;
 import waterbillingsystem_1.pkg0.pkg0.base.Customer;
 import waterbillingsystem_1.pkg0.pkg0.base.MonthlyBillDetails;
 import waterbillingsystem_1.pkg0.pkg0.dao.CustomerDataDatabase;
+import waterbillingsystem_1.pkg0.pkg0.dao.MonthlyBillDB;
 import waterbillingsystem_1.pkg0.pkg0.dao.getUnitPrices;
 
 /**
@@ -23,20 +24,22 @@ public class BillDataProcessor {
         return customerId+DateDetails.getDateMonth();
     }
     
-    public BillData setBillData(BillData billData){
+    public boolean putBillData(BillData billData){
         
         billData.setMbid(getBillId(billData.getCid()));
         billData.setMonth(DateDetails.getDateYear()+DateDetails.getDateMonth());
         
-        return billData;
+        MonthlyBillDB MonthlyBillDB=new MonthlyBillDB();
+        return MonthlyBillDB.putBillData(billData);
     }
     
     private int generateInvoiceNo(int customerId){
         return customerId+DateDetails.getDateMonth();
     }
     
-    public MonthlyBillDetails setMonthlyBillDetails(MonthlyBillDetails monthlyBillDetails,BillData billData) throws Exception{
+    public boolean setMonthlyBillDetails(BillData billData) throws Exception{
     
+        MonthlyBillDetails monthlyBillDetails =new MonthlyBillDetails();
         monthlyBillDetails.setInvoiceNo(generateInvoiceNo(billData.getCid()));
         monthlyBillDetails.setCid(billData.getCid());
         monthlyBillDetails.setGroup(CustomerDataDatabase.getGroupFromNIC(billData.getNic()));
@@ -64,7 +67,8 @@ public class BillDataProcessor {
         monthlyBillDetails.setMonth(billData.getMonth());
         monthlyBillDetails.setMonthlyUsageUnit(billData.getMonthlyUsageUnit());
         
-        return monthlyBillDetails;
+        MonthlyBillDB monthlyBillDB=new MonthlyBillDB();
+        return monthlyBillDB.putMonthlyBillDetails( monthlyBillDetails);
     }
     
     

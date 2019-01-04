@@ -15,7 +15,7 @@ public class DateDetails {
     
     private static final Calendar calendar = Calendar.getInstance();
     public static int getDateMonth(){
-        return calendar.get(Calendar.MONTH)+calendar.get(Calendar.YEAR);
+        return calendar.get(Calendar.MONTH) +calendar.get(Calendar.YEAR);
     }
 
     public static int getDateDate(){

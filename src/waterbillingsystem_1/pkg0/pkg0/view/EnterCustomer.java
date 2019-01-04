@@ -8,6 +8,7 @@ package waterbillingsystem_1.pkg0.pkg0.view;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
 import waterbillingsystem_1.pkg0.pkg0.base.Customer;
 import waterbillingsystem_1.pkg0.pkg0.controller.CustomerDataProcessor;
 import waterbillingsystem_1.pkg0.pkg0.controller.FillGUIComponents;
@@ -243,16 +244,19 @@ public class EnterCustomer extends javax.swing.JFrame {
         
         if(CustomerDataProcessor.putCustomer(customer))
         {
-            System.out.println("User data inserted");
-            getLogger.getLog().debug("User data inserted :"+customer.getNic());
+            JOptionPaneCustom.infoBox("Customer data inserted successfully", "Bill Data Insertion");
+            getLogger.getLog().debug("Customer data inserted :"+customer.getNic());
         }
     }//GEN-LAST:event_btnCDFEnterActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         try {
+            FillGUIComponents fillGUIComponents=new FillGUIComponents();
             // TODO add your handling code here:
-            FillGUIComponents.FillcmbGroupId(cmbGroupId);
+            fillGUIComponents.FillcmbGroupId(cmbGroupId);
         } catch (SQLException ex) {
+            Logger.getLogger(EnterCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
             Logger.getLogger(EnterCustomer.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_formWindowOpened

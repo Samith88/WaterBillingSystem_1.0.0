@@ -13,7 +13,7 @@ import waterbillingsystem_1.pkg0.pkg0.database.InsertUpdateDeleteClass;
  *
  * @author UDISSSA1
  */
-public class MonthlyBillToDB {
+public class MonthlyBillDB {
     
     public boolean putBillData(BillData billData){
         
@@ -40,6 +40,12 @@ public class MonthlyBillToDB {
                 + "'"+monthlyBillDetails.getAbsentCharge()+"','"+monthlyBillDetails.getTotalMonthlyAmount()+"',"
                 + "'"+monthlyBillDetails.getMonth()+"','"+monthlyBillDetails.getTotalOutstandingMonthly()+"'"
                 + "'"+monthlyBillDetails.getMonthlyUsageUnit()+"')");
+    }
+    
+    public BillData getBilldata(){
+    
+        
+        return null;
     }
     
 }

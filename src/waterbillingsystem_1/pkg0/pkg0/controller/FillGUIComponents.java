@@ -17,7 +17,7 @@ import waterbillingsystem_1.pkg0.pkg0.database.DBConnection;
  */
 public class FillGUIComponents {
     
-    public static javax.swing.JComboBox LoadCombobox(List<String> itemList,javax.swing.JComboBox comboBox){   
+    public javax.swing.JComboBox LoadCombobox(List<String> itemList,javax.swing.JComboBox comboBox){   
         comboBox.removeAllItems();
         itemList.forEach((item) -> {
             comboBox.addItem(item);
@@ -25,9 +25,10 @@ public class FillGUIComponents {
         return comboBox;
     }
     
-    public static void FillcmbGroupId(javax.swing.JComboBox comboBox) throws SQLException{
+    public void FillcmbGroupId(javax.swing.JComboBox comboBox) throws SQLException, Exception{
         
-        List<String> groupList = GroupDetailsDB.getGroupAString();
+        GroupDetailsDB groupDetailsDB=new GroupDetailsDB();
+        List<String> groupList = groupDetailsDB.getGroupAString();
         LoadCombobox(groupList,comboBox);
     }
 }

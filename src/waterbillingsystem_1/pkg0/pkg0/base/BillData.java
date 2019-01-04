@@ -68,7 +68,7 @@ public class BillData {
     public void setOldMeter(int OldMeter) {
         this.OldMeter = OldMeter;
     }
-    private int Month;
+
 
     public int getMonth() {
         return Month;
@@ -92,5 +92,6 @@ public class BillData {
     private int NewMeter;
     private boolean Sramadhana;
     private boolean AbsentCharge;
-    private int MonthlyUsageUnit;    
+    private int MonthlyUsageUnit; 
+    private int Month;
 }
