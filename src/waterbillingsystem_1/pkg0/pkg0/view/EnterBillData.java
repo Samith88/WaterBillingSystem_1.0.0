@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
 import waterbillingsystem_1.pkg0.pkg0.base.BillData;
 import waterbillingsystem_1.pkg0.pkg0.controller.BillDataProcessor;
+import waterbillingsystem_1.pkg0.pkg0.controller.FillGUIComponents;
 
 /**
  *
@@ -63,8 +64,20 @@ public class EnterBillData extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select NIC" }));
 
+        txtCustomerNIC.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCustomerNICKeyTyped(evt);
+            }
+        });
+
         BDLblCID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BDLblCID.setText("Customer Id");
+
+        txtCustomerCID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCustomerCIDKeyTyped(evt);
+            }
+        });
 
         BDLblUnits.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BDLblUnits.setText("Monthly Unit Usage");
@@ -76,6 +89,12 @@ public class EnterBillData extends javax.swing.JFrame {
         buttonGroup1.add(radioMeter);
         radioMeter.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         radioMeter.setText("Current units in meter");
+
+        txtPaymentAmt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPaymentAmtKeyTyped(evt);
+            }
+        });
 
         ckBoxSramadhana.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         ckBoxSramadhana.setText("  Sramadhana Fee");
@@ -269,6 +288,20 @@ public class EnterBillData extends javax.swing.JFrame {
         cmbMonth.setSelectedIndex(0);
         cmbYear.setSelectedIndex(0);
     }//GEN-LAST:event_btnBDClearActionPerformed
+
+    private void txtCustomerNICKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCustomerNICKeyTyped
+        FillGUIComponents.setNumberOnlyTextBox(evt);
+    }//GEN-LAST:event_txtCustomerNICKeyTyped
+
+    private void txtCustomerCIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCustomerCIDKeyTyped
+        // TODO add your handling code here:
+        FillGUIComponents.setNumberOnlyTextBox(evt);
+    }//GEN-LAST:event_txtCustomerCIDKeyTyped
+
+    private void txtPaymentAmtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPaymentAmtKeyTyped
+        // TODO add your handling code here:
+        FillGUIComponents.setNumberOnlyTextBox(evt);
+    }//GEN-LAST:event_txtPaymentAmtKeyTyped
 
     /**
      * @param args the command line arguments

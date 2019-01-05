@@ -7,6 +7,7 @@ package waterbillingsystem_1.pkg0.pkg0.view;
 
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
 import waterbillingsystem_1.pkg0.pkg0.base.Group;
+import waterbillingsystem_1.pkg0.pkg0.controller.FillGUIComponents;
 import waterbillingsystem_1.pkg0.pkg0.controller.GroupDataProcessor;
 
 /**
@@ -52,6 +53,12 @@ public class EnterGroup extends javax.swing.JFrame {
 
         GDLblGID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         GDLblGID.setText("Group Id");
+
+        txtGroupId.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtGroupIdKeyTyped(evt);
+            }
+        });
 
         GDLblGName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         GDLblGName.setText("Group Name");
@@ -171,6 +178,11 @@ public class EnterGroup extends javax.swing.JFrame {
         txtGroupLoc.setText("");
         txtGroupDesc.setText("");
     }//GEN-LAST:event_btnGDClearActionPerformed
+
+    private void txtGroupIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtGroupIdKeyTyped
+
+        FillGUIComponents.setNumberOnlyTextBox(evt);
+    }//GEN-LAST:event_txtGroupIdKeyTyped
 
     /**
      * @param args the command line arguments

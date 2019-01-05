@@ -7,6 +7,7 @@ package waterbillingsystem_1.pkg0.pkg0.view;
 
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
 import waterbillingsystem_1.pkg0.pkg0.base.UnitPrice;
+import waterbillingsystem_1.pkg0.pkg0.controller.FillGUIComponents;
 import waterbillingsystem_1.pkg0.pkg0.controller.UnitPriceProcessor;
 
 /**
@@ -63,8 +64,26 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         btnGDEnterAnother.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnGDEnterAnother.setText("Another Bill");
 
+        txUnitPriceId.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txUnitPriceIdKeyTyped(evt);
+            }
+        });
+
         UDLblLower.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         UDLblLower.setText("Unit Lower Value");
+
+        txUnitPriceLower.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txUnitPriceLowerKeyTyped(evt);
+            }
+        });
+
+        txUnitPriceUpper.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txUnitPriceUpperKeyTyped(evt);
+            }
+        });
 
         UDLbLUpper.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         UDLbLUpper.setText("Unit Upper Value");
@@ -77,6 +96,12 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         btnGDClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGDClearActionPerformed(evt);
+            }
+        });
+
+        txUnitPrice.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txUnitPriceKeyTyped(evt);
             }
         });
 
@@ -106,17 +131,17 @@ public class EnterUnitPrice extends javax.swing.JFrame {
                             .addComponent(txUnitPriceId)
                             .addComponent(txUnitPrice))))
                 .addGap(61, 61, 61))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(234, 234, 234)
                 .addComponent(UDLabelMain)
-                .addGap(223, 223, 223))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(65, 65, 65)
+                .addGap(63, 63, 63)
                 .addComponent(UDLabelMain)
-                .addGap(49, 49, 49)
+                .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(UDLblUPId)
                     .addComponent(txUnitPriceId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -166,6 +191,26 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         txUnitPriceUpper.setText("");
         txUnitPrice.setText("");
     }//GEN-LAST:event_btnGDClearActionPerformed
+
+    private void txUnitPriceIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txUnitPriceIdKeyTyped
+
+        FillGUIComponents.setNumberOnlyTextBox(evt);
+    }//GEN-LAST:event_txUnitPriceIdKeyTyped
+
+    private void txUnitPriceLowerKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txUnitPriceLowerKeyTyped
+
+        FillGUIComponents.setNumberOnlyTextBox(evt);
+    }//GEN-LAST:event_txUnitPriceLowerKeyTyped
+
+    private void txUnitPriceUpperKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txUnitPriceUpperKeyTyped
+
+        FillGUIComponents.setNumberOnlyTextBox(evt);
+    }//GEN-LAST:event_txUnitPriceUpperKeyTyped
+
+    private void txUnitPriceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txUnitPriceKeyTyped
+
+        FillGUIComponents.setNumberOnlyTextBox(evt);
+    }//GEN-LAST:event_txUnitPriceKeyTyped
 
     /**
      * @param args the command line arguments

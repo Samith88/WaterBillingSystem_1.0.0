@@ -5,11 +5,9 @@
  */
 package waterbillingsystem_1.pkg0.pkg0.controller;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import waterbillingsystem_1.pkg0.pkg0.dao.GroupDetailsDB;
-import waterbillingsystem_1.pkg0.pkg0.database.DBConnection;
 
 /**
  *
@@ -30,5 +28,13 @@ public class FillGUIComponents {
         GroupDetailsDB groupDetailsDB=new GroupDetailsDB();
         List<String> groupList = groupDetailsDB.getGroupAString();
         LoadCombobox(groupList,comboBox);
+    }
+    
+    public static void setNumberOnlyTextBox(java.awt.event.KeyEvent evt){
+        char enter = evt.getKeyChar();
+        if(Character.isDigit(enter) || (enter=='.') ){
+        } else {
+            evt.consume();
+        } 
     }
 }

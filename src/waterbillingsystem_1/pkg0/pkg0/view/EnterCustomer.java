@@ -84,6 +84,12 @@ public class EnterCustomer extends javax.swing.JFrame {
         CDFLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         CDFLabel3.setText("Customer NIC");
 
+        txtCustomerNIC.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCustomerNICKeyTyped(evt);
+            }
+        });
+
         CDFLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         CDFLabel4.setText("Customer Group");
 
@@ -98,6 +104,12 @@ public class EnterCustomer extends javax.swing.JFrame {
 
         CDFLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         CDFLabel8.setText("Customer No");
+
+        txtCustomerNo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCustomerNoKeyTyped(evt);
+            }
+        });
 
         cmbGroupId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "group-1", "group-2", "group-3", "group-4" }));
 
@@ -122,6 +134,12 @@ public class EnterCustomer extends javax.swing.JFrame {
 
         lblCDFMeterNo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblCDFMeterNo.setText("Meter No");
+
+        txtCustomerMno.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCustomerMnoKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -277,6 +295,21 @@ public class EnterCustomer extends javax.swing.JFrame {
         txtCustomerNo.setText("");
         txtCustomerMno.setText("");
     }//GEN-LAST:event_btnCDFClearActionPerformed
+
+    private void txtCustomerNICKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCustomerNICKeyTyped
+
+        FillGUIComponents.setNumberOnlyTextBox(evt);
+    }//GEN-LAST:event_txtCustomerNICKeyTyped
+
+    private void txtCustomerNoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCustomerNoKeyTyped
+
+        FillGUIComponents.setNumberOnlyTextBox(evt);
+    }//GEN-LAST:event_txtCustomerNoKeyTyped
+
+    private void txtCustomerMnoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCustomerMnoKeyTyped
+
+        FillGUIComponents.setNumberOnlyTextBox(evt);
+    }//GEN-LAST:event_txtCustomerMnoKeyTyped
 
     /**
      * @param args the command line arguments

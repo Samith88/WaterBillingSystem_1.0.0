@@ -175,6 +175,9 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCustomerNIC">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCustomerNICKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="BDLblCID">
       <Properties>
@@ -185,6 +188,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCustomerCID">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCustomerCIDKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="BDLblUnits">
       <Properties>
@@ -222,6 +228,9 @@
       </AccessibilityProperties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtPaymentAmt">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPaymentAmtKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JCheckBox" name="ckBoxSramadhana">
       <Properties>

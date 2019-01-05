@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 import waterbillingsystem_1.pkg0.pkg0.DateDetails;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
 import waterbillingsystem_1.pkg0.pkg0.base.Payment;
+import waterbillingsystem_1.pkg0.pkg0.controller.FillGUIComponents;
 import waterbillingsystem_1.pkg0.pkg0.controller.PaymentProcessor;
 
 /**
@@ -59,8 +60,26 @@ public class EnterPayment extends javax.swing.JFrame {
 
         cmdNIC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select NIC" }));
 
+        txtPaymentNIC.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPaymentNICKeyTyped(evt);
+            }
+        });
+
         PDLblCID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         PDLblCID.setText("Customer Id");
+
+        txtPaymentCID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPaymentCIDKeyTyped(evt);
+            }
+        });
+
+        txtPaymentAmount.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPaymentAmountKeyTyped(evt);
+            }
+        });
 
         PDLbAmount.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         PDLbAmount.setText("Payment Amount");
@@ -197,6 +216,19 @@ public class EnterPayment extends javax.swing.JFrame {
         cmbYear.setSelectedIndex(0);
         cmdNIC.setSelectedItem("Select NIC");
     }//GEN-LAST:event_btnPDClearActionPerformed
+
+    private void txtPaymentNICKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPaymentNICKeyTyped
+
+        FillGUIComponents.setNumberOnlyTextBox(evt);
+    }//GEN-LAST:event_txtPaymentNICKeyTyped
+
+    private void txtPaymentCIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPaymentCIDKeyTyped
+        FillGUIComponents.setNumberOnlyTextBox(evt);
+    }//GEN-LAST:event_txtPaymentCIDKeyTyped
+
+    private void txtPaymentAmountKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPaymentAmountKeyTyped
+        FillGUIComponents.setNumberOnlyTextBox(evt);
+    }//GEN-LAST:event_txtPaymentAmountKeyTyped
 
     /**
      * @param args the command line arguments

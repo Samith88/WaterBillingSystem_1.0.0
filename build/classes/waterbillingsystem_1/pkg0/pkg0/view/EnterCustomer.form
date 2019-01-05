@@ -219,6 +219,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCustomerNIC">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCustomerNICKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="CDFLabel4">
       <Properties>
@@ -267,6 +270,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCustomerNo">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCustomerNoKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="cmbGroupId">
       <Properties>
@@ -322,6 +328,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCustomerMno">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCustomerMnoKeyTyped"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
