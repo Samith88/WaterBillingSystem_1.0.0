@@ -9,10 +9,25 @@ package waterbillingsystem_1.pkg0.pkg0;
  *
  * @author UDISSSA1
  */
+import com.lowagie.text.pdf.codec.Base64.InputStream;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import waterbillingsystem_1.pkg0.pkg0.logging.getLogger;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.export.*;
+import java.util.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.export.ooxml.JRDocxExporter;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
+
  
 /**
  *
@@ -22,6 +37,7 @@ public class testdbConnect {
      /**
      * Connect to a sample database
      */
+    
     //private static final Logger log = Logger.getLogger("confLogger");
     public static void connect() {
         Connection conn = null;
@@ -47,8 +63,54 @@ public class testdbConnect {
     }
     /**
      * @param args the command line arguments
+     * @throws java.io.FileNotFoundException
+     * @throws net.sf.jasperreports.engine.JRException
      */
-    public static void main(String[] args) {
-        connect();
+    public static void main(String[] args) throws FileNotFoundException, JRException {
+        testdbConnect testdbConnect=new testdbConnect();
+        testdbConnect.jasperTest();
     }
+    
+   public void jasperTest() throws FileNotFoundException, JRException
+   {
+       
+        // Set values
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("P_InvoiceNo","12345");
+        map.put("P_cid","001");
+        map.put("P_nic", "883512847V");
+        map.put("P_GroupId", "001");
+        map.put("P_OldMeter",400 );
+        map.put("P_NewMeter",415 );
+        map.put("P_MonthlyConsumption",500.00 );
+        map.put("P_CurrentTotalAmount",100.00 );
+        map.put("P_FixedCharge",300.00 );
+        map.put("P_Sramadhana",25.00 );
+        map.put("P_AbsentCharge",25.00 );
+        map.put("P_TotalMonthlyAmount",900.00 );
+        map.put("P_TotalOutstandingMonthly",1500.00 );
+        map.put("P_MonthlyUsageUnit",15 );
+        map.put("P_MeterNo",11223344);
+        map.put("P_cname","Samith Dissanayake" );
+        map.put("P_LastPaymentDay","01112018" );   //P_Month
+        map.put("P_Month","112018");
+
+        
+        File file = new File("waterBilling.jrxml");
+
+        BufferedInputStream is = new BufferedInputStream(new FileInputStream(file.getAbsolutePath()));
+        JasperDesign jasperDesign=JRXmlLoader.load(file.getAbsolutePath());
+
+        JasperReport jr = JasperCompileManager.compileReport(jasperDesign);
+
+            // FILL THE REPORT
+        JasperPrint JPrint=JasperFillManager.fillReport(jr, map);
+
+        // PRINT REPORT TO PDF FILE.
+        OutputStream output = new FileOutputStream(new File("waterBilling.pdf"));
+        JasperExportManager.exportReportToPdfStream(JPrint, output);
+        System.exit(0);
+           // VIEW THE REPORT
+        JasperViewer.viewReport(JPrint);
+  }    
 }

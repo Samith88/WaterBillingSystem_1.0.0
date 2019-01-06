@@ -54,7 +54,7 @@ public class CustomerDataDatabase {
         String cid="";
         
         try{
-            ResultSet rs  = retrieveClass.getResultsFormDB("select * from customer where nic='"+nic+"'");
+            ResultSet rs  = retrieveClass.getResultsFormDB("select cid from customer where nic='"+nic+"'");
             while (rs.next()) {
                 cid= rs.getString("cid");
             }

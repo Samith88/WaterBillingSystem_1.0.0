@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="D3Rectangle" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8e0c7e98-fcdc-4afb-aa4f-f948e035dfb2">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="sqlite_connect"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<subDataset name="Sample Dataset" uuid="389de2fa-2302-46df-88e2-d6ee19522008">
+		<field name="value" class="java.lang.String"/>
+		<field name="color" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="billData" uuid="d3c03cde-bcef-4650-87f6-fb6183bb5fab">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="sqlite_connect"/>
+		<queryString language="SQL">
+			<![CDATA[select * from MonthlyBillDetails  ;]]>
+		</queryString>
+		<field name="OldMeter" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.label" value="OldMeter"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="MonthlyBillDetails"/>
+		</field>
+		<field name="NewMeter" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.label" value="NewMeter"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="MonthlyBillDetails"/>
+		</field>
+		<field name="MonthlyConsumption" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.label" value="MonthlyConsumption"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="MonthlyBillDetails"/>
+		</field>
+		<field name="CurrentTotalAmount" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.label" value="CurrentTotalAmount"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="MonthlyBillDetails"/>
+		</field>
+		<field name="FixedCharge" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.label" value="FixedCharge"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="MonthlyBillDetails"/>
+		</field>
+		<field name="Sramadhana" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.label" value="Sramadhana"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="MonthlyBillDetails"/>
+		</field>
+		<field name="AbsentCharge" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.label" value="AbsentCharge"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="MonthlyBillDetails"/>
+		</field>
+		<field name="TotalMonthlyAmount" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.label" value="TotalMonthlyAmount"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="MonthlyBillDetails"/>
+		</field>
+		<field name="Month" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.label" value="Month"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="MonthlyBillDetails"/>
+		</field>
+		<field name="TotalOutstandingMonthly" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.label" value="TotalOutstandingMonthly"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="MonthlyBillDetails"/>
+		</field>
+		<field name="MonthlyUsageUnit" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.label" value="MonthlyUsageUnit"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="MonthlyBillDetails"/>
+		</field>
+	</subDataset>
+	<parameter name="P_InvoiceNo" class="java.lang.String"/>
+	<parameter name="P_cid" class="java.lang.String"/>
+	<parameter name="P_nic" class="java.lang.String"/>
+	<parameter name="P_GroupId" class="java.lang.String"/>
+	<parameter name="P_OldMeter" class="java.lang.Integer"/>
+	<parameter name="P_NewMeter" class="java.lang.Integer"/>
+	<parameter name="P_MonthlyConsumption" class="java.lang.Double"/>
+	<parameter name="P_CurrentTotalAmount" class="java.lang.Double"/>
+	<parameter name="P_FixedCharge" class="java.lang.Double"/>
+	<parameter name="P_Sramadhana" class="java.lang.Double"/>
+	<parameter name="P_AbsentCharge" class="java.lang.Double"/>
+	<parameter name="P_TotalMonthlyAmount" class="java.lang.Double"/>
+	<parameter name="P_Month" class="java.lang.String"/>
+	<parameter name="P_TotalOutstandingMonthly" class="java.lang.Double"/>
+	<parameter name="P_MonthlyUsageUnit" class="java.lang.Integer"/>
+	<parameter name="P_MeterNo" class="java.lang.Integer"/>
+	<parameter name="P_cname" class="java.lang.String"/>
+	<parameter name="P_LastPaymentDay" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="F_InvoiceNo" class="java.lang.String"/>
+	<field name="F_cid" class="java.lang.String"/>
+	<field name="F_GroupId" class="java.lang.String"/>
+	<field name="F_OldMeter" class="java.lang.Integer"/>
+	<field name="F_NewMeter" class="java.lang.String"/>
+	<field name="F_MonthlyConsumption" class="java.lang.Double"/>
+	<field name="F_CurrentTotalAmount" class="java.lang.Double"/>
+	<field name="F_FixedCharge" class="java.lang.Double"/>
+	<field name="F_Sramadhana" class="java.lang.Double"/>
+	<field name="F_AbsentCharge" class="java.lang.Double"/>
+	<field name="F_TotalMonthlyAmount" class="java.lang.Double"/>
+	<field name="F_Month" class="java.lang.String"/>
+	<field name="F_TotalOutstandingMonthly" class="java.lang.Double"/>
+	<field name="F_MonthlyUsageUnit" class="java.lang.String"/>
+	<field name="F_nic" class="java.lang.String"/>
+	<field name="F_MeterNo" class="java.lang.Integer"/>
+	<field name="F_cname" class="java.lang.String"/>
+	<field name="F_LastPaymentDay" class="java.lang.String"/>
+	<title>
+		<band height="555" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="799" height="555" uuid="bbb0e123-f460-41cf-a965-ef5f8a0f4df6"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="480" y="120" width="312" height="428" uuid="03e06f42-f6a4-4961-8f56-4418578c230e"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="9" y="259" width="441" height="290" uuid="94386260-9b50-4a17-9634-c88530a40d90"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="-10" y="0" width="802" height="20" uuid="03e462f8-46fc-4d3a-99de-1b3a497af5f4"/>
+				<textElement textAlignment="Center">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Custom Visualization Component - D3 Rectangle]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="122" y="20" width="218" height="21" uuid="a4c5afff-3962-4db6-8bfd-1aecb127fb47"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Athulgama East - Pananwala]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="0" width="218" height="21" uuid="49614dfc-1e80-43b5-aa68-9c5f170007f8"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pananwala Water Project ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="39" width="362" height="21" uuid="efeb552a-a24f-47a4-b7cb-00b10ce56646"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rural Water Supply & Sanitation Project]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="9" y="60" width="440" height="190" uuid="b7c0dca2-8725-4a8b-b8cd-e10b692eee01"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="39" y="216" width="138" height="22" uuid="198b5ff0-84c2-4f37-b6b1-a0b6527cf10f"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="40" y="175" width="137" height="22" uuid="8985f5e2-0fc0-4605-8d77-2223a1208c5a"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="40" y="84" width="138" height="20" uuid="cd5da1ae-ae6b-4ab9-80c1-b8e5716882f2"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="40" y="70" width="138" height="14" uuid="bdf6b0dc-ac86-49b3-8f27-31aff957d4b2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Membership Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="161" width="139" height="14" uuid="f01f2c30-c581-421d-b051-3b86cf153c72"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Group Id]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="40" y="175" width="137" height="22" uuid="8a702e7d-0f55-43e9-a297-92f00c9fc52f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_GroupId}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="190" y="160" width="238" height="15" uuid="4868e482-506a-43a1-83d1-6f4a264aec55"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Meter Number]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="40" y="217" width="137" height="21" uuid="68c3125f-ff44-466c-a9d5-8c985daa9504"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_InvoiceNo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="30" y="280" width="148" height="20" uuid="06282b47-e22c-40ac-a6ee-fe7304ff40dc"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Last Date for payments]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="200" y="280" width="229" height="20" uuid="ce734e5a-dae7-4f03-bfd5-85395aca755b"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_LastPaymentDay}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="50" y="310" width="128" height="20" uuid="f2de6396-e3ad-4c60-aba2-1405c990fcb0"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Previous Reading]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="330" width="128" height="20" uuid="8cf326fd-a2da-4864-818e-19743f90fcc9"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Current Reading]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="360" width="148" height="20" uuid="4800f8b5-3e98-46e5-b04a-46a59fd96294"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Monthly Usage In Units]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="380" width="148" height="20" uuid="3ef35590-c443-4dfb-9bfc-1220d0ec8914"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Water Bill]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="400" width="148" height="20" uuid="b2eb4839-ac2f-481d-b610-da9ddde9ae3a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Fixed Charge]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="420" width="149" height="20" uuid="2ba7d1ec-a7b4-4ce1-b390-30b688829e06"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Sramadhana Charge]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="440" width="148" height="20" uuid="c6324b97-0073-4571-bd63-1993fd5303e9"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Penalty For Bad Attendence]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="460" width="148" height="20" uuid="5ee2a928-298f-43d0-8cf4-9a77e489f51e"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Total Monthly Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="480" width="148" height="20" uuid="fd324d1e-c08c-4c12-a6c2-dc8eea2eb029"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Current Total Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="520" width="148" height="20" uuid="c215abc0-ff31-45da-b578-b30f12270bd7"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Total Outstanding Amount]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="200" y="310" width="229" height="20" uuid="c758666c-7229-4877-b245-04005dce4c58"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_OldMeter}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="330" width="229" height="20" uuid="177a2408-ebca-42b5-b36c-7849ef464e95"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_NewMeter}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="360" width="229" height="20" uuid="602592b2-d362-47cf-81da-3004885613e1"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_MonthlyUsageUnit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="380" width="229" height="20" uuid="b56cb3f3-e94c-4832-973a-a5f8302d64a4"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_MonthlyConsumption}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="400" width="229" height="20" uuid="c6acb2b3-04e1-4f91-8658-fb5fac608d5e"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_FixedCharge}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="420" width="229" height="20" uuid="993207a9-f22b-4529-8f2b-1e71b9f3cfa6"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_Sramadhana}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="440" width="229" height="20" uuid="c3588230-a6b8-4755-a62f-34d54bb89ba8"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_AbsentCharge}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="460" width="229" height="20" uuid="07b6c7e7-ece8-4e2d-bdcc-a9d11991203a"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_TotalMonthlyAmount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="480" width="229" height="20" uuid="f0da6ca9-82b7-4f44-9346-8c25caf3c220"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_CurrentTotalAmount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="520" width="229" height="20" uuid="bf2efbb8-0a68-48d6-8755-4404b2da4122"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_TotalOutstandingMonthly}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="610" y="132" width="169" height="20" uuid="aae6fa7f-fc0e-4804-9c0e-55974392e77d"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="500" y="130" width="91" height="24" uuid="0e5737d8-0b52-4e23-abbf-d9d872be108a"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Membership Id]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="610" y="132" width="170" height="20" uuid="3ec75d22-87fd-4e04-b721-3d7d94e1f16a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_cid}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="500" y="190" width="91" height="20" uuid="7583f1d3-6f4a-454a-85a5-b9f15a06af17"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Group Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="500" y="220" width="90" height="20" uuid="ece0b610-a81d-4118-8992-e44d6f3c9d03"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Invoice No]]></text>
+			</staticText>
+			<line>
+				<reportElement x="470" y="-19" width="1" height="573" uuid="5b69b77b-5515-4a35-929e-5d33da7ab5f3"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<rectangle>
+				<reportElement x="190" y="218" width="238" height="20" uuid="aef6208c-ce5c-49ac-b011-0ae3319ca974"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="190" y="202" width="238" height="15" uuid="4fed0245-d163-4dcd-b64c-bef89e8db496"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Invoice Month]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="189" y="218" width="238" height="20" uuid="1f081bf8-7147-455f-bd4b-bab09b6e64a5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_Month}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="499" y="250" width="90" height="20" uuid="0178d93b-486e-4e6c-a81a-6d943513ea1a"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Invoice Month]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="610" y="192" width="169" height="20" uuid="d904613d-4db1-4e6a-8c92-246a3d664f8a"/>
+			</rectangle>
+			<textField>
+				<reportElement x="610" y="192" width="170" height="20" uuid="6848e954-2f74-4bd3-ab45-4a4839277ac8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_GroupId}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="609" y="221" width="169" height="20" uuid="88971464-9854-47fa-a378-085c6fe50dc4"/>
+			</rectangle>
+			<textField>
+				<reportElement x="609" y="221" width="170" height="20" uuid="7bb15376-237f-403c-9cd9-658bc48fb82e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_InvoiceNo}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="609" y="252" width="169" height="20" uuid="9bd9130a-7c1a-40f7-bd12-ab514460d93d"/>
+			</rectangle>
+			<textField>
+				<reportElement x="609" y="252" width="170" height="20" uuid="4da0a560-c5e3-4ae0-8ebc-ca79ef255113"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_Month}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="480" y="10" width="311" height="90" backcolor="#FAF3F2" uuid="de7a11e0-6678-4679-9b4b-23fcc26f3cf9"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="682" y="30" width="100" height="20" uuid="99f1f20b-f99e-46a6-8584-a239976314ea"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Payment Slip]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="491" y="60" width="291" height="20" uuid="4f66a301-a497-4939-a922-77084eb644a2"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[ Please Submit the complete Monthly Bill For Payments]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="500" y="300" width="90" height="20" uuid="a89a50af-3212-40d0-977f-65742d0ef02a"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Payment Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="500" y="330" width="90" height="20" uuid="2d54b7bc-9f00-4067-a7c5-b857313f9209"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Payment Amount]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="610" y="162" width="169" height="20" uuid="6be891df-b42e-4fe9-8e9b-875289b787d5"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="500" y="160" width="91" height="24" uuid="d9a03195-1c5b-411a-b88b-d5507e32b89d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Member NIC]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="610" y="162" width="170" height="20" uuid="8dad091c-add8-4778-9181-45b4c8ae1762"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_nic}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="189" y="178" width="238" height="20" uuid="5d5b6bb1-0221-43b9-80ce-47dc7578dece"/>
+			</rectangle>
+			<textField>
+				<reportElement x="190" y="178" width="238" height="20" uuid="26045f25-515c-4389-923d-73b65c09597d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_MeterNo}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="191" y="84" width="238" height="31" uuid="f9755b2f-9053-4d7c-9c25-3bbb8b727186"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="190" y="70" width="236" height="14" uuid="dd20db60-abeb-4346-8eb6-46ac872b70ec"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Membership Name]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="191" y="84" width="238" height="31" uuid="da9c0c00-c18e-4e2a-97e6-e5e5a53e8fb0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_cname}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="41" y="85" width="137" height="21" uuid="ee06efd4-ca01-47a5-8254-51ddc7e27e6a"/>
+			</rectangle>
+			<textField>
+				<reportElement x="41" y="87" width="137" height="20" uuid="4fa62650-27a1-412e-a78c-d5231a786419"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_cid}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="39" y="129" width="138" height="20" uuid="fd2d5042-7a0a-4a2b-a054-3bbff2b87ede"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="39" y="115" width="138" height="14" uuid="f38851d8-5246-4ef3-a3b1-15a0a45a7dd6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Member NIC]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="40" y="130" width="137" height="21" uuid="4c198354-5b2b-4cca-934e-84d7487546ce"/>
+			</rectangle>
+			<textField>
+				<reportElement x="40" y="132" width="137" height="20" uuid="491f7dbf-3e53-444c-8b65-561200a0f8e1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_nic}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="499" y="360" width="90" height="20" uuid="d4864917-ae5d-463f-b3c7-38e01f6de7bb"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Customer Signature]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="610" y="360" width="170" height="49" uuid="8ecbc5e5-fd25-4209-820f-beee4aff00b8"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="500" y="420" width="99" height="20" uuid="6b0f2d27-0fcd-405c-8bfc-e87960a8262d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Payment Recived By]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="610" y="420" width="170" height="34" uuid="4d9b5474-df44-4914-bebc-165f202d7436"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="500" y="466" width="90" height="20" uuid="3af94992-280f-4639-b0ab-7d38d0743c8d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Officer Signature]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="610" y="466" width="170" height="49" uuid="ec3640f9-70cd-4da0-8a58-29945c0aa71e"/>
+			</rectangle>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="491" y="30" width="186" height="20" uuid="e561230a-7b41-4449-b7cf-64f53496239a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="191" y="133" width="237" height="21" uuid="5da3eef2-2169-443a-9c97-ddccbbd0a29d"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="191" y="115" width="238" height="20" uuid="b529fe97-34c7-4eed-a4e9-b5ad094e9846"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Issued Date]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="610" y="300" width="170" height="20" uuid="3a2fff77-6f94-4cfa-8adb-b6bb7f387ea4"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="610" y="330" width="170" height="20" uuid="5d865250-cf8e-40eb-89a0-53fae88f2058"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="39" y="202" width="139" height="14" uuid="e5c6ffeb-4814-44b6-926e-e898134d6cca"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Invoice No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="500" y="520" width="280" height="20" uuid="9816c6fd-4ffe-4cb6-bd0e-3d21fa30ef16"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Please make sure payment data were inserted to system]]></text>
+			</staticText>
+		</band>
+	</title>
+</jasperReport>

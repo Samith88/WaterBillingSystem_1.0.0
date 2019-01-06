@@ -132,10 +132,18 @@ public class MonthlyBillDetails {
     public void setMonthlyUsageUnit(int MonthlyUsageUnit) {
         this.MonthlyUsageUnit = MonthlyUsageUnit;
     }
+    public String getGroupId() {
+        return GroupId;
+    }
 
+    public void setGroupId(String GroupId) {
+        this.GroupId = GroupId;
+    }
+    
     private String  InvoiceNo;
     private String   cid;
     private String nic;
+    private String GroupId; 
     private int OldMeter;
     private int NewMeter;
     private int MonthlyUsageUnit;
