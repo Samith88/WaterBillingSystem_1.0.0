@@ -132,18 +132,18 @@ public class MonthlyBillDetails {
     public void setMonthlyUsageUnit(int MonthlyUsageUnit) {
         this.MonthlyUsageUnit = MonthlyUsageUnit;
     }
-    public String getGroupId() {
-        return GroupId;
+
+    public String getLastPaymentDay() {
+        return LastPaymentDay;
     }
 
-    public void setGroupId(String GroupId) {
-        this.GroupId = GroupId;
-    }
+    public void setLastPaymentDay(String LastPaymentDay) {
+        this.LastPaymentDay = LastPaymentDay;
+    }    
     
     private String  InvoiceNo;
     private String   cid;
     private String nic;
-    private String GroupId; 
     private int OldMeter;
     private int NewMeter;
     private int MonthlyUsageUnit;
@@ -155,5 +155,7 @@ public class MonthlyBillDetails {
     private double TotalMonthlyAmount;
     private String Month;
     private double TotalOutstandingMonthly;
+    private String LastPaymentDay;
+
     
 }

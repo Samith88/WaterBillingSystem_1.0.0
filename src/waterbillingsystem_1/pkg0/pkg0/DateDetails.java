@@ -14,12 +14,21 @@ import java.util.Calendar;
 public class DateDetails {
     
     private static final Calendar calendar = Calendar.getInstance();
+    
+    public static String getDateNextMonth(){
+        calendar.add(Calendar.MONTH,1);
+        return String.valueOf(calendar.getTime().getMonth());
+    }
+    public static String getDateNextYear(){
+        calendar.add(Calendar.MONTH,1);
+        return String.valueOf(calendar.getTime().getYear());
+    }    
     public static String getDateMonth(){
-        return String.valueOf(calendar.get(Calendar.MONTH)) +String.valueOf(calendar.get(Calendar.YEAR));
+        return String.valueOf(calendar.get(Calendar.MONTH));
     }
 
     public static String getDateDate(){
-        return String.valueOf(calendar.get(Calendar.DATE))+String.valueOf(calendar.get(Calendar.MONTH))+String.valueOf(calendar.get(Calendar.YEAR));
+        return String.valueOf(calendar.get(Calendar.DATE));
     }   
     
     public static String  getDateYear(){

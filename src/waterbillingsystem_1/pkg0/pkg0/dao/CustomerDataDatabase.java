@@ -7,6 +7,7 @@ package waterbillingsystem_1.pkg0.pkg0.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import waterbillingsystem_1.pkg0.pkg0.base.Customer;
 import waterbillingsystem_1.pkg0.pkg0.database.DBConnection;
 import waterbillingsystem_1.pkg0.pkg0.database.InsertUpdateDeleteClass;
@@ -19,7 +20,7 @@ import waterbillingsystem_1.pkg0.pkg0.logging.getLogger;
  */
 public class CustomerDataDatabase {
     
-    public static Customer getCustomer(String nic) throws Exception{
+    public Customer getCustomer(String nic) throws Exception{
         
         RetrieveClass retrieveClass =new RetrieveClass();
         Customer customer = new Customer();
@@ -39,7 +40,7 @@ public class CustomerDataDatabase {
                 customer.setMeterNo(rs.getInt("MeterNo"));
                 customer.setLastPayment(rs.getDouble("lastPayment"));
                 customer.setCname(rs.getString("cname"));
-                //rs.getInt("id") +  "\t" + rs.getString("name") + "\t" +rs.getDouble("capacity"));
+                customer.setCFirstName(rs.getString("CFirstName"));
             }
             DBConnection.disconnect();
         } catch (SQLException e) {
@@ -47,6 +48,23 @@ public class CustomerDataDatabase {
         }     
         return customer;
     }
+    
+    public HashMap<String, String> getAllCustomers() throws Exception{
+        
+        RetrieveClass retrieveClass =new RetrieveClass();
+        HashMap<String, String> customerHash = new HashMap<>();
+        
+        try{
+            ResultSet rs  = retrieveClass.getResultsFormDB("select nic,cid from customer");
+            while (rs.next()) {
+                customerHash.put(rs.getString("nic"), rs.getString("cid"));
+            }
+            DBConnection.disconnect();
+        } catch (SQLException e) {
+            getLogger.getLog().debug(e.toString());
+        }     
+        return customerHash;
+    }    
     
     public static String getCIDFromNIC(String nic) throws Exception{
         
@@ -83,13 +101,15 @@ public class CustomerDataDatabase {
         return gname;
     }      
     
-    public static boolean putCustomerData(Customer customer){
+    public boolean putCustomerData(Customer customer){
     
         InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
         
-        return insertUpdateDeleteClass.insertUpdateDeleteDB("insert into Customer(cid,nic,address_1,address_2,address_3,gid,MeterNo,cname) values ("
+        return insertUpdateDeleteClass.insertUpdateDeleteDB("insert into Customer(cid,nic,address_1,address_2,"
+                + "address_3,gid,MeterNo,cname,currentMeter,TotalOutstandingAmount,CFirstName) values ("
                 + "'"+customer.getCid()+"','"+customer.getNic()+"','"+customer.getAddress_1()+"',"
                 + "'"+customer.getAddress_2()+"','"+customer.getAddress_3()+"','"+customer.getGid()+"',"
-                + "'"+customer.getMeterNo()+"','"+customer.getCname()+"')");
+                + "'"+customer.getMeterNo()+"','"+customer.getCname()+"','"+customer.getCurrentMeter()+"'"
+                + ",'"+customer.getTotalOutstandingAmount()+"','"+customer.getCFirstName()+"')");
     }
 }

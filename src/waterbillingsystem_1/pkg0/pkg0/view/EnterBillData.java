@@ -37,7 +37,7 @@ public class EnterBillData extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         CDFLabelMain = new javax.swing.JLabel();
         BDLblNIC = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmbCustomerNIC = new javax.swing.JComboBox<>();
         txtCustomerNIC = new javax.swing.JTextField();
         BDLblCID = new javax.swing.JLabel();
         txtCustomerCID = new javax.swing.JTextField();
@@ -53,6 +53,7 @@ public class EnterBillData extends javax.swing.JFrame {
         btnBDClear = new javax.swing.JButton();
         btnBDEnter = new javax.swing.JButton();
         btnBDEnterAnother = new javax.swing.JButton();
+        BDLblFN = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,7 +63,7 @@ public class EnterBillData extends javax.swing.JFrame {
         BDLblNIC.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BDLblNIC.setText("Customer NIC");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select NIC" }));
+        cmbCustomerNIC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select NIC" }));
 
         txtCustomerNIC.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -128,6 +129,8 @@ public class EnterBillData extends javax.swing.JFrame {
         btnBDEnterAnother.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnBDEnterAnother.setText("Another Bill");
 
+        BDLblFN.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -173,7 +176,9 @@ public class EnterBillData extends javax.swing.JFrame {
                             .addComponent(txtCustomerCID, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtCustomerNIC, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cmbCustomerNIC, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(BDLblFN, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(58, 58, 58))))
             .addGroup(layout.createSequentialGroup()
@@ -193,7 +198,9 @@ public class EnterBillData extends javax.swing.JFrame {
                     .addComponent(BDLblNIC)
                     .addComponent(txtCustomerNIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(3, 3, 3)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbCustomerNIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BDLblFN))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BDLblCID)
@@ -290,7 +297,13 @@ public class EnterBillData extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBDClearActionPerformed
 
     private void txtCustomerNICKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCustomerNICKeyTyped
-        FillGUIComponents.setNumberOnlyTextBox(evt);
+        FillGUIComponents.setNumberOnlyTextBoxNIC(evt);
+        FillGUIComponents fillGUIComponents=new FillGUIComponents();
+        try {
+            fillGUIComponents.LoadCustomerData(txtCustomerNIC.getText(), cmbCustomerNIC,txtCustomerCID);
+        } catch (Exception ex) {
+            Logger.getLogger(EnterBillData.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_txtCustomerNICKeyTyped
 
     private void txtCustomerCIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCustomerCIDKeyTyped
@@ -334,6 +347,7 @@ public class EnterBillData extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BDLblCID;
+    private javax.swing.JLabel BDLblFN;
     private javax.swing.JLabel BDLblNIC;
     private javax.swing.JLabel BDLblUnits;
     private javax.swing.JLabel BDLblUnits1;
@@ -344,9 +358,9 @@ public class EnterBillData extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JCheckBox ckBoxAbsentFee;
     private javax.swing.JCheckBox ckBoxSramadhana;
+    private javax.swing.JComboBox<String> cmbCustomerNIC;
     private javax.swing.JComboBox<String> cmbMonth;
     private javax.swing.JComboBox<String> cmbYear;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JRadioButton radioMeter;
     private javax.swing.JRadioButton radioUnits;
     private javax.swing.JTextField txtCustomerCID;

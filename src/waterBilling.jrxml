@@ -61,7 +61,7 @@
 	<parameter name="P_InvoiceNo" class="java.lang.String"/>
 	<parameter name="P_cid" class="java.lang.String"/>
 	<parameter name="P_nic" class="java.lang.String"/>
-	<parameter name="P_GroupId" class="java.lang.String"/>
+	<parameter name="P_Group" class="java.lang.String"/>
 	<parameter name="P_OldMeter" class="java.lang.Integer"/>
 	<parameter name="P_NewMeter" class="java.lang.Integer"/>
 	<parameter name="P_MonthlyConsumption" class="java.lang.Double"/>
@@ -172,14 +172,14 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="11"/>
 				</textElement>
-				<text><![CDATA[Group Id]]></text>
+				<text><![CDATA[Member Group]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="40" y="175" width="137" height="22" uuid="8a702e7d-0f55-43e9-a297-92f00c9fc52f"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{P_GroupId}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{P_Group}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="190" y="160" width="238" height="15" uuid="4868e482-506a-43a1-83d1-6f4a264aec55"/>
@@ -437,7 +437,7 @@
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font size="11"/>
 				</textElement>
-				<text><![CDATA[Group Id]]></text>
+				<text><![CDATA[Member Group]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="500" y="220" width="90" height="20" uuid="ece0b610-a81d-4118-8992-e44d6f3c9d03"/>
@@ -484,7 +484,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{P_GroupId}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{P_Group}]]></textFieldExpression>
 			</textField>
 			<rectangle>
 				<reportElement x="609" y="221" width="169" height="20" uuid="88971464-9854-47fa-a378-085c6fe50dc4"/>

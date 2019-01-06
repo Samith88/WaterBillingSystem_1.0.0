@@ -106,6 +106,13 @@ public class Customer {
     public void setCname(String cname) {
         this.cname = cname;
     }    
+    public String getCFirstName() {
+        return CFirstName;
+    }
+
+    public void setCFirstName(String CFirstName) {
+        this.CFirstName = CFirstName;
+    }
     
     private String  cid;
     private String  nic;
@@ -119,7 +126,5 @@ public class Customer {
     private int  MeterNo ;
     private double lastPayment;
     private String cname;
-
-
-    
+    private String CFirstName;
 }

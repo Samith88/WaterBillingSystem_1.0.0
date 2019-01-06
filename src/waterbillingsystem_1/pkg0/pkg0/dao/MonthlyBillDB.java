@@ -34,17 +34,17 @@ public class MonthlyBillDB {
         
         InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
 
-        return insertUpdateDeleteClass.insertUpdateDeleteDB("insert into MonthlyBillDetails(InvoiceNo,cid,nic,Group,OldMeter,"
+        return insertUpdateDeleteClass.insertUpdateDeleteDB("insert into MonthlyBillDetails(InvoiceNo,cid,nic,[Group],OldMeter,"
                 + "NewMeter,MonthlyConsumption,"
                 + "CurrentTotalAmount,FixedCharge,Sramadhana,AbsentCharge,TotalMonthlyAmount,Month,"
-                + "TotalOutstandingMonthly,MonthlyUsageUnit) values('"+monthlyBillDetails.getInvoiceNo()+"','"+monthlyBillDetails.getCid()+"',"
+                + "TotalOutstandingMonthly,MonthlyUsageUnit,LastPaymentDay) values('"+monthlyBillDetails.getInvoiceNo()+"','"+monthlyBillDetails.getCid()+"',"
                 + "'"+monthlyBillDetails.getNic()+"','"+monthlyBillDetails.getGroup()+"','"+monthlyBillDetails.getOldMeter()+"',"
                 + "'"+monthlyBillDetails.getNewMeter()+"',"
                 + ",'"+monthlyBillDetails.getMonthlyConsumption()+"','"+monthlyBillDetails.getCurrentTotalAmount()+"',"
                 + "'"+monthlyBillDetails.getFixedCharge()+"','"+monthlyBillDetails.getSramadhana()+"',"
                 + "'"+monthlyBillDetails.getAbsentCharge()+"','"+monthlyBillDetails.getTotalMonthlyAmount()+"',"
                 + "'"+monthlyBillDetails.getMonth()+"','"+monthlyBillDetails.getTotalOutstandingMonthly()+"'"
-                + "'"+monthlyBillDetails.getMonthlyUsageUnit()+"')");
+                + "'"+monthlyBillDetails.getMonthlyUsageUnit()+"','"+monthlyBillDetails.getLastPaymentDay()+"')");
     }
     
     public BillData getBilldata(){
@@ -59,15 +59,29 @@ public class MonthlyBillDB {
         MonthlyBillDetails monthlyBillDetails=new MonthlyBillDetails();
         RetrieveClass retrieveClass=new RetrieveClass();
         try{
-            ResultSet rs  = retrieveClass.getResultsFormDB("select * from MonthlyBillDetails where nic='"+InvoiceNo+"'");
+            ResultSet rs  = retrieveClass.getResultsFormDB("select * from MonthlyBillDetails where InvoiceNo='"+InvoiceNo+"'");
             while (rs.next()) {
-                //cid= rs.getString("cid");
+                monthlyBillDetails.setInvoiceNo(InvoiceNo);
+                monthlyBillDetails.setCid(rs.getString("cid"));
+                monthlyBillDetails.setNic(rs.getString("nic"));
+                monthlyBillDetails.setGroup(rs.getString("Group"));
+                monthlyBillDetails.setOldMeter(rs.getInt("OldMeter"));
+                monthlyBillDetails.setNewMeter(rs.getInt("NewMeter"));
+                monthlyBillDetails.setMonthlyConsumption(rs.getDouble("MonthlyConsumption"));
+                monthlyBillDetails.setCurrentTotalAmount(rs.getDouble("CurrentTotalAmount"));
+                monthlyBillDetails.setFixedCharge(rs.getDouble("FixedCharge"));
+                monthlyBillDetails.setSramadhana(rs.getDouble("Sramadhana"));
+                monthlyBillDetails.setAbsentCharge(rs.getDouble("AbsentCharge"));
+                monthlyBillDetails.setTotalMonthlyAmount(rs.getDouble("TotalMonthlyAmount"));
+                monthlyBillDetails.setMonth(rs.getString("Month"));
+                monthlyBillDetails.setTotalOutstandingMonthly(rs.getDouble("TotalOutstandingMonthly"));
+                monthlyBillDetails.setMonthlyUsageUnit(rs.getInt("MonthlyUsageUnit"));
+                monthlyBillDetails.setLastPaymentDay(rs.getString("LastPaymentDay"));
             }
             DBConnection.disconnect();
         } catch (SQLException e) {
             getLogger.getLog().debug(e.toString());
-        }          
-        
+        }      
         return monthlyBillDetails;
     }
 }

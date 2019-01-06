@@ -21,30 +21,27 @@ import waterbillingsystem_1.pkg0.pkg0.dao.UnitPricesDB;
 public class BillDataProcessor {
     
     private String getBillId(String customerId){
-        return customerId+Integer.parseInt(DateDetails.getDateMonth()) ;
+        return customerId+DateDetails.getDateMonth()+ DateDetails.getDateYear();
     }
     
     public boolean putBillData(BillData billData){
         
         billData.setMbid(getBillId(billData.getCid()));
-        billData.setMonth(DateDetails.getDateYear()+DateDetails.getDateMonth());
+        billData.setMonth(DateDetails.getDateMonth()+"/"+DateDetails.getDateYear());
         
         MonthlyBillDB MonthlyBillDB=new MonthlyBillDB();
         return MonthlyBillDB.putBillData(billData);
     }
     
-    private String generateInvoiceNo(String customerId){
-        return customerId+DateDetails.getDateMonth();
-    }
-    
     public boolean setMonthlyBillDetails(BillData billData) throws Exception{
     
         MonthlyBillDetails monthlyBillDetails =new MonthlyBillDetails();
-        monthlyBillDetails.setInvoiceNo(generateInvoiceNo(billData.getCid()));
+        monthlyBillDetails.setInvoiceNo(getBillId(billData.getCid()));
         monthlyBillDetails.setCid(billData.getCid());
         monthlyBillDetails.setGroup(CustomerDataDatabase.getGroupFromNIC(billData.getNic()));
         
-        Customer customer = CustomerDataDatabase.getCustomer(billData.getNic());
+        CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
+        Customer customer = customerDataDatabase.getCustomer(billData.getNic());
         
         monthlyBillDetails.setOldMeter(customer.getCurrentMeter());
         monthlyBillDetails.setNewMeter(billData.getNewMeter());
@@ -66,9 +63,10 @@ public class BillDataProcessor {
         monthlyBillDetails.setTotalOutstandingMonthly(monthlyBillDetails.getCurrentTotalAmount()+monthlyBillDetails.getTotalMonthlyAmount());
         monthlyBillDetails.setMonth(billData.getMonth());
         monthlyBillDetails.setMonthlyUsageUnit(billData.getMonthlyUsageUnit());
+        monthlyBillDetails.setLastPaymentDay(DateDetails.getDateNextMonth()+"/"+DateDetails.getDateNextYear());
         
         MonthlyBillDB monthlyBillDB=new MonthlyBillDB();
-        return monthlyBillDB.putMonthlyBillDetails( monthlyBillDetails);
+        return monthlyBillDB.putMonthlyBillDetails(monthlyBillDetails);
     }
     
     

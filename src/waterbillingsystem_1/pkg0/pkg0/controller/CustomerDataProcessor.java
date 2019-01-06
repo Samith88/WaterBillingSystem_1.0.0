@@ -15,7 +15,8 @@ import waterbillingsystem_1.pkg0.pkg0.dao.CustomerDataDatabase;
 public class CustomerDataProcessor {
     
     public static boolean putCustomer(Customer customer){
-        return CustomerDataDatabase.putCustomerData(customer);   
+        CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
+        return customerDataDatabase.putCustomerData(customer);   
     }
     
 }

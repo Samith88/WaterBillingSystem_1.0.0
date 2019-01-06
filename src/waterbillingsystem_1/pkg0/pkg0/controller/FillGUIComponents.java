@@ -6,8 +6,13 @@
 package waterbillingsystem_1.pkg0.pkg0.controller;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import waterbillingsystem_1.pkg0.pkg0.dao.CustomerDataDatabase;
 import waterbillingsystem_1.pkg0.pkg0.dao.GroupDetailsDB;
+import java.util.Map;
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  *
@@ -36,5 +41,30 @@ public class FillGUIComponents {
         } else {
             evt.consume();
         } 
+    }
+    public static void setNumberOnlyTextBoxNIC(java.awt.event.KeyEvent evt){
+        char enter = evt.getKeyChar();
+        if(Character.isDigit(enter) || (enter=='.') || (enter=='V') || (enter=='v')){
+        } else {
+            evt.consume();
+        } 
+    }    
+    
+    public void LoadCustomerData(String nic,javax.swing.JComboBox comboBox,javax.swing.JTextField jTextField) throws Exception{
+    
+        comboBox.removeAllItems();
+        CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
+        HashMap<String, String> customerHash = customerDataDatabase.getAllCustomers();
+        
+        Set set = customerHash.entrySet();
+        Iterator iterator = set.iterator();
+        
+        while(iterator.hasNext()) {
+            Map.Entry mentry = (Map.Entry)iterator.next();
+            if(mentry.getKey().toString().contains(nic))
+                comboBox.addItem(mentry.getKey());
+        } 
+        if(comboBox.getSelectedItem().toString().length()== 10)
+            jTextField.setText(customerHash.get(comboBox.getSelectedItem().toString()));
     }
 }

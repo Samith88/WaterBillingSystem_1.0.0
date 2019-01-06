@@ -9,7 +9,6 @@ package waterbillingsystem_1.pkg0.pkg0;
  *
  * @author UDISSSA1
  */
-import com.lowagie.text.pdf.codec.Base64.InputStream;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -21,10 +20,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import waterbillingsystem_1.pkg0.pkg0.logging.getLogger;
 import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.export.*;
 import java.util.*;
 import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.export.ooxml.JRDocxExporter;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
@@ -79,7 +76,7 @@ public class testdbConnect {
         map.put("P_InvoiceNo","12345");
         map.put("P_cid","001");
         map.put("P_nic", "883512847V");
-        map.put("P_GroupId", "001");
+        map.put("P_Group", "001");
         map.put("P_OldMeter",400 );
         map.put("P_NewMeter",415 );
         map.put("P_MonthlyConsumption",500.00 );
@@ -107,7 +104,8 @@ public class testdbConnect {
         JasperPrint JPrint=JasperFillManager.fillReport(jr, map);
 
         // PRINT REPORT TO PDF FILE.
-        OutputStream output = new FileOutputStream(new File("waterBilling.pdf"));
+        File outFile = new File("waterBilling.pdf");
+        OutputStream output = new FileOutputStream(outFile);
         JasperExportManager.exportReportToPdfStream(JPrint, output);
         System.exit(0);
            // VIEW THE REPORT
