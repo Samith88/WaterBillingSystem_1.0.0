@@ -5,11 +5,13 @@
  */
 package waterbillingsystem_1.pkg0.pkg0.view;
 
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
 import waterbillingsystem_1.pkg0.pkg0.base.BillData;
 import waterbillingsystem_1.pkg0.pkg0.controller.BillDataProcessor;
+import waterbillingsystem_1.pkg0.pkg0.controller.CustomerDataProcessor;
 import waterbillingsystem_1.pkg0.pkg0.controller.FillGUIComponents;
 
 /**
@@ -21,8 +23,15 @@ public class EnterBillData extends javax.swing.JFrame {
     /**
      * Creates new form EnterBillData
      */
+    HashMap<String, String> customerHash = new HashMap<>();
     public EnterBillData() {
         initComponents();
+    }
+
+    public EnterBillData(String test) throws Exception {
+        initComponents();
+        CustomerDataProcessor customerDataProcessor=new CustomerDataProcessor();
+        customerHash = customerDataProcessor.getCustomerCIDNNIC();
     }
 
     /**
@@ -300,7 +309,7 @@ public class EnterBillData extends javax.swing.JFrame {
         FillGUIComponents.setNumberOnlyTextBoxNIC(evt);
         FillGUIComponents fillGUIComponents=new FillGUIComponents();
         try {
-            fillGUIComponents.LoadCustomerData(txtCustomerNIC.getText(), cmbCustomerNIC,txtCustomerCID);
+            fillGUIComponents.LoadCustomerData(customerHash,txtCustomerNIC.getText(), cmbCustomerNIC);
         } catch (Exception ex) {
             Logger.getLogger(EnterBillData.class.getName()).log(Level.SEVERE, null, ex);
         }

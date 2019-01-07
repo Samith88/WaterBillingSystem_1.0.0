@@ -50,11 +50,9 @@ public class FillGUIComponents {
         } 
     }    
     
-    public void LoadCustomerData(String nic,javax.swing.JComboBox comboBox,javax.swing.JTextField jTextField) throws Exception{
+    public void LoadCustomerData(HashMap<String, String> customerHash ,String nic,javax.swing.JComboBox comboBox) throws Exception{
     
         comboBox.removeAllItems();
-        CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
-        HashMap<String, String> customerHash = customerDataDatabase.getAllCustomers();
         
         Set set = customerHash.entrySet();
         Iterator iterator = set.iterator();
@@ -64,7 +62,5 @@ public class FillGUIComponents {
             if(mentry.getKey().toString().contains(nic))
                 comboBox.addItem(mentry.getKey());
         } 
-        if(comboBox.getSelectedItem().toString().length()== 10)
-            jTextField.setText(customerHash.get(comboBox.getSelectedItem().toString()));
     }
 }
