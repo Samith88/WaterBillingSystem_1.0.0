@@ -73,6 +73,11 @@ public class EnterBillData extends javax.swing.JFrame {
         BDLblNIC.setText("Customer NIC");
 
         cmbCustomerNIC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select NIC" }));
+        cmbCustomerNIC.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbCustomerNICItemStateChanged(evt);
+            }
+        });
 
         txtCustomerNIC.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -325,6 +330,14 @@ public class EnterBillData extends javax.swing.JFrame {
         FillGUIComponents.setNumberOnlyTextBox(evt);
     }//GEN-LAST:event_txtPaymentAmtKeyTyped
 
+    private void cmbCustomerNICItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbCustomerNICItemStateChanged
+
+        try{
+            if(cmbCustomerNIC.getSelectedItem().toString().length()== 10)
+            txtCustomerCID.setText(customerHash.get(cmbCustomerNIC.getSelectedItem().toString()));    
+        }catch(Exception ex){ex.toString();}
+    }//GEN-LAST:event_cmbCustomerNICItemStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -350,7 +363,11 @@ public class EnterBillData extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new EnterBillData().setVisible(true);
+            try {
+                new EnterBillData("").setVisible(true);
+            } catch (Exception ex) {
+                Logger.getLogger(EnterBillData.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
     }
 

@@ -23,7 +23,6 @@ public class CustomerDataProcessor {
     public HashMap<String, String> getCustomerCIDNNIC() throws Exception{
         
         CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
-        //public HashMap<String, String> getAllCustomers() throws Exception{
         return customerDataDatabase.getAllCustomers();
     }
     
