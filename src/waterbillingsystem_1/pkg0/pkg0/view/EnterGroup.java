@@ -20,10 +20,12 @@ public class EnterGroup extends javax.swing.JFrame {
     /**
      * Creates new form EnterGroup
      */
+    boolean dataInserted;
     public EnterGroup() {
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
+        dataInserted =false;
     }
 
     /**
@@ -95,6 +97,11 @@ public class EnterGroup extends javax.swing.JFrame {
 
         btnGDEnterAnother.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnGDEnterAnother.setText("Another Bill");
+        btnGDEnterAnother.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGDEnterAnotherActionPerformed(evt);
+            }
+        });
 
         btnCDHome1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home_button.png"))); // NOI18N
         btnCDHome1.setBorder(null);
@@ -188,19 +195,26 @@ public class EnterGroup extends javax.swing.JFrame {
         
         GroupDataProcessor groupDataProcessor=new GroupDataProcessor();
         if(groupDataProcessor.putGroup(group))
+        {
             JOptionPaneCustom.infoBox("Group data inserted successfully", "Group Data Insertion");
+            dataInserted = true;    
+        }
         else
             JOptionPaneCustom.errorBox("Group data insertion error", "Group Data Insertion");
     }//GEN-LAST:event_btnGDEnterActionPerformed
 
     private void btnGDClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDClearActionPerformed
         // TODO add your handling code here:
+        ClearComponents();
+    }//GEN-LAST:event_btnGDClearActionPerformed
+
+    private void ClearComponents(){
+    
         txtGroupId.setText("");
         txtGroupName.setText("");
         txtGroupLoc.setText("");
-        txtGroupDesc.setText("");
-    }//GEN-LAST:event_btnGDClearActionPerformed
-
+        txtGroupDesc.setText("");        
+    }
     private void txtGroupIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtGroupIdKeyTyped
 
         FillGUIComponents.setNumberOnlyTextBox(evt);
@@ -213,6 +227,17 @@ public class EnterGroup extends javax.swing.JFrame {
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_btnCDHome1ActionPerformed
+
+    private void btnGDEnterAnotherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDEnterAnotherActionPerformed
+        // TODO add your handling code here:
+        if(dataInserted)
+        {
+            ClearComponents();
+            dataInserted = false;
+        }
+        else
+            JOptionPaneCustom.errorBox("Current insertion not completed", "Group Data Insertion");        
+    }//GEN-LAST:event_btnGDEnterAnotherActionPerformed
 
     /**
      * @param args the command line arguments

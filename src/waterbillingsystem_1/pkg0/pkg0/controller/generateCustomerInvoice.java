@@ -5,9 +5,7 @@
  */
 package waterbillingsystem_1.pkg0.pkg0.controller;
 
-import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
@@ -27,10 +25,12 @@ import waterbillingsystem_1.pkg0.pkg0.dao.CustomerDataDatabase;
  *
  * @author UDISSSA1
  */
-public class CreatReport {
+//jasperFile = "waterBilling.jrxml";
+public class generateCustomerInvoice {
     
-    public void generateJasperReport(File jasperFile,File outFile ,MonthlyBillDetails monthlyBillDetails) throws Exception{
+    public String generateJasperReport(String jasperFileString,String outFileString ,MonthlyBillDetails monthlyBillDetails) throws Exception{
     
+        File jasperFile = new File(jasperFileString);
         CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
         Customer customer = customerDataDatabase.getCustomer(monthlyBillDetails.getNic());
                 
@@ -54,21 +54,22 @@ public class CreatReport {
         map.put("P_LastPaymentDay",monthlyBillDetails.getLastPaymentDay() ); 
         map.put("P_Month",monthlyBillDetails.getMonth());     
 
-        BufferedInputStream is = new BufferedInputStream(new FileInputStream(jasperFile.getAbsolutePath()));
+        //BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(jasperFile.getAbsolutePath()));
         JasperDesign jasperDesign=JRXmlLoader.load(jasperFile.getAbsolutePath());
 
-        JasperReport jr = JasperCompileManager.compileReport(jasperDesign);
+        JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
 
         // FILL THE REPORT
-        JasperPrint JPrint=JasperFillManager.fillReport(jr, map);
+        JasperPrint JPrint=JasperFillManager.fillReport(jasperReport, map);
 
         // PRINT REPORT TO PDF FILE.
-        //File outFile = new File("waterBilling.pdf");
+        File outFile = new File("Invoice_"+outFileString+".pdf");
         OutputStream outputStream = new FileOutputStream(outFile);
         JasperExportManager.exportReportToPdfStream(JPrint, outputStream);
         System.exit(0);
         // VIEW THE REPORT
-        JasperViewer.viewReport(JPrint);        
+        JasperViewer.viewReport(JPrint);      
+        return "Invoice_"+outFileString+".pdf";
     }
     
 }

@@ -33,11 +33,11 @@ public class CustomerDataDatabase {
                 customer.setAddress_1(rs.getString("address_1"));
                 customer.setAddress_2(rs.getString("address_2"));
                 customer.setAddress_3(rs.getString("address_3"));
-                customer.setGid(rs.getInt("gid"));
+                customer.setGid(rs.getString("gid"));
                 customer.setPreMeter(rs.getInt("preMeter"));
                 customer.setCurrentMeter(rs.getInt("currentMeter"));
                 customer.setTotalOutstandingAmount(rs.getDouble("TotalOutstandingAmount"));
-                customer.setMeterNo(rs.getInt("MeterNo"));
+                customer.setMeterNo(rs.getString("MeterNo"));
                 customer.setLastPayment(rs.getDouble("lastPayment"));
                 customer.setCname(rs.getString("cname"));
                 customer.setCFirstName(rs.getString("CFirstName"));
@@ -106,10 +106,21 @@ public class CustomerDataDatabase {
         InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
         
         return insertUpdateDeleteClass.insertUpdateDeleteDB("insert into Customer(cid,nic,address_1,address_2,"
-                + "address_3,gid,MeterNo,cname,currentMeter,TotalOutstandingAmount,CFirstName) values ("
+                + "address_3,gid,MeterNo,cname,currentMeter,TotalOutstandingAmount,CFirstName,lastPayment) values ("
                 + "'"+customer.getCid()+"','"+customer.getNic()+"','"+customer.getAddress_1()+"',"
                 + "'"+customer.getAddress_2()+"','"+customer.getAddress_3()+"','"+customer.getGid()+"',"
                 + "'"+customer.getMeterNo()+"','"+customer.getCname()+"','"+customer.getCurrentMeter()+"'"
-                + ",'"+customer.getTotalOutstandingAmount()+"','"+customer.getCFirstName()+"')");
+                + ",'"+customer.getTotalOutstandingAmount()+"','"+customer.getCFirstName()+"','"+customer.getLastPayment()+"')");
+    }
+    
+    public boolean updateCustomerData(Customer customer){
+    
+        InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
+        
+        return insertUpdateDeleteClass.insertUpdateDeleteDB("update Customer set nic='"+customer.getNic()+"',address_1='"+customer.getAddress_1()+"',"
+                + "address_2='"+customer.getAddress_2()+"',address_3='"+customer.getAddress_3()+"',gid= '"+customer.getGid()+"',"
+                + "MeterNo='"+customer.getMeterNo()+"',cname='"+customer.getCname()+"',currentMeter='"+customer.getCurrentMeter()+"',"
+                + "TotalOutstandingAmount='"+customer.getTotalOutstandingAmount()+"',CFirstName='"+customer.getCFirstName()+"',"
+                + "lastPayment='"+customer.getLastPayment()+"' where cid='"+customer.getCid()+"'");
     }
 }

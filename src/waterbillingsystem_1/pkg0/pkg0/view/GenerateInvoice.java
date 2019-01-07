@@ -5,8 +5,16 @@
  */
 package waterbillingsystem_1.pkg0.pkg0.view;
 
+import java.util.HashMap;
 import javax.swing.JFrame;
-
+import waterbillingsystem_1.pkg0.pkg0.controller.CustomerDataProcessor;
+import waterbillingsystem_1.pkg0.pkg0.controller.FillGUIComponents;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
+import waterbillingsystem_1.pkg0.pkg0.controller.BillDataProcessor;
+import waterbillingsystem_1.pkg0.pkg0.controller.generateCustomerInvoice;
+import waterbillingsystem_1.pkg0.pkg0.dao.MonthlyBillDB;
 /**
  *
  * @author UDISSSA1
@@ -16,7 +24,10 @@ public class GenerateInvoice extends javax.swing.JFrame {
     /**
      * Creates new form GenerateInvoice
      */
-    public GenerateInvoice() {
+    HashMap<String, String> customerHash = new HashMap<>();    
+    public GenerateInvoice() throws Exception {
+        CustomerDataProcessor customerDataProcessor=new CustomerDataProcessor();
+        customerHash = customerDataProcessor.getCustomerCIDNNIC();        
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);        
@@ -33,6 +44,17 @@ public class GenerateInvoice extends javax.swing.JFrame {
 
         GILabelMain = new javax.swing.JLabel();
         btnCDHome = new javax.swing.JButton();
+        GCRLblCID = new javax.swing.JLabel();
+        txtCustomerCID = new javax.swing.JTextField();
+        GCRLblNIC = new javax.swing.JLabel();
+        cmbCustomerNIC = new javax.swing.JComboBox<>();
+        txtCustomerNIC = new javax.swing.JTextField();
+        cmbYear = new javax.swing.JComboBox<>();
+        GCRLblUnits1 = new javax.swing.JLabel();
+        cmbMonth = new javax.swing.JComboBox<>();
+        btnGCRClear = new javax.swing.JButton();
+        btnGCREnter = new javax.swing.JButton();
+        btnGCREnterAnother = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,12 +72,94 @@ public class GenerateInvoice extends javax.swing.JFrame {
             }
         });
 
+        GCRLblCID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        GCRLblCID.setText("Customer Id");
+
+        txtCustomerCID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCustomerCIDKeyTyped(evt);
+            }
+        });
+
+        GCRLblNIC.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        GCRLblNIC.setText("Customer NIC");
+
+        cmbCustomerNIC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select NIC" }));
+        cmbCustomerNIC.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbCustomerNICItemStateChanged(evt);
+            }
+        });
+
+        txtCustomerNIC.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCustomerNICKeyTyped(evt);
+            }
+        });
+
+        cmbYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035" }));
+
+        GCRLblUnits1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        GCRLblUnits1.setText("Billing Month");
+
+        cmbMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01-January", "02-February", "03-March", "04-April", "05-May", "06-June", "07-July", "08-August", "09-September", "10-Octomber", "11-November", "12-December" }));
+
+        btnGCRClear.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnGCRClear.setText(" Clear Data");
+        btnGCRClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGCRClearActionPerformed(evt);
+            }
+        });
+
+        btnGCREnter.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnGCREnter.setText("Generate Invoice");
+        btnGCREnter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGCREnterActionPerformed(evt);
+            }
+        });
+
+        btnGCREnterAnother.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnGCREnterAnother.setText("Generate Another");
+        btnGCREnterAnother.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGCREnterAnotherActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(186, Short.MAX_VALUE)
+                .addGap(76, 76, 76)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(GCRLblNIC, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(GCRLblCID, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(GCRLblUnits1))
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(35, 35, 35)
+                                .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(cmbCustomerNIC, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtCustomerCID, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtCustomerNIC, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnGCREnterAnother)))
+                        .addGap(0, 115, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnGCRClear)
+                        .addGap(32, 32, 32)
+                        .addComponent(btnGCREnter)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(GILabelMain)
@@ -71,7 +175,28 @@ public class GenerateInvoice extends javax.swing.JFrame {
                 .addComponent(btnCDHome)
                 .addGap(15, 15, 15)
                 .addComponent(GILabelMain)
-                .addContainerGap(398, Short.MAX_VALUE))
+                .addGap(45, 45, 45)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(GCRLblNIC)
+                    .addComponent(txtCustomerNIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3)
+                .addComponent(cmbCustomerNIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(GCRLblCID)
+                    .addComponent(txtCustomerCID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(GCRLblUnits1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(69, 69, 69)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGCRClear)
+                    .addComponent(btnGCREnterAnother)
+                    .addComponent(btnGCREnter))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
 
         pack();
@@ -84,6 +209,63 @@ public class GenerateInvoice extends javax.swing.JFrame {
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_btnCDHomeActionPerformed
+
+    private void txtCustomerCIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCustomerCIDKeyTyped
+        // TODO add your handling code here:
+        FillGUIComponents.setNumberOnlyTextBox(evt);
+    }//GEN-LAST:event_txtCustomerCIDKeyTyped
+
+    private void cmbCustomerNICItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbCustomerNICItemStateChanged
+        // TODO add your handling code here:
+        try{
+            if(cmbCustomerNIC.getSelectedItem().toString().length()== 10)
+            txtCustomerCID.setText(customerHash.get(cmbCustomerNIC.getSelectedItem().toString()));
+        }catch(Exception ex){ex.toString();}
+    }//GEN-LAST:event_cmbCustomerNICItemStateChanged
+
+    private void txtCustomerNICKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCustomerNICKeyTyped
+        FillGUIComponents.setNumberOnlyTextBoxNIC(evt);
+        FillGUIComponents fillGUIComponents=new FillGUIComponents();
+        try {
+            fillGUIComponents.LoadCustomerData(customerHash,txtCustomerNIC.getText(), cmbCustomerNIC);
+        } catch (Exception ex) {
+            Logger.getLogger(EnterBillData.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_txtCustomerNICKeyTyped
+
+    private void btnGCRClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGCRClearActionPerformed
+
+        ClearComponents();
+    }//GEN-LAST:event_btnGCRClearActionPerformed
+
+    private void ClearComponents(){
+    
+        txtCustomerNIC.setText("");
+        txtCustomerCID.setText("");
+        cmbMonth.setSelectedIndex(0);
+        cmbYear.setSelectedIndex(0);
+    }
+    private void btnGCREnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGCREnterActionPerformed
+        // generateJasperReport(File jasperFile,File outFile ,MonthlyBillDetails monthlyBillDetails)
+        JOptionPaneCustom.infoBox("Invoice "+GenerateCustomerInvoce()+" was generated.", "Group Data Insertion");
+    }//GEN-LAST:event_btnGCREnterActionPerformed
+
+    private String GenerateCustomerInvoce(){
+        String outFileName ="";
+        MonthlyBillDB monthlyBillDB=new MonthlyBillDB();
+        generateCustomerInvoice generateCustomerInvoice=new generateCustomerInvoice();
+        BillDataProcessor billDataProcessor=new BillDataProcessor();
+        try {
+            outFileName = generateCustomerInvoice.generateJasperReport("waterBilling.jrxml", billDataProcessor.getBillId(txtCustomerCID.getText()), monthlyBillDB.getMonthlyBillDetailsByInvoiceNo(billDataProcessor.getBillId(txtCustomerCID.getText())));
+        } catch (Exception ex) {
+            Logger.getLogger(GenerateInvoice.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+        return outFileName;
+    }
+    private void btnGCREnterAnotherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGCREnterAnotherActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_btnGCREnterAnotherActionPerformed
 
     /**
      * @param args the command line arguments
@@ -110,12 +292,27 @@ public class GenerateInvoice extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new GenerateInvoice().setVisible(true);
+            try {
+                new GenerateInvoice().setVisible(true);
+            } catch (Exception ex) {
+                Logger.getLogger(GenerateInvoice.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel GCRLblCID;
+    private javax.swing.JLabel GCRLblNIC;
+    private javax.swing.JLabel GCRLblUnits1;
     private javax.swing.JLabel GILabelMain;
     private javax.swing.JButton btnCDHome;
+    private javax.swing.JButton btnGCRClear;
+    private javax.swing.JButton btnGCREnter;
+    private javax.swing.JButton btnGCREnterAnother;
+    private javax.swing.JComboBox<String> cmbCustomerNIC;
+    private javax.swing.JComboBox<String> cmbMonth;
+    private javax.swing.JComboBox<String> cmbYear;
+    private javax.swing.JTextField txtCustomerCID;
+    private javax.swing.JTextField txtCustomerNIC;
     // End of variables declaration//GEN-END:variables
 }

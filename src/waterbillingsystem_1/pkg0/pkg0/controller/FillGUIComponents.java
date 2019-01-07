@@ -8,7 +8,6 @@ package waterbillingsystem_1.pkg0.pkg0.controller;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
-import waterbillingsystem_1.pkg0.pkg0.dao.CustomerDataDatabase;
 import waterbillingsystem_1.pkg0.pkg0.dao.GroupDetailsDB;
 import java.util.Map;
 import java.util.Iterator;
@@ -63,4 +62,12 @@ public class FillGUIComponents {
                 comboBox.addItem(mentry.getKey());
         } 
     }
+    public void updateCmb(javax.swing.JComboBox comboBox,String selected) throws SQLException, Exception{
+        
+        GroupDetailsDB groupDetailsDB=new GroupDetailsDB();
+        List<String> groupList = groupDetailsDB.getGroupAString();
+        groupList.stream().filter((element) -> (element.contains(selected))).forEachOrdered((element) -> {
+            comboBox.setSelectedItem(element);
+        });
+    }    
 }

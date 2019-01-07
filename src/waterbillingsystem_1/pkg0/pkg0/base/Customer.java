@@ -51,11 +51,11 @@ public class Customer {
         this.address_3 = address_3;
     }
 
-    public int getGid() {
+    public String getGid() {
         return gid;
     }
 
-    public void setGid(int gid) {
+    public void setGid(String gid) {
         this.gid = gid;
     }
 
@@ -83,11 +83,11 @@ public class Customer {
         this.TotalOutstandingAmount = TotalOutstandingAmount;
     }
 
-    public int getMeterNo() {
+    public String getMeterNo() {
         return MeterNo;
     }
 
-    public void setMeterNo(int MeterNo) {
+    public void setMeterNo(String MeterNo) {
         this.MeterNo = MeterNo;
     }
 
@@ -119,11 +119,11 @@ public class Customer {
     private String  address_1;
     private String  address_2;
     private String  address_3;
-    private int  gid;
+    private String  gid;
     private int  preMeter ;
     private int  currentMeter;
     private double  TotalOutstandingAmount ;
-    private int  MeterNo ;
+    private String  MeterNo ;
     private double lastPayment;
     private String cname;
     private String CFirstName;

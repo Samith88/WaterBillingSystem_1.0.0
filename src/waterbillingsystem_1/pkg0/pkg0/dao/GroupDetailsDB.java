@@ -28,7 +28,7 @@ public class GroupDetailsDB {
     
     public List<Group> getGroup() throws Exception{
         RetrieveClass retrieveClass =new RetrieveClass();
-        List<Group> groups=new ArrayList<Group>();  
+        List<Group> groups=new ArrayList<>();  
         Group group=null;
         try{
             ResultSet rs  = retrieveClass.getResultsFormDB("select * from [group]");
@@ -69,7 +69,7 @@ public class GroupDetailsDB {
 
     public List<String> getGroupAString() throws Exception{
         RetrieveClass retrieveClass =new RetrieveClass();
-        List<String> groupIds=new ArrayList<String>();  
+        List<String> groupIds=new ArrayList<>();  
         try{
             ResultSet rs  = retrieveClass.getResultsFormDB("select gid,gname from [group]");
             while (rs.next()) {

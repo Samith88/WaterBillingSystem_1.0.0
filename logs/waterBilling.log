@@ -152,3 +152,8 @@
 2019-01-06 22:42:25 DEBUG [main] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateText@4976085
 2019-01-06 22:42:25 DEBUG [main] (JRBaseFiller.java:919) - Fill 1: ended
 2019-01-06 22:42:25 DEBUG [main] (JRFillDataset.java:1160) - Fill 1: closing query executer
+2019-01-07 20:33:11 DEBUG [AWT-EventQueue-0] (InsertUpdateDeleteClass.java:32) - org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "MeterNo": syntax error)
+2019-01-07 20:36:02 DEBUG [AWT-EventQueue-0] (EnterCustomer.java:381) - Customer data inserted :883512847v
+2019-01-07 20:36:28 DEBUG [AWT-EventQueue-0] (EnterCustomer.java:381) - Customer data inserted :883512847v
+2019-01-07 20:43:46 DEBUG [AWT-EventQueue-0] (EnterCustomer.java:386) - Customer data inserted :883512847v
+2019-01-07 20:44:35 DEBUG [AWT-EventQueue-0] (EnterCustomer.java:386) - Customer data inserted :883512847v

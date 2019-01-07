@@ -20,10 +20,12 @@ public class EnterUnitPrice extends javax.swing.JFrame {
     /**
      * Creates new form EnterUnitPrices
      */
+    boolean dataInserted;    
     public EnterUnitPrice() {
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        this.setLocationRelativeTo(null);        
+        this.setLocationRelativeTo(null);   
+        dataInserted =false;        
     }
 
     /**
@@ -67,6 +69,11 @@ public class EnterUnitPrice extends javax.swing.JFrame {
 
         btnGDEnterAnother.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnGDEnterAnother.setText("Another Bill");
+        btnGDEnterAnother.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGDEnterAnotherActionPerformed(evt);
+            }
+        });
 
         txUnitPriceId.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -200,19 +207,24 @@ public class EnterUnitPrice extends javax.swing.JFrame {
 
         UnitPriceProcessor unitPriceProcessor=new UnitPriceProcessor();
         if(unitPriceProcessor.putUnitPrice(unitPrice))
+        {
             JOptionPaneCustom.infoBox("Unit Price insertion successfully", "Unit Price Insertion");
+            dataInserted = true;        
+        }
         else
             JOptionPaneCustom.errorBox("Unit Price insertion error", "Unit Price Insertion");
     }//GEN-LAST:event_btnGDEnterActionPerformed
 
     private void btnGDClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDClearActionPerformed
-        // TODO add your handling code here:
+        ClearComponents();
+    }//GEN-LAST:event_btnGDClearActionPerformed
+
+    private void ClearComponents(){
         txUnitPriceId.setText("");
         txUnitPriceLower.setText("");
         txUnitPriceUpper.setText("");
-        txUnitPrice.setText("");
-    }//GEN-LAST:event_btnGDClearActionPerformed
-
+        txUnitPrice.setText("");    
+    }
     private void txUnitPriceIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txUnitPriceIdKeyTyped
 
         FillGUIComponents.setNumberOnlyTextBox(evt);
@@ -240,6 +252,17 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_btnCDHomeActionPerformed
+
+    private void btnGDEnterAnotherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDEnterAnotherActionPerformed
+        if(dataInserted)
+        {
+            ClearComponents();
+            dataInserted = false;
+        }
+        else
+            JOptionPaneCustom.errorBox("Current insertion not completed", "Customer Data Insertion");
+        
+    }//GEN-LAST:event_btnGDEnterAnotherActionPerformed
 
     /**
      * @param args the command line arguments

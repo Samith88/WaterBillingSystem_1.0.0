@@ -24,11 +24,14 @@ public class EnterCustomer extends javax.swing.JFrame {
     /**
      * Creates new form EnterCustomer
      */
+    boolean dataUpdate ;  
+    boolean dataInserted;
     public EnterCustomer() {
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
-        //this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+        dataUpdate = false;
+        dataInserted =false;
     }
 
     /**
@@ -70,6 +73,7 @@ public class EnterCustomer extends javax.swing.JFrame {
         CDFLabelCFN = new javax.swing.JLabel();
         txtCustomerFN = new javax.swing.JTextField();
         btnCDHome = new javax.swing.JButton();
+        btnCDUpdate = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -142,6 +146,11 @@ public class EnterCustomer extends javax.swing.JFrame {
 
         btnCDFEnterAnother.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnCDFEnterAnother.setText("Another Customer");
+        btnCDFEnterAnother.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCDFEnterAnotherActionPerformed(evt);
+            }
+        });
 
         lblCDFMeterNo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblCDFMeterNo.setText("Meter No");
@@ -184,6 +193,17 @@ public class EnterCustomer extends javax.swing.JFrame {
             }
         });
 
+        btnCDUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/update.png"))); // NOI18N
+        btnCDUpdate.setBorder(null);
+        btnCDUpdate.setBorderPainted(false);
+        btnCDUpdate.setContentAreaFilled(false);
+        btnCDUpdate.setFocusPainted(false);
+        btnCDUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCDUpdateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -192,79 +212,82 @@ public class EnterCustomer extends javax.swing.JFrame {
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(CDFLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lblCDFMeterNo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtCustomerMno, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(CDFLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtCustomerAd3, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(CDFLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtCustomerAd2, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(CDFLabel4)
-                                    .addComponent(CDFLabel3))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtCustomerNIC, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(108, 108, 108)
-                                        .addComponent(cmbGroupId, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(CDFLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtCustomerAd1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(CDFLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtCustomerNo, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lblCDFTOA)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                                .addComponent(txtCustomerTOA, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(CDFLabelCM)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtCustomerCurrentMeter, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(btnCDFClear, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnCDFEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(38, 38, 38)
-                                .addComponent(btnCDFEnterAnother)
-                                .addGap(26, 26, 26))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(CDFLabelCFN)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtCustomerFN, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(54, 54, 54))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnCDUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(CDFLabelMain)
                         .addGap(100, 100, 100)
                         .addComponent(btnCDHome, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22))))
+                        .addGap(22, 22, 22))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(CDFLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtCustomerNIC, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(CDFLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblCDFMeterNo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtCustomerMno, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(CDFLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtCustomerAd3, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(CDFLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtCustomerAd2, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(CDFLabel4)
+                                .addGap(108, 108, 108)
+                                .addComponent(cmbGroupId, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(CDFLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtCustomerAd1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(CDFLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtCustomerNo, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblCDFTOA)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                                .addComponent(txtCustomerTOA, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(CDFLabelCM)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtCustomerCurrentMeter, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addComponent(btnCDFClear, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnCDFEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31)
+                                .addComponent(btnCDFEnterAnother)
+                                .addGap(26, 26, 26))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(CDFLabelCFN)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtCustomerFN, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(54, 54, 54))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CDFLabelMain, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnCDHome, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(18, 18, 18)
+                    .addComponent(btnCDHome)
+                    .addComponent(CDFLabelMain)
+                    .addComponent(btnCDUpdate))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCustomerNIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CDFLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCustomerFN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CDFLabelCFN))
@@ -272,17 +295,12 @@ public class EnterCustomer extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(CDFLabel2)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(CDFLabel3)
-                        .addGap(19, 19, 19)
+                        .addGap(9, 9, 9)
                         .addComponent(CDFLabel4)
                         .addGap(13, 13, 13))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtCustomerNIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(cmbGroupId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -324,28 +342,57 @@ public class EnterCustomer extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCDFEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDFEnterActionPerformed
-        // TODO add your handling code here:
         Customer customer=new Customer();
         
         customer.setCFirstName(txtCustomerFN.getText());
         customer.setCid(txtCustomerNo.getText());
         customer.setNic(txtCustomerNIC.getText() );
-        customer.setGid(Integer.parseInt(cmbGroupId.getSelectedItem().toString().split("-")[1]));
+        customer.setGid(cmbGroupId.getSelectedItem().toString().split("-")[1]);
         customer.setAddress_1(txtCustomerAd1.getText());
         customer.setAddress_2(txtCustomerAd2.getText());
         customer.setAddress_3(txtCustomerAd3.getText());
         customer.setCname(txtCustomername.getText());
-        customer.setMeterNo(Integer.parseInt(txtCustomerMno.getText()));
+        customer.setMeterNo(txtCustomerMno.getText());
         customer.setCurrentMeter(Integer.parseInt(txtCustomerCurrentMeter.getText()));
-        customer.setTotalOutstandingAmount(Double.parseDouble(txtCustomerTOA.getText()));
-        
+        customer.setTotalOutstandingAmount(Double.parseDouble(txtCustomerTOA.getText()));        
+        if(dataUpdate && !dataInserted)
+        {
+            UpdateCustomerData(customer);
+        }
+        else if(!dataInserted)
+        {
+            InsertCustomerData(customer);
+        }
+
+    }//GEN-LAST:event_btnCDFEnterActionPerformed
+
+    private void InsertCustomerData(Customer customer){
+
         if(CustomerDataProcessor.putCustomer(customer))
         {
             JOptionPaneCustom.infoBox("Customer data inserted successfully", "Bill Data Insertion");
             getLogger.getLog().debug("Customer data inserted :"+customer.getNic());
+            dataInserted = true;
+            ClearComponents();            
         }
-    }//GEN-LAST:event_btnCDFEnterActionPerformed
-
+        else 
+            JOptionPaneCustom.errorBox("Customer data insertion failed", "Customer Data Insertion");    
+    }
+    private void UpdateCustomerData(Customer customer){
+        
+        if(CustomerDataProcessor.updateCustomer(customer))
+        {
+            JOptionPaneCustom.infoBox("Customer data updated successfully", "Bill Data Insertion");
+            getLogger.getLog().debug("Customer data inserted :"+customer.getNic());
+            dataInserted = true;
+            ClearComponents();  
+            dataUpdate=false;
+            btnCDFEnter.setText("Enter Customer");
+        }
+        else 
+            JOptionPaneCustom.errorBox("Customer data insertion failed", "Customer Data Insertion");          
+    }
+    
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         try {
             FillGUIComponents fillGUIComponents=new FillGUIComponents();
@@ -359,7 +406,11 @@ public class EnterCustomer extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void btnCDFClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDFClearActionPerformed
-        // TODO add your handling code here:
+
+        ClearComponents();
+    }//GEN-LAST:event_btnCDFClearActionPerformed
+
+    private void ClearComponents(){
         txtCustomername.setText("");
         txtCustomerNIC.setText("");
         cmbGroupId.setSelectedIndex(0);
@@ -369,9 +420,11 @@ public class EnterCustomer extends javax.swing.JFrame {
         txtCustomerNo.setText("");
         txtCustomerMno.setText("");
         txtCustomerCurrentMeter.setText("");
-        txtCustomerTOA.setText("");
-    }//GEN-LAST:event_btnCDFClearActionPerformed
-
+        txtCustomerTOA.setText("");  
+        txtCustomerFN.setText("");
+        
+    }
+    
     private void txtCustomerNICKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCustomerNICKeyTyped
 
         FillGUIComponents.setNumberOnlyTextBox(evt);
@@ -402,6 +455,56 @@ public class EnterCustomer extends javax.swing.JFrame {
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_btnCDHomeActionPerformed
+
+    private void btnCDUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDUpdateActionPerformed
+        // TODO add your handling code here:
+        if (!dataUpdate)
+            dataUpdate = true;
+        
+        CustomerDataProcessor customerDataProcessor=new CustomerDataProcessor();
+        try {
+            Customer customer = customerDataProcessor.getCustomer(txtCustomerNIC.getText());
+            
+            //txtCustomerNIC.disable();
+            txtCustomerNo.setText(customer.getCid());
+            txtCustomerFN.setText(customer.getCFirstName());
+            txtCustomername.setText(customer.getCname());
+            cmbGroupId.setSelectedItem(customer.getGid());
+            txtCustomername.setText(customer.getCname());
+            
+            FillGUIComponents fillGUIComponents =new FillGUIComponents();
+            fillGUIComponents.updateCmb(cmbGroupId, customer.getGid());
+            
+            txtCustomerAd1.setText(customer.getAddress_1());
+            txtCustomerAd2.setText(customer.getAddress_2());
+            txtCustomerAd3.setText(customer.getAddress_3());
+            
+            txtCustomerNo.disable();
+            txtCustomerMno.setText(customer.getMeterNo());
+            txtCustomerCurrentMeter.setText(String.valueOf(customer.getCurrentMeter()) );
+            txtCustomerTOA.setText(String.valueOf(customer.getTotalOutstandingAmount()));
+            
+            btnCDFEnter.setText("Update Customer");
+            dataInserted=false;
+            dataUpdate = true;
+            
+        } catch (Exception ex) {
+            JOptionPaneCustom.errorBox("NIC not found", "Customer Data Updating");
+            Logger.getLogger(EnterCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_btnCDUpdateActionPerformed
+
+    private void btnCDFEnterAnotherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDFEnterAnotherActionPerformed
+        // TODO add your handling code here:
+        if(dataInserted)
+        {
+            ClearComponents();
+            dataInserted = false;
+        }
+        else
+            JOptionPaneCustom.errorBox("Current insertion not completed", "Customer Data Insertion");        
+    }//GEN-LAST:event_btnCDFEnterAnotherActionPerformed
 
     /**
      * @param args the command line arguments
@@ -448,6 +551,7 @@ public class EnterCustomer extends javax.swing.JFrame {
     private javax.swing.JButton btnCDFEnter;
     private javax.swing.JButton btnCDFEnterAnother;
     private javax.swing.JButton btnCDHome;
+    private javax.swing.JButton btnCDUpdate;
     private javax.swing.JComboBox<String> cmbGroupId;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

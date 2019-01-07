@@ -25,12 +25,14 @@ public class EnterBillData extends javax.swing.JFrame {
      * Creates new form EnterBillData
      */
     HashMap<String, String> customerHash = new HashMap<>();
+    boolean dataInserted;
     public EnterBillData() throws Exception {
         initComponents();
         CustomerDataProcessor customerDataProcessor=new CustomerDataProcessor();
         customerHash = customerDataProcessor.getCustomerCIDNNIC();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        this.setLocationRelativeTo(null);          
+        this.setLocationRelativeTo(null);     
+        dataInserted =false;
     }
 
     /**
@@ -142,6 +144,11 @@ public class EnterBillData extends javax.swing.JFrame {
 
         btnBDEnterAnother.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnBDEnterAnother.setText("Another Bill");
+        btnBDEnterAnother.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBDEnterAnotherActionPerformed(evt);
+            }
+        });
 
         BDLblFN.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
@@ -311,11 +318,13 @@ public class EnterBillData extends javax.swing.JFrame {
             JOptionPaneCustom.errorBox("Bill data inserted error: " +ex.getMessage(), "Bill Data Insertion");
         }
         if(overall)
+        {
             JOptionPaneCustom.infoBox("Bill data inserted successfully", "Bill Data Insertion");
+            dataInserted = true;
+        }
     }//GEN-LAST:event_btnBDEnterActionPerformed
 
-    private void btnBDClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBDClearActionPerformed
-        // TODO add your handling code here:
+    private void ClearComponents(){
         txtCustomerNIC.setText("");
         txtCustomerCID.setText("");
         txtPaymentAmt.setText("");
@@ -324,7 +333,12 @@ public class EnterBillData extends javax.swing.JFrame {
         ckBoxSramadhana.setSelected(false);
         ckBoxAbsentFee.setSelected(false);
         cmbMonth.setSelectedIndex(0);
-        cmbYear.setSelectedIndex(0);
+        cmbYear.setSelectedIndex(0);    
+    }
+    
+    private void btnBDClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBDClearActionPerformed
+
+        ClearComponents();
     }//GEN-LAST:event_btnBDClearActionPerformed
 
     private void txtCustomerNICKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCustomerNICKeyTyped
@@ -362,6 +376,18 @@ public class EnterBillData extends javax.swing.JFrame {
             txtCustomerCID.setText(customerHash.get(cmbCustomerNIC.getSelectedItem().toString()));    
         }catch(Exception ex){ex.toString();}        
     }//GEN-LAST:event_cmbCustomerNICItemStateChanged
+
+    private void btnBDEnterAnotherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBDEnterAnotherActionPerformed
+        // TODO add your handling code here:
+        if(dataInserted)
+        {
+            ClearComponents();
+            dataInserted = false;
+        }
+        else
+            JOptionPaneCustom.errorBox("Current insertion not completed", "Bill Data Insertion");
+            
+    }//GEN-LAST:event_btnBDEnterAnotherActionPerformed
 
     /**
      * @param args the command line arguments

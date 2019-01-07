@@ -20,7 +20,7 @@ import waterbillingsystem_1.pkg0.pkg0.dao.UnitPricesDB;
  */
 public class BillDataProcessor {
     
-    private String getBillId(String customerId){
+    public String getBillId(String customerId){
         return customerId+DateDetails.getDateMonth()+ DateDetails.getDateYear();
     }
     

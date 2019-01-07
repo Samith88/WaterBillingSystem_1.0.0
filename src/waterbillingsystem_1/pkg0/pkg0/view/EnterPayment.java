@@ -26,12 +26,15 @@ public class EnterPayment extends javax.swing.JFrame {
      * Creates new form EnterPayment
      */
     HashMap<String, String> customerHash = new HashMap<>();
+    boolean dataInserted;
+    
     public EnterPayment() throws Exception {
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);     
         CustomerDataProcessor customerDataProcessor=new CustomerDataProcessor();
         customerHash = customerDataProcessor.getCustomerCIDNNIC();        
+        dataInserted =false;
     }
 
     /**
@@ -122,6 +125,11 @@ public class EnterPayment extends javax.swing.JFrame {
 
         btnPDEnterAnother.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnPDEnterAnother.setText("Another Bill");
+        btnPDEnterAnother.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPDEnterAnotherActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -213,8 +221,9 @@ public class EnterPayment extends javax.swing.JFrame {
         PaymentProcessor PaymentProcessor=new PaymentProcessor();
         try {
             PaymentProcessor.putPayment(payment);
-            JOptionPaneCustom.infoBox("Payment data inserted successfully", "Payment Data Insertion");
+            JOptionPaneCustom.infoBox("Payment data inserted successfully", "Payment Data Insertion");            
             Logger.getLogger(EnterPayment.class.getName()).log(Level.SEVERE, null, "Payment data inserted successfully :"+payment.getPyid() );
+            dataInserted = true;            
         } catch (Exception ex) {
             JOptionPaneCustom.errorBox("Payment data inserted error :"+ex.getMessage(), "Payment Data Insertion");
             Logger.getLogger(EnterPayment.class.getName()).log(Level.SEVERE, null, ex);
@@ -223,14 +232,17 @@ public class EnterPayment extends javax.swing.JFrame {
 
     private void btnPDClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDClearActionPerformed
         // TODO add your handling code here:
+        ClearComponents();
+    }//GEN-LAST:event_btnPDClearActionPerformed
+
+    private void ClearComponents(){
         txtPaymentNIC.setText("");
         txtPaymentCID.setText("");
         txtPaymentAmount.setText("");
         cmbMonth.setSelectedIndex(0);
         cmbYear.setSelectedIndex(0);
-        cmdNIC.setSelectedItem("Select NIC");
-    }//GEN-LAST:event_btnPDClearActionPerformed
-
+        cmdNIC.setSelectedItem("Select NIC");        
+    }
     private void txtPaymentNICKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPaymentNICKeyTyped
 
         FillGUIComponents.setNumberOnlyTextBox(evt);
@@ -257,6 +269,17 @@ public class EnterPayment extends javax.swing.JFrame {
             txtPaymentCID.setText(customerHash.get(cmdNIC.getSelectedItem().toString()));    
         }catch(Exception ex){ex.toString();}          
     }//GEN-LAST:event_cmdNICItemStateChanged
+
+    private void btnPDEnterAnotherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDEnterAnotherActionPerformed
+        if(dataInserted)
+        {
+            ClearComponents();
+            dataInserted = false;
+        }
+        else
+            JOptionPaneCustom.errorBox("Current Insertion not completed", "Payment Data Insertion");
+        
+    }//GEN-LAST:event_btnPDEnterAnotherActionPerformed
 
     /**
      * @param args the command line arguments

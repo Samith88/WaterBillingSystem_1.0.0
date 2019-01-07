@@ -140,7 +140,12 @@ public class MainPage extends javax.swing.JFrame {
 
     private void btnPaymentDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPaymentDActionPerformed
         // TODO add your handling code here:
-        EnterPayment enterPayment=new EnterPayment();
+        EnterPayment enterPayment = null;
+        try {
+            enterPayment = new EnterPayment();
+        } catch (Exception ex) {
+            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
         enterPayment.setVisible(true); 
         this.setVisible(false);
         this.dispose();         
@@ -148,7 +153,12 @@ public class MainPage extends javax.swing.JFrame {
 
     private void btnInvoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvoiceActionPerformed
         // TODO add your handling code here:
-        GenerateInvoice generateInvoice=new GenerateInvoice();
+        GenerateInvoice generateInvoice = null;
+        try {
+            generateInvoice = new GenerateInvoice();
+        } catch (Exception ex) {
+            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
         generateInvoice.setVisible(true); 
         this.setVisible(false);
         this.dispose();               
