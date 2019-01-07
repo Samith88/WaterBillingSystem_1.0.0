@@ -5,6 +5,7 @@
  */
 package waterbillingsystem_1.pkg0.pkg0.view;
 
+import javax.swing.JFrame;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
 import waterbillingsystem_1.pkg0.pkg0.base.Group;
 import waterbillingsystem_1.pkg0.pkg0.controller.FillGUIComponents;
@@ -21,6 +22,8 @@ public class EnterGroup extends javax.swing.JFrame {
      */
     public EnterGroup() {
         initComponents();
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -45,6 +48,7 @@ public class EnterGroup extends javax.swing.JFrame {
         btnGDClear = new javax.swing.JButton();
         btnGDEnter = new javax.swing.JButton();
         btnGDEnterAnother = new javax.swing.JButton();
+        btnCDHome1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -92,6 +96,17 @@ public class EnterGroup extends javax.swing.JFrame {
         btnGDEnterAnother.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnGDEnterAnother.setText("Another Bill");
 
+        btnCDHome1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home_button.png"))); // NOI18N
+        btnCDHome1.setBorder(null);
+        btnCDHome1.setBorderPainted(false);
+        btnCDHome1.setContentAreaFilled(false);
+        btnCDHome1.setFocusPainted(false);
+        btnCDHome1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCDHome1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -120,13 +135,20 @@ public class EnterGroup extends javax.swing.JFrame {
                 .addGap(61, 61, 61))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(GDLabelMain)
-                .addGap(223, 223, 223))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(GDLabelMain)
+                        .addGap(223, 223, 223))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnCDHome1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(65, 65, 65)
+                .addGap(17, 17, 17)
+                .addComponent(btnCDHome1)
+                .addGap(18, 18, 18)
                 .addComponent(GDLabelMain)
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -144,7 +166,7 @@ public class EnterGroup extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(GDLbDesc)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGDClear)
                     .addComponent(btnGDEnterAnother)
@@ -184,6 +206,14 @@ public class EnterGroup extends javax.swing.JFrame {
         FillGUIComponents.setNumberOnlyTextBox(evt);
     }//GEN-LAST:event_txtGroupIdKeyTyped
 
+    private void btnCDHome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDHome1ActionPerformed
+        // TODO add your handling code here:
+        MainPage mainPage=new MainPage();
+        mainPage.setVisible(true);
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_btnCDHome1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -219,6 +249,7 @@ public class EnterGroup extends javax.swing.JFrame {
     private javax.swing.JLabel GDLbLoc;
     private javax.swing.JLabel GDLblGID;
     private javax.swing.JLabel GDLblGName;
+    private javax.swing.JButton btnCDHome1;
     private javax.swing.JButton btnGDClear;
     private javax.swing.JButton btnGDEnter;
     private javax.swing.JButton btnGDEnterAnother;

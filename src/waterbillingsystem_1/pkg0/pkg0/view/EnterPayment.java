@@ -5,11 +5,14 @@
  */
 package waterbillingsystem_1.pkg0.pkg0.view;
 
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import waterbillingsystem_1.pkg0.pkg0.DateDetails;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
 import waterbillingsystem_1.pkg0.pkg0.base.Payment;
+import waterbillingsystem_1.pkg0.pkg0.controller.CustomerDataProcessor;
 import waterbillingsystem_1.pkg0.pkg0.controller.FillGUIComponents;
 import waterbillingsystem_1.pkg0.pkg0.controller.PaymentProcessor;
 
@@ -22,8 +25,13 @@ public class EnterPayment extends javax.swing.JFrame {
     /**
      * Creates new form EnterPayment
      */
-    public EnterPayment() {
+    HashMap<String, String> customerHash = new HashMap<>();
+    public EnterPayment() throws Exception {
         initComponents();
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setLocationRelativeTo(null);     
+        CustomerDataProcessor customerDataProcessor=new CustomerDataProcessor();
+        customerHash = customerDataProcessor.getCustomerCIDNNIC();        
     }
 
     /**
@@ -59,6 +67,11 @@ public class EnterPayment extends javax.swing.JFrame {
         PDLblNIC.setText("Customer NIC");
 
         cmdNIC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select NIC" }));
+        cmdNIC.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmdNICItemStateChanged(evt);
+            }
+        });
 
         txtPaymentNIC.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -148,7 +161,7 @@ public class EnterPayment extends javax.swing.JFrame {
                                     .addComponent(txtPaymentCID)
                                     .addComponent(txtPaymentNIC)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(cmdNIC, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cmdNIC, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE)))))
                         .addGap(60, 60, 60))))
         );
@@ -182,10 +195,11 @@ public class EnterPayment extends javax.swing.JFrame {
                     .addComponent(btnPDClear)
                     .addComponent(btnPDEnterAnother)
                     .addComponent(btnPDEnter))
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPDEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDEnterActionPerformed
@@ -220,6 +234,12 @@ public class EnterPayment extends javax.swing.JFrame {
     private void txtPaymentNICKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPaymentNICKeyTyped
 
         FillGUIComponents.setNumberOnlyTextBox(evt);
+        FillGUIComponents fillGUIComponents=new FillGUIComponents();
+        try {
+            fillGUIComponents.LoadCustomerData(customerHash,txtPaymentNIC.getText(), cmdNIC);
+        } catch (Exception ex) {
+            Logger.getLogger(EnterBillData.class.getName()).log(Level.SEVERE, null, ex);
+        }        
     }//GEN-LAST:event_txtPaymentNICKeyTyped
 
     private void txtPaymentCIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPaymentCIDKeyTyped
@@ -229,6 +249,14 @@ public class EnterPayment extends javax.swing.JFrame {
     private void txtPaymentAmountKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPaymentAmountKeyTyped
         FillGUIComponents.setNumberOnlyTextBox(evt);
     }//GEN-LAST:event_txtPaymentAmountKeyTyped
+
+    private void cmdNICItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmdNICItemStateChanged
+        // TODO add your handling code here:
+        try{
+            if(cmdNIC.getSelectedItem().toString().length()== 10)
+            txtPaymentCID.setText(customerHash.get(cmdNIC.getSelectedItem().toString()));    
+        }catch(Exception ex){ex.toString();}          
+    }//GEN-LAST:event_cmdNICItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -255,7 +283,11 @@ public class EnterPayment extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new EnterPayment().setVisible(true);
+            try {
+                new EnterPayment().setVisible(true);
+            } catch (Exception ex) {
+                Logger.getLogger(EnterPayment.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
     }
 

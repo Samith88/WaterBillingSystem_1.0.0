@@ -5,11 +5,14 @@
  */
 package waterbillingsystem_1.pkg0.pkg0.view;
 
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
 import waterbillingsystem_1.pkg0.pkg0.base.BillData;
 import waterbillingsystem_1.pkg0.pkg0.controller.BillDataProcessor;
+import waterbillingsystem_1.pkg0.pkg0.controller.CustomerDataProcessor;
 import waterbillingsystem_1.pkg0.pkg0.controller.FillGUIComponents;
 
 /**
@@ -21,8 +24,13 @@ public class EnterBillData extends javax.swing.JFrame {
     /**
      * Creates new form EnterBillData
      */
-    public EnterBillData() {
+    HashMap<String, String> customerHash = new HashMap<>();
+    public EnterBillData() throws Exception {
         initComponents();
+        CustomerDataProcessor customerDataProcessor=new CustomerDataProcessor();
+        customerHash = customerDataProcessor.getCustomerCIDNNIC();
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setLocationRelativeTo(null);          
     }
 
     /**
@@ -54,6 +62,7 @@ public class EnterBillData extends javax.swing.JFrame {
         btnBDEnter = new javax.swing.JButton();
         btnBDEnterAnother = new javax.swing.JButton();
         BDLblFN = new javax.swing.JLabel();
+        btnCDHome = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,6 +73,11 @@ public class EnterBillData extends javax.swing.JFrame {
         BDLblNIC.setText("Customer NIC");
 
         cmbCustomerNIC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select NIC" }));
+        cmbCustomerNIC.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbCustomerNICItemStateChanged(evt);
+            }
+        });
 
         txtCustomerNIC.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -131,6 +145,17 @@ public class EnterBillData extends javax.swing.JFrame {
 
         BDLblFN.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
+        btnCDHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home_button.png"))); // NOI18N
+        btnCDHome.setBorder(null);
+        btnCDHome.setBorderPainted(false);
+        btnCDHome.setContentAreaFilled(false);
+        btnCDHome.setFocusPainted(false);
+        btnCDHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCDHomeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -187,11 +212,17 @@ public class EnterBillData extends javax.swing.JFrame {
                     .addComponent(ckBoxAbsentFee)
                     .addComponent(ckBoxSramadhana))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnCDHome, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addContainerGap()
+                .addComponent(btnCDHome)
+                .addGap(1, 1, 1)
                 .addComponent(CDFLabelMain)
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -223,7 +254,7 @@ public class EnterBillData extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBDClear)
                     .addComponent(btnBDEnterAnother)
@@ -300,7 +331,7 @@ public class EnterBillData extends javax.swing.JFrame {
         FillGUIComponents.setNumberOnlyTextBoxNIC(evt);
         FillGUIComponents fillGUIComponents=new FillGUIComponents();
         try {
-            fillGUIComponents.LoadCustomerData(txtCustomerNIC.getText(), cmbCustomerNIC,txtCustomerCID);
+            fillGUIComponents.LoadCustomerData(customerHash,txtCustomerNIC.getText(), cmbCustomerNIC);
         } catch (Exception ex) {
             Logger.getLogger(EnterBillData.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -315,6 +346,22 @@ public class EnterBillData extends javax.swing.JFrame {
         // TODO add your handling code here:
         FillGUIComponents.setNumberOnlyTextBox(evt);
     }//GEN-LAST:event_txtPaymentAmtKeyTyped
+
+    private void btnCDHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDHomeActionPerformed
+        // TODO add your handling code here:
+        MainPage mainPage=new MainPage();
+        mainPage.setVisible(true);
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_btnCDHomeActionPerformed
+
+    private void cmbCustomerNICItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbCustomerNICItemStateChanged
+        // TODO add your handling code here:
+        try{
+            if(cmbCustomerNIC.getSelectedItem().toString().length()== 10)
+            txtCustomerCID.setText(customerHash.get(cmbCustomerNIC.getSelectedItem().toString()));    
+        }catch(Exception ex){ex.toString();}        
+    }//GEN-LAST:event_cmbCustomerNICItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -341,7 +388,11 @@ public class EnterBillData extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new EnterBillData().setVisible(true);
+            try {
+                new EnterBillData().setVisible(true);
+            } catch (Exception ex) {
+                Logger.getLogger(EnterBillData.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
     }
 
@@ -355,6 +406,7 @@ public class EnterBillData extends javax.swing.JFrame {
     private javax.swing.JButton btnBDClear;
     private javax.swing.JButton btnBDEnter;
     private javax.swing.JButton btnBDEnterAnother;
+    private javax.swing.JButton btnCDHome;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JCheckBox ckBoxAbsentFee;
     private javax.swing.JCheckBox ckBoxSramadhana;

@@ -9,9 +9,11 @@ package waterbillingsystem_1.pkg0.pkg0;
  *
  * @author UDISSSA1
  */
-public class ChargingDetails {
+public class VariableStorage {
     
     public static double SramadhanaCharge=25.00;
     public static double AbsentCharge=25.00;
     public static double FixedCharge=300.00;
+    
+    
 }

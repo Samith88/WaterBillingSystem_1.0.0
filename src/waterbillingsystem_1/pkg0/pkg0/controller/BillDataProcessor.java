@@ -5,7 +5,7 @@
  */
 package waterbillingsystem_1.pkg0.pkg0.controller;
 
-import waterbillingsystem_1.pkg0.pkg0.ChargingDetails;
+import waterbillingsystem_1.pkg0.pkg0.VariableStorage;
 import waterbillingsystem_1.pkg0.pkg0.DateDetails;
 import waterbillingsystem_1.pkg0.pkg0.base.BillData;
 import waterbillingsystem_1.pkg0.pkg0.base.Customer;
@@ -46,13 +46,13 @@ public class BillDataProcessor {
         monthlyBillDetails.setOldMeter(customer.getCurrentMeter());
         monthlyBillDetails.setNewMeter(billData.getNewMeter());
         monthlyBillDetails.setMonthlyConsumption(CalculateUsageBill.calculateConsumingBill(billData, UnitPricesDB.getUnitPricesFromDB()));
-        monthlyBillDetails.setFixedCharge(ChargingDetails.FixedCharge);
+        monthlyBillDetails.setFixedCharge(VariableStorage.FixedCharge);
         if(billData.isAbsentCharge())
-            monthlyBillDetails.setAbsentCharge(ChargingDetails.AbsentCharge);
+            monthlyBillDetails.setAbsentCharge(VariableStorage.AbsentCharge);
         else
             monthlyBillDetails.setAbsentCharge(0);
         if(billData.isSramadhana())
-            monthlyBillDetails.setSramadhana(ChargingDetails.SramadhanaCharge);
+            monthlyBillDetails.setSramadhana(VariableStorage.SramadhanaCharge);
         else
             monthlyBillDetails.setSramadhana(0);
         

@@ -5,6 +5,7 @@
  */
 package waterbillingsystem_1.pkg0.pkg0.controller;
 
+import java.util.HashMap;
 import waterbillingsystem_1.pkg0.pkg0.base.Customer;
 import waterbillingsystem_1.pkg0.pkg0.dao.CustomerDataDatabase;
 
@@ -18,5 +19,10 @@ public class CustomerDataProcessor {
         CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
         return customerDataDatabase.putCustomerData(customer);   
     }
+    public HashMap<String, String> getCustomerCIDNNIC() throws Exception{
+        
+        CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
+        return customerDataDatabase.getAllCustomers();
+    }    
     
 }

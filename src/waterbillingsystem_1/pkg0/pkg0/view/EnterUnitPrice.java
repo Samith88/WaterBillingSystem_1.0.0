@@ -5,6 +5,7 @@
  */
 package waterbillingsystem_1.pkg0.pkg0.view;
 
+import javax.swing.JFrame;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
 import waterbillingsystem_1.pkg0.pkg0.base.UnitPrice;
 import waterbillingsystem_1.pkg0.pkg0.controller.FillGUIComponents;
@@ -21,6 +22,8 @@ public class EnterUnitPrice extends javax.swing.JFrame {
      */
     public EnterUnitPrice() {
         initComponents();
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setLocationRelativeTo(null);        
     }
 
     /**
@@ -44,6 +47,7 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         UDLbPrice = new javax.swing.JLabel();
         btnGDClear = new javax.swing.JButton();
         txUnitPrice = new javax.swing.JTextField();
+        btnCDHome = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -105,6 +109,17 @@ public class EnterUnitPrice extends javax.swing.JFrame {
             }
         });
 
+        btnCDHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home_button.png"))); // NOI18N
+        btnCDHome.setBorder(null);
+        btnCDHome.setBorderPainted(false);
+        btnCDHome.setContentAreaFilled(false);
+        btnCDHome.setFocusPainted(false);
+        btnCDHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCDHomeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -135,11 +150,17 @@ public class EnterUnitPrice extends javax.swing.JFrame {
                 .addGap(234, 234, 234)
                 .addComponent(UDLabelMain)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCDHome, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(63, 63, 63)
+                .addGap(27, 27, 27)
+                .addComponent(btnCDHome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(UDLabelMain)
                 .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -212,6 +233,14 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         FillGUIComponents.setNumberOnlyTextBox(evt);
     }//GEN-LAST:event_txUnitPriceKeyTyped
 
+    private void btnCDHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDHomeActionPerformed
+        // TODO add your handling code here:
+        MainPage mainPage=new MainPage();
+        mainPage.setVisible(true);
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_btnCDHomeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -249,6 +278,7 @@ public class EnterUnitPrice extends javax.swing.JFrame {
     private javax.swing.JLabel UDLbPrice;
     private javax.swing.JLabel UDLblLower;
     private javax.swing.JLabel UDLblUPId;
+    private javax.swing.JButton btnCDHome;
     private javax.swing.JButton btnGDClear;
     private javax.swing.JButton btnGDEnter;
     private javax.swing.JButton btnGDEnterAnother;
