@@ -243,7 +243,7 @@ public class EnterCustomer extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(CDFLabel4)
                                 .addGap(108, 108, 108)
-                                .addComponent(cmbGroupId, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cmbGroupId, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(CDFLabel5)
@@ -388,6 +388,7 @@ public class EnterCustomer extends javax.swing.JFrame {
             ClearComponents();  
             dataUpdate=false;
             btnCDFEnter.setText("Enter Customer");
+            txtCustomerNo.enable();
         }
         else 
             JOptionPaneCustom.errorBox("Customer data insertion failed", "Customer Data Insertion");          

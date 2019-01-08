@@ -26,6 +26,14 @@ public class GroupDetailsDB {
                 + "'"+group.getGname()+"','"+group.getLocation()+"','"+group.getDescription()+"')");
     }
     
+    public boolean updateGroup(Group group){
+        
+        InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
+        return insertUpdateDeleteClass.insertUpdateDeleteDB("update [group] set gname='"+group.getGname()+"', "
+                + "location='"+group.getLocation()+"' ,description ='"+group.getLocation()+"'"
+                + " where gid='"+group.getGid()+"';");
+    }
+    
     public List<Group> getGroup() throws Exception{
         RetrieveClass retrieveClass =new RetrieveClass();
         List<Group> groups=new ArrayList<>();  
@@ -35,7 +43,7 @@ public class GroupDetailsDB {
             while (rs.next()) {
                 group =new Group();
 		group.setGid(rs.getString("gid"));
-                group.setGname(rs.getString("groupName"));
+                group.setGname(rs.getString("gname"));
                 group.setLocation(rs.getString("location"));
                 group.setDescription(rs.getString("description"));
                 
@@ -49,14 +57,14 @@ public class GroupDetailsDB {
     }
       
     
-    public Group getAGroup(int groupId) throws Exception{
+    public Group getAGroup(String groupId) throws Exception{
         RetrieveClass retrieveClass =new RetrieveClass();  
         Group group=new Group();
         try{
             ResultSet rs  = retrieveClass.getResultsFormDB("select * from [group] where gid='"+groupId+"'");
             while (rs.next()) {
 		group.setGid(rs.getString("gid"));
-                group.setGname(rs.getString("groupName"));
+                group.setGname(rs.getString("gname"));
                 group.setLocation(rs.getString("location"));
                 group.setDescription(rs.getString("description"));
             }

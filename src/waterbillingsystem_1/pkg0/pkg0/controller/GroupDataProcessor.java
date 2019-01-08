@@ -19,4 +19,15 @@ public class GroupDataProcessor {
         return groupDetailsDB.putGroup(group);
     }
     
+    public boolean updateGroup(Group group){
+        GroupDetailsDB groupDetailsDB = new GroupDetailsDB();
+        return groupDetailsDB.updateGroup(group);
+    }
+    
+    public Group getGroupById(String gid) throws Exception{
+
+        GroupDetailsDB groupDetailsDB=new GroupDetailsDB();
+        return groupDetailsDB.getAGroup(gid);
+    }
+    
 }

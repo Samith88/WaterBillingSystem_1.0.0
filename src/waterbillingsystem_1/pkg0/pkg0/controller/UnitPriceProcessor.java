@@ -20,4 +20,15 @@ public class UnitPriceProcessor {
         return unitPricesDB.putUnitPrices(unitPrice);
     }
     
+    public UnitPrice getAUnitPrice(String unitPriceId) throws Exception{
+    
+        UnitPricesDB unitPricesDB=new UnitPricesDB();
+        return unitPricesDB.getAUnitPriceFromDB(unitPriceId);
+    }
+    
+    public boolean updateUnitPrice(UnitPrice unitPrice){
+    
+        UnitPricesDB unitPricesDB=new UnitPricesDB();
+        return unitPricesDB.updateUnitPrice(unitPrice);
+    }    
 }

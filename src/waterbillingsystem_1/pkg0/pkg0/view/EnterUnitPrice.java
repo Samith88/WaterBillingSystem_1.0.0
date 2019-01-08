@@ -5,6 +5,8 @@
  */
 package waterbillingsystem_1.pkg0.pkg0.view;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
 import waterbillingsystem_1.pkg0.pkg0.base.UnitPrice;
@@ -21,11 +23,14 @@ public class EnterUnitPrice extends javax.swing.JFrame {
      * Creates new form EnterUnitPrices
      */
     boolean dataInserted;    
+    boolean dataUpdate;
+    
     public EnterUnitPrice() {
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);   
-        dataInserted =false;        
+        dataInserted =false;   
+        dataUpdate = false;
     }
 
     /**
@@ -50,6 +55,7 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         btnGDClear = new javax.swing.JButton();
         txUnitPrice = new javax.swing.JTextField();
         btnCDHome = new javax.swing.JButton();
+        btnCDUpdate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,7 +63,7 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         UDLabelMain.setText("Unit Data Form");
 
         btnGDEnter.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnGDEnter.setText("Enter Bill");
+        btnGDEnter.setText("Enter UnitPrice");
         btnGDEnter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGDEnterActionPerformed(evt);
@@ -68,7 +74,7 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         UDLblUPId.setText("Unit Price Id");
 
         btnGDEnterAnother.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnGDEnterAnother.setText("Another Bill");
+        btnGDEnterAnother.setText("Another UnitPrice");
         btnGDEnterAnother.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGDEnterAnotherActionPerformed(evt);
@@ -103,7 +109,7 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         UDLbPrice.setText("Unit Price");
 
         btnGDClear.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnGDClear.setText(" Clear Bill Data");
+        btnGDClear.setText(" Clear Data");
         btnGDClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGDClearActionPerformed(evt);
@@ -127,40 +133,54 @@ public class EnterUnitPrice extends javax.swing.JFrame {
             }
         });
 
+        btnCDUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/update.png"))); // NOI18N
+        btnCDUpdate.setBorder(null);
+        btnCDUpdate.setBorderPainted(false);
+        btnCDUpdate.setContentAreaFilled(false);
+        btnCDUpdate.setFocusPainted(false);
+        btnCDUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCDUpdateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnGDClear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(66, 66, 66)
-                        .addComponent(btnGDEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(70, 70, 70)
-                        .addComponent(btnGDEnterAnother, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(UDLblUPId, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(UDLblLower, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(UDLbLUpper)
-                            .addComponent(UDLbPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txUnitPriceUpper)
-                            .addComponent(txUnitPriceLower)
-                            .addComponent(txUnitPriceId)
-                            .addComponent(txUnitPrice))))
-                .addGap(61, 61, 61))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(234, 234, 234)
-                .addComponent(UDLabelMain)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCDHome, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnCDUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(127, 127, 127)
+                        .addComponent(UDLabelMain)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnGDClear, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                                .addGap(51, 51, 51)
+                                .addComponent(btnGDEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43)
+                                .addComponent(btnGDEnterAnother))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(UDLblUPId, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(UDLblLower, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(UDLbLUpper)
+                                    .addComponent(UDLbPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(32, 32, 32)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txUnitPriceUpper)
+                                    .addComponent(txUnitPriceLower)
+                                    .addComponent(txUnitPriceId)
+                                    .addComponent(txUnitPrice))))
+                        .addGap(61, 61, 61))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,29 +188,32 @@ public class EnterUnitPrice extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addComponent(btnCDHome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(UDLabelMain)
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(UDLblUPId)
-                    .addComponent(txUnitPriceId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(UDLblLower)
-                    .addComponent(txUnitPriceLower, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(UDLbLUpper)
-                    .addComponent(txUnitPriceUpper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(UDLbPrice)
-                    .addComponent(txUnitPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(UDLabelMain)
+                        .addGap(51, 51, 51)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(UDLblUPId)
+                            .addComponent(txUnitPriceId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(UDLblLower)
+                            .addComponent(txUnitPriceLower, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(UDLbLUpper)
+                            .addComponent(txUnitPriceUpper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(UDLbPrice)
+                            .addComponent(txUnitPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnCDUpdate))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGDClear)
                     .addComponent(btnGDEnterAnother)
                     .addComponent(btnGDEnter))
-                .addGap(69, 69, 69))
+                .addGap(96, 96, 96))
         );
 
         pack();
@@ -205,16 +228,47 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         unitPrice.setUpper(Integer.parseInt(txUnitPriceUpper.getText()));
         unitPrice.setPrice(Double.parseDouble(txUnitPrice.getText()));
 
+        if(dataUpdate && !dataInserted)
+        {
+            UpdateUnitPrice(unitPrice);
+        }
+        else if(!dataInserted)
+        {
+            InsertUnitPrice(unitPrice);
+        }  
+    }//GEN-LAST:event_btnGDEnterActionPerformed
+
+    private void InsertUnitPrice(UnitPrice unitPrice){
+
         UnitPriceProcessor unitPriceProcessor=new UnitPriceProcessor();
         if(unitPriceProcessor.putUnitPrice(unitPrice))
         {
             JOptionPaneCustom.infoBox("Unit Price insertion successfully", "Unit Price Insertion");
-            dataInserted = true;        
+            dataInserted = true; 
+            ClearComponents();          
         }
         else
-            JOptionPaneCustom.errorBox("Unit Price insertion error", "Unit Price Insertion");
-    }//GEN-LAST:event_btnGDEnterActionPerformed
+            JOptionPaneCustom.errorBox("Unit Price insertion error", "Unit Price Insertion");      
+        
+    }
+    
+    private void UpdateUnitPrice(UnitPrice unitPrice){
 
+        UnitPriceProcessor unitPriceProcessor=new UnitPriceProcessor();
+        if(unitPriceProcessor.updateUnitPrice(unitPrice))
+        {
+            JOptionPaneCustom.infoBox("Unit Price update successfully", "Unit Price updating");
+            dataInserted = true; 
+            ClearComponents();  
+            dataUpdate=false;
+            btnGDEnter.setText("Enter UnitPrice");    
+            txUnitPriceId.enable();            
+        }
+        else
+            JOptionPaneCustom.errorBox("Unit Price updating error", "Unit Price updating");      
+        
+    }    
+    
     private void btnGDClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDClearActionPerformed
         ClearComponents();
     }//GEN-LAST:event_btnGDClearActionPerformed
@@ -264,6 +318,29 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnGDEnterAnotherActionPerformed
 
+    private void btnCDUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDUpdateActionPerformed
+        // TODO add your handling code here:
+        if (!dataUpdate)
+        dataUpdate = true;
+
+        UnitPriceProcessor unitPriceProcessor=new UnitPriceProcessor();
+        try {
+            UnitPrice unitPrice = unitPriceProcessor.getAUnitPrice(txUnitPriceId.getText());
+
+            txUnitPriceId.disable();
+            txUnitPriceLower.setText(String.valueOf(unitPrice.getLower()) );
+            txUnitPriceUpper.setText(String.valueOf(unitPrice.getUpper()) );
+            txUnitPrice.setText(String.valueOf(unitPrice.getPrice()) );
+
+            btnGDEnter.setText("Update UnitPrice");
+            dataInserted=false;
+            dataUpdate = true;
+
+        } catch (Exception ex) {
+            Logger.getLogger(EnterGroup.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnCDUpdateActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -302,6 +379,7 @@ public class EnterUnitPrice extends javax.swing.JFrame {
     private javax.swing.JLabel UDLblLower;
     private javax.swing.JLabel UDLblUPId;
     private javax.swing.JButton btnCDHome;
+    private javax.swing.JButton btnCDUpdate;
     private javax.swing.JButton btnGDClear;
     private javax.swing.JButton btnGDEnter;
     private javax.swing.JButton btnGDEnterAnother;

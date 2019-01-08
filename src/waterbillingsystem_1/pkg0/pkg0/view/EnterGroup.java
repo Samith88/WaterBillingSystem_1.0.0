@@ -5,6 +5,8 @@
  */
 package waterbillingsystem_1.pkg0.pkg0.view;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
 import waterbillingsystem_1.pkg0.pkg0.base.Group;
@@ -21,11 +23,13 @@ public class EnterGroup extends javax.swing.JFrame {
      * Creates new form EnterGroup
      */
     boolean dataInserted;
+    boolean dataUpdate;
     public EnterGroup() {
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
         dataInserted =false;
+        dataUpdate = false;
     }
 
     /**
@@ -51,6 +55,7 @@ public class EnterGroup extends javax.swing.JFrame {
         btnGDEnter = new javax.swing.JButton();
         btnGDEnterAnother = new javax.swing.JButton();
         btnCDHome1 = new javax.swing.JButton();
+        btnCDUpdate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,7 +85,7 @@ public class EnterGroup extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txtGroupDesc);
 
         btnGDClear.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnGDClear.setText(" Clear Bill Data");
+        btnGDClear.setText(" Clear Data");
         btnGDClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGDClearActionPerformed(evt);
@@ -88,7 +93,7 @@ public class EnterGroup extends javax.swing.JFrame {
         });
 
         btnGDEnter.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnGDEnter.setText("Enter Bill");
+        btnGDEnter.setText("Enter Group");
         btnGDEnter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGDEnterActionPerformed(evt);
@@ -96,7 +101,7 @@ public class EnterGroup extends javax.swing.JFrame {
         });
 
         btnGDEnterAnother.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnGDEnterAnother.setText("Another Bill");
+        btnGDEnterAnother.setText("Another Group");
         btnGDEnterAnother.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGDEnterAnotherActionPerformed(evt);
@@ -114,41 +119,54 @@ public class EnterGroup extends javax.swing.JFrame {
             }
         });
 
+        btnCDUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/update.png"))); // NOI18N
+        btnCDUpdate.setBorder(null);
+        btnCDUpdate.setBorderPainted(false);
+        btnCDUpdate.setContentAreaFilled(false);
+        btnCDUpdate.setFocusPainted(false);
+        btnCDUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCDUpdateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnGDClear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(66, 66, 66)
-                        .addComponent(btnGDEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(70, 70, 70)
-                        .addComponent(btnGDEnterAnother, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(GDLblGID, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(GDLblGName, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(GDLbLoc)
-                            .addComponent(GDLbDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtGroupLoc)
-                            .addComponent(txtGroupName)
-                            .addComponent(txtGroupId)
-                            .addComponent(jScrollPane1))))
-                .addGap(61, 61, 61))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCDHome1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(69, 69, 69)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnCDUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(GDLabelMain)
                         .addGap(223, 223, 223))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnCDHome1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnGDClear, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                                .addGap(51, 51, 51)
+                                .addComponent(btnGDEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(51, 51, 51)
+                                .addComponent(btnGDEnterAnother))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(GDLblGID, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(GDLblGName, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(GDLbLoc)
+                                    .addComponent(GDLbDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(32, 32, 32)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtGroupLoc)
+                                    .addComponent(txtGroupName)
+                                    .addComponent(txtGroupId)
+                                    .addComponent(jScrollPane1))))
+                        .addGap(61, 61, 61))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,7 +174,9 @@ public class EnterGroup extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addComponent(btnCDHome1)
                 .addGap(18, 18, 18)
-                .addComponent(GDLabelMain)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(GDLabelMain)
+                    .addComponent(btnCDUpdate))
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(GDLblGID)
@@ -173,7 +193,7 @@ public class EnterGroup extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(GDLbDesc)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGDClear)
                     .addComponent(btnGDEnterAnother)
@@ -193,16 +213,46 @@ public class EnterGroup extends javax.swing.JFrame {
         group.setLocation(txtGroupLoc.getText());
         group.setDescription(txtGroupDesc.getText());
         
+        if(dataUpdate && !dataInserted)
+        {
+            UpdateGroup(group);
+        }
+        else if(!dataInserted)
+        {
+            InsertGroup(group);
+        }        
+    }//GEN-LAST:event_btnGDEnterActionPerformed
+
+    private void InsertGroup(Group group){
+
         GroupDataProcessor groupDataProcessor=new GroupDataProcessor();
         if(groupDataProcessor.putGroup(group))
         {
             JOptionPaneCustom.infoBox("Group data inserted successfully", "Group Data Insertion");
-            dataInserted = true;    
+            dataInserted = true; 
+            ClearComponents();             
         }
         else
-            JOptionPaneCustom.errorBox("Group data insertion error", "Group Data Insertion");
-    }//GEN-LAST:event_btnGDEnterActionPerformed
+            JOptionPaneCustom.errorBox("Group data insertion error", "Group Data Insertion");        
+        
+    }
+    
+    private void UpdateGroup(Group group){
 
+        GroupDataProcessor groupDataProcessor=new GroupDataProcessor();
+        if(groupDataProcessor.updateGroup(group))
+        {
+            JOptionPaneCustom.infoBox("Group data inserted successfully", "Group Data Insertion");
+            dataInserted = true;  
+            ClearComponents();  
+            dataUpdate=false;
+            btnGDEnter.setText("Enter Group");    
+            txtGroupId.enable();
+        }
+        else
+            JOptionPaneCustom.errorBox("Group data insertion error", "Group Data Insertion");        
+        
+    }    
     private void btnGDClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDClearActionPerformed
         // TODO add your handling code here:
         ClearComponents();
@@ -238,6 +288,29 @@ public class EnterGroup extends javax.swing.JFrame {
         else
             JOptionPaneCustom.errorBox("Current insertion not completed", "Group Data Insertion");        
     }//GEN-LAST:event_btnGDEnterAnotherActionPerformed
+
+    private void btnCDUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDUpdateActionPerformed
+        // TODO add your handling code here:
+        if (!dataUpdate)
+            dataUpdate = true;
+        
+        GroupDataProcessor groupDataProcessor=new GroupDataProcessor();
+        try {
+            Group group = groupDataProcessor.getGroupById(txtGroupId.getText());
+            
+            txtGroupId.disable();
+            txtGroupName.setText(group.getGname());
+            txtGroupLoc.setText(group.getLocation());
+            txtGroupDesc.setText(group.getDescription());
+            
+            btnGDEnter.setText("Update Customer");
+            dataInserted=false;
+            dataUpdate = true;
+            
+        } catch (Exception ex) {
+            Logger.getLogger(EnterGroup.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnCDUpdateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -275,6 +348,7 @@ public class EnterGroup extends javax.swing.JFrame {
     private javax.swing.JLabel GDLblGID;
     private javax.swing.JLabel GDLblGName;
     private javax.swing.JButton btnCDHome1;
+    private javax.swing.JButton btnCDUpdate;
     private javax.swing.JButton btnGDClear;
     private javax.swing.JButton btnGDEnter;
     private javax.swing.JButton btnGDEnterAnother;

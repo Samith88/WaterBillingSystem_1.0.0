@@ -25,7 +25,7 @@ import waterbillingsystem_1.pkg0.pkg0.logging.getLogger;
  */
 public class UnitPricesDB {
     
-    public static List<UnitPrice> getUnitPricesFromDB() throws Exception{
+    public List<UnitPrice> getUnitPricesFromDB() throws Exception{
         RetrieveClass retrieveClass =new RetrieveClass();
         List<UnitPrice> unitprices=new ArrayList<>();
         try{
@@ -48,9 +48,35 @@ public class UnitPricesDB {
     
     public boolean putUnitPrices(UnitPrice unitPrice){
     
-        String sql="insert into UnitPrice(uid,lower,upper,price) values ('"+unitPrice.getUid()+"',"
-                + "'"+unitPrice.getLower()+"','"+unitPrice.getUpper()+"','"+unitPrice.getPrice()+"')";
         InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
-        return insertUpdateDeleteClass.insertUpdateDeleteDB(sql);
+        return insertUpdateDeleteClass.insertUpdateDeleteDB("insert into UnitPrice(uid,lower,upper,price)"
+                + "values ('"+unitPrice.getUid()+"',"
+                + "'"+unitPrice.getLower()+"','"+unitPrice.getUpper()+"','"+unitPrice.getPrice()+"')");
     }
+    
+    public UnitPrice getAUnitPriceFromDB(String unitPriceId) throws Exception{
+        RetrieveClass retrieveClass =new RetrieveClass();
+        UnitPrice unitPrice=new UnitPrice();        
+        try{
+            ResultSet rs  = retrieveClass.getResultsFormDB("select * from unit_price where uid='"+unitPriceId+"' ");
+            while (rs.next()) {
+                unitPrice.setUid(rs.getString("uid"));
+                unitPrice.setLower(rs.getInt("lower"));
+                unitPrice.setUpper(rs.getInt("upper"));
+                unitPrice.setPrice(rs.getDouble("price"));
+            }
+            DBConnection.disconnect();
+        } catch (SQLException e) {
+            getLogger.getLog().debug(e.toString());
+        }
+        return unitPrice;
+    }    
+    
+    public boolean updateUnitPrice(UnitPrice unitPrice){
+    
+        InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
+        return insertUpdateDeleteClass.insertUpdateDeleteDB("update UnitPrice set "
+        + "lower='"+unitPrice.getLower()+"',upper='"+unitPrice.getUpper()+"',"
+        + "price='"+unitPrice.getPrice()+"' where uid='"+unitPrice.getUid()+"';");
+    }    
 }

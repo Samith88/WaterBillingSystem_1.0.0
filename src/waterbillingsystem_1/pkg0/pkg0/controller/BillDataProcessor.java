@@ -45,7 +45,9 @@ public class BillDataProcessor {
         
         monthlyBillDetails.setOldMeter(customer.getCurrentMeter());
         monthlyBillDetails.setNewMeter(billData.getNewMeter());
-        monthlyBillDetails.setMonthlyConsumption(CalculateUsageBill.calculateConsumingBill(billData, UnitPricesDB.getUnitPricesFromDB()));
+        
+        UnitPricesDB unitPricesDB=new UnitPricesDB();
+        monthlyBillDetails.setMonthlyConsumption(CalculateUsageBill.calculateConsumingBill(billData, unitPricesDB.getUnitPricesFromDB()));
         monthlyBillDetails.setFixedCharge(VariableStorage.FixedCharge);
         if(billData.isAbsentCharge())
             monthlyBillDetails.setAbsentCharge(VariableStorage.AbsentCharge);

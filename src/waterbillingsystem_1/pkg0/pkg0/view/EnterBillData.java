@@ -65,6 +65,7 @@ public class EnterBillData extends javax.swing.JFrame {
         btnBDEnterAnother = new javax.swing.JButton();
         BDLblFN = new javax.swing.JLabel();
         btnCDHome = new javax.swing.JButton();
+        PDlblWarning = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -163,6 +164,10 @@ public class EnterBillData extends javax.swing.JFrame {
             }
         });
 
+        PDlblWarning.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        PDlblWarning.setForeground(new java.awt.Color(255, 0, 0));
+        PDlblWarning.setText("Please make sure you have entered monthly units correctly.");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -186,9 +191,11 @@ public class EnterBillData extends javax.swing.JFrame {
                                 .addGap(79, 79, 79)
                                 .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(57, 57, 57))
+                                .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(179, 179, 179)
+                                .addComponent(PDlblWarning)))))
+                .addGap(19, 19, 19))
             .addGroup(layout.createSequentialGroup()
                 .addGap(72, 72, 72)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,12 +268,14 @@ public class EnterBillData extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBDClear)
                     .addComponent(btnBDEnterAnother)
                     .addComponent(btnBDEnter))
-                .addGap(46, 46, 46))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(PDlblWarning)
+                .addContainerGap())
         );
 
         radioMeter.getAccessibleContext().setAccessibleParent(radioMeter);
@@ -429,6 +438,7 @@ public class EnterBillData extends javax.swing.JFrame {
     private javax.swing.JLabel BDLblUnits;
     private javax.swing.JLabel BDLblUnits1;
     private javax.swing.JLabel CDFLabelMain;
+    private javax.swing.JLabel PDlblWarning;
     private javax.swing.JButton btnBDClear;
     private javax.swing.JButton btnBDEnter;
     private javax.swing.JButton btnBDEnterAnother;
