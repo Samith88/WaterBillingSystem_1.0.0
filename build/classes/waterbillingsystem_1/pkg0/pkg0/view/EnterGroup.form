@@ -32,20 +32,13 @@
               <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="btnCDUpdate" min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="btnGDUpdate" min="-2" pref="38" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="GDLabelMain" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="223" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="btnGDClear" pref="113" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                              <Component id="btnGDEnter" min="-2" pref="151" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                              <Component id="btnGDEnterAnother" min="-2" max="-2" attributes="0"/>
-                          </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="GDLblGID" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
@@ -60,6 +53,13 @@
                                   <Component id="txtGroupId" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
                               </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="btnGDClear" pref="113" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                              <Component id="btnGDEnter" min="-2" pref="151" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                              <Component id="btnGDEnterAnother" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
@@ -76,14 +76,14 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="GDLabelMain" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnCDUpdate" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnGDUpdate" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="GDLblGID" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtGroupId" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="GDLblGName" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtGroupName" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -98,13 +98,13 @@
                   <Component id="GDLbDesc" min="-2" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="53" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="61" max="32767" attributes="0"/>
+              <EmptySpace pref="57" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnGDClear" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnGDEnterAnother" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnGDEnter" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -223,7 +223,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCDHome1ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnCDUpdate">
+    <Component class="javax.swing.JButton" name="btnGDUpdate">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/update.png"/>
@@ -236,7 +236,7 @@
         <Property name="focusPainted" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCDUpdateActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGDUpdateActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

@@ -55,7 +55,7 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         btnGDClear = new javax.swing.JButton();
         txUnitPrice = new javax.swing.JTextField();
         btnCDHome = new javax.swing.JButton();
-        btnCDUpdate = new javax.swing.JButton();
+        btnUPUpdate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -133,14 +133,14 @@ public class EnterUnitPrice extends javax.swing.JFrame {
             }
         });
 
-        btnCDUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/update.png"))); // NOI18N
-        btnCDUpdate.setBorder(null);
-        btnCDUpdate.setBorderPainted(false);
-        btnCDUpdate.setContentAreaFilled(false);
-        btnCDUpdate.setFocusPainted(false);
-        btnCDUpdate.addActionListener(new java.awt.event.ActionListener() {
+        btnUPUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/update.png"))); // NOI18N
+        btnUPUpdate.setBorder(null);
+        btnUPUpdate.setBorderPainted(false);
+        btnUPUpdate.setContentAreaFilled(false);
+        btnUPUpdate.setFocusPainted(false);
+        btnUPUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCDUpdateActionPerformed(evt);
+                btnUPUpdateActionPerformed(evt);
             }
         });
 
@@ -156,7 +156,7 @@ public class EnterUnitPrice extends javax.swing.JFrame {
                 .addGap(69, 69, 69)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCDUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnUPUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(127, 127, 127)
                         .addComponent(UDLabelMain)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -207,7 +207,7 @@ public class EnterUnitPrice extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(UDLbPrice)
                             .addComponent(txUnitPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btnCDUpdate))
+                    .addComponent(btnUPUpdate))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGDClear)
@@ -318,7 +318,7 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnGDEnterAnotherActionPerformed
 
-    private void btnCDUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDUpdateActionPerformed
+    private void btnUPUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUPUpdateActionPerformed
         // TODO add your handling code here:
         if (!dataUpdate)
         dataUpdate = true;
@@ -339,7 +339,7 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(EnterGroup.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_btnCDUpdateActionPerformed
+    }//GEN-LAST:event_btnUPUpdateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -379,10 +379,10 @@ public class EnterUnitPrice extends javax.swing.JFrame {
     private javax.swing.JLabel UDLblLower;
     private javax.swing.JLabel UDLblUPId;
     private javax.swing.JButton btnCDHome;
-    private javax.swing.JButton btnCDUpdate;
     private javax.swing.JButton btnGDClear;
     private javax.swing.JButton btnGDEnter;
     private javax.swing.JButton btnGDEnterAnother;
+    private javax.swing.JButton btnUPUpdate;
     private javax.swing.JTextField txUnitPrice;
     private javax.swing.JTextField txUnitPriceId;
     private javax.swing.JTextField txUnitPriceLower;

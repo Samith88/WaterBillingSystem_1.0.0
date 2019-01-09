@@ -55,7 +55,7 @@ public class EnterGroup extends javax.swing.JFrame {
         btnGDEnter = new javax.swing.JButton();
         btnGDEnterAnother = new javax.swing.JButton();
         btnCDHome1 = new javax.swing.JButton();
-        btnCDUpdate = new javax.swing.JButton();
+        btnGDUpdate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -119,14 +119,14 @@ public class EnterGroup extends javax.swing.JFrame {
             }
         });
 
-        btnCDUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/update.png"))); // NOI18N
-        btnCDUpdate.setBorder(null);
-        btnCDUpdate.setBorderPainted(false);
-        btnCDUpdate.setContentAreaFilled(false);
-        btnCDUpdate.setFocusPainted(false);
-        btnCDUpdate.addActionListener(new java.awt.event.ActionListener() {
+        btnGDUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/update.png"))); // NOI18N
+        btnGDUpdate.setBorder(null);
+        btnGDUpdate.setBorderPainted(false);
+        btnGDUpdate.setContentAreaFilled(false);
+        btnGDUpdate.setFocusPainted(false);
+        btnGDUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCDUpdateActionPerformed(evt);
+                btnGDUpdateActionPerformed(evt);
             }
         });
 
@@ -142,18 +142,12 @@ public class EnterGroup extends javax.swing.JFrame {
                 .addGap(69, 69, 69)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCDUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnGDUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(GDLabelMain)
                         .addGap(223, 223, 223))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnGDClear, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
-                                .addGap(51, 51, 51)
-                                .addComponent(btnGDEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(51, 51, 51)
-                                .addComponent(btnGDEnterAnother))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(GDLblGID, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -165,7 +159,13 @@ public class EnterGroup extends javax.swing.JFrame {
                                     .addComponent(txtGroupLoc)
                                     .addComponent(txtGroupName)
                                     .addComponent(txtGroupId)
-                                    .addComponent(jScrollPane1))))
+                                    .addComponent(jScrollPane1)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnGDClear, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                                .addGap(51, 51, 51)
+                                .addComponent(btnGDEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(51, 51, 51)
+                                .addComponent(btnGDEnterAnother)))
                         .addGap(61, 61, 61))))
         );
         layout.setVerticalGroup(
@@ -176,12 +176,12 @@ public class EnterGroup extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(GDLabelMain)
-                    .addComponent(btnCDUpdate))
+                    .addComponent(btnGDUpdate))
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(GDLblGID)
                     .addComponent(txtGroupId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(GDLblGName)
                     .addComponent(txtGroupName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -193,12 +193,12 @@ public class EnterGroup extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(GDLbDesc)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGDClear)
                     .addComponent(btnGDEnterAnother)
                     .addComponent(btnGDEnter))
-                .addGap(69, 69, 69))
+                .addGap(87, 87, 87))
         );
 
         pack();
@@ -289,7 +289,7 @@ public class EnterGroup extends javax.swing.JFrame {
             JOptionPaneCustom.errorBox("Current insertion not completed", "Group Data Insertion");        
     }//GEN-LAST:event_btnGDEnterAnotherActionPerformed
 
-    private void btnCDUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDUpdateActionPerformed
+    private void btnGDUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDUpdateActionPerformed
         // TODO add your handling code here:
         if (!dataUpdate)
             dataUpdate = true;
@@ -310,7 +310,7 @@ public class EnterGroup extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(EnterGroup.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_btnCDUpdateActionPerformed
+    }//GEN-LAST:event_btnGDUpdateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -348,10 +348,10 @@ public class EnterGroup extends javax.swing.JFrame {
     private javax.swing.JLabel GDLblGID;
     private javax.swing.JLabel GDLblGName;
     private javax.swing.JButton btnCDHome1;
-    private javax.swing.JButton btnCDUpdate;
     private javax.swing.JButton btnGDClear;
     private javax.swing.JButton btnGDEnter;
     private javax.swing.JButton btnGDEnterAnother;
+    private javax.swing.JButton btnGDUpdate;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea txtGroupDesc;
     private javax.swing.JTextField txtGroupId;

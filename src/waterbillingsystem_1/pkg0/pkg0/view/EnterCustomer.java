@@ -428,7 +428,7 @@ public class EnterCustomer extends javax.swing.JFrame {
     
     private void txtCustomerNICKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCustomerNICKeyTyped
 
-        FillGUIComponents.setNumberOnlyTextBox(evt);
+        FillGUIComponents.setNumberOnlyTextBoxNIC(evt);
     }//GEN-LAST:event_txtCustomerNICKeyTyped
 
     private void txtCustomerNoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCustomerNoKeyTyped
@@ -443,10 +443,12 @@ public class EnterCustomer extends javax.swing.JFrame {
 
     private void txtCustomerTOAKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCustomerTOAKeyTyped
         // TODO add your handling code here:
+        FillGUIComponents.setNumberOnlyTextBox(evt);
     }//GEN-LAST:event_txtCustomerTOAKeyTyped
 
     private void txtCustomerCurrentMeterKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCustomerCurrentMeterKeyTyped
         // TODO add your handling code here:
+        FillGUIComponents.setNumberOnlyTextBox(evt);
     }//GEN-LAST:event_txtCustomerCurrentMeterKeyTyped
 
     private void btnCDHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDHomeActionPerformed

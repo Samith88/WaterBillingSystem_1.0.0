@@ -113,7 +113,14 @@ public class Customer {
     public void setCFirstName(String CFirstName) {
         this.CFirstName = CFirstName;
     }
-    
+
+    public String getLastPaymentDate() {
+        return lastPaymentDate;
+    }
+
+    public void setLastPaymentDate(String lastPaymentDate) {
+        this.lastPaymentDate = lastPaymentDate;
+    }    
     private String  cid;
     private String  nic;
     private String  address_1;
@@ -127,4 +134,6 @@ public class Customer {
     private double lastPayment;
     private String cname;
     private String CFirstName;
+    private String lastPaymentDate;
+
 }
