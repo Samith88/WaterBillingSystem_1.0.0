@@ -83,7 +83,7 @@ public class CustomerDataDatabase {
         return cid;
     }    
     
-    public static String getGroupFromNIC(String nic) throws Exception{
+    public static String getCustomerGroupFromNIC(String nic) throws Exception{
         
         RetrieveClass retrieveClass =new RetrieveClass();
         String gname="";

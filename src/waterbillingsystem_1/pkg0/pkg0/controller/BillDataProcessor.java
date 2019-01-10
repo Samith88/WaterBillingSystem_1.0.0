@@ -38,7 +38,7 @@ public class BillDataProcessor {
         MonthlyBillDetails monthlyBillDetails =new MonthlyBillDetails();
         monthlyBillDetails.setInvoiceNo(getBillId(billData.getCid()));
         monthlyBillDetails.setCid(billData.getCid());
-        monthlyBillDetails.setGroup(CustomerDataDatabase.getGroupFromNIC(billData.getNic()));
+        monthlyBillDetails.setGroup(CustomerDataDatabase.getCustomerGroupFromNIC(billData.getNic()));
         
         CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
         Customer customer = customerDataDatabase.getCustomer(billData.getNic());

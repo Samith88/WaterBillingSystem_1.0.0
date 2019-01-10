@@ -26,10 +26,14 @@ public class PaymentProcessor {
         payment.setNewOutStandingTotal(payment.getOldOutStandingTotal() - payment.getAmount());
         
         ProcessPayment processPayment=new ProcessPayment();
-        return processPayment.insertPayment(payment);
+        return processPayment.insertPayment(payment) && updatePeymentCustomer(payment);
     }
    
+    public boolean updatePeymentCustomer(Payment payment) throws Exception{
     
+        ProcessPayment processPayment=new ProcessPayment();
+        return processPayment.updateCustomerWithPayment(payment);
+    }
     
     private String generatePaymentId(String customerId){
         return customerId+DateDetails.getDateDate();

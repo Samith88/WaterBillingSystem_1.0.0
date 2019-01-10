@@ -45,4 +45,12 @@ public class ProcessPayment {
         return payment;
     }
     
+    public boolean updateCustomerWithPayment(Payment payment) throws Exception{
+        
+        InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
+        return insertUpdateDeleteClass.insertUpdateDeleteDB("update customer set lastPayment='"+payment.getAmount()+"',lastPaymentDate='"+payment.getDate()+"',"
+                + "TotalOutstandingAmount='"+payment.getNewOutStandingTotal()+"' where nic='"+payment.getNic()+"'");
+    
+    }
+    
 }
