@@ -52,6 +52,7 @@ public class generateCustomerInvoice {
         map.put("P_MeterNo",customer.getMeterNo());
         map.put("P_cname",customer.getCname() );
         map.put("P_LastPaymentDay",monthlyBillDetails.getLastPaymentDay() ); 
+        map.put("P_LastPayment",customer.getLastPayment()+" ("+customer.getLastPaymentDate()+")" ); 
         map.put("P_Month",monthlyBillDetails.getMonth());     
 
         //BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(jasperFile.getAbsolutePath()));

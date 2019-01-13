@@ -54,7 +54,7 @@ public class EnterBillData extends javax.swing.JFrame {
         BDLblUnits = new javax.swing.JLabel();
         radioUnits = new javax.swing.JRadioButton();
         radioMeter = new javax.swing.JRadioButton();
-        txtPaymentAmt = new javax.swing.JTextField();
+        txtBDUnitUsage = new javax.swing.JTextField();
         ckBoxSramadhana = new javax.swing.JCheckBox();
         ckBoxAbsentFee = new javax.swing.JCheckBox();
         BDLblUnits1 = new javax.swing.JLabel();
@@ -108,9 +108,9 @@ public class EnterBillData extends javax.swing.JFrame {
         radioMeter.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         radioMeter.setText("Current units in meter");
 
-        txtPaymentAmt.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtBDUnitUsage.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtPaymentAmtKeyTyped(evt);
+                txtBDUnitUsageKeyTyped(evt);
             }
         });
 
@@ -212,7 +212,7 @@ public class EnterBillData extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(btnBDEnterAnother, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtPaymentAmt, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtBDUnitUsage, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtCustomerCID, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtCustomerNIC, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -253,7 +253,7 @@ public class EnterBillData extends javax.swing.JFrame {
                     .addComponent(txtCustomerCID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtPaymentAmt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBDUnitUsage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BDLblUnits))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -285,19 +285,27 @@ public class EnterBillData extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBDEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBDEnterActionPerformed
-        // TODO add your handling code here:
+
         boolean overall = false;
         BillData billData=new BillData();
         billData.setNic(txtCustomerNIC.getText());
         billData.setCid(txtCustomerCID.getText());
+        
         if(radioUnits.isSelected())
-            billData.setMonthlyUsageUnit(Integer.parseInt(txtPaymentAmt.getText()));
+        {
+            billData.setMonthlyUsageUnit(Integer.parseInt(txtBDUnitUsage.getText()));
+            billData.setNewMeter(0);
+        }
         if(radioMeter.isSelected())
-            billData.setNewMeter(Integer.parseInt(txtPaymentAmt.getText()));
+        {
+            billData.setNewMeter(Integer.parseInt(txtBDUnitUsage.getText()));
+            billData.setMonthlyUsageUnit(0);
+        }
         if(ckBoxSramadhana.isSelected())
             billData.setSramadhana(true);
         else
             billData.setSramadhana(false);
+        
         if(ckBoxAbsentFee.isSelected())
             billData.setAbsentCharge(true);
         else
@@ -316,13 +324,12 @@ public class EnterBillData extends javax.swing.JFrame {
         BillDataProcessor billDataProcessor=new BillDataProcessor();
         
         try {
-            if(billDataProcessor.setMonthlyBillDetails(billData))
-            {
-               java.util.logging.Logger.getLogger(EnterBillData.class.getName()).log(java.util.logging.Level.SEVERE, null, billData.getMbid()+": with MonthlyBillDetails successfully data inserted"); 
-               overall =true;
-            }   
-            else
-                overall =false;
+            if(!billDataProcessor.setMonthlyBillDetails(billData))
+                overall =false;   
+            else {
+                java.util.logging.Logger.getLogger(EnterBillData.class.getName()).log(java.util.logging.Level.SEVERE, null, billData.getMbid()+": with MonthlyBillDetails successfully data inserted");
+                overall =true;
+            }
                 } catch (Exception ex) {
             Logger.getLogger(EnterBillData.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPaneCustom.errorBox("Bill data inserted error: " +ex.getMessage(), "Bill Data Insertion");
@@ -337,7 +344,7 @@ public class EnterBillData extends javax.swing.JFrame {
     private void ClearComponents(){
         txtCustomerNIC.setText("");
         txtCustomerCID.setText("");
-        txtPaymentAmt.setText("");
+        txtBDUnitUsage.setText("");
         if(radioUnits.isSelected() || radioMeter.isSelected())
             buttonGroup1.clearSelection();
         ckBoxSramadhana.setSelected(false);
@@ -366,10 +373,10 @@ public class EnterBillData extends javax.swing.JFrame {
         FillGUIComponents.setNumberOnlyTextBox(evt);
     }//GEN-LAST:event_txtCustomerCIDKeyTyped
 
-    private void txtPaymentAmtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPaymentAmtKeyTyped
+    private void txtBDUnitUsageKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBDUnitUsageKeyTyped
         // TODO add your handling code here:
         FillGUIComponents.setNumberOnlyTextBox(evt);
-    }//GEN-LAST:event_txtPaymentAmtKeyTyped
+    }//GEN-LAST:event_txtBDUnitUsageKeyTyped
 
     private void btnCDHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDHomeActionPerformed
         // TODO add your handling code here:
@@ -452,8 +459,8 @@ public class EnterBillData extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbYear;
     private javax.swing.JRadioButton radioMeter;
     private javax.swing.JRadioButton radioUnits;
+    private javax.swing.JTextField txtBDUnitUsage;
     private javax.swing.JTextField txtCustomerCID;
     private javax.swing.JTextField txtCustomerNIC;
-    private javax.swing.JTextField txtPaymentAmt;
     // End of variables declaration//GEN-END:variables
 }

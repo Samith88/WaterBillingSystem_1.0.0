@@ -78,7 +78,7 @@
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Component id="btnBDEnterAnother" min="-2" pref="106" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="txtPaymentAmt" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtBDUnitUsage" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtCustomerCID" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtCustomerNIC" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
@@ -131,7 +131,7 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="txtPaymentAmt" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtBDUnitUsage" min="-2" max="-2" attributes="0"/>
                   <Component id="BDLblUnits" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -249,9 +249,9 @@
         </Property>
       </AccessibilityProperties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtPaymentAmt">
+    <Component class="javax.swing.JTextField" name="txtBDUnitUsage">
       <Events>
-        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPaymentAmtKeyTyped"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtBDUnitUsageKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JCheckBox" name="ckBoxSramadhana">

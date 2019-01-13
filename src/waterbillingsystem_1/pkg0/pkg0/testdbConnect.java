@@ -90,6 +90,7 @@ public class testdbConnect {
         map.put("P_MeterNo",11223344);
         map.put("P_cname","Samith Dissanayake" );
         map.put("P_LastPaymentDay","01112018" );   //P_Month
+        map.put("P_LastPayment","2000.00(12/11/2018)" ); 
         map.put("P_Month","112018");
 
         

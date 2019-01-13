@@ -16,7 +16,7 @@ import waterbillingsystem_1.pkg0.pkg0.base.UnitPrice;
  */
 public class CalculateUsageBill {
     
-    public static double calculateConsumingBill(BillData monthlyBill,List<UnitPrice> unitprices){
+    public double calculateConsumingBill(BillData monthlyBill,List<UnitPrice> unitprices){
         int thisMonthUsage=0;
         if(monthlyBill.getMonthlyUsageUnit()==0)
             thisMonthUsage= monthlyBill.getNewMeter()-monthlyBill.getOldMeter();

@@ -84,4 +84,12 @@ public class MonthlyBillDB {
         }      
         return monthlyBillDetails;
     }
+    
+    public boolean updateCustomerWithBill(MonthlyBillDetails monthlyBillDetails) throws Exception{
+    
+        InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
+        return insertUpdateDeleteClass.insertUpdateDeleteDB("update customer set preMeter='"+monthlyBillDetails.getOldMeter()+"' "
+                + ",currentMeter='"+monthlyBillDetails.getNewMeter()+"'"
+                + ",TotalOutstandingAmount='"+monthlyBillDetails.getTotalOutstandingMonthly()+"' ");
+    }
 }

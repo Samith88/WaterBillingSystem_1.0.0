@@ -44,11 +44,25 @@ public class BillDataProcessor {
         Customer customer = customerDataDatabase.getCustomer(billData.getNic());
         
         monthlyBillDetails.setOldMeter(customer.getCurrentMeter());
-        monthlyBillDetails.setNewMeter(billData.getNewMeter());
+        
+        if(billData.getNewMeter()==0 && billData.getMonthlyUsageUnit() > 0)
+        {
+            monthlyBillDetails.setNewMeter(billData.getMonthlyUsageUnit()+monthlyBillDetails.getOldMeter());
+            monthlyBillDetails.setMonthlyUsageUnit(billData.getMonthlyUsageUnit());
+        }
+        
+        if(billData.getNewMeter() > 0 && billData.getMonthlyUsageUnit()==0)
+        {
+            monthlyBillDetails.setNewMeter(billData.getNewMeter());
+            monthlyBillDetails.setMonthlyUsageUnit(billData.getNewMeter()- monthlyBillDetails.getOldMeter());
+        } 
         
         UnitPricesDB unitPricesDB=new UnitPricesDB();
-        monthlyBillDetails.setMonthlyConsumption(CalculateUsageBill.calculateConsumingBill(billData, unitPricesDB.getUnitPricesFromDB()));
+        CalculateUsageBill calculateUsageBill=new CalculateUsageBill();
+        
+        monthlyBillDetails.setMonthlyConsumption(calculateUsageBill.calculateConsumingBill(billData, unitPricesDB.getUnitPricesFromDB()));
         monthlyBillDetails.setFixedCharge(VariableStorage.FixedCharge);
+        
         if(billData.isAbsentCharge())
             monthlyBillDetails.setAbsentCharge(VariableStorage.AbsentCharge);
         else
@@ -68,9 +82,14 @@ public class BillDataProcessor {
         monthlyBillDetails.setLastPaymentDay(DateDetails.getDateNextMonth()+"/"+DateDetails.getDateNextYear());
         
         MonthlyBillDB monthlyBillDB=new MonthlyBillDB();
-        return monthlyBillDB.putMonthlyBillDetails(monthlyBillDetails);
+        return monthlyBillDB.putMonthlyBillDetails(monthlyBillDetails) && updateCustomerWithBill(monthlyBillDetails);
     }
     
+    private boolean updateCustomerWithBill(MonthlyBillDetails monthlyBillDetails) throws Exception{
+        
+        MonthlyBillDB monthlyBillDB=new MonthlyBillDB();
+        return monthlyBillDB.updateCustomerWithBill(monthlyBillDetails);
+    }
     
     
 }
