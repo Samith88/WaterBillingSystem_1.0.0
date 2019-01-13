@@ -220,6 +220,14 @@ public class EnterUnitPrice extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGDEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDEnterActionPerformed
+        String errorMessage = validateData();
+        if (0 < errorMessage.length())
+            JOptionPaneCustom.infoBox(errorMessage, "Unit Price Data Insertion");
+        else
+            EnterData();
+    }//GEN-LAST:event_btnGDEnterActionPerformed
+
+    private void EnterData(){
 
         UnitPrice unitPrice = new UnitPrice();
 
@@ -235,9 +243,24 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         else if(!dataInserted)
         {
             InsertUnitPrice(unitPrice);
-        }  
-    }//GEN-LAST:event_btnGDEnterActionPerformed
-
+        }         
+        
+    }
+    private String validateData(){
+    
+        String errorMessage = "";
+        if(txUnitPriceId.getText().length()==0)
+            errorMessage += "Enter a valid unit price Id";
+        if(txUnitPriceLower.getText().length()==0)
+            errorMessage += "Enter a valid lower unit level";
+        if(txUnitPriceUpper.getText().length()==0)
+            errorMessage += "Enter a valid upper unit level";     
+        if(txUnitPrice.getText().length()==0)
+            errorMessage += "Enter a valid unit price";  
+        
+        return errorMessage;
+    }    
+    
     private void InsertUnitPrice(UnitPrice unitPrice){
 
         UnitPriceProcessor unitPriceProcessor=new UnitPriceProcessor();

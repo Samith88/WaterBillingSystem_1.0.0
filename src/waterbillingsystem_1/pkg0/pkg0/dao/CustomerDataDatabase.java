@@ -41,6 +41,7 @@ public class CustomerDataDatabase {
                 customer.setLastPayment(rs.getDouble("lastPayment"));
                 customer.setCname(rs.getString("cname"));
                 customer.setCFirstName(rs.getString("CFirstName"));
+                customer.setLastPaymentDate(rs.getString("lastPaymentDate"));
             }
             DBConnection.disconnect();
         } catch (SQLException e) {

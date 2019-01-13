@@ -60,8 +60,18 @@ public class DateDetails {
     }       
  
     public static String getDateHour(){
-        return String.valueOf(calendar.get(Calendar.HOUR));
-    }     
+        if(String.valueOf(calendar.get(Calendar.HOUR)).length()==1)
+            return "0"+String.valueOf(calendar.get(Calendar.HOUR));
+        else
+           return String.valueOf(calendar.get(Calendar.HOUR));
+    }
+    
+    public static String getDateMinute(){
+        if(String.valueOf(calendar.get(Calendar.MINUTE)).length()==1)
+            return "0"+String.valueOf(calendar.get(Calendar.MINUTE));
+        else
+           return String.valueOf(calendar.get(Calendar.MINUTE));
+    }    
     
     public static int getDate(){
         calendar.set(Calendar.MONTH, Calendar.MONTH);
@@ -73,6 +83,6 @@ public class DateDetails {
     
     public static void main(String args[]) {
     
-        System.out.println(getDate());
+        System.out.println(getDateHour());
     }
 }

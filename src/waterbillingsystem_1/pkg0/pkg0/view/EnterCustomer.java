@@ -342,6 +342,16 @@ public class EnterCustomer extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCDFEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDFEnterActionPerformed
+
+        String errorMessage = validateData();
+        if(0 < errorMessage.length())
+            JOptionPaneCustom.errorBox(errorMessage, "Customer Data Insertion");   
+        else
+            EnterData();
+            
+    }//GEN-LAST:event_btnCDFEnterActionPerformed
+
+    private void EnterData(){
         Customer customer=new Customer();
         
         customer.setCFirstName(txtCustomerFN.getText());
@@ -362,10 +372,28 @@ public class EnterCustomer extends javax.swing.JFrame {
         else if(!dataInserted)
         {
             InsertCustomerData(customer);
-        }
-
-    }//GEN-LAST:event_btnCDFEnterActionPerformed
-
+        }    
+        
+    }
+    
+    private String validateData(){
+    
+        String errorMessage = "";
+        if(txtCustomerNIC.getText().length()!=10)
+            errorMessage += "Enter valide NIC ";
+        if(txtCustomerFN.getText().length()==0)
+            errorMessage += "Enter valide First name ";
+        if(txtCustomername.getText().length()==0)
+            errorMessage += "Enter valide name ";
+        if(txtCustomerNo.getText().length()==0)
+            errorMessage += "Enter valide customer Id ";
+        if(txtCustomerCurrentMeter.getText().length()==0)
+            errorMessage += "Enter valide Current Meter ";   
+        if(txtCustomerTOA.getText().length()==0)
+            errorMessage += "Enter valide Total OutStanding value ";   
+        
+        return errorMessage;
+    }
     private void InsertCustomerData(Customer customer){
 
         if(CustomerDataProcessor.putCustomer(customer))

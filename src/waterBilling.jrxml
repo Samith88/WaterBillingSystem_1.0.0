@@ -75,7 +75,7 @@
 	<parameter name="P_Month" class="java.lang.String"/>
 	<parameter name="P_TotalOutstandingMonthly" class="java.lang.Double"/>
 	<parameter name="P_MonthlyUsageUnit" class="java.lang.Integer"/>
-	<parameter name="P_MeterNo" class="java.lang.Integer"/>
+	<parameter name="P_MeterNo" class="java.lang.String"/>
 	<parameter name="P_cname" class="java.lang.String"/>
 	<parameter name="P_LastPaymentDay" class="java.lang.String"/>
 	<parameter name="P_LastPayment" class="java.lang.String"/>
@@ -97,7 +97,7 @@
 	<field name="F_TotalOutstandingMonthly" class="java.lang.Double"/>
 	<field name="F_MonthlyUsageUnit" class="java.lang.String"/>
 	<field name="F_nic" class="java.lang.String"/>
-	<field name="F_MeterNo" class="java.lang.Integer"/>
+	<field name="F_MeterNo" class="java.lang.String"/>
 	<field name="F_cname" class="java.lang.String"/>
 	<field name="F_LastPaymentDay" class="java.lang.String"/>
 	<title>

@@ -63,7 +63,7 @@ public class MonthlyBillDB {
                 monthlyBillDetails.setInvoiceNo(InvoiceNo);
                 monthlyBillDetails.setCid(rs.getString("cid"));
                 monthlyBillDetails.setNic(rs.getString("nic"));
-                monthlyBillDetails.setGroup(rs.getString("Group"));
+                monthlyBillDetails.setGroup(rs.getString("GroupId"));
                 monthlyBillDetails.setOldMeter(rs.getInt("OldMeter"));
                 monthlyBillDetails.setNewMeter(rs.getInt("NewMeter"));
                 monthlyBillDetails.setMonthlyConsumption(rs.getDouble("MonthlyConsumption"));
@@ -92,4 +92,10 @@ public class MonthlyBillDB {
                 + ",TotalOutstandingAmount='"+monthlyBillDetails.getTotalOutstandingMonthly()+"' "
                 + "where nic='"+monthlyBillDetails.getNic()+"' ");
     }
+    
+    public boolean deleteBillDataByBDId(String MBId) throws Exception{
+    
+        InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
+        return insertUpdateDeleteClass.insertUpdateDeleteDB("delete from BillData where mbid = '"+MBId+"' ");
+    }    
 }

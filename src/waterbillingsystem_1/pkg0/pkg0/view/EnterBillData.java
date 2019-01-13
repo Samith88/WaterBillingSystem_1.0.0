@@ -287,11 +287,15 @@ public class EnterBillData extends javax.swing.JFrame {
 
     private void btnBDEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBDEnterActionPerformed
 
-        String MsgFromForm  = ValidateData();
-        if(0 < MsgFromForm.length())
-            JOptionPaneCustom.errorBox(MsgFromForm, "Bill Data Insertion");
+        String errorMessage  = ValidateData();
+        if(0 < errorMessage.length())
+            JOptionPaneCustom.errorBox(errorMessage, "Bill Data Insertion");
         else
-            EnterDataToDB();
+            try {
+                EnterDataToDB();
+        } catch (Exception ex) {
+            Logger.getLogger(EnterBillData.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_btnBDEnterActionPerformed
 
@@ -307,10 +311,11 @@ public class EnterBillData extends javax.swing.JFrame {
         return errorString;
     }
     
-    private void EnterDataToDB(){
+    private void EnterDataToDB() throws Exception{
         boolean billDataEntered = false;
         boolean MonthlyBillDetailsEntered = false;
         BillData billData=new BillData();
+        
         billData.setNic(cmbCustomerNIC.getSelectedItem().toString());
         billData.setCid(txtCustomerCID.getText());
         
@@ -363,17 +368,22 @@ public class EnterBillData extends javax.swing.JFrame {
         if(MonthlyBillDetailsEntered && billDataEntered)
         {
             JOptionPaneCustom.infoBox("Bill data inserted successfully", "Bill Data Insertion");
+            getLogger.getLog().debug("Bill data inserted successfully for id: "+billDataProcessor.getBillId(billData.getCid()));
             dataInserted = true;
             ClearComponents();
         }   
-        else if(!MonthlyBillDetailsEntered)
+        else if(billDataEntered && !MonthlyBillDetailsEntered)
         {
             JOptionPaneCustom.errorBox("Error in MonthlyBillDetails Entering", "MonthlyBillDetails Data Insertion");
-            getLogger.getLog().debug("Error in MonthlyBillDetails Entering in bill data id: "+billData.getMbid());
-            //Can send an delete command for bill dat id
+            getLogger.getLog().debug("Error in MonthlyBillDetails Entering in bill data id: "+billDataProcessor.getBillId(billData.getCid()));
+            
+            billDataProcessor.DeleteMonthlyBillDBByMBId(billDataProcessor.getBillId(billData.getCid()));
+            getLogger.getLog().debug("MonthlyBillDetails deleted, bill data id: "+billDataProcessor.getBillId(billData.getCid()));
         }
         else
+        {
             JOptionPaneCustom.errorBox("Error in bill data Entering", "Bill Data Insertion");
+        }
     }
     private void ClearComponents(){
         txtCustomerNIC.setText("");

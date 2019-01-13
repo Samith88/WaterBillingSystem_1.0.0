@@ -206,6 +206,15 @@ public class EnterGroup extends javax.swing.JFrame {
 
     private void btnGDEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDEnterActionPerformed
 
+        String errorMessage = validateData();
+        if (0 < errorMessage.length())
+            JOptionPaneCustom.infoBox(errorMessage, "Group Data Insertion");
+        else
+            EnterData();
+    }//GEN-LAST:event_btnGDEnterActionPerformed
+
+    private void EnterData(){
+    
         Group group = new Group();
         
         group.setGid(txtGroupId.getText());
@@ -220,9 +229,20 @@ public class EnterGroup extends javax.swing.JFrame {
         else if(!dataInserted)
         {
             InsertGroup(group);
-        }        
-    }//GEN-LAST:event_btnGDEnterActionPerformed
-
+        }          
+    }
+    
+    private String validateData(){
+    
+        String errorMessage = "";
+        if(txtGroupId.getText().length()==0)
+            errorMessage += "Enter a valid group Id";
+        if(txtGroupName.getText().length()==0)
+            errorMessage += "Enter a valid group name";
+        
+        return errorMessage;
+    }
+    
     private void InsertGroup(Group group){
 
         GroupDataProcessor groupDataProcessor=new GroupDataProcessor();

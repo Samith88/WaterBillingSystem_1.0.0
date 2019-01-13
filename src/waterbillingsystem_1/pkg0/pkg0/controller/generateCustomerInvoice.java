@@ -67,9 +67,9 @@ public class generateCustomerInvoice {
         File outFile = new File("Invoice_"+outFileString+".pdf");
         OutputStream outputStream = new FileOutputStream(outFile);
         JasperExportManager.exportReportToPdfStream(JPrint, outputStream);
-        System.exit(0);
+        //System.exit(0);
         // VIEW THE REPORT
-        JasperViewer.viewReport(JPrint);      
+        //JasperViewer.viewReport(JPrint,false);      
         return "Invoice_"+outFileString+".pdf";
     }
     

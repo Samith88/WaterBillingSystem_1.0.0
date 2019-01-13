@@ -227,6 +227,14 @@ public class EnterPayment extends javax.swing.JFrame {
 
     private void btnPDEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDEnterActionPerformed
         // TODO add your handling code here:
+        String errorMessage = validateForm();
+        if(0 < validateForm().length())
+            JOptionPaneCustom.errorBox(errorMessage, "Bill Data Insertion");
+        else
+            EnterData();
+    }//GEN-LAST:event_btnPDEnterActionPerformed
+
+    private void EnterData(){
         Payment payment=new Payment();
         payment.setCid(txtPaymentCID.getText());
         payment.setNic(cmdNIC.getSelectedItem().toString());
@@ -243,9 +251,19 @@ public class EnterPayment extends javax.swing.JFrame {
         } catch (Exception ex) {
             JOptionPaneCustom.errorBox("Payment data inserted error :"+ex.getMessage(), "Payment Data Insertion");
             Logger.getLogger(EnterPayment.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btnPDEnterActionPerformed
-
+        }        
+    }
+    private String validateForm(){
+    
+        String errorMessage = "";
+        if(cmdNIC.getSelectedItem().toString().length()!=10)
+            errorMessage += "Please enter a correct NIC ";
+        
+        if(txtPaymentAmount.getText().length()==0)
+            errorMessage += "Please enter a valid amount ";
+ 
+        return errorMessage;
+    }
     private void btnPDClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDClearActionPerformed
         // TODO add your handling code here:
         ClearComponents();

@@ -95,5 +95,10 @@ public class BillDataProcessor {
         return monthlyBillDB.updateCustomerWithBill(monthlyBillDetails);
     }
     
+    public boolean DeleteMonthlyBillDBByMBId(String MBId) throws Exception{
+        MonthlyBillDB monthlyBillDB =new MonthlyBillDB();
+        return monthlyBillDB.deleteBillDataByBDId(MBId);
+    }
+    
     
 }

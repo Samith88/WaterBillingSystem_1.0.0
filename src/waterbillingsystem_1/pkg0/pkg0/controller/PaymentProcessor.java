@@ -39,7 +39,7 @@ public class PaymentProcessor {
     }
     
     private String generatePaymentId(String customerId){
-        return customerId+DateDetails.getDateDate()+DateDetails.getDateMonth()+DateDetails.getDateDate();
+        return customerId+DateDetails.getDateMinute()+DateDetails.getDateHour()+DateDetails.getDateDate()+DateDetails.getDateMonth()+DateDetails.getDateDate();
     }
     
 }
