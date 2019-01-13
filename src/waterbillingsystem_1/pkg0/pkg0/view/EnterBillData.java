@@ -14,6 +14,7 @@ import waterbillingsystem_1.pkg0.pkg0.base.BillData;
 import waterbillingsystem_1.pkg0.pkg0.controller.BillDataProcessor;
 import waterbillingsystem_1.pkg0.pkg0.controller.CustomerDataProcessor;
 import waterbillingsystem_1.pkg0.pkg0.controller.FillGUIComponents;
+import waterbillingsystem_1.pkg0.pkg0.logging.getLogger;
 
 /**
  *
@@ -286,9 +287,31 @@ public class EnterBillData extends javax.swing.JFrame {
 
     private void btnBDEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBDEnterActionPerformed
 
-        boolean overall = false;
+        String MsgFromForm  = ValidateData();
+        if(0 < MsgFromForm.length())
+            JOptionPaneCustom.errorBox(MsgFromForm, "Bill Data Insertion");
+        else
+            EnterDataToDB();
+
+    }//GEN-LAST:event_btnBDEnterActionPerformed
+
+    private String ValidateData(){
+    
+        String errorString = "";
+        
+        if(txtCustomerNIC.getText().length()==0)
+            errorString += "Customer NIC note entered";
+        if(!radioUnits.isSelected() && !radioMeter.isSelected())
+            errorString += "Please select type of meter units";
+        
+        return errorString;
+    }
+    
+    private void EnterDataToDB(){
+        boolean billDataEntered = false;
+        boolean MonthlyBillDetailsEntered = false;
         BillData billData=new BillData();
-        billData.setNic(txtCustomerNIC.getText());
+        billData.setNic(cmbCustomerNIC.getSelectedItem().toString());
         billData.setCid(txtCustomerCID.getText());
         
         if(radioUnits.isSelected())
@@ -317,30 +340,41 @@ public class EnterBillData extends javax.swing.JFrame {
         if(BillDataProcessor.putBillData(billData))
         {
             java.util.logging.Logger.getLogger(EnterBillData.class.getName()).log(java.util.logging.Level.SEVERE, null, billData.getMbid()+": Successfully data inserted");
-            overall =true;
+            billDataEntered =true;
         }
         else
-            overall =false;
+        {
+            billDataEntered =false;
+            JOptionPaneCustom.errorBox("Bill data insertion error in  ", "Bill Data Insertion");
+        }
         BillDataProcessor billDataProcessor=new BillDataProcessor();
         
         try {
             if(!billDataProcessor.setMonthlyBillDetails(billData))
-                overall =false;   
+                MonthlyBillDetailsEntered =false;   
             else {
                 java.util.logging.Logger.getLogger(EnterBillData.class.getName()).log(java.util.logging.Level.SEVERE, null, billData.getMbid()+": with MonthlyBillDetails successfully data inserted");
-                overall =true;
+                MonthlyBillDetailsEntered =true;
             }
                 } catch (Exception ex) {
             Logger.getLogger(EnterBillData.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPaneCustom.errorBox("Bill data inserted error: " +ex.getMessage(), "Bill Data Insertion");
         }
-        if(overall)
+        if(MonthlyBillDetailsEntered && billDataEntered)
         {
             JOptionPaneCustom.infoBox("Bill data inserted successfully", "Bill Data Insertion");
             dataInserted = true;
+            ClearComponents();
+        }   
+        else if(!MonthlyBillDetailsEntered)
+        {
+            JOptionPaneCustom.errorBox("Error in MonthlyBillDetails Entering", "MonthlyBillDetails Data Insertion");
+            getLogger.getLog().debug("Error in MonthlyBillDetails Entering in bill data id: "+billData.getMbid());
+            //Can send an delete command for bill dat id
         }
-    }//GEN-LAST:event_btnBDEnterActionPerformed
-
+        else
+            JOptionPaneCustom.errorBox("Error in bill data Entering", "Bill Data Insertion");
+    }
     private void ClearComponents(){
         txtCustomerNIC.setText("");
         txtCustomerCID.setText("");

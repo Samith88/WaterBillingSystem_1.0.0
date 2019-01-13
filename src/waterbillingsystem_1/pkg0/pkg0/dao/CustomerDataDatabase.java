@@ -83,23 +83,39 @@ public class CustomerDataDatabase {
         return cid;
     }    
     
-    public static String getCustomerGroupFromNIC(String nic) throws Exception{
+    public static String getCustomerGroupIdFromNIC(String nic) throws Exception{
         
         RetrieveClass retrieveClass =new RetrieveClass();
-        String gname="";
+        String gid="";
         
         try{
-            ResultSet rs  = retrieveClass.getResultsFormDB("select g.gname as groupName from customer c, group g where "
-                    + "c.nic='"+nic+"' and g.gid = c.gid");
+            ResultSet rs  = retrieveClass.getResultsFormDB("select gid from customer where nic='"+nic+"' ");
             while (rs.next()) {
-                gname= rs.getString("groupName");
+                gid= rs.getString("gid");
             }
             DBConnection.disconnect();
         } catch (SQLException e) {
             getLogger.getLog().debug(e.toString());
         }     
-        return gname;
+        return gid;
     }      
+    
+    public static double getCustomerTotalOSTNIC(String nic) throws Exception{
+        
+        RetrieveClass retrieveClass =new RetrieveClass();
+        double TotalOutstandingAmount=0.0;
+        
+        try{
+            ResultSet rs  = retrieveClass.getResultsFormDB("select TotalOutstandingAmount from customer where nic='"+nic+"' ");
+            while (rs.next()) {
+                TotalOutstandingAmount= rs.getDouble("TotalOutstandingAmount");
+            }
+            DBConnection.disconnect();
+        } catch (SQLException e) {
+            getLogger.getLog().debug(e.toString());
+        }     
+        return TotalOutstandingAmount;
+    }     
     
     public boolean putCustomerData(Customer customer){
     

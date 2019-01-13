@@ -21,22 +21,25 @@ public class PaymentProcessor {
     public boolean putPayment(Payment payment) throws Exception{
         
         payment.setPyid(generatePaymentId(payment.getCid()));
+        ProcessPayment processPayment=new ProcessPayment();
+
         
         payment.setCid(CustomerDataDatabase.getCIDFromNIC(payment.getNic()));
-        payment.setNewOutStandingTotal(payment.getOldOutStandingTotal() - payment.getAmount());
+        payment.setOldOutStandingTotal(CustomerDataDatabase.getCustomerTotalOSTNIC(payment.getNic()));
+        payment.setNewOutStandingTotal(payment.getOldOutStandingTotal() - payment.getAmount() );
         
-        ProcessPayment processPayment=new ProcessPayment();
+        
         return processPayment.insertPayment(payment) && updatePeymentCustomer(payment);
     }
    
-    public boolean updatePeymentCustomer(Payment payment) throws Exception{
+    private boolean updatePeymentCustomer(Payment payment) throws Exception{
     
         ProcessPayment processPayment=new ProcessPayment();
         return processPayment.updateCustomerWithPayment(payment);
     }
     
     private String generatePaymentId(String customerId){
-        return customerId+DateDetails.getDateDate();
+        return customerId+DateDetails.getDateDate()+DateDetails.getDateMonth()+DateDetails.getDateDate();
     }
     
 }

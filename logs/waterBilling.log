@@ -165,3 +165,10 @@
 2019-01-13 11:01:36 DEBUG [main] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@205df5dc for object net.sf.jasperreports.engine.fill.JRTemplateText@7bf01cb
 2019-01-13 11:01:36 DEBUG [main] (JRBaseFiller.java:919) - Fill 1: ended
 2019-01-13 11:01:36 DEBUG [main] (JRFillDataset.java:1160) - Fill 1: closing query executer
+2019-01-13 12:22:48 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:23) - org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "group": syntax error)
+2019-01-13 12:25:01 DEBUG [AWT-EventQueue-0] (InsertUpdateDeleteClass.java:32) - org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near ",": syntax error)
+2019-01-13 12:32:52 DEBUG [AWT-EventQueue-0] (InsertUpdateDeleteClass.java:32) - org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_TRIGGER]  A RAISE function within a trigger fired, causing the SQL statement to abort (Bill data Id already exist)
+2019-01-13 12:32:52 DEBUG [AWT-EventQueue-0] (InsertUpdateDeleteClass.java:32) - org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near ",": syntax error)
+2019-01-13 12:40:31 DEBUG [AWT-EventQueue-0] (CustomerDataDatabase.java:98) - java.sql.SQLException: no such column: 'groupName'
+2019-01-13 12:40:31 DEBUG [AWT-EventQueue-0] (InsertUpdateDeleteClass.java:32) - org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near ",": syntax error)
+2019-01-13 12:41:44 DEBUG [AWT-EventQueue-0] (CustomerDataDatabase.java:98) - java.sql.SQLException: no such column: 'groupName'

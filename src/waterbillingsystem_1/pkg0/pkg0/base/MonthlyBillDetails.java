@@ -107,14 +107,14 @@ public class MonthlyBillDetails {
         this.TotalOutstandingMonthly = TotalOutstandingMonthly;
     }
  
-    private String Group;
+    private String GroupId;
 
     public String getGroup() {
-        return Group;
+        return GroupId;
     }
 
     public void setGroup(String Group) {
-        this.Group = Group;
+        this.GroupId = Group;
     }
 
     public String getMonth() {

@@ -33,18 +33,17 @@ public class MonthlyBillDB {
     public boolean putMonthlyBillDetails(MonthlyBillDetails monthlyBillDetails){
         
         InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
-
-        return insertUpdateDeleteClass.insertUpdateDeleteDB("insert into MonthlyBillDetails(InvoiceNo,cid,nic,[Group],OldMeter,"
-                + "NewMeter,MonthlyConsumption,"
-                + "CurrentTotalAmount,FixedCharge,Sramadhana,AbsentCharge,TotalMonthlyAmount,Month,"
-                + "TotalOutstandingMonthly,MonthlyUsageUnit,LastPaymentDay) values('"+monthlyBillDetails.getInvoiceNo()+"','"+monthlyBillDetails.getCid()+"',"
-                + "'"+monthlyBillDetails.getNic()+"','"+monthlyBillDetails.getGroup()+"','"+monthlyBillDetails.getOldMeter()+"',"
-                + "'"+monthlyBillDetails.getNewMeter()+"',"
-                + ",'"+monthlyBillDetails.getMonthlyConsumption()+"','"+monthlyBillDetails.getCurrentTotalAmount()+"',"
-                + "'"+monthlyBillDetails.getFixedCharge()+"','"+monthlyBillDetails.getSramadhana()+"',"
-                + "'"+monthlyBillDetails.getAbsentCharge()+"','"+monthlyBillDetails.getTotalMonthlyAmount()+"',"
-                + "'"+monthlyBillDetails.getMonth()+"','"+monthlyBillDetails.getTotalOutstandingMonthly()+"'"
-                + "'"+monthlyBillDetails.getMonthlyUsageUnit()+"','"+monthlyBillDetails.getLastPaymentDay()+"')");
+        return insertUpdateDeleteClass.insertUpdateDeleteDB("insert into MonthlyBillDetails(InvoiceNo,cid,nic,GroupId,OldMeter,"
+            + "NewMeter,MonthlyConsumption,"
+            + "CurrentTotalAmount,FixedCharge,Sramadhana,AbsentCharge,TotalMonthlyAmount,Month,"
+            + "TotalOutstandingMonthly,MonthlyUsageUnit,LastPaymentDay) values('"+monthlyBillDetails.getInvoiceNo()+"','"+monthlyBillDetails.getCid()+"',"
+            + "'"+monthlyBillDetails.getNic()+"','"+monthlyBillDetails.getGroup()+"','"+monthlyBillDetails.getOldMeter()+"',"
+            + "'"+monthlyBillDetails.getNewMeter()+"'"
+            + ",'"+monthlyBillDetails.getMonthlyConsumption()+"','"+monthlyBillDetails.getCurrentTotalAmount()+"',"
+            + "'"+monthlyBillDetails.getFixedCharge()+"','"+monthlyBillDetails.getSramadhana()+"',"
+            + "'"+monthlyBillDetails.getAbsentCharge()+"','"+monthlyBillDetails.getTotalMonthlyAmount()+"',"
+            + "'"+monthlyBillDetails.getMonth()+"','"+monthlyBillDetails.getTotalOutstandingMonthly()+"',"
+            + "'"+monthlyBillDetails.getMonthlyUsageUnit()+"','"+monthlyBillDetails.getLastPaymentDay()+"')");
     }
     
     public BillData getBilldata(){
@@ -90,6 +89,7 @@ public class MonthlyBillDB {
         InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
         return insertUpdateDeleteClass.insertUpdateDeleteDB("update customer set preMeter='"+monthlyBillDetails.getOldMeter()+"' "
                 + ",currentMeter='"+monthlyBillDetails.getNewMeter()+"'"
-                + ",TotalOutstandingAmount='"+monthlyBillDetails.getTotalOutstandingMonthly()+"' ");
+                + ",TotalOutstandingAmount='"+monthlyBillDetails.getTotalOutstandingMonthly()+"' "
+                + "where nic='"+monthlyBillDetails.getNic()+"' ");
     }
 }

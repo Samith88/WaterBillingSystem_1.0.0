@@ -5,7 +5,10 @@
  */
 package waterbillingsystem_1.pkg0.pkg0;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  *
@@ -16,26 +19,60 @@ public class DateDetails {
     private static final Calendar calendar = Calendar.getInstance();
     
     public static String getDateNextMonth(){
-        calendar.add(Calendar.MONTH,1);
-        return String.valueOf(calendar.getTime().getMonth());
+        calendar.set(Calendar.MONTH, Calendar.MONTH);
+        calendar.set(Calendar.DAY_OF_MONTH, 31);
+        calendar.add(Calendar.MONTH, 1);
+        
+        if(String.valueOf(Calendar.MONTH).length()==1)
+            return "0"+String.valueOf(Calendar.MONTH);
+        else
+            return String.valueOf(Calendar.MONTH);
     }
     public static String getDateNextYear(){
-        calendar.add(Calendar.MONTH,1);
-        return String.valueOf(calendar.getTime().getYear());
+        calendar.set(Calendar.MONTH, Calendar.MONTH);
+        calendar.set(Calendar.DAY_OF_MONTH, 31);
+        calendar.add(Calendar.MONTH, 1);        
+        
+        return String.valueOf(calendar.get(Calendar.YEAR));
     }    
     public static String getDateMonth(){
-        return String.valueOf(calendar.get(Calendar.MONTH));
+        Date date = new Date();
+        LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        if(String.valueOf(localDate.getMonthValue()).length()==1)
+            return "0"+String.valueOf(localDate.getMonthValue());
+        else
+            return String.valueOf(localDate.getMonthValue());
     }
 
     public static String getDateDate(){
-        return String.valueOf(calendar.get(Calendar.DATE));
+        Date date = new Date();
+        LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        if(String.valueOf(localDate.getDayOfMonth()).length()==1)
+            return "0"+String.valueOf(localDate.getDayOfMonth());
+        else
+            return String.valueOf(localDate.getDayOfMonth());
     }   
     
     public static String  getDateYear(){
-        return String.valueOf(calendar.get(Calendar.YEAR));
+        Date date = new Date();
+        LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        return String.valueOf(localDate.getYear());
     }       
  
     public static String getDateHour(){
         return String.valueOf(calendar.get(Calendar.HOUR));
-    }      
+    }     
+    
+    public static int getDate(){
+        calendar.set(Calendar.MONTH, Calendar.MONTH);
+        calendar.set(Calendar.DAY_OF_MONTH, 31);
+        calendar.add(Calendar.MONTH, 1);        
+        
+        return calendar.get(Calendar.YEAR);
+    }   
+    
+    public static void main(String args[]) {
+    
+        System.out.println(getDate());
+    }
 }

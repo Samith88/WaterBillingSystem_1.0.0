@@ -229,16 +229,17 @@ public class EnterPayment extends javax.swing.JFrame {
         // TODO add your handling code here:
         Payment payment=new Payment();
         payment.setCid(txtPaymentCID.getText());
-        payment.setCid(txtPaymentNIC.getText());
+        payment.setNic(cmdNIC.getSelectedItem().toString());
         payment.setAmount(Double.parseDouble(txtPaymentAmount.getText()));
-        payment.setDate(DateDetails.getDateDate());
+        payment.setDate(DateDetails.getDateDate()+"/"+DateDetails.getDateMonth()+"/"+DateDetails.getDateYear());
         
         PaymentProcessor PaymentProcessor=new PaymentProcessor();
         try {
             PaymentProcessor.putPayment(payment);
             JOptionPaneCustom.infoBox("Payment data inserted successfully", "Payment Data Insertion");            
             Logger.getLogger(EnterPayment.class.getName()).log(Level.SEVERE, null, "Payment data inserted successfully :"+payment.getPyid() );
-            dataInserted = true;            
+            dataInserted = true;   
+            ClearComponents();
         } catch (Exception ex) {
             JOptionPaneCustom.errorBox("Payment data inserted error :"+ex.getMessage(), "Payment Data Insertion");
             Logger.getLogger(EnterPayment.class.getName()).log(Level.SEVERE, null, ex);

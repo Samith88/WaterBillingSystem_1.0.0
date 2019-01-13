@@ -38,12 +38,14 @@ public class BillDataProcessor {
         MonthlyBillDetails monthlyBillDetails =new MonthlyBillDetails();
         monthlyBillDetails.setInvoiceNo(getBillId(billData.getCid()));
         monthlyBillDetails.setCid(billData.getCid());
-        monthlyBillDetails.setGroup(CustomerDataDatabase.getCustomerGroupFromNIC(billData.getNic()));
+        monthlyBillDetails.setNic(billData.getNic());
+        monthlyBillDetails.setGroup(CustomerDataDatabase.getCustomerGroupIdFromNIC(billData.getNic()));
         
         CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
         Customer customer = customerDataDatabase.getCustomer(billData.getNic());
         
         monthlyBillDetails.setOldMeter(customer.getCurrentMeter());
+        billData.setOldMeter(customer.getCurrentMeter());
         
         if(billData.getNewMeter()==0 && billData.getMonthlyUsageUnit() > 0)
         {
@@ -60,7 +62,7 @@ public class BillDataProcessor {
         UnitPricesDB unitPricesDB=new UnitPricesDB();
         CalculateUsageBill calculateUsageBill=new CalculateUsageBill();
         
-        monthlyBillDetails.setMonthlyConsumption(calculateUsageBill.calculateConsumingBill(billData, unitPricesDB.getUnitPricesFromDB()));
+        
         monthlyBillDetails.setFixedCharge(VariableStorage.FixedCharge);
         
         if(billData.isAbsentCharge())
@@ -72,13 +74,15 @@ public class BillDataProcessor {
         else
             monthlyBillDetails.setSramadhana(0);
         
+        monthlyBillDetails.setMonthlyConsumption(calculateUsageBill.calculateConsumingBill(monthlyBillDetails.getMonthlyUsageUnit(), unitPricesDB.getUnitPricesFromDB()));         
+        
         monthlyBillDetails.setCurrentTotalAmount(customer.getTotalOutstandingAmount());
         
         monthlyBillDetails.setTotalMonthlyAmount(monthlyBillDetails.getMonthlyConsumption()+monthlyBillDetails.getFixedCharge()+
-                monthlyBillDetails.getSramadhana()+monthlyBillDetails.getAbsentCharge());
+        monthlyBillDetails.getSramadhana()+monthlyBillDetails.getAbsentCharge());
         monthlyBillDetails.setTotalOutstandingMonthly(monthlyBillDetails.getCurrentTotalAmount()+monthlyBillDetails.getTotalMonthlyAmount());
         monthlyBillDetails.setMonth(billData.getMonth());
-        monthlyBillDetails.setMonthlyUsageUnit(billData.getMonthlyUsageUnit());
+        
         monthlyBillDetails.setLastPaymentDay(DateDetails.getDateNextMonth()+"/"+DateDetails.getDateNextYear());
         
         MonthlyBillDB monthlyBillDB=new MonthlyBillDB();
