@@ -34,4 +34,9 @@ public class CustomerDataProcessor {
         return customerDataDatabase.getCustomer(nic);
     }
     
+    public double getTOAOfCustomer(String nic) throws Exception{
+        CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
+        return customerDataDatabase.getTOAFromNIC(nic);
+    }    
+    
 }

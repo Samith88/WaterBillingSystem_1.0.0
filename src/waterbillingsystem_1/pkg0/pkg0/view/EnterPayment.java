@@ -30,7 +30,8 @@ public class EnterPayment extends javax.swing.JFrame {
      */
     HashMap<String, String> customerHash = new HashMap<>();
     boolean dataInserted;
-    boolean dataUpdate;    
+    boolean dataUpdate;  
+    private String pyid="";
     
     public EnterPayment() throws Exception {
         initComponents();
@@ -255,8 +256,8 @@ public class EnterPayment extends javax.swing.JFrame {
 
     private void btnPDEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDEnterActionPerformed
         // TODO add your handling code here:
-        String errorMessage = validateForm();
-        if(0 < validateForm().length())
+        String errorMessage = validateData();
+        if(0 < validateData().length())
             JOptionPaneCustom.errorBox(errorMessage, "Bill Data Insertion");
         else
             try {
@@ -275,6 +276,7 @@ public class EnterPayment extends javax.swing.JFrame {
         
         if(dataUpdate && !dataInserted)
         {
+            payment.setPyid(pyid);            
             UpdatePaymentsData(payment);
         }
         else if(!dataInserted)
@@ -300,22 +302,25 @@ public class EnterPayment extends javax.swing.JFrame {
     
     private void UpdatePaymentsData(Payment payment) throws Exception{
         
+
         PaymentProcessor PaymentProcessor=new PaymentProcessor();
         if(PaymentProcessor.updatePeymentCustomer(payment))
         {
-            JOptionPaneCustom.infoBox("Customer data updated successfully", "Bill Data Insertion");
-            getLogger.getLog().debug("Customer data inserted :"+payment.getPyid());
+            JOptionPaneCustom.infoBox("Payment data updated successfully", "Payment Data updating");
+            getLogger.getLog().debug("Payment data inserted :"+payment.getPyid());
             dataInserted = true;
             ClearComponents();  
             dataUpdate=false;
             btnPDEnter.setText("Enter Payment");
-            //txtCustomerNo.enable();
+            cmdNIC.enable();
+            txtPaymentNIC.enable();
+            txtPaymentCID.enable();
         }
         else 
-            JOptionPaneCustom.errorBox("Customer data insertion failed", "Customer Data Insertion");          
+            JOptionPaneCustom.errorBox("Payment data update failed", "Payment Data Insertion");          
     }
     
-    private String validateForm(){
+    private String validateData(){
     
         String errorMessage = "";
         if(cmdNIC.getSelectedItem().toString().length()!=10)
@@ -379,18 +384,11 @@ public class EnterPayment extends javax.swing.JFrame {
 
     private void btnPDUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDUpdateActionPerformed
         // TODO add your handling code here:
-        if (!dataUpdate)
-        dataUpdate = true;
-
-        PaymentProcessor paymentProcessor=new PaymentProcessor();
-        try {
-
-            dataInserted=false;
-            dataUpdate = true;
-
-        } catch (Exception ex) {
-            Logger.getLogger(EnterGroup.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        String errorMessage = validateData();
+        if(0 < errorMessage.length())
+            JOptionPaneCustom.errorBox(errorMessage, "Payment Data Insertion");   
+        else
+            whenUpdateButtonClicked();
     }//GEN-LAST:event_btnPDUpdateActionPerformed
 
     private void whenUpdateButtonClicked(){
@@ -399,17 +397,17 @@ public class EnterPayment extends javax.swing.JFrame {
         
         PaymentProcessor paymentProcessor=new PaymentProcessor();
         try {
-            Payment payment = paymentProcessor.getPaymentById(cmdNIC.getSelectedItem().toString());
+            Payment payment = paymentProcessor.getCustomerPaymentByNIC(cmdNIC.getSelectedItem().toString());
             
             for(int i=0;i<cmbMonth.getItemCount();i++) 
             {
-                if(cmbMonth.getItemAt(i).contains(payment.getDate().substring(1, 2)))
+                if(cmbMonth.getItemAt(i).contains(payment.getPyid().substring(4, 6)))
                     cmbMonth.setSelectedItem(cmbMonth.getItemAt(i));
             }    
             
             for(int i=0;i<cmbYear.getItemCount();i++) 
             {
-                if(cmbYear.getItemAt(i).contains(payment.getDate().substring(3, 4)))
+                if(cmbYear.getItemAt(i).contains(payment.getPyid().substring(0, 4)))
                     cmbYear.setSelectedItem(cmbYear.getItemAt(i));
             }              
             cmdNIC.disable();
@@ -419,6 +417,8 @@ public class EnterPayment extends javax.swing.JFrame {
             btnPDEnter.setText("Update Payment");
             dataInserted=false;
             dataUpdate = true;
+            
+            pyid = payment.getPyid();
             
         } catch (Exception ex) {
             JOptionPaneCustom.errorBox("NIC not found", "Payment Data Updating");

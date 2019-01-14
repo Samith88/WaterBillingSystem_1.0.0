@@ -64,8 +64,10 @@ public class testdbConnect {
      * @throws net.sf.jasperreports.engine.JRException
      */
     public static void main(String[] args) throws FileNotFoundException, JRException {
-        testdbConnect testdbConnect=new testdbConnect();
-        testdbConnect.jasperTest();
+        //testdbConnect testdbConnect=new testdbConnect();
+        //testdbConnect.jasperTest();
+        String id = "201901131512001";
+        System.out.println(id.substring(0, 4));
     }
     
    public void jasperTest() throws FileNotFoundException, JRException

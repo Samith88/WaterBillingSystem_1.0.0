@@ -144,3 +144,6 @@
 2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@2398ceb6 for object net.sf.jasperreports.engine.fill.JRTemplateText@3928eb28
 2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (JRBaseFiller.java:919) - Fill 1: ended
 2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (JRFillDataset.java:1160) - Fill 1: closing query executer
+2019-01-14 13:36:39 DEBUG [AWT-EventQueue-0] (InsertUpdateDeleteClass.java:32) - org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "' where nic='": syntax error)
+2019-01-14 13:39:05 DEBUG [AWT-EventQueue-0] (EnterPayment.java:310) - Payment data inserted :201901131612001
+2019-01-14 13:42:43 DEBUG [AWT-EventQueue-0] (EnterPayment.java:310) - Payment data inserted :201901131612001

@@ -11,6 +11,7 @@ import waterbillingsystem_1.pkg0.pkg0.base.Payment;
 import waterbillingsystem_1.pkg0.pkg0.database.DBConnection;
 import waterbillingsystem_1.pkg0.pkg0.database.InsertUpdateDeleteClass;
 import waterbillingsystem_1.pkg0.pkg0.database.RetrieveClass;
+import waterbillingsystem_1.pkg0.pkg0.logging.getLogger;
 
 /**
  *
@@ -28,14 +29,25 @@ public class ProcessPayment {
         return insertUpdateDeleteClass.insertUpdateDeleteDB(sql);
     }
     
-    public boolean updatePayment(Payment payment){
+    public boolean updatePayment(Payment payment) throws Exception{
+        
+        payment.setNewOutStandingTotal(getOldTOAFromNIC(payment.getNic()) - payment.getAmount());
         
         String sql="update payment set amount='"+payment.getAmount()+"',"
                 + "NewOutStandingTotal='"+payment.getNewOutStandingTotal()+"' where pyid='"+payment.getPyid()+"' ";
         
         InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
-        return insertUpdateDeleteClass.insertUpdateDeleteDB(sql);
+        
+        return insertUpdateDeleteClass.insertUpdateDeleteDB(sql) && updateCustomerTOA(payment);
     }    
+    
+    private boolean updateCustomerTOA(Payment payment){
+    
+        InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
+        
+        return insertUpdateDeleteClass.insertUpdateDeleteDB("update Customer set TotalOutstandingAmount='"+payment.getNewOutStandingTotal()+"' "
+                + " where nic='"+payment.getNic()+"'");
+    }      
     
     public Payment getLatestPaymentByNIC(String nic) throws SQLException, Exception{
         RetrieveClass retrieveClass=new RetrieveClass();
@@ -62,5 +74,23 @@ public class ProcessPayment {
                 + "TotalOutstandingAmount='"+payment.getNewOutStandingTotal()+"' where nic='"+payment.getNic()+"'");
     
     }
+    
+    private double getOldTOAFromNIC(String nic) throws Exception{
+        
+        RetrieveClass retrieveClass =new RetrieveClass();
+        double oldTOA=0.0;
+        
+        try{
+            ResultSet rs  = retrieveClass.getResultsFormDB("select oldOutStandingTotal from Payment where nic='"+nic+"'"
+                    + " and pyid=(select max(pyid) from Payment where nic='"+nic+"')");
+            while (rs.next()) {
+                oldTOA= rs.getDouble("oldOutStandingTotal");
+            }
+            DBConnection.disconnect();
+        } catch (SQLException e) {
+            getLogger.getLog().debug(e.toString());
+        }     
+        return oldTOA;
+    }    
     
 }

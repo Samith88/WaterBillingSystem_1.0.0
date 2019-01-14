@@ -48,10 +48,10 @@ public class PaymentProcessor {
         return DateDetails.getDateYear()+DateDetails.getDateMonth()+DateDetails.getDateDate()+DateDetails.getDateHour()+DateDetails.getDateMinute()+ customerId;
     }
     
-    public Payment getPaymentById(String nic) throws Exception{
+    public Payment getCustomerPaymentByNIC(String nic) throws Exception{
         ProcessPayment processPayment=new ProcessPayment();
         return processPayment.getLatestPaymentByNIC(nic);
         
-    }
+    }   
     
 }
