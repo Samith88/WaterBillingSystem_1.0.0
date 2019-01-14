@@ -28,9 +28,19 @@ public class ProcessPayment {
         return insertUpdateDeleteClass.insertUpdateDeleteDB(sql);
     }
     
-    public Payment getPayment(int pid) throws SQLException, Exception{
+    public boolean updatePayment(Payment payment){
+        
+        String sql="update payment set amount='"+payment.getAmount()+"',"
+                + "NewOutStandingTotal='"+payment.getNewOutStandingTotal()+"' where pyid='"+payment.getPyid()+"' ";
+        
+        InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
+        return insertUpdateDeleteClass.insertUpdateDeleteDB(sql);
+    }    
+    
+    public Payment getLatestPaymentByNIC(String nic) throws SQLException, Exception{
         RetrieveClass retrieveClass=new RetrieveClass();
-        ResultSet rs = retrieveClass.getResultsFormDB("select * from Payment where pid='"+pid+"'");
+        ResultSet rs = retrieveClass.getResultsFormDB("select * from Payment where nic='"+nic+"' and pyid=(select max(pyid) from Payment where nic='"+nic+"')" );
+        //select * from Payment where nic='883512847v' and pyid=(select max(pyid) from Payment where nic='883512847v');
         Payment payment=new Payment();
         while(rs.next()){
             payment.setPyid(rs.getString("pyid"));

@@ -21,7 +21,12 @@ import waterbillingsystem_1.pkg0.pkg0.dao.UnitPricesDB;
 public class BillDataProcessor {
     
     public String getBillId(String customerId){
-        return customerId+DateDetails.getDateMonth()+ DateDetails.getDateYear();
+        if(customerId.length()==1)
+            customerId = "00"+customerId;
+        if(customerId.length()==2)
+            customerId = "0"+customerId;  
+        
+        return customerId+ DateDetails.getDateYear()+DateDetails.getDateMonth();
     }
     
     public boolean putBillData(BillData billData){

@@ -8,7 +8,9 @@ package waterbillingsystem_1.pkg0.pkg0.view;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
 import waterbillingsystem_1.pkg0.pkg0.base.BillData;
 import waterbillingsystem_1.pkg0.pkg0.controller.BillDataProcessor;
@@ -32,8 +34,11 @@ public class EnterBillData extends javax.swing.JFrame {
         CustomerDataProcessor customerDataProcessor=new CustomerDataProcessor();
         customerHash = customerDataProcessor.getCustomerCIDNNIC();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         this.setLocationRelativeTo(null);     
         dataInserted =false;
+        ImageIcon img = new ImageIcon("images\\WaterDrop.png");
+        this.setIconImage(img.getImage());        
     }
 
     /**
@@ -69,6 +74,8 @@ public class EnterBillData extends javax.swing.JFrame {
         PDlblWarning = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Pananwala Water Billing System");
+        setResizable(false);
 
         CDFLabelMain.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         CDFLabelMain.setText("Bill Data Form");
@@ -275,7 +282,7 @@ public class EnterBillData extends javax.swing.JFrame {
                     .addComponent(btnBDClear)
                     .addComponent(btnBDEnterAnother)
                     .addComponent(btnBDEnter))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addComponent(PDlblWarning)
                 .addContainerGap())
         );

@@ -8,7 +8,9 @@ package waterbillingsystem_1.pkg0.pkg0.view;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
 import waterbillingsystem_1.pkg0.pkg0.base.Customer;
 import waterbillingsystem_1.pkg0.pkg0.controller.CustomerDataProcessor;
@@ -29,9 +31,12 @@ public class EnterCustomer extends javax.swing.JFrame {
     public EnterCustomer() {
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         this.setLocationRelativeTo(null);
         dataUpdate = false;
         dataInserted =false;
+        ImageIcon img = new ImageIcon("images\\WaterDrop.png");
+        this.setIconImage(img.getImage());        
     }
 
     /**
@@ -80,6 +85,8 @@ public class EnterCustomer extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Pananwala Water Billing System");
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -347,11 +354,11 @@ public class EnterCustomer extends javax.swing.JFrame {
         if(0 < errorMessage.length())
             JOptionPaneCustom.errorBox(errorMessage, "Customer Data Insertion");   
         else
-            EnterData();
+            whenEnterDataButtonClicked();
             
     }//GEN-LAST:event_btnCDFEnterActionPerformed
 
-    private void EnterData(){
+    private void whenEnterDataButtonClicked(){
         Customer customer=new Customer();
         
         customer.setCFirstName(txtCustomerFN.getText());
@@ -487,8 +494,7 @@ public class EnterCustomer extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnCDHomeActionPerformed
 
-    private void btnCDUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDUpdateActionPerformed
-        // TODO add your handling code here:
+    private void whenUpdateButtonClicked(){
         if (!dataUpdate)
             dataUpdate = true;
         
@@ -522,7 +528,16 @@ public class EnterCustomer extends javax.swing.JFrame {
         } catch (Exception ex) {
             JOptionPaneCustom.errorBox("NIC not found", "Customer Data Updating");
             Logger.getLogger(EnterCustomer.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }    
+        
+    }
+    private void btnCDUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDUpdateActionPerformed
+        // TODO add your handling code here:
+        String errorMessage = validateData();
+        if(0 < errorMessage.length())
+            JOptionPaneCustom.errorBox(errorMessage, "Customer Data Insertion");   
+        else
+            whenUpdateButtonClicked();
 
     }//GEN-LAST:event_btnCDUpdateActionPerformed
 

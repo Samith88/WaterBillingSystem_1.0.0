@@ -7,7 +7,9 @@ package waterbillingsystem_1.pkg0.pkg0.view;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
 import waterbillingsystem_1.pkg0.pkg0.base.UnitPrice;
 import waterbillingsystem_1.pkg0.pkg0.controller.FillGUIComponents;
@@ -28,9 +30,12 @@ public class EnterUnitPrice extends javax.swing.JFrame {
     public EnterUnitPrice() {
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         this.setLocationRelativeTo(null);   
         dataInserted =false;   
         dataUpdate = false;
+        ImageIcon img = new ImageIcon("images\\WaterDrop.png");
+        this.setIconImage(img.getImage());        
     }
 
     /**
@@ -58,6 +63,8 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         btnUPUpdate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Pananwala Water Billing System");
+        setResizable(false);
 
         UDLabelMain.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         UDLabelMain.setText("Unit Data Form");
@@ -208,7 +215,7 @@ public class EnterUnitPrice extends javax.swing.JFrame {
                             .addComponent(UDLbPrice)
                             .addComponent(txUnitPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(btnUPUpdate))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGDClear)
                     .addComponent(btnGDEnterAnother)
@@ -337,12 +344,19 @@ public class EnterUnitPrice extends javax.swing.JFrame {
             dataInserted = false;
         }
         else
-            JOptionPaneCustom.errorBox("Current insertion not completed", "Customer Data Insertion");
+            JOptionPaneCustom.errorBox("Current insertion not completed", "Unit price data Insertion");
         
     }//GEN-LAST:event_btnGDEnterAnotherActionPerformed
 
     private void btnUPUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUPUpdateActionPerformed
         // TODO add your handling code here:
+        String errorMessage = validateData();
+        if(0 < errorMessage.length())
+            JOptionPaneCustom.errorBox(errorMessage, "Unit price Data Insertion");   
+        else
+            whenUpdateButtonClicked();
+    }//GEN-LAST:event_btnUPUpdateActionPerformed
+    private void whenUpdateButtonClicked(){
         if (!dataUpdate)
         dataUpdate = true;
 
@@ -361,9 +375,8 @@ public class EnterUnitPrice extends javax.swing.JFrame {
 
         } catch (Exception ex) {
             Logger.getLogger(EnterGroup.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btnUPUpdateActionPerformed
-
+        }    
+    }
     /**
      * @param args the command line arguments
      */

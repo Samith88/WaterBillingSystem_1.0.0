@@ -7,7 +7,9 @@ package waterbillingsystem_1.pkg0.pkg0.view;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
 import waterbillingsystem_1.pkg0.pkg0.base.Group;
 import waterbillingsystem_1.pkg0.pkg0.controller.FillGUIComponents;
@@ -27,9 +29,12 @@ public class EnterGroup extends javax.swing.JFrame {
     public EnterGroup() {
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         this.setLocationRelativeTo(null);
         dataInserted =false;
         dataUpdate = false;
+        ImageIcon img = new ImageIcon("images\\WaterDrop.png");
+        this.setIconImage(img.getImage());        
     }
 
     /**
@@ -58,6 +63,8 @@ public class EnterGroup extends javax.swing.JFrame {
         btnGDUpdate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Pananwala Water Billing System");
+        setResizable(false);
 
         GDLabelMain.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         GDLabelMain.setText("Group Data Form");
@@ -193,7 +200,7 @@ public class EnterGroup extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(GDLbDesc)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGDClear)
                     .addComponent(btnGDEnterAnother)
@@ -210,10 +217,10 @@ public class EnterGroup extends javax.swing.JFrame {
         if (0 < errorMessage.length())
             JOptionPaneCustom.infoBox(errorMessage, "Group Data Insertion");
         else
-            EnterData();
+            whenEnterButtonClicked();
     }//GEN-LAST:event_btnGDEnterActionPerformed
 
-    private void EnterData(){
+    private void whenEnterButtonClicked(){
     
         Group group = new Group();
         
@@ -309,8 +316,7 @@ public class EnterGroup extends javax.swing.JFrame {
             JOptionPaneCustom.errorBox("Current insertion not completed", "Group Data Insertion");        
     }//GEN-LAST:event_btnGDEnterAnotherActionPerformed
 
-    private void btnGDUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDUpdateActionPerformed
-        // TODO add your handling code here:
+    private void whenUpdateButtonClicked(){
         if (!dataUpdate)
             dataUpdate = true;
         
@@ -323,13 +329,21 @@ public class EnterGroup extends javax.swing.JFrame {
             txtGroupLoc.setText(group.getLocation());
             txtGroupDesc.setText(group.getDescription());
             
-            btnGDEnter.setText("Update Customer");
+            btnGDEnter.setText("Update Group");
             dataInserted=false;
             dataUpdate = true;
             
         } catch (Exception ex) {
             Logger.getLogger(EnterGroup.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }        
+    }
+    private void btnGDUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDUpdateActionPerformed
+        // TODO add your handling code here:
+        String errorMessage = validateData();
+        if(0 < errorMessage.length())
+            JOptionPaneCustom.errorBox(errorMessage, "Group Data Insertion");   
+        else
+            whenUpdateButtonClicked();
     }//GEN-LAST:event_btnGDUpdateActionPerformed
 
     /**

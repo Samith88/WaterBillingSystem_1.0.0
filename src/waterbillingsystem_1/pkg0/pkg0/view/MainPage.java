@@ -7,6 +7,7 @@ package waterbillingsystem_1.pkg0.pkg0.view;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
@@ -22,6 +23,8 @@ public class MainPage extends javax.swing.JFrame {
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
+        ImageIcon img = new ImageIcon("images\\WaterDrop.png");
+        this.setIconImage(img.getImage());        
     }
 
     /**
@@ -40,6 +43,9 @@ public class MainPage extends javax.swing.JFrame {
         btnInvoice = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Pananwala Water Billing System");
+        setName("frmMain"); // NOI18N
+        setResizable(false);
 
         btnCustomerD.setText("Customer Details");
         btnCustomerD.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +99,7 @@ public class MainPage extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(120, Short.MAX_VALUE)
+                .addContainerGap(135, Short.MAX_VALUE)
                 .addComponent(btnCustomerD)
                 .addGap(36, 36, 36)
                 .addComponent(btnGroupD)

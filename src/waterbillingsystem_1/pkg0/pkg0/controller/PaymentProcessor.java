@@ -31,15 +31,27 @@ public class PaymentProcessor {
         
         return processPayment.insertPayment(payment) && updatePeymentCustomer(payment);
     }
+    
    
-    private boolean updatePeymentCustomer(Payment payment) throws Exception{
+    public boolean updatePeymentCustomer(Payment payment) throws Exception{
     
         ProcessPayment processPayment=new ProcessPayment();
-        return processPayment.updateCustomerWithPayment(payment);
+        return processPayment.updatePayment(payment);
     }
     
     private String generatePaymentId(String customerId){
-        return customerId+DateDetails.getDateMinute()+DateDetails.getDateHour()+DateDetails.getDateDate()+DateDetails.getDateMonth()+DateDetails.getDateDate();
+        if(customerId.length()==1)
+            customerId = "00"+ customerId;
+        if(customerId.length()==2)
+            customerId = "0"+ customerId; 
+        
+        return DateDetails.getDateYear()+DateDetails.getDateMonth()+DateDetails.getDateDate()+DateDetails.getDateHour()+DateDetails.getDateMinute()+ customerId;
+    }
+    
+    public Payment getPaymentById(String nic) throws Exception{
+        ProcessPayment processPayment=new ProcessPayment();
+        return processPayment.getLatestPaymentByNIC(nic);
+        
     }
     
 }
