@@ -29,6 +29,8 @@ public class EnterBillData extends javax.swing.JFrame {
      */
     HashMap<String, String> customerHash = new HashMap<>();
     boolean dataInserted;
+    boolean dataUpdate;     
+    
     public EnterBillData() throws Exception {
         initComponents();
         CustomerDataProcessor customerDataProcessor=new CustomerDataProcessor();
@@ -37,6 +39,7 @@ public class EnterBillData extends javax.swing.JFrame {
         this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         this.setLocationRelativeTo(null);     
         dataInserted =false;
+        dataUpdate=false;        
         ImageIcon img = new ImageIcon("images\\WaterDrop.png");
         this.setIconImage(img.getImage());        
     }
@@ -299,28 +302,15 @@ public class EnterBillData extends javax.swing.JFrame {
             JOptionPaneCustom.errorBox(errorMessage, "Bill Data Insertion");
         else
             try {
-                EnterDataToDB();
+                whenEnterButtonClicked();
         } catch (Exception ex) {
             Logger.getLogger(EnterBillData.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_btnBDEnterActionPerformed
 
-    private String ValidateData(){
+    private void whenEnterButtonClicked() throws Exception{
     
-        String errorString = "";
-        
-        if(txtCustomerNIC.getText().length()==0)
-            errorString += "Customer NIC note entered";
-        if(!radioUnits.isSelected() && !radioMeter.isSelected())
-            errorString += "Please select type of meter units";
-        
-        return errorString;
-    }
-    
-    private void EnterDataToDB() throws Exception{
-        boolean billDataEntered = false;
-        boolean MonthlyBillDetailsEntered = false;
         BillData billData=new BillData();
         
         billData.setNic(cmbCustomerNIC.getSelectedItem().toString());
@@ -348,6 +338,39 @@ public class EnterBillData extends javax.swing.JFrame {
         
         billData.setMonth(cmbMonth.getSelectedItem().toString().split("-")[0]+cmbYear.getSelectedItem().toString());
         
+        if(dataUpdate && !dataInserted)
+        {
+            UpdateBillData(billData);
+        }
+        else if(!dataInserted)
+        {
+            InsertBillData(billData);
+        }          
+    }
+    
+    private void UpdateBillData(BillData billData) throws Exception{
+        //update bill data part
+    }
+    private String ValidateData(){
+    
+        String errorString = "";
+        
+        if(txtCustomerNIC.getText().length()==0)
+            errorString += "Customer NIC not entered";
+        if(cmbCustomerNIC.getSelectedItem().toString().length()!=10)
+            errorString += "Customer NIC error";
+        if(!radioUnits.isSelected() && !radioMeter.isSelected())
+            errorString += "Please select type of meter units";
+        if(txtBDUnitUsage.getText().length()==0)
+            errorString += "Monthly Unit Usage not entered";        
+        
+        return errorString;
+    }
+    
+    private void InsertBillData(BillData billData) throws Exception{
+        boolean billDataEntered = false;
+        boolean MonthlyBillDetailsEntered = false;
+
         BillDataProcessor BillDataProcessor=new BillDataProcessor();
         if(BillDataProcessor.putBillData(billData))
         {

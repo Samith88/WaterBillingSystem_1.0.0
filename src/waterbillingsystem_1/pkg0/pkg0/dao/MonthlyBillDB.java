@@ -98,4 +98,18 @@ public class MonthlyBillDB {
         InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
         return insertUpdateDeleteClass.insertUpdateDeleteDB("delete from BillData where mbid = '"+MBId+"' ");
     }    
+    
+    public boolean updateBillData(BillData billData){
+    
+        InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
+        return insertUpdateDeleteClass.insertUpdateDeleteDB("update BillData set NewMeter='"+billData.getNewMeter()+"',"
+                + "Sramadhana='"+billData.isSramadhana()+"'"
+                + "AbsentCharge='"+billData.isAbsentCharge()+"',MonthlyUsageUnit='"+billData.getMonthlyUsageUnit()+"' "
+                + "where mbid='"+billData.getMbid()+"' ");
+    }
+    
+    public boolean updateMonthlyBillDetails(BillData billData){
+    
+        return true;
+    }
 }

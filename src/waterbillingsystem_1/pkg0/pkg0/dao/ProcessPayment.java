@@ -78,19 +78,19 @@ public class ProcessPayment {
     private double getOldTOAFromNIC(String nic) throws Exception{
         
         RetrieveClass retrieveClass =new RetrieveClass();
-        double oldTOA=0.0;
+        double oldOutStandingTotal=0.0;
         
         try{
             ResultSet rs  = retrieveClass.getResultsFormDB("select oldOutStandingTotal from Payment where nic='"+nic+"'"
                     + " and pyid=(select max(pyid) from Payment where nic='"+nic+"')");
             while (rs.next()) {
-                oldTOA= rs.getDouble("oldOutStandingTotal");
+                oldOutStandingTotal= rs.getDouble("oldOutStandingTotal");
             }
             DBConnection.disconnect();
         } catch (SQLException e) {
             getLogger.getLog().debug(e.toString());
         }     
-        return oldTOA;
+        return oldOutStandingTotal;
     }    
     
 }
