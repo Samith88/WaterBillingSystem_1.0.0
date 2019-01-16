@@ -108,8 +108,14 @@ public class MonthlyBillDB {
                 + "where mbid='"+billData.getMbid()+"' ");
     }
     
-    public boolean updateMonthlyBillDetails(BillData billData){
+    public boolean updateMonthlyBillDetails(MonthlyBillDetails monthlyBillDetails){
     
-        return true;
+        InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
+        return insertUpdateDeleteClass.insertUpdateDeleteDB("update MonthlyBillDetails set NewMeter='"+monthlyBillDetails.getNewMeter()+"',"
+                + "MonthlyConsumption='"+monthlyBillDetails.getMonthlyConsumption()+"',"
+                + "FixedCharge='"+monthlyBillDetails.getFixedCharge()+"',Sramadhana='"+monthlyBillDetails.getSramadhana()+"',"
+                + "AbsentCharge='"+monthlyBillDetails.getAbsentCharge()+"',TotalMonthlyAmount='"+monthlyBillDetails.getTotalMonthlyAmount()+"',"
+                + "MonthlyUsageUnit='"+monthlyBillDetails.getMonthlyUsageUnit()+"',TotalOutstandingMonthly='"+monthlyBillDetails.getTotalOutstandingMonthly()+"' "
+                + "where InvoiceNo='"+monthlyBillDetails.getInvoiceNo()+"'; ");
     }
 }

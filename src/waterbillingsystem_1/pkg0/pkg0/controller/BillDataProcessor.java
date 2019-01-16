@@ -46,6 +46,46 @@ public class BillDataProcessor {
         monthlyBillDetails.setNic(billData.getNic());
         monthlyBillDetails.setGroup(CustomerDataDatabase.getCustomerGroupIdFromNIC(billData.getNic()));
         
+        monthlyBillDetails = getUpdatedBillDetails( monthlyBillDetails, billData);
+        
+        monthlyBillDetails.setMonth(billData.getMonth());
+        monthlyBillDetails.setLastPaymentDay(DateDetails.getDateNextMonth()+"/"+DateDetails.getDateNextYear());
+        
+        MonthlyBillDB monthlyBillDB=new MonthlyBillDB();
+        return monthlyBillDB.putMonthlyBillDetails(monthlyBillDetails) && updateCustomerWithBill(monthlyBillDetails);
+    }
+    
+    private boolean updateCustomerWithBill(MonthlyBillDetails monthlyBillDetails) throws Exception{
+        
+        MonthlyBillDB monthlyBillDB=new MonthlyBillDB();
+        return monthlyBillDB.updateCustomerWithBill(monthlyBillDetails);
+    }
+    
+    public boolean DeleteMonthlyBillDBByMBId(String MBId) throws Exception{
+        MonthlyBillDB monthlyBillDB =new MonthlyBillDB();
+        return monthlyBillDB.deleteBillDataByBDId(MBId);
+    }
+
+    public boolean updateBillData(BillData billData) {
+        
+        MonthlyBillDB monthlyBillDB=new MonthlyBillDB();
+        return monthlyBillDB.updateBillData(billData);
+        
+    }
+
+    public boolean updateMonthlyBillDetails(BillData billData) throws Exception {
+        
+        MonthlyBillDetails monthlyBillDetails =new MonthlyBillDetails();
+        
+        monthlyBillDetails.setInvoiceNo(billData.getMbid());
+        getUpdatedBillDetails( monthlyBillDetails, billData);
+        
+        MonthlyBillDB monthlyBillDB=new MonthlyBillDB(); 
+        return monthlyBillDB.updateMonthlyBillDetails(monthlyBillDetails);
+    }
+    
+    private MonthlyBillDetails getUpdatedBillDetails(MonthlyBillDetails monthlyBillDetails,BillData billData) throws Exception{
+        
         CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
         Customer customer = customerDataDatabase.getCustomer(billData.getNic());
         
@@ -67,7 +107,6 @@ public class BillDataProcessor {
         UnitPricesDB unitPricesDB=new UnitPricesDB();
         CalculateUsageBill calculateUsageBill=new CalculateUsageBill();
         
-        
         monthlyBillDetails.setFixedCharge(VariableStorage.FixedCharge);
         
         if(billData.isAbsentCharge())
@@ -86,24 +125,7 @@ public class BillDataProcessor {
         monthlyBillDetails.setTotalMonthlyAmount(monthlyBillDetails.getMonthlyConsumption()+monthlyBillDetails.getFixedCharge()+
         monthlyBillDetails.getSramadhana()+monthlyBillDetails.getAbsentCharge());
         monthlyBillDetails.setTotalOutstandingMonthly(monthlyBillDetails.getCurrentTotalAmount()+monthlyBillDetails.getTotalMonthlyAmount());
-        monthlyBillDetails.setMonth(billData.getMonth());
         
-        monthlyBillDetails.setLastPaymentDay(DateDetails.getDateNextMonth()+"/"+DateDetails.getDateNextYear());
-        
-        MonthlyBillDB monthlyBillDB=new MonthlyBillDB();
-        return monthlyBillDB.putMonthlyBillDetails(monthlyBillDetails) && updateCustomerWithBill(monthlyBillDetails);
+        return monthlyBillDetails;
     }
-    
-    private boolean updateCustomerWithBill(MonthlyBillDetails monthlyBillDetails) throws Exception{
-        
-        MonthlyBillDB monthlyBillDB=new MonthlyBillDB();
-        return monthlyBillDB.updateCustomerWithBill(monthlyBillDetails);
-    }
-    
-    public boolean DeleteMonthlyBillDBByMBId(String MBId) throws Exception{
-        MonthlyBillDB monthlyBillDB =new MonthlyBillDB();
-        return monthlyBillDB.deleteBillDataByBDId(MBId);
-    }
-    
-    
 }

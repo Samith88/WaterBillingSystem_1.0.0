@@ -349,7 +349,64 @@ public class EnterBillData extends javax.swing.JFrame {
     }
     
     private void UpdateBillData(BillData billData) throws Exception{
-        //update bill data part
+        boolean billDataUpdated = false;
+        boolean MonthlyBillDetailsUpdated = false;
+
+        BillDataProcessor BillDataProcessor=new BillDataProcessor();
+        if(BillDataProcessor.updateBillData(billData))
+        {
+            java.util.logging.Logger.getLogger(EnterBillData.class.getName()).log(java.util.logging.Level.SEVERE, null, billData.getMbid()+": Successfully data updated");
+            billDataUpdated =true;
+        }
+        else
+        {
+            billDataUpdated =false;
+            JOptionPaneCustom.errorBox("Bill data update error in initial bill data update", "Bill Data update");
+        }
+        BillDataProcessor billDataProcessor=new BillDataProcessor();
+        
+        try {
+            if(billDataUpdated)
+            {
+                if(!billDataProcessor.updateMonthlyBillDetails(billData))
+                    MonthlyBillDetailsUpdated =false;   
+                else {
+                    java.util.logging.Logger.getLogger(EnterBillData.class.getName()).log(java.util.logging.Level.SEVERE, null, billData.getMbid()+": with MonthlyBillDetails successfully data updated");
+                    MonthlyBillDetailsUpdated =true;
+                }
+            }
+            else
+            {
+                JOptionPaneCustom.errorBox("Monthly Bill Detail can't be proceed since initial bill data update failed", "Monthly Bill Details update");
+                java.util.logging.Logger.getLogger(EnterBillData.class.getName()).log(java.util.logging.Level.SEVERE, null, "Monthly Bill Detail cann't be proceed since initial bill data update failed.");
+            }
+            
+            } catch (Exception ex) {
+            Logger.getLogger(EnterBillData.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPaneCustom.errorBox("Monthly Bill Details update error: " +ex.getMessage(), "Monthly Bill Details update");
+        }
+        //For return status of the update
+        if(MonthlyBillDetailsUpdated && billDataUpdated)
+        {
+            JOptionPaneCustom.infoBox("Bill data updated successfully", "Bill Data update");
+            getLogger.getLog().debug("Bill data updated successfully for id: "+billDataProcessor.getBillId(billData.getCid()));
+            dataUpdate = false;
+            dataInserted =true;
+            ClearComponents();
+        }   
+        else if(billDataUpdated && !MonthlyBillDetailsUpdated)
+        {
+            JOptionPaneCustom.errorBox("Error in MonthlyBillDetails updating", "MonthlyBillDetails Data update");
+            getLogger.getLog().debug("Error in MonthlyBillDetails updating in bill data id: "+billDataProcessor.getBillId(billData.getCid()));
+            
+            //TODO  Implement method if MonthlyBillDetails update failed need to restore old bill data
+            //billDataProcessor.DeleteMonthlyBillDBByMBId(billDataProcessor.getBillId(billData.getCid()));
+            //getLogger.getLog().debug("MonthlyBillDetails deleted, bill data id: "+billDataProcessor.getBillId(billData.getCid()));
+        }
+        else
+        {
+            JOptionPaneCustom.errorBox("Error in all bill data updating", "Bill Data update");
+        }
     }
     private String ValidateData(){
     
