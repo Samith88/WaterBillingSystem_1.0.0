@@ -26,7 +26,7 @@ public class BillDataProcessor {
         if(customerId.length()==2)
             customerId = "0"+customerId;  
         
-        return customerId+ DateDetails.getDateYear()+DateDetails.getDateMonth();
+        return DateDetails.getDateYear()+DateDetails.getDateMonth()+customerId;
     }
     
     public boolean putBillData(BillData billData){
@@ -52,13 +52,13 @@ public class BillDataProcessor {
         monthlyBillDetails.setLastPaymentDay(DateDetails.getDateNextMonth()+"/"+DateDetails.getDateNextYear());
         
         MonthlyBillDB monthlyBillDB=new MonthlyBillDB();
-        return monthlyBillDB.putMonthlyBillDetails(monthlyBillDetails) && updateCustomerWithBill(monthlyBillDetails);
+        return monthlyBillDB.putMonthlyBillDetails(monthlyBillDetails) && updateCustomerWithBill(monthlyBillDetails,"insert");
     }
     
-    private boolean updateCustomerWithBill(MonthlyBillDetails monthlyBillDetails) throws Exception{
+    private boolean updateCustomerWithBill(MonthlyBillDetails monthlyBillDetails,String event) throws Exception{
         
         MonthlyBillDB monthlyBillDB=new MonthlyBillDB();
-        return monthlyBillDB.updateCustomerWithBill(monthlyBillDetails);
+        return monthlyBillDB.updateCustomerWithBill(monthlyBillDetails,event);
     }
     
     public boolean DeleteMonthlyBillDBByMBId(String MBId) throws Exception{
@@ -78,10 +78,12 @@ public class BillDataProcessor {
         MonthlyBillDetails monthlyBillDetails =new MonthlyBillDetails();
         
         monthlyBillDetails.setInvoiceNo(billData.getMbid());
+        monthlyBillDetails.setNic(billData.getNic());
+        
         getUpdatedBillDetails( monthlyBillDetails, billData);
         
         MonthlyBillDB monthlyBillDB=new MonthlyBillDB(); 
-        return monthlyBillDB.updateMonthlyBillDetails(monthlyBillDetails);
+        return monthlyBillDB.updateMonthlyBillDetails(monthlyBillDetails) && updateCustomerWithBill(monthlyBillDetails,"update");
     }
     
     private MonthlyBillDetails getUpdatedBillDetails(MonthlyBillDetails monthlyBillDetails,BillData billData) throws Exception{
@@ -89,8 +91,8 @@ public class BillDataProcessor {
         CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
         Customer customer = customerDataDatabase.getCustomer(billData.getNic());
         
-        monthlyBillDetails.setOldMeter(customer.getCurrentMeter());
-        billData.setOldMeter(customer.getCurrentMeter());
+        monthlyBillDetails.setOldMeter(customer.getPreMeter());
+        billData.setOldMeter(customer.getPreMeter());
         
         if(billData.getNewMeter()==0 && billData.getMonthlyUsageUnit() > 0)
         {
@@ -109,11 +111,11 @@ public class BillDataProcessor {
         
         monthlyBillDetails.setFixedCharge(VariableStorage.FixedCharge);
         
-        if(billData.isAbsentCharge())
+        if(billData.isAbsentCharge()==1)
             monthlyBillDetails.setAbsentCharge(VariableStorage.AbsentCharge);
         else
             monthlyBillDetails.setAbsentCharge(0);
-        if(billData.isSramadhana())
+        if(billData.isSramadhana()==1)
             monthlyBillDetails.setSramadhana(VariableStorage.SramadhanaCharge);
         else
             monthlyBillDetails.setSramadhana(0);

@@ -43,19 +43,19 @@ public class BillData {
         this.NewMeter = NewMeter;
     }
 
-    public boolean isSramadhana() {
+    public int isSramadhana() {
         return Sramadhana;
     }
 
-    public void setSramadhana(boolean Sramadhana) {
+    public void setSramadhana(int Sramadhana) {
         this.Sramadhana = Sramadhana;
     }
 
-    public boolean isAbsentCharge() {
+    public int isAbsentCharge() {
         return AbsentCharge;
     }
 
-    public void setAbsentCharge(boolean AbsentCharge) {
+    public void setAbsentCharge(int AbsentCharge) {
         this.AbsentCharge = AbsentCharge;
     }
 
@@ -90,8 +90,8 @@ public class BillData {
     private String    cid;
     private String nic;
     private int NewMeter;
-    private boolean Sramadhana;
-    private boolean AbsentCharge;
+    private int Sramadhana;
+    private int AbsentCharge;
     private int MonthlyUsageUnit; 
     private String Month;
 }

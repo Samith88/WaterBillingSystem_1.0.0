@@ -147,3 +147,15 @@
 2019-01-14 13:36:39 DEBUG [AWT-EventQueue-0] (InsertUpdateDeleteClass.java:32) - org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "' where nic='": syntax error)
 2019-01-14 13:39:05 DEBUG [AWT-EventQueue-0] (EnterPayment.java:310) - Payment data inserted :201901131612001
 2019-01-14 13:42:43 DEBUG [AWT-EventQueue-0] (EnterPayment.java:310) - Payment data inserted :201901131612001
+2019-01-18 10:44:59 DEBUG [AWT-EventQueue-0] (EnterBillData.java:460) - Bill data inserted successfully for id: 001201901
+2019-01-18 10:54:32 DEBUG [AWT-EventQueue-0] (EnterBillData.java:460) - Bill data inserted successfully for id: 001201901
+2019-01-18 11:12:19 DEBUG [AWT-EventQueue-0] (EnterBillData.java:461) - Bill data inserted successfully for id: 201901001
+2019-01-18 14:36:18 DEBUG [AWT-EventQueue-0] (InsertUpdateDeleteClass.java:32) - org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "AbsentCharge": syntax error)
+2019-01-18 14:39:47 DEBUG [AWT-EventQueue-0] (InsertUpdateDeleteClass.java:32) - org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near ";": syntax error)
+2019-01-18 14:42:12 DEBUG [AWT-EventQueue-0] (InsertUpdateDeleteClass.java:32) - org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (incomplete input)
+2019-01-18 14:48:00 DEBUG [AWT-EventQueue-0] (EnterBillData.java:420) - Error in MonthlyBillDetails updating in bill data id: 201901001
+2019-01-18 14:48:00 DEBUG [AWT-EventQueue-0] (EnterBillData.java:423) - Bill data reverted due to Monthly Bill Details insertion failed, bill data id: 201901001
+2019-01-18 15:07:26 DEBUG [AWT-EventQueue-0] (EnterBillData.java:412) - Bill data updated successfully for id: 201901001
+2019-01-18 15:14:29 DEBUG [AWT-EventQueue-0] (EnterBillData.java:528) - Bill data inserted successfully for id: 201901001
+2019-01-18 15:17:38 DEBUG [AWT-EventQueue-0] (EnterBillData.java:412) - Bill data updated successfully for id: 201901001
+2019-01-18 15:31:17 DEBUG [AWT-EventQueue-0] (EnterBillData.java:412) - Bill data updated successfully for id: 201901001

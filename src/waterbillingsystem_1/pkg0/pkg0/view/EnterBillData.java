@@ -75,6 +75,7 @@ public class EnterBillData extends javax.swing.JFrame {
         BDLblFN = new javax.swing.JLabel();
         btnCDHome = new javax.swing.JButton();
         PDlblWarning = new javax.swing.JLabel();
+        btnCDUpdate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Pananwala Water Billing System");
@@ -179,18 +180,40 @@ public class EnterBillData extends javax.swing.JFrame {
         PDlblWarning.setForeground(new java.awt.Color(255, 0, 0));
         PDlblWarning.setText("Please make sure you have entered monthly units correctly.");
 
+        btnCDUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/update.png"))); // NOI18N
+        btnCDUpdate.setBorder(null);
+        btnCDUpdate.setBorderPainted(false);
+        btnCDUpdate.setContentAreaFilled(false);
+        btnCDUpdate.setFocusPainted(false);
+        btnCDUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCDUpdateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(123, 123, 123)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ckBoxAbsentFee)
+                    .addComponent(ckBoxSramadhana))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnCDHome, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(72, 72, 72)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(223, 223, 223)
-                        .addComponent(CDFLabelMain))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnCDUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(113, 113, 113)
+                                .addComponent(CDFLabelMain))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnBDClear)
                                 .addGap(66, 66, 66)
@@ -203,45 +226,34 @@ public class EnterBillData extends javax.swing.JFrame {
                                 .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(179, 179, 179)
-                                .addComponent(PDlblWarning)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BDLblNIC, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BDLblCID, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BDLblUnits))
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(radioUnits)
-                        .addGap(27, 27, 27)
-                        .addComponent(radioMeter)
-                        .addGap(76, 76, 76))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnBDEnterAnother, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtBDUnitUsage, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCustomerCID, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCustomerNIC, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(cmbCustomerNIC, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(BDLblFN, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(58, 58, 58))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(123, 123, 123)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ckBoxAbsentFee)
-                    .addComponent(ckBoxSramadhana))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnCDHome, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                                .addComponent(PDlblWarning)))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BDLblNIC, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BDLblCID, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BDLblUnits))
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(radioUnits)
+                                .addGap(27, 27, 27)
+                                .addComponent(radioMeter)
+                                .addGap(76, 76, 76))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(btnBDEnterAnother, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtBDUnitUsage, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtCustomerCID, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtCustomerNIC, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(cmbCustomerNIC, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(BDLblFN, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(58, 58, 58))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,44 +261,49 @@ public class EnterBillData extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(btnCDHome)
                 .addGap(1, 1, 1)
-                .addComponent(CDFLabelMain)
-                .addGap(49, 49, 49)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BDLblNIC)
-                    .addComponent(txtCustomerNIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(3, 3, 3)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbCustomerNIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BDLblFN))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BDLblCID)
-                    .addComponent(txtCustomerCID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtBDUnitUsage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BDLblUnits))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(radioMeter)
-                    .addComponent(radioUnits))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ckBoxSramadhana)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ckBoxAbsentFee)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(BDLblUnits1)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBDClear)
-                    .addComponent(btnBDEnterAnother)
-                    .addComponent(btnBDEnter))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addComponent(PDlblWarning)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(CDFLabelMain)
+                        .addGap(49, 49, 49)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BDLblNIC)
+                            .addComponent(txtCustomerNIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(3, 3, 3)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cmbCustomerNIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BDLblFN))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BDLblCID)
+                            .addComponent(txtCustomerCID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtBDUnitUsage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BDLblUnits))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(radioMeter)
+                            .addComponent(radioUnits))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ckBoxSramadhana)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ckBoxAbsentFee)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(BDLblUnits1)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(39, 39, 39)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnBDClear)
+                            .addComponent(btnBDEnterAnother)
+                            .addComponent(btnBDEnter))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                        .addComponent(PDlblWarning))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnCDUpdate)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -327,14 +344,14 @@ public class EnterBillData extends javax.swing.JFrame {
             billData.setMonthlyUsageUnit(0);
         }
         if(ckBoxSramadhana.isSelected())
-            billData.setSramadhana(true);
+            billData.setSramadhana(1);
         else
-            billData.setSramadhana(false);
+            billData.setSramadhana(0);
         
         if(ckBoxAbsentFee.isSelected())
-            billData.setAbsentCharge(true);
+            billData.setAbsentCharge(1);
         else
-            billData.setAbsentCharge(false);
+            billData.setAbsentCharge(0);
         
         billData.setMonth(cmbMonth.getSelectedItem().toString().split("-")[0]+cmbYear.getSelectedItem().toString());
         
@@ -353,10 +370,9 @@ public class EnterBillData extends javax.swing.JFrame {
         boolean MonthlyBillDetailsUpdated = false;
         
         BillDataProcessor BillDataProcessor=new BillDataProcessor();
-        BillData oldBillData=new BillData();
-        oldBillData = BillDataProcessor.getLatestMBIdFromNic(billData.getNic());
-
         
+        BillData oldBillData =  BillDataProcessor.getLatestMBIdFromNic(billData.getNic());
+
         if(BillDataProcessor.updateBillData(billData))
         {
             java.util.logging.Logger.getLogger(EnterBillData.class.getName()).log(java.util.logging.Level.SEVERE, null, billData.getMbid()+": Successfully data updated");
@@ -419,13 +435,63 @@ public class EnterBillData extends javax.swing.JFrame {
             errorString += "Customer NIC not entered";
         if(cmbCustomerNIC.getSelectedItem().toString().length()!=10)
             errorString += "Customer NIC error";
-        if(!radioUnits.isSelected() && !radioMeter.isSelected())
+        if((!radioUnits.isSelected() && !radioMeter.isSelected()) && dataUpdate)
             errorString += "Please select type of meter units";
-        if(txtBDUnitUsage.getText().length()==0)
+        if(txtBDUnitUsage.getText().length()==0 && dataUpdate)
             errorString += "Monthly Unit Usage not entered";        
         
         return errorString;
     }
+    
+    private void whenUpdateButtonClicked(){
+        if (!dataUpdate)
+            dataUpdate = true;
+        
+        BillDataProcessor billDataProcessor=new BillDataProcessor();
+        try {
+            BillData billData = billDataProcessor.getLatestMBIdFromNic(cmbCustomerNIC.getSelectedItem().toString());
+            
+            txtCustomerCID.setText(billData.getCid());
+            
+            if(billData.getMonthlyUsageUnit()==0)
+            {
+                txtBDUnitUsage.setText(String.valueOf(billData.getNewMeter()) );
+                radioMeter.setSelected(true);
+            }
+            else if(billData.getNewMeter()==0)
+            {
+                txtBDUnitUsage.setText(String.valueOf(billData.getMonthlyUsageUnit()));
+                radioUnits.setSelected(true);
+            }
+                
+            if(billData.isSramadhana()==1)
+                ckBoxSramadhana.setSelected(true);
+            
+            if(billData.isAbsentCharge()==1)
+                ckBoxAbsentFee.setSelected(true);            
+            
+            for(int i=0;i<cmbMonth.getItemCount();i++) 
+            {
+                if(cmbMonth.getItemAt(i).contains(billData.getMbid().substring(4, 6)))
+                    cmbMonth.setSelectedItem(cmbMonth.getItemAt(i));
+            }    
+            
+            for(int i=0;i<cmbYear.getItemCount();i++) 
+            {
+                if(cmbYear.getItemAt(i).contains(billData.getMbid().substring(0, 4)))
+                    cmbYear.setSelectedItem(cmbYear.getItemAt(i));
+            }            
+            
+            btnBDEnter.setText("Update BillData");
+            dataInserted=false;
+            dataUpdate = true;
+            
+        } catch (Exception ex) {
+            JOptionPaneCustom.errorBox("NIC not found", "Customer Data Updating");
+            Logger.getLogger(EnterCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        }    
+        
+    }    
     
     private void InsertBillData(BillData billData) throws Exception{
         boolean billDataEntered = false;
@@ -440,7 +506,8 @@ public class EnterBillData extends javax.swing.JFrame {
         else
         {
             billDataEntered =false;
-            JOptionPaneCustom.errorBox("Bill data insertion error in  ", "Bill Data Insertion");
+            JOptionPaneCustom.errorBox("Bill data insertion error :"+billData.getMbid(), "Bill Data Insertion");
+            Logger.getLogger(EnterBillData.class.getName()).log(Level.SEVERE, null, "Bill data insertion error :"+billData.getMbid());
         }
         BillDataProcessor billDataProcessor=new BillDataProcessor();
         
@@ -540,6 +607,15 @@ public class EnterBillData extends javax.swing.JFrame {
             
     }//GEN-LAST:event_btnBDEnterAnotherActionPerformed
 
+    private void btnCDUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDUpdateActionPerformed
+        // TODO add your handling code here:
+        String errorMessage = ValidateData();
+        if(0 < errorMessage.length())
+            JOptionPaneCustom.errorBox(errorMessage, "Bill Data update");
+        else
+            whenUpdateButtonClicked();
+    }//GEN-LAST:event_btnCDUpdateActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -585,6 +661,7 @@ public class EnterBillData extends javax.swing.JFrame {
     private javax.swing.JButton btnBDEnter;
     private javax.swing.JButton btnBDEnterAnother;
     private javax.swing.JButton btnCDHome;
+    private javax.swing.JButton btnCDUpdate;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JCheckBox ckBoxAbsentFee;
     private javax.swing.JCheckBox ckBoxSramadhana;
