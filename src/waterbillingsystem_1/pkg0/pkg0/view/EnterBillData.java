@@ -351,8 +351,12 @@ public class EnterBillData extends javax.swing.JFrame {
     private void UpdateBillData(BillData billData) throws Exception{
         boolean billDataUpdated = false;
         boolean MonthlyBillDetailsUpdated = false;
-
+        
         BillDataProcessor BillDataProcessor=new BillDataProcessor();
+        BillData oldBillData=new BillData();
+        oldBillData = BillDataProcessor.getLatestMBIdFromNic(billData.getNic());
+
+        
         if(BillDataProcessor.updateBillData(billData))
         {
             java.util.logging.Logger.getLogger(EnterBillData.class.getName()).log(java.util.logging.Level.SEVERE, null, billData.getMbid()+": Successfully data updated");
@@ -399,9 +403,8 @@ public class EnterBillData extends javax.swing.JFrame {
             JOptionPaneCustom.errorBox("Error in MonthlyBillDetails updating", "MonthlyBillDetails Data update");
             getLogger.getLog().debug("Error in MonthlyBillDetails updating in bill data id: "+billDataProcessor.getBillId(billData.getCid()));
             
-            //TODO  Implement method if MonthlyBillDetails update failed need to restore old bill data
-            //billDataProcessor.DeleteMonthlyBillDBByMBId(billDataProcessor.getBillId(billData.getCid()));
-            //getLogger.getLog().debug("MonthlyBillDetails deleted, bill data id: "+billDataProcessor.getBillId(billData.getCid()));
+            BillDataProcessor.updateBillData(oldBillData);
+            getLogger.getLog().debug("Bill data reverted due to Monthly Bill Details insertion failed, bill data id: "+oldBillData.getMbid());
         }
         else
         {

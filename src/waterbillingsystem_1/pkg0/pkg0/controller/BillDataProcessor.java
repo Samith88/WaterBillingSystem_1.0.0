@@ -128,4 +128,11 @@ public class BillDataProcessor {
         
         return monthlyBillDetails;
     }
+    
+    public BillData getLatestMBIdFromNic(String nic) throws Exception {
+    
+        MonthlyBillDB monthlyBillDB=new MonthlyBillDB(); 
+        return monthlyBillDB.getLatestMBIdFromNic(nic);
+        
+    }
 }

@@ -105,7 +105,8 @@ public class MonthlyBillDB {
         return insertUpdateDeleteClass.insertUpdateDeleteDB("update BillData set NewMeter='"+billData.getNewMeter()+"',"
                 + "Sramadhana='"+billData.isSramadhana()+"'"
                 + "AbsentCharge='"+billData.isAbsentCharge()+"',MonthlyUsageUnit='"+billData.getMonthlyUsageUnit()+"' "
-                + "where mbid='"+billData.getMbid()+"' ");
+                + "where mbid=(select max(mbid) from BillData where nic='"+billData.getNic()+"'; ");
+                //+ "where mbid='"+billData.getMbid()+"' ");
     }
     
     public boolean updateMonthlyBillDetails(MonthlyBillDetails monthlyBillDetails){
@@ -116,6 +117,32 @@ public class MonthlyBillDB {
                 + "FixedCharge='"+monthlyBillDetails.getFixedCharge()+"',Sramadhana='"+monthlyBillDetails.getSramadhana()+"',"
                 + "AbsentCharge='"+monthlyBillDetails.getAbsentCharge()+"',TotalMonthlyAmount='"+monthlyBillDetails.getTotalMonthlyAmount()+"',"
                 + "MonthlyUsageUnit='"+monthlyBillDetails.getMonthlyUsageUnit()+"',TotalOutstandingMonthly='"+monthlyBillDetails.getTotalOutstandingMonthly()+"' "
-                + "where InvoiceNo='"+monthlyBillDetails.getInvoiceNo()+"'; ");
+                + "where InvoiceNo=(select max(InvoiceNo) from MonthlyBillDetails where nic='"+monthlyBillDetails.getNic()+"'; ");
+                //+ "where InvoiceNo='"+monthlyBillDetails.getInvoiceNo()+"'; ");
+    }
+    
+    public BillData getLatestMBIdFromNic(String nic) throws Exception{
+    
+        RetrieveClass retrieveClass=new RetrieveClass();
+        BillData billData=new BillData();
+        try{
+            ResultSet rs  = retrieveClass.getResultsFormDB("select * from BillData where nic='"+nic+"' "
+                    + "and mbid=(select max(mbid) from BillData where nic='"+nic+"')");
+            while (rs.next()) {
+                billData.setMbid(rs.getString("mbid"));
+                billData.setCid(rs.getString("cid"));
+                billData.setNic(rs.getString("nic"));
+                billData.setNewMeter(rs.getInt("NewMeter"));
+                billData.setSramadhana(rs.getBoolean("Sramadhana"));
+                billData.setSramadhana(rs.getBoolean("AbsentCharge"));
+                billData.setMonth(rs.getString("Month"));
+                billData.setOldMeter(rs.getInt("OldMeter"));
+                billData.setMonthlyUsageUnit(rs.getInt("MonthlyUsageUnit"));
+            }
+            DBConnection.disconnect();
+        } catch (SQLException e) {
+            getLogger.getLog().debug(e.toString());
+        }         
+        return billData;
     }
 }
