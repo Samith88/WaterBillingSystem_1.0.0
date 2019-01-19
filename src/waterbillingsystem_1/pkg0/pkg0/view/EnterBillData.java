@@ -5,10 +5,13 @@
  */
 package waterbillingsystem_1.pkg0.pkg0.view;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
@@ -33,6 +36,11 @@ public class EnterBillData extends javax.swing.JFrame {
     boolean dataUpdate;     
     
     public EnterBillData() throws Exception {
+        
+        File imageFile = new File("images\\page.png");
+        BufferedImage myImage = ImageIO.read(imageFile);
+        this.setContentPane(new ImagePanel(myImage));
+        
         initComponents();
         CustomerDataProcessor customerDataProcessor=new CustomerDataProcessor();
         customerHash = customerDataProcessor.getCustomerCIDNNIC();
@@ -177,7 +185,7 @@ public class EnterBillData extends javax.swing.JFrame {
             }
         });
 
-        PDlblWarning.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        PDlblWarning.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         PDlblWarning.setForeground(new java.awt.Color(255, 0, 0));
         PDlblWarning.setText("Please make sure you have entered monthly units correctly.");
 
@@ -196,12 +204,6 @@ public class EnterBillData extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(123, 123, 123)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ckBoxAbsentFee)
-                    .addComponent(ckBoxSramadhana))
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnCDHome, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -224,10 +226,7 @@ public class EnterBillData extends javax.swing.JFrame {
                                 .addGap(79, 79, 79)
                                 .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(179, 179, 179)
-                                .addComponent(PDlblWarning)))
+                                .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,6 +254,17 @@ public class EnterBillData extends javax.swing.JFrame {
                                         .addComponent(BDLblFN, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE)))
                                 .addGap(58, 58, 58))))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(123, 123, 123)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ckBoxAbsentFee)
+                            .addComponent(ckBoxSramadhana)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(PDlblWarning)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -299,13 +309,11 @@ public class EnterBillData extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnBDClear)
                             .addComponent(btnBDEnterAnother)
-                            .addComponent(btnBDEnter))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                        .addComponent(PDlblWarning))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCDUpdate)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(btnBDEnter)))
+                    .addComponent(btnCDUpdate))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(PDlblWarning)
+                .addGap(25, 25, 25))
         );
 
         radioMeter.getAccessibleContext().setAccessibleParent(radioMeter);

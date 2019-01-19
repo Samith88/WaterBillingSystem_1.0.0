@@ -5,9 +5,12 @@
  */
 package waterbillingsystem_1.pkg0.pkg0.view;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
@@ -27,7 +30,12 @@ public class EnterGroup extends javax.swing.JFrame {
      */
     boolean dataInserted;
     boolean dataUpdate;
-    public EnterGroup() {
+    public EnterGroup() throws IOException {
+        
+        File imageFile = new File("images\\page.png");
+        BufferedImage myImage = ImageIO.read(imageFile);
+        this.setContentPane(new ImagePanel(myImage));
+        
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -377,7 +385,11 @@ public class EnterGroup extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new EnterGroup().setVisible(true);
+            try {
+                new EnterGroup().setVisible(true);
+            } catch (IOException ex) {
+                Logger.getLogger(EnterGroup.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
     }
 

@@ -5,6 +5,8 @@
  */
 package waterbillingsystem_1.pkg0.pkg0.view;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import javax.swing.JFrame;
@@ -12,6 +14,7 @@ import waterbillingsystem_1.pkg0.pkg0.controller.CustomerDataProcessor;
 import waterbillingsystem_1.pkg0.pkg0.controller.FillGUIComponents;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.WindowConstants;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
@@ -31,6 +34,9 @@ public class GenerateInvoice extends javax.swing.JFrame {
     boolean reportGenerated; 
     
     public GenerateInvoice() throws Exception {
+        File imageFile = new File("images\\page.png");
+        BufferedImage myImage = ImageIO.read(imageFile);
+        this.setContentPane(new ImagePanel(myImage));        
         CustomerDataProcessor customerDataProcessor=new CustomerDataProcessor();
         customerHash = customerDataProcessor.getCustomerCIDNNIC();        
         initComponents();

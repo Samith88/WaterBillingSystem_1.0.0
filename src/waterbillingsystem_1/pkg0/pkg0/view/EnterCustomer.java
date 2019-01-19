@@ -5,10 +5,13 @@
  */
 package waterbillingsystem_1.pkg0.pkg0.view;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
@@ -29,7 +32,12 @@ public class EnterCustomer extends javax.swing.JFrame {
      */
     boolean dataUpdate ;  
     boolean dataInserted;
-    public EnterCustomer() {
+    public EnterCustomer() throws IOException {
+        
+        File imageFile = new File("images\\page.png");
+        BufferedImage myImage = ImageIO.read(imageFile);
+        this.setContentPane(new ImagePanel(myImage));
+        
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -584,7 +592,11 @@ public class EnterCustomer extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new EnterCustomer().setVisible(true);
+            try {
+                new EnterCustomer().setVisible(true);
+            } catch (IOException ex) {
+                Logger.getLogger(EnterCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
     }
 

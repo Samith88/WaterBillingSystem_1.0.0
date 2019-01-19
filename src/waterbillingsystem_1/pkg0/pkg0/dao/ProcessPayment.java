@@ -39,15 +39,39 @@ public class ProcessPayment {
         InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
         
         return insertUpdateDeleteClass.insertUpdateDeleteDB(sql) && updateCustomerTOA(payment);
-    }    
+    } 
+    
+    public boolean deletePayment(Payment payment) throws Exception{
+        
+        String sql="delete from payment where pyid='"+payment.getPyid()+"' ";
+        InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
+        
+        if(insertUpdateDeleteClass.insertUpdateDeleteDB(sql))
+            return updateCustomerTOAWhenDelete(payment);
+        return false;
+    }
     
     private boolean updateCustomerTOA(Payment payment){
     
         InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
         
         return insertUpdateDeleteClass.insertUpdateDeleteDB("update Customer set TotalOutstandingAmount='"+payment.getNewOutStandingTotal()+"' "
+                + ",lastPayment='"+payment.getAmount()+"',lastPaymentDate='"+payment.getDate()+"' "
                 + " where nic='"+payment.getNic()+"'");
     }      
+    
+    private boolean updateCustomerTOAWhenDelete(Payment payment) throws Exception{
+    
+        InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
+        
+        CustomerDataDatabase CustomerDataDatabase=new CustomerDataDatabase();
+        double newTOA = CustomerDataDatabase.getTOAFromNIC(payment.getNic()) + payment.getAmount();
+        Payment latestPayment = getLatestPaymentByNIC(payment.getNic());
+        
+        return insertUpdateDeleteClass.insertUpdateDeleteDB("update Customer set TotalOutstandingAmount='"+newTOA+"' ,"
+                + "lastPayment='"+latestPayment.getAmount()+"', lastPaymentDate='"+latestPayment.getDate()+"' "
+                + " where nic='"+payment.getNic()+"'");
+    } 
     
     public Payment getLatestPaymentByNIC(String nic) throws SQLException, Exception{
         RetrieveClass retrieveClass=new RetrieveClass();

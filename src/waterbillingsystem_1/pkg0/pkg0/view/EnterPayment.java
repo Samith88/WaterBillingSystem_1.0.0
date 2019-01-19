@@ -5,10 +5,13 @@
  */
 package waterbillingsystem_1.pkg0.pkg0.view;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
@@ -33,8 +36,13 @@ public class EnterPayment extends javax.swing.JFrame {
     boolean dataInserted;
     boolean dataUpdate;  
     private String pyid="";
+    Payment currentPayment=new Payment();    
     
     public EnterPayment() throws Exception {
+        
+        File imageFile = new File("images\\page.png");
+        BufferedImage myImage = ImageIO.read(imageFile);
+        this.setContentPane(new ImagePanel(myImage));        
         initComponents();
         ImageIcon img = new ImageIcon("images\\WaterDrop.png");
         this.setIconImage(img.getImage());
@@ -303,7 +311,6 @@ public class EnterPayment extends javax.swing.JFrame {
     
     private void UpdatePaymentsData(Payment payment) throws Exception{
         
-
         PaymentProcessor PaymentProcessor=new PaymentProcessor();
         if(PaymentProcessor.updatePeymentCustomer(payment))
         {
@@ -324,17 +331,45 @@ public class EnterPayment extends javax.swing.JFrame {
     private String validateData(){
     
         String errorMessage = "";
-        if(cmdNIC.getSelectedItem().toString().length()!=10)
+        if(cmdNIC.getSelectedItem().toString().length()!=0) {
+        } else {
             errorMessage += "Please enter a correct NIC ";
+        }
         
-        if(txtPaymentAmount.getText().length()==0)
+        if(txtPaymentAmount.getText().length()==0 && !dataUpdate)
             errorMessage += "Please enter a valid amount ";
  
         return errorMessage;
     }
     private void btnPDClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDClearActionPerformed
         // TODO add your handling code here:
-        ClearComponents();
+        PaymentProcessor paymentProcessor=new PaymentProcessor();
+        if(dataUpdate && !dataInserted)
+        {
+            //delete payment
+            if(currentPayment.getPyid() != null)
+                try {
+                    if(paymentProcessor.deletePayment(currentPayment))
+                    {
+                        JOptionPaneCustom.infoBox("Payment :"+currentPayment.getPyid()+" was deleted", "Payment Data deletion");
+                        currentPayment = null;
+                        dataInserted = true;
+                        ClearComponents();
+                        dataUpdate=false;
+                        btnPDEnter.setText("Enter Payment");
+                        btnPDClear.setText("Clear Data");
+                        cmdNIC.enable();
+                        txtPaymentNIC.enable();
+                        txtPaymentCID.enable();
+                    }
+            } catch (Exception ex) {
+                Logger.getLogger(EnterPayment.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else if(!dataInserted)
+        {
+            ClearComponents();
+        }         
     }//GEN-LAST:event_btnPDClearActionPerformed
 
     private void ClearComponents(){
@@ -385,6 +420,9 @@ public class EnterPayment extends javax.swing.JFrame {
 
     private void btnPDUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDUpdateActionPerformed
         // TODO add your handling code here:
+        if (!dataUpdate)
+            dataUpdate = true;
+        
         String errorMessage = validateData();
         if(0 < errorMessage.length())
             JOptionPaneCustom.errorBox(errorMessage, "Payment Data Insertion");   
@@ -393,8 +431,6 @@ public class EnterPayment extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPDUpdateActionPerformed
 
     private void whenUpdateButtonClicked(){
-        if (!dataUpdate)
-            dataUpdate = true;
         
         PaymentProcessor paymentProcessor=new PaymentProcessor();
         try {
@@ -410,16 +446,20 @@ public class EnterPayment extends javax.swing.JFrame {
             {
                 if(cmbYear.getItemAt(i).contains(payment.getPyid().substring(0, 4)))
                     cmbYear.setSelectedItem(cmbYear.getItemAt(i));
-            }              
+            }        
+            txtPaymentAmount.setText(String.valueOf(payment.getAmount()) );
+            
             cmdNIC.disable();
             txtPaymentNIC.disable();
             txtPaymentCID.disable();
             
             btnPDEnter.setText("Update Payment");
+            btnPDClear.setText("Delete Payment");
             dataInserted=false;
             dataUpdate = true;
             
             pyid = payment.getPyid();
+            this.currentPayment = payment;
             
         } catch (Exception ex) {
             JOptionPaneCustom.errorBox("NIC not found", "Payment Data Updating");

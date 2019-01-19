@@ -159,3 +159,4 @@
 2019-01-18 15:14:29 DEBUG [AWT-EventQueue-0] (EnterBillData.java:528) - Bill data inserted successfully for id: 201901001
 2019-01-18 15:17:38 DEBUG [AWT-EventQueue-0] (EnterBillData.java:412) - Bill data updated successfully for id: 201901001
 2019-01-18 15:31:17 DEBUG [AWT-EventQueue-0] (EnterBillData.java:412) - Bill data updated successfully for id: 201901001
+2019-01-19 22:04:51 DEBUG [AWT-EventQueue-0] (EnterPayment.java:318) - Payment data inserted :201901190947001

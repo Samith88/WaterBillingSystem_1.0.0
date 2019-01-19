@@ -54,4 +54,10 @@ public class PaymentProcessor {
         
     }   
     
+    public boolean deletePayment(Payment payment) throws Exception{
+        
+        ProcessPayment processPayment=new ProcessPayment();
+        return processPayment.deletePayment(payment);
+    }
+    
 }
