@@ -5,11 +5,14 @@
  */
 package waterbillingsystem_1.pkg0.pkg0.view;
 
+import java.awt.image.BufferedImage;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-
+import java.io.File;
+import java.io.IOException;
 /**
  *
  * @author UDISSSA1
@@ -18,13 +21,22 @@ public class MainPage extends javax.swing.JFrame {
 
     /**
      * Creates new form Main
+     * @throws java.io.IOException
      */
-    public MainPage() {
+    
+    public MainPage() throws IOException {  
+        
+        File imageFile = new File("images\\wallpaper.png");
+        BufferedImage myImage = ImageIO.read(imageFile);
+        this.setContentPane(new ImagePanel(myImage));
+        
         initComponents();
+        
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.pack();
         this.setLocationRelativeTo(null);
         ImageIcon img = new ImageIcon("images\\WaterDrop.png");
-        this.setIconImage(img.getImage());        
+        this.setIconImage(img.getImage());          
     }
 
     /**
@@ -36,28 +48,30 @@ public class MainPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnCustomerD = new javax.swing.JButton();
-        btnGroupD = new javax.swing.JButton();
-        btnBillD = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         btnPaymentD = new javax.swing.JButton();
+        btnBillD = new javax.swing.JButton();
         btnInvoice = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        btnGroupD = new javax.swing.JButton();
+        btnCustomerD = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Pananwala Water Billing System");
         setName("frmMain"); // NOI18N
         setResizable(false);
 
-        btnCustomerD.setText("Customer Details");
-        btnCustomerD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCustomerDActionPerformed(evt);
-            }
-        });
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Transactions", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel1.setOpaque(false);
 
-        btnGroupD.setText("Group Data");
-        btnGroupD.addActionListener(new java.awt.event.ActionListener() {
+        btnPaymentD.setText("Payments Data");
+        btnPaymentD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGroupDActionPerformed(evt);
+                btnPaymentDActionPerformed(evt);
             }
         });
 
@@ -68,48 +82,115 @@ public class MainPage extends javax.swing.JFrame {
             }
         });
 
-        btnPaymentD.setText("Payments Data");
-        btnPaymentD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPaymentDActionPerformed(evt);
-            }
-        });
-
-        btnInvoice.setText("GenearateInvoces");
+        btnInvoice.setText("Genearate Invoces");
         btnInvoice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInvoiceActionPerformed(evt);
             }
         });
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(71, 71, 71)
+                .addComponent(btnPaymentD, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80)
+                .addComponent(btnBillD, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                .addComponent(btnInvoice)
+                .addGap(74, 74, 74))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnPaymentD)
+                    .addComponent(btnBillD)
+                    .addComponent(btnInvoice))
+                .addGap(0, 11, Short.MAX_VALUE))
+        );
+
+        jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        jLabel1.setText("Pananwala Water Billing");
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "User Management", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel2.setOpaque(false);
+
+        btnGroupD.setText("Group Data");
+        btnGroupD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGroupDActionPerformed(evt);
+            }
+        });
+
+        btnCustomerD.setText("Customer Details");
+        btnCustomerD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCustomerDActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(26, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnGroupD, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCustomerD, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addComponent(btnGroupD)
+                .addGap(56, 56, 56)
+                .addComponent(btnCustomerD)
+                .addContainerGap(96, Short.MAX_VALUE))
+        );
+
+        jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        jLabel2.setText("System");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(228, 228, 228)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btnCustomerD, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGroupD, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnBillD, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnPaymentD, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnInvoice, javax.swing.GroupLayout.Alignment.LEADING))
-                .addContainerGap(262, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(135, Short.MAX_VALUE)
-                .addComponent(btnCustomerD)
-                .addGap(36, 36, 36)
-                .addComponent(btnGroupD)
-                .addGap(26, 26, 26)
-                .addComponent(btnBillD)
-                .addGap(29, 29, 29)
-                .addComponent(btnPaymentD)
-                .addGap(35, 35, 35)
-                .addComponent(btnInvoice)
-                .addGap(115, 115, 115))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2)
+                        .addGap(111, 111, 111)))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
@@ -197,7 +278,11 @@ public class MainPage extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new MainPage().setVisible(true);
+            try {
+                new MainPage().setVisible(true);
+            } catch (IOException ex) {
+                Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
     }
 
@@ -207,5 +292,9 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JButton btnGroupD;
     private javax.swing.JButton btnInvoice;
     private javax.swing.JButton btnPaymentD;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

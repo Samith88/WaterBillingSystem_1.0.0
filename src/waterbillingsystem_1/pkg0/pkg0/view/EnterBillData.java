@@ -5,6 +5,7 @@
  */
 package waterbillingsystem_1.pkg0.pkg0.view;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -556,7 +557,15 @@ public class EnterBillData extends javax.swing.JFrame {
     
     private void btnBDClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBDClearActionPerformed
 
-        ClearComponents();
+        if(dataUpdate && !dataInserted)
+        {
+            //TODO  delete existing bill data and update customer
+        }
+        else if(!dataInserted)
+        {
+            ClearComponents();
+        }          
+        
     }//GEN-LAST:event_btnBDClearActionPerformed
 
     private void txtCustomerNICKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCustomerNICKeyTyped
@@ -581,7 +590,12 @@ public class EnterBillData extends javax.swing.JFrame {
 
     private void btnCDHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDHomeActionPerformed
         // TODO add your handling code here:
-        MainPage mainPage=new MainPage();
+        MainPage mainPage = null;
+        try {
+            mainPage = new MainPage();
+        } catch (IOException ex) {
+            Logger.getLogger(EnterBillData.class.getName()).log(Level.SEVERE, null, ex);
+        }
         mainPage.setVisible(true);
         this.setVisible(false);
         this.dispose();

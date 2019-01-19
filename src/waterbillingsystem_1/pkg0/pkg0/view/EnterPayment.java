@@ -5,6 +5,7 @@
  */
 package waterbillingsystem_1.pkg0.pkg0.view;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -429,7 +430,12 @@ public class EnterPayment extends javax.swing.JFrame {
     
     private void btnCDHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDHomeActionPerformed
         // TODO add your handling code here:
-        MainPage mainPage=new MainPage();
+        MainPage mainPage = null;
+        try {
+            mainPage = new MainPage();
+        } catch (IOException ex) {
+            Logger.getLogger(EnterPayment.class.getName()).log(Level.SEVERE, null, ex);
+        }
         mainPage.setVisible(true);
         this.setVisible(false);
         this.dispose();
