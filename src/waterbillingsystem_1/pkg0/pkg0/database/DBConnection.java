@@ -18,8 +18,7 @@ public class DBConnection {
     public static Connection connection;
     
     public static Connection connect() throws Exception{
-        String url = "jdbc:sqlite:waterbill.db";
-        connection = DriverManager.getConnection(url);
+        connection = DriverManager.getConnection("jdbc:sqlite:waterbill.db");
         return connection;
     }
 
@@ -27,10 +26,10 @@ public class DBConnection {
         connection.close();
     }
     
-    public static Connection readConnect1() throws SQLException{
+    public static Connection readConnect() throws SQLException{
         SQLiteConfig config = new SQLiteConfig();
         config.setReadOnly(true);
-        connection = DriverManager.getConnection("jdbc:sqlite:sample.db",config.toProperties());
+        connection = DriverManager.getConnection("jdbc:sqlite:waterbill.db",config.toProperties());
         return connection;
     }    
 }

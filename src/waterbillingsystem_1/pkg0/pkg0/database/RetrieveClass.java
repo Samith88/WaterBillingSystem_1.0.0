@@ -18,7 +18,7 @@ public class RetrieveClass {
     public ResultSet getResultsFormDB(String sql) throws Exception{
         ResultSet result = null;
         try {
-            result = DBConnection.connect().createStatement().executeQuery(sql);
+            result = DBConnection.readConnect().createStatement().executeQuery(sql);
         } catch (SQLException e) {
             getLogger.getLog().debug(e.toString());
         }

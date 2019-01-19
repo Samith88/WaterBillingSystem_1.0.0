@@ -34,6 +34,7 @@ public class EnterBillData extends javax.swing.JFrame {
     HashMap<String, String> customerHash = new HashMap<>();
     boolean dataInserted;
     boolean dataUpdate;     
+    BillData currentBillData = new BillData();
     
     public EnterBillData() throws Exception {
         
@@ -453,8 +454,6 @@ public class EnterBillData extends javax.swing.JFrame {
     }
     
     private void whenUpdateButtonClicked(){
-        if (!dataUpdate)
-            dataUpdate = true;
         
         BillDataProcessor billDataProcessor=new BillDataProcessor();
         try {
@@ -565,9 +564,26 @@ public class EnterBillData extends javax.swing.JFrame {
     
     private void btnBDClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBDClearActionPerformed
 
+        BillDataProcessor billDataProcessor=new BillDataProcessor();
         if(dataUpdate && !dataInserted)
         {
-            //TODO  delete existing bill data and update customer
+            //delete bill data
+            if(currentBillData.getMbid() != null)
+                try {
+                    if(billDataProcessor.deleteBillData(currentBillData))
+                    {
+                        JOptionPaneCustom.infoBox("Bill :"+currentBillData.getMbid()+" was deleted", "Bill Data deletion");
+                        currentBillData = null;
+                        dataInserted = true;
+                        ClearComponents();
+                        dataUpdate=false;
+                        btnBDEnter.setText("Enter BillData");
+                        btnBDClear.setText("Clear Data");
+                        cmbCustomerNIC.enable();
+                    }
+            } catch (Exception ex) {
+                Logger.getLogger(EnterPayment.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         else if(!dataInserted)
         {
@@ -630,7 +646,8 @@ public class EnterBillData extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBDEnterAnotherActionPerformed
 
     private void btnCDUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDUpdateActionPerformed
-        // TODO add your handling code here:
+        if (!dataUpdate)
+            dataUpdate = true;
         String errorMessage = ValidateData();
         if(0 < errorMessage.length())
             JOptionPaneCustom.errorBox(errorMessage, "Bill Data update");

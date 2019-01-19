@@ -84,6 +84,38 @@ public class MonthlyBillDB {
         return monthlyBillDetails;
     }
     
+    public MonthlyBillDetails getLatestMonthlyBillDetailsByNIC(BillData billData) throws Exception{
+        
+        MonthlyBillDetails monthlyBillDetails=new MonthlyBillDetails();
+        RetrieveClass retrieveClass=new RetrieveClass();
+        try{
+            ResultSet rs  = retrieveClass.getResultsFormDB("select * from MonthlyBillDetails where nic='"+billData.getNic()+"' "
+                    + "and InvoiceNo=(select max(InvoiceNo) from MonthlyBillDetails where nic='"+billData.getNic()+"' ");
+            while (rs.next()) {
+                monthlyBillDetails.setInvoiceNo(rs.getString("InvoiceNo"));
+                monthlyBillDetails.setCid(rs.getString("cid"));
+                monthlyBillDetails.setNic(rs.getString("nic"));
+                monthlyBillDetails.setGroup(rs.getString("GroupId"));
+                monthlyBillDetails.setOldMeter(rs.getInt("OldMeter"));
+                monthlyBillDetails.setNewMeter(rs.getInt("NewMeter"));
+                monthlyBillDetails.setMonthlyConsumption(rs.getDouble("MonthlyConsumption"));
+                monthlyBillDetails.setCurrentTotalAmount(rs.getDouble("CurrentTotalAmount"));
+                monthlyBillDetails.setFixedCharge(rs.getDouble("FixedCharge"));
+                monthlyBillDetails.setSramadhana(rs.getDouble("Sramadhana"));
+                monthlyBillDetails.setAbsentCharge(rs.getDouble("AbsentCharge"));
+                monthlyBillDetails.setTotalMonthlyAmount(rs.getDouble("TotalMonthlyAmount"));
+                monthlyBillDetails.setMonth(rs.getString("Month"));
+                monthlyBillDetails.setTotalOutstandingMonthly(rs.getDouble("TotalOutstandingMonthly"));
+                monthlyBillDetails.setMonthlyUsageUnit(rs.getInt("MonthlyUsageUnit"));
+                monthlyBillDetails.setLastPaymentDay(rs.getString("LastPaymentDay"));
+            }
+            DBConnection.disconnect();
+        } catch (SQLException e) {
+            getLogger.getLog().debug(e.toString());
+        }      
+        return monthlyBillDetails;
+    }    
+    
     public boolean updateCustomerWithBill(MonthlyBillDetails monthlyBillDetails,String event) throws Exception{
     
         InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
@@ -157,5 +189,27 @@ public class MonthlyBillDB {
             getLogger.getLog().debug(e.toString());
         }         
         return billData;
+    }
+    public boolean deleteBillData(BillData currentBillData) throws Exception{
+
+        InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
+        
+        if(insertUpdateDeleteClass.insertUpdateDeleteDB("delete from BillData where mbid='"+currentBillData.getMbid()+"' "))
+            if(insertUpdateDeleteClass.insertUpdateDeleteDB("delete from MonthlyBillDetails where InvoiceNo='"+currentBillData.getMbid()+"' "))
+                if(updateCustomerWhenDeleteBill(currentBillData))
+                    return true;
+        return false;
+        
+    }
+    
+    public boolean updateCustomerWhenDeleteBill(BillData currentBillData) throws Exception{
+    
+        MonthlyBillDetails monthlyBillDetails=getLatestMonthlyBillDetailsByNIC(currentBillData);
+        InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
+        
+        String sql="update customer set preMeter='"+monthlyBillDetails.getOldMeter()+"',currentMeter='"+monthlyBillDetails.getNewMeter()+"'"
+                + ", TotalOutstandingAmount='"+monthlyBillDetails.getTotalOutstandingMonthly()+"' "
+                + "where nic= '"+currentBillData.getNic()+"' ";
+        return insertUpdateDeleteClass.insertUpdateDeleteDB(sql);
     }
 }

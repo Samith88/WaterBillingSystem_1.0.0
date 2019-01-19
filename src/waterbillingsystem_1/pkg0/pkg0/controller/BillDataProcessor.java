@@ -137,4 +137,10 @@ public class BillDataProcessor {
         return monthlyBillDB.getLatestMBIdFromNic(nic);
         
     }
+
+    public boolean deleteBillData(BillData currentBillData) {
+        
+        MonthlyBillDB monthlyBillDB=new MonthlyBillDB(); 
+        return monthlyBillDB.deleteBillData(currentBillData);
+    }
 }
