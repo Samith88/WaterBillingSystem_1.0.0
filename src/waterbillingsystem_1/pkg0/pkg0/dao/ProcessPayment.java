@@ -7,11 +7,14 @@ package waterbillingsystem_1.pkg0.pkg0.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import waterbillingsystem_1.pkg0.pkg0.base.Payment;
 import waterbillingsystem_1.pkg0.pkg0.database.DBConnection;
 import waterbillingsystem_1.pkg0.pkg0.database.InsertUpdateDeleteClass;
 import waterbillingsystem_1.pkg0.pkg0.database.RetrieveClass;
 import waterbillingsystem_1.pkg0.pkg0.logging.getLogger;
+import waterbillingsystem_1.pkg0.pkg0.view.EnterPayment;
 
 /**
  *
@@ -67,10 +70,16 @@ public class ProcessPayment {
         CustomerDataDatabase CustomerDataDatabase=new CustomerDataDatabase();
         double newTOA = CustomerDataDatabase.getTOAFromNIC(payment.getNic()) + payment.getAmount();
         Payment latestPayment = getLatestPaymentByNIC(payment.getNic());
-        
-        return insertUpdateDeleteClass.insertUpdateDeleteDB("update Customer set TotalOutstandingAmount='"+newTOA+"' ,"
+        try{
+            return insertUpdateDeleteClass.insertUpdateDeleteDB("update Customer set TotalOutstandingAmount='"+newTOA+"' ,"
                 + "lastPayment='"+latestPayment.getAmount()+"', lastPaymentDate='"+latestPayment.getDate()+"' "
-                + " where nic='"+payment.getNic()+"'");
+                + " where nic='"+payment.getNic()+"'");     
+        }
+        catch (Exception ex) {
+                Logger.getLogger(ProcessPayment.class.getName()).log(Level.SEVERE, null, ex);
+            return false;   
+        }        
+        
     } 
     
     public Payment getLatestPaymentByNIC(String nic) throws SQLException, Exception{

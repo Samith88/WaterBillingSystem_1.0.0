@@ -20,18 +20,20 @@ import waterbillingsystem_1.pkg0.pkg0.dao.UnitPricesDB;
  */
 public class BillDataProcessor {
     
-    public String getBillId(String customerId){
+    public String getBillId(String customerId,String Year, String Month){
         if(customerId.length()==1)
             customerId = "00"+customerId;
         if(customerId.length()==2)
             customerId = "0"+customerId;  
-        
-        return DateDetails.getDateYear()+DateDetails.getDateMonth()+customerId;
+        if(!Year.equals("") && !Month.equals("") )
+            return Year+Month+customerId;
+        else
+            return DateDetails.getDateYear()+DateDetails.getDateMonth()+customerId;
     }
     
     public boolean putBillData(BillData billData){
         
-        billData.setMbid(getBillId(billData.getCid()));
+        billData.setMbid(getBillId(billData.getCid(),"",""));
         billData.setMonth(DateDetails.getDateMonth()+"/"+DateDetails.getDateYear());
         
         MonthlyBillDB MonthlyBillDB=new MonthlyBillDB();
@@ -41,12 +43,12 @@ public class BillDataProcessor {
     public boolean setMonthlyBillDetails(BillData billData) throws Exception{
     
         MonthlyBillDetails monthlyBillDetails =new MonthlyBillDetails();
-        monthlyBillDetails.setInvoiceNo(getBillId(billData.getCid()));
+        monthlyBillDetails.setInvoiceNo(getBillId(billData.getCid(),"",""));
         monthlyBillDetails.setCid(billData.getCid());
         monthlyBillDetails.setNic(billData.getNic());
         monthlyBillDetails.setGroup(CustomerDataDatabase.getCustomerGroupIdFromNIC(billData.getNic()));
         
-        monthlyBillDetails = getUpdatedBillDetails( monthlyBillDetails, billData);
+        monthlyBillDetails = getUpdatedBillDetails( monthlyBillDetails, billData,"insert");
         
         monthlyBillDetails.setMonth(billData.getMonth());
         monthlyBillDetails.setLastPaymentDay(DateDetails.getDateNextMonth()+"/"+DateDetails.getDateNextYear());
@@ -75,18 +77,19 @@ public class BillDataProcessor {
 
     public boolean updateMonthlyBillDetails(BillData billData) throws Exception {
         
-        MonthlyBillDetails monthlyBillDetails =new MonthlyBillDetails();
+        MonthlyBillDB monthlyBillDB=new MonthlyBillDB(); 
+        
+        MonthlyBillDetails monthlyBillDetails = monthlyBillDB.getMonthlyBillDetailsByInvoiceNo(billData.getMbid());
         
         monthlyBillDetails.setInvoiceNo(billData.getMbid());
         monthlyBillDetails.setNic(billData.getNic());
         
-        getUpdatedBillDetails( monthlyBillDetails, billData);
-        
-        MonthlyBillDB monthlyBillDB=new MonthlyBillDB(); 
+        getUpdatedBillDetails( monthlyBillDetails, billData,"update");
+         
         return monthlyBillDB.updateMonthlyBillDetails(monthlyBillDetails) && updateCustomerWithBill(monthlyBillDetails,"update");
     }
     
-    private MonthlyBillDetails getUpdatedBillDetails(MonthlyBillDetails monthlyBillDetails,BillData billData) throws Exception{
+    private MonthlyBillDetails getUpdatedBillDetails(MonthlyBillDetails monthlyBillDetails,BillData billData,String event) throws Exception{
         
         CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
         Customer customer = customerDataDatabase.getCustomer(billData.getNic());
@@ -122,7 +125,9 @@ public class BillDataProcessor {
         
         monthlyBillDetails.setMonthlyConsumption(calculateUsageBill.calculateConsumingBill(monthlyBillDetails.getMonthlyUsageUnit(), unitPricesDB.getUnitPricesFromDB()));         
         
-        monthlyBillDetails.setCurrentTotalAmount(customer.getTotalOutstandingAmount());
+        //This is in-correct when update.
+        if(event.equals("insert"))
+            monthlyBillDetails.setCurrentTotalAmount(customer.getTotalOutstandingAmount());
         
         monthlyBillDetails.setTotalMonthlyAmount(monthlyBillDetails.getMonthlyConsumption()+monthlyBillDetails.getFixedCharge()+
         monthlyBillDetails.getSramadhana()+monthlyBillDetails.getAbsentCharge());
@@ -138,7 +143,7 @@ public class BillDataProcessor {
         
     }
 
-    public boolean deleteBillData(BillData currentBillData) {
+    public boolean deleteBillData(BillData currentBillData) throws Exception {
         
         MonthlyBillDB monthlyBillDB=new MonthlyBillDB(); 
         return monthlyBillDB.deleteBillData(currentBillData);

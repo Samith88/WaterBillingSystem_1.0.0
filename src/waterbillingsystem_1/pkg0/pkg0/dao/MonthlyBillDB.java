@@ -7,12 +7,15 @@ package waterbillingsystem_1.pkg0.pkg0.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import waterbillingsystem_1.pkg0.pkg0.base.BillData;
 import waterbillingsystem_1.pkg0.pkg0.base.MonthlyBillDetails;
 import waterbillingsystem_1.pkg0.pkg0.database.DBConnection;
 import waterbillingsystem_1.pkg0.pkg0.database.InsertUpdateDeleteClass;
 import waterbillingsystem_1.pkg0.pkg0.database.RetrieveClass;
 import waterbillingsystem_1.pkg0.pkg0.logging.getLogger;
+import waterbillingsystem_1.pkg0.pkg0.view.EnterPayment;
 
 /**
  *
@@ -210,6 +213,13 @@ public class MonthlyBillDB {
         String sql="update customer set preMeter='"+monthlyBillDetails.getOldMeter()+"',currentMeter='"+monthlyBillDetails.getNewMeter()+"'"
                 + ", TotalOutstandingAmount='"+monthlyBillDetails.getTotalOutstandingMonthly()+"' "
                 + "where nic= '"+currentBillData.getNic()+"' ";
-        return insertUpdateDeleteClass.insertUpdateDeleteDB(sql);
+        try{
+            return insertUpdateDeleteClass.insertUpdateDeleteDB(sql);
+        }
+        catch (Exception ex) {
+                Logger.getLogger(EnterPayment.class.getName()).log(Level.SEVERE, null, ex);
+            return false;   
+        }
+        
     }
 }

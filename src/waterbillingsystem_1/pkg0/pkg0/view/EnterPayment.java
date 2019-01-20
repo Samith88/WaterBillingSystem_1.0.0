@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 import waterbillingsystem_1.pkg0.pkg0.DateDetails;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
@@ -341,11 +342,14 @@ public class EnterPayment extends javax.swing.JFrame {
  
         return errorMessage;
     }
+    
     private void btnPDClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDClearActionPerformed
         // TODO add your handling code here:
         PaymentProcessor paymentProcessor=new PaymentProcessor();
         if(dataUpdate && !dataInserted)
         {
+            if(JOptionPane.showConfirmDialog(this,"Do you want to delete this bill data ?")==JOptionPane.YES_OPTION)
+            {
             //delete payment
             if(currentPayment.getPyid() != null)
                 try {
@@ -362,8 +366,11 @@ public class EnterPayment extends javax.swing.JFrame {
                         txtPaymentNIC.enable();
                         txtPaymentCID.enable();
                     }
+                    else
+                        JOptionPaneCustom.errorBox("Error in payment data deletion", "Payment Data deletion");
             } catch (Exception ex) {
                 Logger.getLogger(EnterPayment.class.getName()).log(Level.SEVERE, null, ex);
+            }
             }
         }
         else if(!dataInserted)

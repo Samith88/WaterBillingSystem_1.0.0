@@ -1,163 +1,285 @@
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1290) -   match='jasperReport/title/band/textField'
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1291) -   bodyText=''
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1313) -   Fire body() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRTextFieldFactory, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRTextFieldFactory@6caf4bbb]
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1313) -   Fire body() for SetNextRule[methodName=addElement, paramType=net.sf.jasperreports.engine.design.JRDesignElement]
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1333) -   Popping body text ''
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1343) -   Fire end() for SetNextRule[methodName=addElement, paramType=net.sf.jasperreports.engine.design.JRDesignElement]
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (SetNextRule.java:198) - [SetNextRule]{jasperReport/title/band/textField} Call net.sf.jasperreports.engine.design.JRDesignBand.addElement(net.sf.jasperreports.engine.design.JRDesignTextField@19efab31)
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1343) -   Fire end() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRTextFieldFactory, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRTextFieldFactory@6caf4bbb]
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (FactoryCreateRule.java:434) - [FactoryCreateRule]{jasperReport/title/band/textField} Pop net.sf.jasperreports.engine.design.JRDesignTextField
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1412) - ignorableWhitespace(
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1547) -   Pushing body text ''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1566) -   New match='jasperReport/title/band/textField/reportElement'
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1581) -   Fire begin() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRElementFactory, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRElementFactory@51c52197]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (FactoryCreateRule.java:400) - [FactoryCreateRule]{jasperReport/title/band/textField/reportElement} New net.sf.jasperreports.engine.design.JRDesignTextField
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1287) - endElement(http://jasperreports.sourceforge.net/jasperreports,reportElement,reportElement)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1290) -   match='jasperReport/title/band/textField/reportElement'
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1291) -   bodyText=''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1313) -   Fire body() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRElementFactory, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRElementFactory@51c52197]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1333) -   Popping body text ''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1343) -   Fire end() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRElementFactory, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRElementFactory@51c52197]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (FactoryCreateRule.java:434) - [FactoryCreateRule]{jasperReport/title/band/textField/reportElement} Pop net.sf.jasperreports.engine.design.JRDesignTextField
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1412) - ignorableWhitespace(
+				)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1540) - startElement(http://jasperreports.sourceforge.net/jasperreports,box,box)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1547) -   Pushing body text ''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1566) -   New match='jasperReport/title/band/textField/box'
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1581) -   Fire begin() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRBoxFactory, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRBoxFactory@1f0d7669]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (FactoryCreateRule.java:400) - [FactoryCreateRule]{jasperReport/title/band/textField/box} New net.sf.jasperreports.engine.base.JRBaseLineBox
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1412) - ignorableWhitespace(
+					)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1540) - startElement(http://jasperreports.sourceforge.net/jasperreports,topPen,topPen)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1547) -   Pushing body text ''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1566) -   New match='jasperReport/title/band/textField/box/topPen'
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1581) -   Fire begin() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRPenFactory$Top, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRPenFactory$Top@7234f1bc]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (FactoryCreateRule.java:400) - [FactoryCreateRule]{jasperReport/title/band/textField/box/topPen} New net.sf.jasperreports.engine.base.JRBaseLineBox
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1287) - endElement(http://jasperreports.sourceforge.net/jasperreports,topPen,topPen)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1290) -   match='jasperReport/title/band/textField/box/topPen'
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1291) -   bodyText=''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1313) -   Fire body() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRPenFactory$Top, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRPenFactory$Top@7234f1bc]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1333) -   Popping body text ''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1343) -   Fire end() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRPenFactory$Top, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRPenFactory$Top@7234f1bc]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (FactoryCreateRule.java:434) - [FactoryCreateRule]{jasperReport/title/band/textField/box/topPen} Pop net.sf.jasperreports.engine.base.JRBaseLineBox
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1412) - ignorableWhitespace(
+					)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1540) - startElement(http://jasperreports.sourceforge.net/jasperreports,leftPen,leftPen)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1547) -   Pushing body text ''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1566) -   New match='jasperReport/title/band/textField/box/leftPen'
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1581) -   Fire begin() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRPenFactory$Left, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRPenFactory$Left@2f4c70b9]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (FactoryCreateRule.java:400) - [FactoryCreateRule]{jasperReport/title/band/textField/box/leftPen} New net.sf.jasperreports.engine.base.JRBaseLineBox
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1287) - endElement(http://jasperreports.sourceforge.net/jasperreports,leftPen,leftPen)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1290) -   match='jasperReport/title/band/textField/box/leftPen'
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1291) -   bodyText=''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1313) -   Fire body() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRPenFactory$Left, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRPenFactory$Left@2f4c70b9]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1333) -   Popping body text ''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1343) -   Fire end() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRPenFactory$Left, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRPenFactory$Left@2f4c70b9]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (FactoryCreateRule.java:434) - [FactoryCreateRule]{jasperReport/title/band/textField/box/leftPen} Pop net.sf.jasperreports.engine.base.JRBaseLineBox
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1412) - ignorableWhitespace(
+					)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1540) - startElement(http://jasperreports.sourceforge.net/jasperreports,bottomPen,bottomPen)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1547) -   Pushing body text ''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1566) -   New match='jasperReport/title/band/textField/box/bottomPen'
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1581) -   Fire begin() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRPenFactory$Bottom, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRPenFactory$Bottom@7fa826f5]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (FactoryCreateRule.java:400) - [FactoryCreateRule]{jasperReport/title/band/textField/box/bottomPen} New net.sf.jasperreports.engine.base.JRBaseLineBox
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1287) - endElement(http://jasperreports.sourceforge.net/jasperreports,bottomPen,bottomPen)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1290) -   match='jasperReport/title/band/textField/box/bottomPen'
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1291) -   bodyText=''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1313) -   Fire body() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRPenFactory$Bottom, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRPenFactory$Bottom@7fa826f5]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1333) -   Popping body text ''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1343) -   Fire end() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRPenFactory$Bottom, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRPenFactory$Bottom@7fa826f5]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (FactoryCreateRule.java:434) - [FactoryCreateRule]{jasperReport/title/band/textField/box/bottomPen} Pop net.sf.jasperreports.engine.base.JRBaseLineBox
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1412) - ignorableWhitespace(
+					)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1540) - startElement(http://jasperreports.sourceforge.net/jasperreports,rightPen,rightPen)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1547) -   Pushing body text ''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1566) -   New match='jasperReport/title/band/textField/box/rightPen'
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1581) -   Fire begin() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRPenFactory$Right, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRPenFactory$Right@110114fb]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (FactoryCreateRule.java:400) - [FactoryCreateRule]{jasperReport/title/band/textField/box/rightPen} New net.sf.jasperreports.engine.base.JRBaseLineBox
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1287) - endElement(http://jasperreports.sourceforge.net/jasperreports,rightPen,rightPen)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1290) -   match='jasperReport/title/band/textField/box/rightPen'
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1291) -   bodyText=''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1313) -   Fire body() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRPenFactory$Right, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRPenFactory$Right@110114fb]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1333) -   Popping body text ''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1343) -   Fire end() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRPenFactory$Right, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRPenFactory$Right@110114fb]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (FactoryCreateRule.java:434) - [FactoryCreateRule]{jasperReport/title/band/textField/box/rightPen} Pop net.sf.jasperreports.engine.base.JRBaseLineBox
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1412) - ignorableWhitespace(
+				)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1287) - endElement(http://jasperreports.sourceforge.net/jasperreports,box,box)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1290) -   match='jasperReport/title/band/textField/box'
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1291) -   bodyText=''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1313) -   Fire body() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRBoxFactory, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRBoxFactory@1f0d7669]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1333) -   Popping body text ''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1343) -   Fire end() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRBoxFactory, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRBoxFactory@1f0d7669]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (FactoryCreateRule.java:434) - [FactoryCreateRule]{jasperReport/title/band/textField/box} Pop net.sf.jasperreports.engine.base.JRBaseLineBox
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1412) - ignorableWhitespace(
+				)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1540) - startElement(http://jasperreports.sourceforge.net/jasperreports,textElement,textElement)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1547) -   Pushing body text ''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1566) -   New match='jasperReport/title/band/textField/textElement'
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1581) -   Fire begin() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRTextElementFactory, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRTextElementFactory@3a3d5ef7]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (FactoryCreateRule.java:400) - [FactoryCreateRule]{jasperReport/title/band/textField/textElement} New net.sf.jasperreports.engine.design.JRDesignTextField
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1412) - ignorableWhitespace(
+					)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1540) - startElement(http://jasperreports.sourceforge.net/jasperreports,font,font)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1547) -   Pushing body text ''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1566) -   New match='jasperReport/title/band/textField/textElement/font'
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1581) -   Fire begin() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRFontFactory$TextElementFontFactory, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRFontFactory$TextElementFontFactory@1977fdfb]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (FactoryCreateRule.java:400) - [FactoryCreateRule]{jasperReport/title/band/textField/textElement/font} New net.sf.jasperreports.engine.design.JRDesignTextField
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1287) - endElement(http://jasperreports.sourceforge.net/jasperreports,font,font)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1290) -   match='jasperReport/title/band/textField/textElement/font'
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1291) -   bodyText=''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1313) -   Fire body() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRFontFactory$TextElementFontFactory, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRFontFactory$TextElementFontFactory@1977fdfb]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1333) -   Popping body text ''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1343) -   Fire end() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRFontFactory$TextElementFontFactory, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRFontFactory$TextElementFontFactory@1977fdfb]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (FactoryCreateRule.java:434) - [FactoryCreateRule]{jasperReport/title/band/textField/textElement/font} Pop net.sf.jasperreports.engine.design.JRDesignTextField
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1412) - ignorableWhitespace(
+				)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1287) - endElement(http://jasperreports.sourceforge.net/jasperreports,textElement,textElement)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1290) -   match='jasperReport/title/band/textField/textElement'
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1291) -   bodyText=''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1313) -   Fire body() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRTextElementFactory, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRTextElementFactory@3a3d5ef7]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1333) -   Popping body text ''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1343) -   Fire end() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRTextElementFactory, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRTextElementFactory@3a3d5ef7]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (FactoryCreateRule.java:434) - [FactoryCreateRule]{jasperReport/title/band/textField/textElement} Pop net.sf.jasperreports.engine.design.JRDesignTextField
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1412) - ignorableWhitespace(
+				)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1540) - startElement(http://jasperreports.sourceforge.net/jasperreports,textFieldExpression,textFieldExpression)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1547) -   Pushing body text ''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1566) -   New match='jasperReport/title/band/textField/textFieldExpression'
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1581) -   Fire begin() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRStringExpressionFactory, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRStringExpressionFactory@73fa91e7]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (FactoryCreateRule.java:400) - [FactoryCreateRule]{jasperReport/title/band/textField/textFieldExpression} New net.sf.jasperreports.engine.design.JRDesignExpression
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1581) -   Fire begin() for SetNextRule[methodName=setExpression, paramType=net.sf.jasperreports.engine.JRExpression]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1581) -   Fire begin() for CallMethodRule[methodName=setText, paramCount=0, paramTypes={java.lang.String}]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1217) - characters($P{P_LastPayment})
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1287) - endElement(http://jasperreports.sourceforge.net/jasperreports,textFieldExpression,textFieldExpression)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1290) -   match='jasperReport/title/band/textField/textFieldExpression'
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1291) -   bodyText='$P{P_LastPayment}'
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1313) -   Fire body() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRStringExpressionFactory, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRStringExpressionFactory@73fa91e7]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1313) -   Fire body() for SetNextRule[methodName=setExpression, paramType=net.sf.jasperreports.engine.JRExpression]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1313) -   Fire body() for CallMethodRule[methodName=setText, paramCount=0, paramTypes={java.lang.String}]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1333) -   Popping body text ''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1343) -   Fire end() for CallMethodRule[methodName=setText, paramCount=0, paramTypes={java.lang.String}]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (CallMethodRule.java:621) - [CallMethodRule]{jasperReport/title/band/textField/textFieldExpression} Call net.sf.jasperreports.engine.design.JRDesignExpression.setText($P{P_LastPayment}/java.lang.String)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1343) -   Fire end() for SetNextRule[methodName=setExpression, paramType=net.sf.jasperreports.engine.JRExpression]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (SetNextRule.java:198) - [SetNextRule]{jasperReport/title/band/textField/textFieldExpression} Call net.sf.jasperreports.engine.design.JRDesignTextField.setExpression(net.sf.jasperreports.engine.design.JRDesignExpression@33c03e75)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1343) -   Fire end() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRStringExpressionFactory, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRStringExpressionFactory@73fa91e7]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (FactoryCreateRule.java:434) - [FactoryCreateRule]{jasperReport/title/band/textField/textFieldExpression} Pop net.sf.jasperreports.engine.design.JRDesignExpression
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1412) - ignorableWhitespace(
+			)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1287) - endElement(http://jasperreports.sourceforge.net/jasperreports,textField,textField)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1290) -   match='jasperReport/title/band/textField'
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1291) -   bodyText=''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1313) -   Fire body() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRTextFieldFactory, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRTextFieldFactory@60ca3a24]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1313) -   Fire body() for SetNextRule[methodName=addElement, paramType=net.sf.jasperreports.engine.design.JRDesignElement]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1333) -   Popping body text ''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1343) -   Fire end() for SetNextRule[methodName=addElement, paramType=net.sf.jasperreports.engine.design.JRDesignElement]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (SetNextRule.java:198) - [SetNextRule]{jasperReport/title/band/textField} Call net.sf.jasperreports.engine.design.JRDesignBand.addElement(net.sf.jasperreports.engine.design.JRDesignTextField@6e9563e)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1343) -   Fire end() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRTextFieldFactory, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRTextFieldFactory@60ca3a24]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (FactoryCreateRule.java:434) - [FactoryCreateRule]{jasperReport/title/band/textField} Pop net.sf.jasperreports.engine.design.JRDesignTextField
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1412) - ignorableWhitespace(
 		)
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1287) - endElement(http://jasperreports.sourceforge.net/jasperreports,band,band)
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1290) -   match='jasperReport/title/band'
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1291) -   bodyText=''
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1313) -   Fire body() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRBandFactory, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRBandFactory@208ca17a]
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1313) -   Fire body() for SetNextRule[methodName=setTitle, paramType=net.sf.jasperreports.engine.JRBand]
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1333) -   Popping body text ''
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1343) -   Fire end() for SetNextRule[methodName=setTitle, paramType=net.sf.jasperreports.engine.JRBand]
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (SetNextRule.java:198) - [SetNextRule]{jasperReport/title/band} Call net.sf.jasperreports.engine.design.JasperDesign.setTitle(net.sf.jasperreports.engine.design.JRDesignBand@73e715f2)
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1343) -   Fire end() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRBandFactory, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRBandFactory@208ca17a]
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (FactoryCreateRule.java:434) - [FactoryCreateRule]{jasperReport/title/band} Pop net.sf.jasperreports.engine.design.JRDesignBand
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1412) - ignorableWhitespace(
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1287) - endElement(http://jasperreports.sourceforge.net/jasperreports,band,band)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1290) -   match='jasperReport/title/band'
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1291) -   bodyText=''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1313) -   Fire body() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRBandFactory, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRBandFactory@99d17d8]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1313) -   Fire body() for SetNextRule[methodName=setTitle, paramType=net.sf.jasperreports.engine.JRBand]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1333) -   Popping body text ''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1343) -   Fire end() for SetNextRule[methodName=setTitle, paramType=net.sf.jasperreports.engine.JRBand]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (SetNextRule.java:198) - [SetNextRule]{jasperReport/title/band} Call net.sf.jasperreports.engine.design.JasperDesign.setTitle(net.sf.jasperreports.engine.design.JRDesignBand@5769e9b9)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1343) -   Fire end() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JRBandFactory, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JRBandFactory@99d17d8]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (FactoryCreateRule.java:434) - [FactoryCreateRule]{jasperReport/title/band} Pop net.sf.jasperreports.engine.design.JRDesignBand
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1412) - ignorableWhitespace(
 	)
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1287) - endElement(http://jasperreports.sourceforge.net/jasperreports,title,title)
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1290) -   match='jasperReport/title'
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1291) -   bodyText=''
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1326) -   No rules found matching 'jasperReport/title'.
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1333) -   Popping body text ''
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1412) - ignorableWhitespace(
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1287) - endElement(http://jasperreports.sourceforge.net/jasperreports,title,title)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1290) -   match='jasperReport/title'
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1291) -   bodyText=''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1326) -   No rules found matching 'jasperReport/title'.
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1333) -   Popping body text ''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1412) - ignorableWhitespace(
 )
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1287) - endElement(http://jasperreports.sourceforge.net/jasperreports,jasperReport,jasperReport)
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1290) -   match='jasperReport'
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1291) -   bodyText=''
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1313) -   Fire body() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JasperDesignFactory, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JasperDesignFactory@24d2c786]
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1313) -   Fire body() for SetNextRule[methodName=setJasperDesign, paramType=net.sf.jasperreports.engine.design.JasperDesign]
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1333) -   Popping body text ''
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1343) -   Fire end() for SetNextRule[methodName=setJasperDesign, paramType=net.sf.jasperreports.engine.design.JasperDesign]
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (SetNextRule.java:198) - [SetNextRule]{jasperReport} Call net.sf.jasperreports.engine.xml.JRXmlLoader.setJasperDesign(net.sf.jasperreports.engine.design.JasperDesign@2880c005)
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1343) -   Fire end() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JasperDesignFactory, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JasperDesignFactory@24d2c786]
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (FactoryCreateRule.java:434) - [FactoryCreateRule]{jasperReport} Pop net.sf.jasperreports.engine.design.JasperDesign
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1378) - endPrefixMapping()
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1378) - endPrefixMapping(xsi)
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (Digester.java:1238) - endDocument()
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (JRBaseFiller.java:348) - Fill 1: created for D3Rectangle
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (JRFillBand.java:149) - Origin {reportName: null, groupName: null,bandType: TITLE} for band 328994747
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (JRFillBand.java:149) - Origin {reportName: null, groupName: null,bandType: DETAIL} for band 449849663
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (JRVerticalFiller.java:135) - Filler 1 - pageHeight: 595, columnFooterOffsetY: 575, lastPageColumnFooterOffsetY: 575
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (JRBaseFiller.java:862) - Fill 1: filling report
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (JRFillDataset.java:1079) - Fill 1: Creating sql query executer
-2019-01-13 19:53:01  WARN [AWT-EventQueue-0] (JRJdbcQueryExecuter.java:129) - The supplied java.sql.Connection object is null.
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (JRJdbcQueryExecuter.java:254) - SQL query string: 
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (JRVerticalFiller.java:164) - Fill 1: no data
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (JRVerticalFiller.java:173) - Fill 1: all sections
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (JRBaseFiller.java:1797) - Fill 1: adding page 1
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (JRVerticalFiller.java:330) - Fill 1: title at 20
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (SimpleTextLineWrapper.java:300) - creating element font infos cache of size 2000
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateRectangle@63a36e6
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@63a36e6 for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@3cc8ec05
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@63a36e6 for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@53bc70e9
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateText@47e6553f
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateText@4464b9d9
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@4464b9d9 for object net.sf.jasperreports.engine.fill.JRTemplateText@240d71e7
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateText@4c04fc6e
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateRectangle@6e5956a0
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateRectangle@515d3176
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@515d3176 for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@70cdbf7e
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@515d3176 for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@782cec7b
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateText@1986281d
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@1986281d for object net.sf.jasperreports.engine.fill.JRTemplateText@535d94e4
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@1986281d for object net.sf.jasperreports.engine.fill.JRTemplateText@157da6c0
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@1986281d for object net.sf.jasperreports.engine.fill.JRTemplateText@927666f
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@1986281d for object net.sf.jasperreports.engine.fill.JRTemplateText@511a6ee8
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateText@448ec33a
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateText@2398ceb6
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@448ec33a for object net.sf.jasperreports.engine.fill.JRTemplateText@2199efa2
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@448ec33a for object net.sf.jasperreports.engine.fill.JRTemplateText@59b12bf9
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@448ec33a for object net.sf.jasperreports.engine.fill.JRTemplateText@47b8d4c1
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@448ec33a for object net.sf.jasperreports.engine.fill.JRTemplateText@66338c54
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@448ec33a for object net.sf.jasperreports.engine.fill.JRTemplateText@58f4a482
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@448ec33a for object net.sf.jasperreports.engine.fill.JRTemplateText@78b41c47
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@448ec33a for object net.sf.jasperreports.engine.fill.JRTemplateText@71d837e
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@448ec33a for object net.sf.jasperreports.engine.fill.JRTemplateText@267efbcd
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@448ec33a for object net.sf.jasperreports.engine.fill.JRTemplateText@309e7967
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@448ec33a for object net.sf.jasperreports.engine.fill.JRTemplateText@1b569008
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@2398ceb6 for object net.sf.jasperreports.engine.fill.JRTemplateText@1bc8f07c
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@2398ceb6 for object net.sf.jasperreports.engine.fill.JRTemplateText@4331b5ec
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@2398ceb6 for object net.sf.jasperreports.engine.fill.JRTemplateText@30ad38d7
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@2398ceb6 for object net.sf.jasperreports.engine.fill.JRTemplateText@57691d27
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@2398ceb6 for object net.sf.jasperreports.engine.fill.JRTemplateText@312f243c
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@2398ceb6 for object net.sf.jasperreports.engine.fill.JRTemplateText@7d7396f2
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@2398ceb6 for object net.sf.jasperreports.engine.fill.JRTemplateText@33bdc0b1
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@2398ceb6 for object net.sf.jasperreports.engine.fill.JRTemplateText@518a445d
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@2398ceb6 for object net.sf.jasperreports.engine.fill.JRTemplateText@2f9ec7c9
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@2398ceb6 for object net.sf.jasperreports.engine.fill.JRTemplateText@60d380e8
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@515d3176 for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@12b1cb73
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateText@49854876
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@1986281d for object net.sf.jasperreports.engine.fill.JRTemplateText@595d5f12
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@49854876 for object net.sf.jasperreports.engine.fill.JRTemplateText@655d1291
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@49854876 for object net.sf.jasperreports.engine.fill.JRTemplateText@4c8e72c5
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateLine@6130b59
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@515d3176 for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@62c3611
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@1986281d for object net.sf.jasperreports.engine.fill.JRTemplateText@2954ad0f
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@1986281d for object net.sf.jasperreports.engine.fill.JRTemplateText@2c5b1e5a
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@49854876 for object net.sf.jasperreports.engine.fill.JRTemplateText@e4df3a8
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@515d3176 for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@30d62cd8
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@1986281d for object net.sf.jasperreports.engine.fill.JRTemplateText@3b210c44
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@515d3176 for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@249bed47
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@1986281d for object net.sf.jasperreports.engine.fill.JRTemplateText@4e822503
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@515d3176 for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@45fc0e4c
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@1986281d for object net.sf.jasperreports.engine.fill.JRTemplateText@753ab5ac
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateRectangle@5f0077d1
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateText@2c95b168
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateText@563f3281
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@49854876 for object net.sf.jasperreports.engine.fill.JRTemplateText@4c0d3222
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@49854876 for object net.sf.jasperreports.engine.fill.JRTemplateText@222a79a
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@515d3176 for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@7c722ce2
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@49854876 for object net.sf.jasperreports.engine.fill.JRTemplateText@77dd6795
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@1986281d for object net.sf.jasperreports.engine.fill.JRTemplateText@1fa58ae1
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@515d3176 for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@435fe95b
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@1986281d for object net.sf.jasperreports.engine.fill.JRTemplateText@6f3731a4
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@515d3176 for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@1a12bdee
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@1986281d for object net.sf.jasperreports.engine.fill.JRTemplateText@22b4ad59
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@1986281d for object net.sf.jasperreports.engine.fill.JRTemplateText@576d56e9
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@515d3176 for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@641b5007
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@1986281d for object net.sf.jasperreports.engine.fill.JRTemplateText@7a2e54f6
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@515d3176 for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@30072ea4
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@1986281d for object net.sf.jasperreports.engine.fill.JRTemplateText@330394e6
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@515d3176 for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@22a20d6c
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@1986281d for object net.sf.jasperreports.engine.fill.JRTemplateText@2173a0ff
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@49854876 for object net.sf.jasperreports.engine.fill.JRTemplateText@7394785c
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@515d3176 for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@4640f4f
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@49854876 for object net.sf.jasperreports.engine.fill.JRTemplateText@6b115e51
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@515d3176 for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@16f9fb72
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@49854876 for object net.sf.jasperreports.engine.fill.JRTemplateText@70d45948
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@515d3176 for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@762728e
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateText@77ad863c
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateText@74c3eb05
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@1986281d for object net.sf.jasperreports.engine.fill.JRTemplateText@46a2d6bf
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@515d3176 for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@45874595
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@515d3176 for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@61ab42e7
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@1986281d for object net.sf.jasperreports.engine.fill.JRTemplateText@85a5536
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateText@6189ba8f
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@448ec33a for object net.sf.jasperreports.engine.fill.JRTemplateText@3c44aafa
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@2398ceb6 for object net.sf.jasperreports.engine.fill.JRTemplateText@3928eb28
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (JRBaseFiller.java:919) - Fill 1: ended
-2019-01-13 19:53:01 DEBUG [AWT-EventQueue-0] (JRFillDataset.java:1160) - Fill 1: closing query executer
-2019-01-14 13:36:39 DEBUG [AWT-EventQueue-0] (InsertUpdateDeleteClass.java:32) - org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "' where nic='": syntax error)
-2019-01-14 13:39:05 DEBUG [AWT-EventQueue-0] (EnterPayment.java:310) - Payment data inserted :201901131612001
-2019-01-14 13:42:43 DEBUG [AWT-EventQueue-0] (EnterPayment.java:310) - Payment data inserted :201901131612001
-2019-01-18 10:44:59 DEBUG [AWT-EventQueue-0] (EnterBillData.java:460) - Bill data inserted successfully for id: 001201901
-2019-01-18 10:54:32 DEBUG [AWT-EventQueue-0] (EnterBillData.java:460) - Bill data inserted successfully for id: 001201901
-2019-01-18 11:12:19 DEBUG [AWT-EventQueue-0] (EnterBillData.java:461) - Bill data inserted successfully for id: 201901001
-2019-01-18 14:36:18 DEBUG [AWT-EventQueue-0] (InsertUpdateDeleteClass.java:32) - org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "AbsentCharge": syntax error)
-2019-01-18 14:39:47 DEBUG [AWT-EventQueue-0] (InsertUpdateDeleteClass.java:32) - org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near ";": syntax error)
-2019-01-18 14:42:12 DEBUG [AWT-EventQueue-0] (InsertUpdateDeleteClass.java:32) - org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (incomplete input)
-2019-01-18 14:48:00 DEBUG [AWT-EventQueue-0] (EnterBillData.java:420) - Error in MonthlyBillDetails updating in bill data id: 201901001
-2019-01-18 14:48:00 DEBUG [AWT-EventQueue-0] (EnterBillData.java:423) - Bill data reverted due to Monthly Bill Details insertion failed, bill data id: 201901001
-2019-01-18 15:07:26 DEBUG [AWT-EventQueue-0] (EnterBillData.java:412) - Bill data updated successfully for id: 201901001
-2019-01-18 15:14:29 DEBUG [AWT-EventQueue-0] (EnterBillData.java:528) - Bill data inserted successfully for id: 201901001
-2019-01-18 15:17:38 DEBUG [AWT-EventQueue-0] (EnterBillData.java:412) - Bill data updated successfully for id: 201901001
-2019-01-18 15:31:17 DEBUG [AWT-EventQueue-0] (EnterBillData.java:412) - Bill data updated successfully for id: 201901001
-2019-01-19 22:04:51 DEBUG [AWT-EventQueue-0] (EnterPayment.java:318) - Payment data inserted :201901190947001
-2019-01-19 23:15:48 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:23) - java.sql.SQLException: The database has been closed
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1287) - endElement(http://jasperreports.sourceforge.net/jasperreports,jasperReport,jasperReport)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1290) -   match='jasperReport'
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1291) -   bodyText=''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1313) -   Fire body() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JasperDesignFactory, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JasperDesignFactory@7778a99b]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1313) -   Fire body() for SetNextRule[methodName=setJasperDesign, paramType=net.sf.jasperreports.engine.design.JasperDesign]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1333) -   Popping body text ''
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1343) -   Fire end() for SetNextRule[methodName=setJasperDesign, paramType=net.sf.jasperreports.engine.design.JasperDesign]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (SetNextRule.java:198) - [SetNextRule]{jasperReport} Call net.sf.jasperreports.engine.xml.JRXmlLoader.setJasperDesign(net.sf.jasperreports.engine.design.JasperDesign@6a383e18)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1343) -   Fire end() for FactoryCreateRule[className=net.sf.jasperreports.engine.xml.JasperDesignFactory, attributeName=null, creationFactory=net.sf.jasperreports.engine.xml.JasperDesignFactory@7778a99b]
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (FactoryCreateRule.java:434) - [FactoryCreateRule]{jasperReport} Pop net.sf.jasperreports.engine.design.JasperDesign
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1378) - endPrefixMapping()
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1378) - endPrefixMapping(xsi)
+2019-01-21 01:08:05 DEBUG [AWT-EventQueue-0] (Digester.java:1238) - endDocument()
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (JRBaseFiller.java:348) - Fill 1: created for D3Rectangle
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (JRFillBand.java:149) - Origin {reportName: null, groupName: null,bandType: TITLE} for band 1579808835
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (JRFillBand.java:149) - Origin {reportName: null, groupName: null,bandType: DETAIL} for band 1885018226
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (JRVerticalFiller.java:135) - Filler 1 - pageHeight: 595, columnFooterOffsetY: 575, lastPageColumnFooterOffsetY: 575
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (JRBaseFiller.java:862) - Fill 1: filling report
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (JRFillDataset.java:1079) - Fill 1: Creating sql query executer
+2019-01-21 01:08:06  WARN [AWT-EventQueue-0] (JRJdbcQueryExecuter.java:129) - The supplied java.sql.Connection object is null.
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (JRJdbcQueryExecuter.java:254) - SQL query string: 
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (JRVerticalFiller.java:164) - Fill 1: no data
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (JRVerticalFiller.java:173) - Fill 1: all sections
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (JRBaseFiller.java:1797) - Fill 1: adding page 1
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (JRVerticalFiller.java:330) - Fill 1: title at 20
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (SimpleTextLineWrapper.java:300) - creating element font infos cache of size 2000
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateRectangle@21404642
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@21404642 for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@6d35f886
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@21404642 for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@1b62de9e
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateText@354d4e5b
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateText@3cd2db5d
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@3cd2db5d for object net.sf.jasperreports.engine.fill.JRTemplateText@6c36d39e
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateText@3621fdce
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateRectangle@2610c083
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateRectangle@63657dbd
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@63657dbd for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@22d5db5f
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@63657dbd for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@5a9333
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateText@42aa76f6
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@42aa76f6 for object net.sf.jasperreports.engine.fill.JRTemplateText@eb4d132
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@42aa76f6 for object net.sf.jasperreports.engine.fill.JRTemplateText@65892824
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@42aa76f6 for object net.sf.jasperreports.engine.fill.JRTemplateText@5d4fedb3
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@42aa76f6 for object net.sf.jasperreports.engine.fill.JRTemplateText@2e12eb07
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateText@2d924edd
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateText@277fef1c
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@2d924edd for object net.sf.jasperreports.engine.fill.JRTemplateText@76e3b37
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@2d924edd for object net.sf.jasperreports.engine.fill.JRTemplateText@2268a5ab
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@2d924edd for object net.sf.jasperreports.engine.fill.JRTemplateText@477d6a91
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@2d924edd for object net.sf.jasperreports.engine.fill.JRTemplateText@67b8b817
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@2d924edd for object net.sf.jasperreports.engine.fill.JRTemplateText@1892ddcb
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@2d924edd for object net.sf.jasperreports.engine.fill.JRTemplateText@6a803787
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@2d924edd for object net.sf.jasperreports.engine.fill.JRTemplateText@686809a0
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@2d924edd for object net.sf.jasperreports.engine.fill.JRTemplateText@194bd973
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@2d924edd for object net.sf.jasperreports.engine.fill.JRTemplateText@8c0cda
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@2d924edd for object net.sf.jasperreports.engine.fill.JRTemplateText@52674251
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@277fef1c for object net.sf.jasperreports.engine.fill.JRTemplateText@1366e738
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@277fef1c for object net.sf.jasperreports.engine.fill.JRTemplateText@6ac4cd7a
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@277fef1c for object net.sf.jasperreports.engine.fill.JRTemplateText@5bbc6641
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@277fef1c for object net.sf.jasperreports.engine.fill.JRTemplateText@5eda230e
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@277fef1c for object net.sf.jasperreports.engine.fill.JRTemplateText@21e1a047
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@277fef1c for object net.sf.jasperreports.engine.fill.JRTemplateText@7052e908
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@277fef1c for object net.sf.jasperreports.engine.fill.JRTemplateText@7ff3182b
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@277fef1c for object net.sf.jasperreports.engine.fill.JRTemplateText@1ca8deff
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@277fef1c for object net.sf.jasperreports.engine.fill.JRTemplateText@4bbd3bee
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@277fef1c for object net.sf.jasperreports.engine.fill.JRTemplateText@412c5ec3
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@63657dbd for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@d8afebe
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateText@7c2bbed3
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@42aa76f6 for object net.sf.jasperreports.engine.fill.JRTemplateText@11fb12e7
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@7c2bbed3 for object net.sf.jasperreports.engine.fill.JRTemplateText@48879bd5
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@7c2bbed3 for object net.sf.jasperreports.engine.fill.JRTemplateText@8fefeb3
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateLine@fd17728
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@63657dbd for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@11e1814c
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@42aa76f6 for object net.sf.jasperreports.engine.fill.JRTemplateText@3fc92c80
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@42aa76f6 for object net.sf.jasperreports.engine.fill.JRTemplateText@79a3110c
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@7c2bbed3 for object net.sf.jasperreports.engine.fill.JRTemplateText@60f80ef4
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@63657dbd for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@4d92eee9
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@42aa76f6 for object net.sf.jasperreports.engine.fill.JRTemplateText@67f8ec0a
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@63657dbd for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@54feab24
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@42aa76f6 for object net.sf.jasperreports.engine.fill.JRTemplateText@d45ff8d
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@63657dbd for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@2dceaec1
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@42aa76f6 for object net.sf.jasperreports.engine.fill.JRTemplateText@4c1fefc8
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateRectangle@5ce01470
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateText@23ce991a
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateText@ed193e8
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@7c2bbed3 for object net.sf.jasperreports.engine.fill.JRTemplateText@d10997e
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@7c2bbed3 for object net.sf.jasperreports.engine.fill.JRTemplateText@7aacfd0e
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@63657dbd for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@27001a96
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@7c2bbed3 for object net.sf.jasperreports.engine.fill.JRTemplateText@41bb62e7
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@42aa76f6 for object net.sf.jasperreports.engine.fill.JRTemplateText@5dcb4685
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@63657dbd for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@ed1bc05
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@42aa76f6 for object net.sf.jasperreports.engine.fill.JRTemplateText@32157a30
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@63657dbd for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@1faf143c
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@42aa76f6 for object net.sf.jasperreports.engine.fill.JRTemplateText@5c2e7a96
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@42aa76f6 for object net.sf.jasperreports.engine.fill.JRTemplateText@4a3a500d
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@63657dbd for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@3a243316
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@42aa76f6 for object net.sf.jasperreports.engine.fill.JRTemplateText@121ed818
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@63657dbd for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@14daabf4
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@42aa76f6 for object net.sf.jasperreports.engine.fill.JRTemplateText@18ef1c84
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@63657dbd for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@3a193ae6
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@42aa76f6 for object net.sf.jasperreports.engine.fill.JRTemplateText@85d4f30
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@7c2bbed3 for object net.sf.jasperreports.engine.fill.JRTemplateText@6d70b457
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@63657dbd for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@54775bdb
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@7c2bbed3 for object net.sf.jasperreports.engine.fill.JRTemplateText@496ebea5
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@63657dbd for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@1c94234e
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@7c2bbed3 for object net.sf.jasperreports.engine.fill.JRTemplateText@224388b3
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@63657dbd for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@75f3c6c5
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateText@71276701
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateText@5217816b
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@42aa76f6 for object net.sf.jasperreports.engine.fill.JRTemplateText@2cabcaa9
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@63657dbd for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@367fd6fd
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateRectangle@63657dbd for object net.sf.jasperreports.engine.fill.JRTemplateRectangle@572e8043
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@42aa76f6 for object net.sf.jasperreports.engine.fill.JRTemplateText@2fd1d739
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:85) - Added object net.sf.jasperreports.engine.fill.JRTemplateText@3e8819ec
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@2d924edd for object net.sf.jasperreports.engine.fill.JRTemplateText@711667bd
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (DeduplicableRegistry.java:92) - Found existing instance net.sf.jasperreports.engine.fill.JRTemplateText@277fef1c for object net.sf.jasperreports.engine.fill.JRTemplateText@2f7cb8b3
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (JRBaseFiller.java:919) - Fill 1: ended
+2019-01-21 01:08:06 DEBUG [AWT-EventQueue-0] (JRFillDataset.java:1160) - Fill 1: closing query executer

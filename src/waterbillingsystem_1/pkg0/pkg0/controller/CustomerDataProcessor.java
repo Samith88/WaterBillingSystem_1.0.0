@@ -39,4 +39,9 @@ public class CustomerDataProcessor {
         return customerDataDatabase.getTOAFromNIC(nic);
     }    
     
+    public int getCurentMeterFromNIC(String nic) throws Exception {
+    
+        CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
+        return customerDataDatabase.getCurentMeterFromNIC(nic);
+    }
 }

@@ -278,9 +278,18 @@ public class GenerateInvoice extends javax.swing.JFrame {
         MonthlyBillDB monthlyBillDB=new MonthlyBillDB();
         generateCustomerInvoice generateCustomerInvoice=new generateCustomerInvoice();
         BillDataProcessor billDataProcessor=new BillDataProcessor();
+        //String Year = cmbYear.getSelectedItem().toString();
+        //String Month = cmbMonth.getSelectedItem().toString().split("-")[0];
+                
         try {
-            outFileName = generateCustomerInvoice.generateJasperReport("waterBilling.jrxml", billDataProcessor.getBillId(txtCustomerCID.getText()), monthlyBillDB.getMonthlyBillDetailsByInvoiceNo(billDataProcessor.getBillId(txtCustomerCID.getText())));
+            outFileName = generateCustomerInvoice.generateJasperReport
+            ("waterBilling.jrxml", billDataProcessor.getBillId
+            (txtCustomerCID.getText(),cmbYear.getSelectedItem().toString(),cmbMonth.getSelectedItem().toString().split("-")[0]), 
+            monthlyBillDB.getMonthlyBillDetailsByInvoiceNo(billDataProcessor.getBillId(txtCustomerCID.getText(),
+            cmbYear.getSelectedItem().toString(),cmbMonth.getSelectedItem().toString().split("-")[0])));
+            
         } catch (Exception ex) {
+            JOptionPaneCustom.errorBox("Invoice generation error", "Customer Invoice Generation ");
             Logger.getLogger(GenerateInvoice.class.getName()).log(Level.SEVERE, null, ex);
         }  
         reportGenerated =true;

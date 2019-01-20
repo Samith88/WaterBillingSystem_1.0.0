@@ -371,7 +371,13 @@ public class EnterCustomer extends javax.swing.JFrame {
         Customer customer=new Customer();
         
         customer.setCFirstName(txtCustomerFN.getText());
-        customer.setCid(txtCustomerNo.getText());
+        String cid = txtCustomerNo.getText();
+        if(cid.length() == 1)
+            cid = "00"+cid;
+        else if (cid.length() == 2)
+            cid = "0"+cid;
+            
+        customer.setCid(cid);
         customer.setNic(txtCustomerNIC.getText() );
         customer.setGid(cmbGroupId.getSelectedItem().toString().split("-")[1]);
         customer.setAddress_1(txtCustomerAd1.getText());

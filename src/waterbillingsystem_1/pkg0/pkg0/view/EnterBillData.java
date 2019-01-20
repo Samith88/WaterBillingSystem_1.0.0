@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
 import waterbillingsystem_1.pkg0.pkg0.base.BillData;
@@ -324,7 +325,12 @@ public class EnterBillData extends javax.swing.JFrame {
 
     private void btnBDEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBDEnterActionPerformed
 
-        String errorMessage  = ValidateData();
+        String errorMessage = null;
+        try {
+            errorMessage = ValidateData();
+        } catch (Exception ex) {
+            Logger.getLogger(EnterBillData.class.getName()).log(Level.SEVERE, null, ex);
+        }
         if(0 < errorMessage.length())
             JOptionPaneCustom.errorBox(errorMessage, "Bill Data Insertion");
         else
@@ -419,7 +425,7 @@ public class EnterBillData extends javax.swing.JFrame {
         if(MonthlyBillDetailsUpdated && billDataUpdated)
         {
             JOptionPaneCustom.infoBox("Bill data updated successfully", "Bill Data update");
-            getLogger.getLog().debug("Bill data updated successfully for id: "+billDataProcessor.getBillId(billData.getCid()));
+            getLogger.getLog().debug("Bill data updated successfully for id: "+billDataProcessor.getBillId(billData.getCid(),"",""));
             dataUpdate = false;
             dataInserted =true;
             ClearComponents();
@@ -427,7 +433,7 @@ public class EnterBillData extends javax.swing.JFrame {
         else if(billDataUpdated && !MonthlyBillDetailsUpdated)
         {
             JOptionPaneCustom.errorBox("Error in MonthlyBillDetails updating", "MonthlyBillDetails Data update");
-            getLogger.getLog().debug("Error in MonthlyBillDetails updating in bill data id: "+billDataProcessor.getBillId(billData.getCid()));
+            getLogger.getLog().debug("Error in MonthlyBillDetails updating in bill data id: "+billDataProcessor.getBillId(billData.getCid(),"",""));
             
             BillDataProcessor.updateBillData(oldBillData);
             getLogger.getLog().debug("Bill data reverted due to Monthly Bill Details insertion failed, bill data id: "+oldBillData.getMbid());
@@ -437,18 +443,32 @@ public class EnterBillData extends javax.swing.JFrame {
             JOptionPaneCustom.errorBox("Error in all bill data updating", "Bill Data update");
         }
     }
-    private String ValidateData(){
+    
+    private String ValidateMeterReading() throws Exception{
+    
+        CustomerDataProcessor customerDataProcessor=new CustomerDataProcessor();
+        int oldMeter = customerDataProcessor.getCurentMeterFromNIC(cmbCustomerNIC.getSelectedItem().toString());
+        if(radioMeter.isSelected())
+            if(Integer.parseInt(txtBDUnitUsage.getText()) < oldMeter)
+                return "New Meter value should be greater than old meter value. Old meter:"+oldMeter;
+            else
+                return "";
+        return "";
+    }
+    private String ValidateData() throws Exception{
     
         String errorString = "";
-        
+
         if(txtCustomerNIC.getText().length()==0)
             errorString += "Customer NIC not entered";
         if(cmbCustomerNIC.getSelectedItem().toString().length()!=10)
             errorString += "Customer NIC error";
-        if((!radioUnits.isSelected() && !radioMeter.isSelected()) && dataUpdate)
+        if((!radioUnits.isSelected() && !radioMeter.isSelected()) && !dataUpdate)
             errorString += "Please select type of meter units";
-        if(txtBDUnitUsage.getText().length()==0 && dataUpdate)
-            errorString += "Monthly Unit Usage not entered";        
+        if(txtBDUnitUsage.getText().length()==0 && !dataUpdate)
+            errorString += "Monthly Unit Usage not entered";   
+        
+        errorString +=ValidateMeterReading();
         
         return errorString;
     }
@@ -491,8 +511,11 @@ public class EnterBillData extends javax.swing.JFrame {
             }            
             
             btnBDEnter.setText("Update BillData");
+            btnBDClear.setText("Delete BillData");
             dataInserted=false;
             dataUpdate = true;
+            
+            this.currentBillData = billData;
             
         } catch (Exception ex) {
             JOptionPaneCustom.errorBox("NIC not found", "Customer Data Updating");
@@ -533,17 +556,17 @@ public class EnterBillData extends javax.swing.JFrame {
         if(MonthlyBillDetailsEntered && billDataEntered)
         {
             JOptionPaneCustom.infoBox("Bill data inserted successfully", "Bill Data Insertion");
-            getLogger.getLog().debug("Bill data inserted successfully for id: "+billDataProcessor.getBillId(billData.getCid()));
+            getLogger.getLog().debug("Bill data inserted successfully for id: "+billDataProcessor.getBillId(billData.getCid(),"",""));
             dataInserted = true;
             ClearComponents();
         }   
         else if(billDataEntered && !MonthlyBillDetailsEntered)
         {
             JOptionPaneCustom.errorBox("Error in MonthlyBillDetails Entering", "MonthlyBillDetails Data Insertion");
-            getLogger.getLog().debug("Error in MonthlyBillDetails Entering in bill data id: "+billDataProcessor.getBillId(billData.getCid()));
+            getLogger.getLog().debug("Error in MonthlyBillDetails Entering in bill data id: "+billDataProcessor.getBillId(billData.getCid(),"",""));
             
-            billDataProcessor.DeleteMonthlyBillDBByMBId(billDataProcessor.getBillId(billData.getCid()));
-            getLogger.getLog().debug("MonthlyBillDetails deleted, bill data id: "+billDataProcessor.getBillId(billData.getCid()));
+            billDataProcessor.DeleteMonthlyBillDBByMBId(billDataProcessor.getBillId(billData.getCid(),"",""));
+            getLogger.getLog().debug("MonthlyBillDetails deleted, bill data id: "+billDataProcessor.getBillId(billData.getCid(),"",""));
         }
         else
         {
@@ -565,24 +588,30 @@ public class EnterBillData extends javax.swing.JFrame {
     private void btnBDClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBDClearActionPerformed
 
         BillDataProcessor billDataProcessor=new BillDataProcessor();
+         
         if(dataUpdate && !dataInserted)
         {
+            if(JOptionPane.showConfirmDialog(this,"Do you want to delete this bill data ?")==JOptionPane.YES_OPTION)
+            {
             //delete bill data
-            if(currentBillData.getMbid() != null)
-                try {
-                    if(billDataProcessor.deleteBillData(currentBillData))
-                    {
-                        JOptionPaneCustom.infoBox("Bill :"+currentBillData.getMbid()+" was deleted", "Bill Data deletion");
-                        currentBillData = null;
-                        dataInserted = true;
-                        ClearComponents();
-                        dataUpdate=false;
-                        btnBDEnter.setText("Enter BillData");
-                        btnBDClear.setText("Clear Data");
-                        cmbCustomerNIC.enable();
-                    }
-            } catch (Exception ex) {
+                if(currentBillData.getMbid() != null)
+                    try {
+                        if(billDataProcessor.deleteBillData(currentBillData))
+                        {
+                            JOptionPaneCustom.infoBox("Bill :"+currentBillData.getMbid()+" was deleted", "Bill Data deletion");
+                            currentBillData = null;
+                            dataInserted = true;
+                            ClearComponents();
+                            dataUpdate=false;
+                            btnBDEnter.setText("Enter BillData");
+                            btnBDClear.setText("Clear Data");
+                            cmbCustomerNIC.enable();
+                        }
+                        else
+                            JOptionPaneCustom.errorBox("Bill data deletion error", "Bill Data deletion");
+                } catch (Exception ex) {
                 Logger.getLogger(EnterPayment.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
         else if(!dataInserted)
@@ -648,7 +677,12 @@ public class EnterBillData extends javax.swing.JFrame {
     private void btnCDUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDUpdateActionPerformed
         if (!dataUpdate)
             dataUpdate = true;
-        String errorMessage = ValidateData();
+        String errorMessage = null;
+        try {
+            errorMessage = ValidateData();
+        } catch (Exception ex) {
+            Logger.getLogger(EnterBillData.class.getName()).log(Level.SEVERE, null, ex);
+        }
         if(0 < errorMessage.length())
             JOptionPaneCustom.errorBox(errorMessage, "Bill Data update");
         else

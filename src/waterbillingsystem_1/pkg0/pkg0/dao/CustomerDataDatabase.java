@@ -84,6 +84,23 @@ public class CustomerDataDatabase {
         return cid;
     }    
     
+    public int getCurentMeterFromNIC(String nic) throws Exception{
+        
+        RetrieveClass retrieveClass =new RetrieveClass();
+        int currentMeter=0;
+        
+        try{
+            ResultSet rs  = retrieveClass.getResultsFormDB("select currentMeter from customer where nic='"+nic+"'");
+            while (rs.next()) {
+                currentMeter= rs.getInt("currentMeter");
+            }
+            DBConnection.disconnect();
+        } catch (SQLException e) {
+            getLogger.getLog().debug(e.toString());
+        }     
+        return currentMeter;
+    }     
+    
     public double getTOAFromNIC(String nic) throws Exception{
         
         RetrieveClass retrieveClass =new RetrieveClass();
