@@ -238,8 +238,8 @@ public class GenerateInvoice extends javax.swing.JFrame {
         try{
             if(cmbCustomerNIC.getSelectedItem().toString().length()== 10)
             {
-                txtCustomerCID.setText(customerHash.get(cmbCustomerNIC.getSelectedItem().toString().split(",")[0]));
-                PDLblFname.setText(customerHash.get(cmbCustomerNIC.getSelectedItem().toString().split(",")[1]));
+                txtCustomerCID.setText(customerHash.get(cmbCustomerNIC.getSelectedItem().toString()).split(",")[0]);  
+                PDLblFname.setText(customerHash.get(cmbCustomerNIC.getSelectedItem().toString()).split(",")[1]);                
             }
         }catch(Exception ex){ex.toString();}
     }//GEN-LAST:event_cmbCustomerNICItemStateChanged
