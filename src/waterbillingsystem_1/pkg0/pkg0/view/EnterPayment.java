@@ -82,6 +82,7 @@ public class EnterPayment extends javax.swing.JFrame {
         btnPDEnterAnother = new javax.swing.JButton();
         btnPDUpdate = new javax.swing.JButton();
         btnCDHome = new javax.swing.JButton();
+        PDLblFname = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Pananwala Water Billing System");
@@ -177,6 +178,9 @@ public class EnterPayment extends javax.swing.JFrame {
             }
         });
 
+        PDLblFname.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        PDLblFname.setText("Name");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -204,9 +208,12 @@ public class EnterPayment extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                                 .addComponent(btnPDEnterAnother))
                             .addComponent(txtPaymentCID, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
-                            .addComponent(cmdNIC, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPaymentNIC)
-                            .addComponent(txtPaymentAmount, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(txtPaymentAmount, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cmdNIC, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(PDLblFname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnPDUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -237,7 +244,9 @@ public class EnterPayment extends javax.swing.JFrame {
                     .addComponent(PDLblNIC)
                     .addComponent(txtPaymentNIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(3, 3, 3)
-                .addComponent(cmdNIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmdNIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PDLblFname))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(PDLblCID)
@@ -410,7 +419,10 @@ public class EnterPayment extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
             if(cmdNIC.getSelectedItem().toString().length()== 10)
-            txtPaymentCID.setText(customerHash.get(cmdNIC.getSelectedItem().toString()));    
+            {
+                txtPaymentCID.setText(customerHash.get(cmdNIC.getSelectedItem().toString()).split(",")[0]);  
+                PDLblFname.setText(customerHash.get(cmdNIC.getSelectedItem().toString()).split(",")[1]);
+            }
         }catch(Exception ex){ex.toString();}          
     }//GEN-LAST:event_cmdNICItemStateChanged
 
@@ -526,6 +538,7 @@ public class EnterPayment extends javax.swing.JFrame {
     private javax.swing.JLabel PDLbAmount;
     private javax.swing.JLabel PDLbMonth;
     private javax.swing.JLabel PDLblCID;
+    private javax.swing.JLabel PDLblFname;
     private javax.swing.JLabel PDLblNIC;
     private javax.swing.JButton btnCDHome;
     private javax.swing.JButton btnPDClear;

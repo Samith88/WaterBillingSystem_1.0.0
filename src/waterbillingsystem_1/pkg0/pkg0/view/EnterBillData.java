@@ -87,6 +87,8 @@ public class EnterBillData extends javax.swing.JFrame {
         btnCDHome = new javax.swing.JButton();
         PDlblWarning = new javax.swing.JLabel();
         btnCDUpdate = new javax.swing.JButton();
+        BDLblFname = new javax.swing.JLabel();
+        BDLblFName = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Pananwala Water Billing System");
@@ -202,6 +204,11 @@ public class EnterBillData extends javax.swing.JFrame {
             }
         });
 
+        BDLblFname.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+
+        BDLblFName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BDLblFName.setText("Name");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -251,9 +258,12 @@ public class EnterBillData extends javax.swing.JFrame {
                                     .addComponent(txtCustomerCID, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtCustomerNIC, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(cmbCustomerNIC, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cmbCustomerNIC, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(BDLblFN, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(BDLblFN, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(BDLblFname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(BDLblFName, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
                                         .addGap(0, 0, Short.MAX_VALUE)))
                                 .addGap(58, 58, 58))))))
             .addGroup(layout.createSequentialGroup()
@@ -284,7 +294,9 @@ public class EnterBillData extends javax.swing.JFrame {
                         .addGap(3, 3, 3)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cmbCustomerNIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BDLblFN))
+                            .addComponent(BDLblFN)
+                            .addComponent(BDLblFname)
+                            .addComponent(BDLblFName))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(BDLblCID)
@@ -658,8 +670,11 @@ public class EnterBillData extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
             if(cmbCustomerNIC.getSelectedItem().toString().length()== 10)
-            txtCustomerCID.setText(customerHash.get(cmbCustomerNIC.getSelectedItem().toString()));    
-        }catch(Exception ex){ex.toString();}        
+            {
+                txtCustomerCID.setText(customerHash.get(cmbCustomerNIC.getSelectedItem().toString()).split(",")[0]);  
+                BDLblFName.setText(customerHash.get(cmbCustomerNIC.getSelectedItem().toString()).split(",")[1]);                
+            }
+        }catch(Exception ex){ex.toString();}
     }//GEN-LAST:event_cmbCustomerNICItemStateChanged
 
     private void btnBDEnterAnotherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBDEnterAnotherActionPerformed
@@ -725,6 +740,8 @@ public class EnterBillData extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BDLblCID;
     private javax.swing.JLabel BDLblFN;
+    private javax.swing.JLabel BDLblFName;
+    private javax.swing.JLabel BDLblFname;
     private javax.swing.JLabel BDLblNIC;
     private javax.swing.JLabel BDLblUnits;
     private javax.swing.JLabel BDLblUnits1;

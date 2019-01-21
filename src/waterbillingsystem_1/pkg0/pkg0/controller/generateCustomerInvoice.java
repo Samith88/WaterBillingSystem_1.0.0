@@ -63,7 +63,7 @@ public class generateCustomerInvoice {
         JasperPrint JPrint=JasperFillManager.fillReport(jasperReport, map);
 
         // PRINT REPORT TO PDF FILE.
-        File outFile = new File("Invoice_"+outFileString+".pdf");
+        File outFile = new File(getDirectories(monthlyBillDetails.getInvoiceNo()),"Invoice_"+outFileString+".pdf");
         OutputStream outputStream = new FileOutputStream(outFile);
         JasperExportManager.exportReportToPdfStream(JPrint, outputStream);
         //System.exit(0);
@@ -72,4 +72,13 @@ public class generateCustomerInvoice {
         return "Invoice_"+outFileString+".pdf";
     }
     
+    private String getDirectories(String InvoiceId){
+    
+        String ParentPath = "invoices";
+        File directory=new File(ParentPath+"\\"+InvoiceId.substring(6, 9)+"\\"+InvoiceId.substring(0, 4)
+                +"\\"+InvoiceId.substring(4, 6));
+        directory.mkdirs();
+        return directory.getAbsolutePath();
+        
+    }
 }
