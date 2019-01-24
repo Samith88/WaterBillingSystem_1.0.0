@@ -23,25 +23,39 @@ public class CustomerDataProcessor {
         CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
         return customerDataDatabase.updateCustomerData(customer);   
     }    
-    public HashMap<String, String> getCustomerCIDNNIC() throws Exception{
+    public HashMap<String, String> getCustomerCIDNName() throws Exception{
         
         CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
         return customerDataDatabase.getAllCustomers();
     }    
     
-    public Customer getCustomer(String nic) throws Exception{
+    public Customer getCustomer(String cid) throws Exception{
         CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
-        return customerDataDatabase.getCustomer(nic);
+        return customerDataDatabase.getCustomer(cid);
     }
     
-    public double getTOAOfCustomer(String nic) throws Exception{
+    public double getTOAOfCustomer(String cid) throws Exception{
         CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
-        return customerDataDatabase.getTOAFromNIC(nic);
+        return customerDataDatabase.getTOAFromCID(cid);
     }    
     
-    public int getCurentMeterFromNIC(String nic) throws Exception {
+    public int getCurentMeterFromNIC(String cid) throws Exception {
     
         CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
-        return customerDataDatabase.getCurentMeterFromNIC(nic);
+        return customerDataDatabase.getCurentMeterFromCID(cid);
+    }
+    
+    public String getCorrectCID(String currentCID){
+        
+        switch (currentCID.length()) {
+            case 1:
+                return "00"+currentCID;
+            case 2:
+                return "0"+currentCID;
+            case 3:
+                return currentCID;
+            default:
+                return currentCID;
+        }
     }
 }

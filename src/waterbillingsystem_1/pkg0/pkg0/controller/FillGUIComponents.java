@@ -49,7 +49,7 @@ public class FillGUIComponents {
         } 
     }    
     
-    public void LoadCustomerData(HashMap<String, String> customerHash ,String nic,javax.swing.JComboBox comboBox) throws Exception{
+    public void LoadCustomerData(HashMap<String, String> customerHash ,String cid,javax.swing.JComboBox comboBox) throws Exception{
     
         comboBox.removeAllItems();
         
@@ -58,7 +58,7 @@ public class FillGUIComponents {
         
         while(iterator.hasNext()) {
             Map.Entry mentry = (Map.Entry)iterator.next();
-            if(mentry.getKey().toString().contains(nic))
+            if(mentry.getKey().toString().contains(cid))
                 comboBox.addItem(mentry.getKey());
         } 
     }

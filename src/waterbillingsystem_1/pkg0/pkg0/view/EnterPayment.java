@@ -51,7 +51,7 @@ public class EnterPayment extends javax.swing.JFrame {
         this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         this.setLocationRelativeTo(null);     
         CustomerDataProcessor customerDataProcessor=new CustomerDataProcessor();
-        customerHash = customerDataProcessor.getCustomerCIDNNIC();        
+        customerHash = customerDataProcessor.getCustomerCIDNName();        
         dataInserted =false;
         dataUpdate=false;
       
@@ -68,9 +68,7 @@ public class EnterPayment extends javax.swing.JFrame {
 
         PDLabelMain = new javax.swing.JLabel();
         PDLblNIC = new javax.swing.JLabel();
-        cmdNIC = new javax.swing.JComboBox<>();
-        txtPaymentNIC = new javax.swing.JTextField();
-        PDLblCID = new javax.swing.JLabel();
+        cmdCID = new javax.swing.JComboBox<>();
         txtPaymentCID = new javax.swing.JTextField();
         txtPaymentAmount = new javax.swing.JTextField();
         PDLbAmount = new javax.swing.JLabel();
@@ -92,23 +90,14 @@ public class EnterPayment extends javax.swing.JFrame {
         PDLabelMain.setText("Payment Data Form");
 
         PDLblNIC.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        PDLblNIC.setText("Customer NIC");
+        PDLblNIC.setText("Customer CID");
 
-        cmdNIC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select NIC" }));
-        cmdNIC.addItemListener(new java.awt.event.ItemListener() {
+        cmdCID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select CID" }));
+        cmdCID.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cmdNICItemStateChanged(evt);
+                cmdCIDItemStateChanged(evt);
             }
         });
-
-        txtPaymentNIC.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtPaymentNICKeyTyped(evt);
-            }
-        });
-
-        PDLblCID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        PDLblCID.setText("Customer Id");
 
         txtPaymentCID.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -189,33 +178,6 @@ public class EnterPayment extends javax.swing.JFrame {
                 .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(PDLbMonth)
-                        .addGap(79, 79, 79)
-                        .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(154, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(PDLblNIC, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PDLblCID, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PDLbAmount)
-                            .addComponent(btnPDClear))
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnPDEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                                .addComponent(btnPDEnterAnother))
-                            .addComponent(txtPaymentCID, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
-                            .addComponent(txtPaymentNIC)
-                            .addComponent(txtPaymentAmount, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(cmdNIC, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(PDLblFname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(btnPDUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -225,7 +187,33 @@ public class EnterPayment extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(125, 125, 125)
                                 .addComponent(PDLabelMain)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(PDLblNIC, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(PDLbAmount)
+                                    .addComponent(btnPDClear))
+                                .addGap(32, 32, 32)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnPDEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                                        .addComponent(btnPDEnterAnother))
+                                    .addComponent(txtPaymentCID)
+                                    .addComponent(txtPaymentAmount, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(cmdCID, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(PDLblFname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(PDLbMonth)
+                                .addGap(79, 79, 79)
+                                .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 79, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,31 +230,26 @@ public class EnterPayment extends javax.swing.JFrame {
                         .addGap(47, 47, 47)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PDLblNIC)
-                    .addComponent(txtPaymentNIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPaymentCID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(3, 3, 3)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmdNIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmdCID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PDLblFname))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PDLblCID)
-                    .addComponent(txtPaymentCID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PDLbMonth)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(38, 38, 38)
+                    .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PDLbAmount)
                     .addComponent(txtPaymentAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(64, 64, 64)
+                .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPDClear)
                     .addComponent(btnPDEnter)
                     .addComponent(btnPDEnterAnother))
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
 
         pack();
@@ -288,8 +271,8 @@ public class EnterPayment extends javax.swing.JFrame {
 
     private void whenEnterDataButtonClicked() throws Exception{
         Payment payment=new Payment();
-        payment.setCid(txtPaymentCID.getText());
-        payment.setNic(cmdNIC.getSelectedItem().toString());
+        CustomerDataProcessor customerDataProcessor=new CustomerDataProcessor();
+        payment.setCid(customerDataProcessor.getCorrectCID(cmdCID.getSelectedItem().toString()));
         payment.setAmount(Double.parseDouble(txtPaymentAmount.getText()));
         payment.setDate(DateDetails.getDateYear()+"/"+DateDetails.getDateMonth()+"/"+DateDetails.getDateDate());
         
@@ -330,8 +313,7 @@ public class EnterPayment extends javax.swing.JFrame {
             ClearComponents();  
             dataUpdate=false;
             btnPDEnter.setText("Enter Payment");
-            cmdNIC.enable();
-            txtPaymentNIC.enable();
+            cmdCID.enable();
             txtPaymentCID.enable();
         }
         else 
@@ -341,9 +323,8 @@ public class EnterPayment extends javax.swing.JFrame {
     private String validateData(){
     
         String errorMessage = "";
-        if(cmdNIC.getSelectedItem().toString().length()!=0) {
-        } else {
-            errorMessage += "Please enter a correct NIC ";
+        if(cmdCID.getSelectedItem().toString().equals("Select CID")) {
+            errorMessage += "Please enter a correct Customer Id ";
         }
         
         if(txtPaymentAmount.getText().length()==0 && !dataUpdate)
@@ -371,15 +352,14 @@ public class EnterPayment extends javax.swing.JFrame {
                         dataUpdate=false;
                         btnPDEnter.setText("Enter Payment");
                         btnPDClear.setText("Clear Data");
-                        cmdNIC.enable();
-                        txtPaymentNIC.enable();
+                        cmdCID.enable();
                         txtPaymentCID.enable();
                     }
                     else
                         JOptionPaneCustom.errorBox("Error in payment data deletion", "Payment Data deletion");
             } catch (Exception ex) {
                 Logger.getLogger(EnterPayment.class.getName()).log(Level.SEVERE, null, ex);
-            }
+                }
             }
         }
         else if(!dataInserted)
@@ -389,42 +369,35 @@ public class EnterPayment extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPDClearActionPerformed
 
     private void ClearComponents(){
-        txtPaymentNIC.setText("");
+        txtPaymentCID.setText("");
         txtPaymentCID.setText("");
         txtPaymentAmount.setText("");
         cmbMonth.setSelectedIndex(0);
         cmbYear.setSelectedIndex(0);
-        cmdNIC.setSelectedItem("Select NIC");        
+        cmdCID.setSelectedItem("Select CID");        
     }
-    private void txtPaymentNICKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPaymentNICKeyTyped
+    private void txtPaymentCIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPaymentCIDKeyTyped
 
         FillGUIComponents.setNumberOnlyTextBox(evt);
         FillGUIComponents fillGUIComponents=new FillGUIComponents();
         try {
-            fillGUIComponents.LoadCustomerData(customerHash,txtPaymentNIC.getText(), cmdNIC);
+            fillGUIComponents.LoadCustomerData(customerHash,txtPaymentCID.getText(), cmdCID);
         } catch (Exception ex) {
             Logger.getLogger(EnterBillData.class.getName()).log(Level.SEVERE, null, ex);
         }        
-    }//GEN-LAST:event_txtPaymentNICKeyTyped
-
-    private void txtPaymentCIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPaymentCIDKeyTyped
-        FillGUIComponents.setNumberOnlyTextBox(evt);
     }//GEN-LAST:event_txtPaymentCIDKeyTyped
 
     private void txtPaymentAmountKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPaymentAmountKeyTyped
         FillGUIComponents.setNumberOnlyTextBox(evt);
     }//GEN-LAST:event_txtPaymentAmountKeyTyped
 
-    private void cmdNICItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmdNICItemStateChanged
+    private void cmdCIDItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmdCIDItemStateChanged
         // TODO add your handling code here:
         try{
-            if(cmdNIC.getSelectedItem().toString().length()== 10)
-            {
-                txtPaymentCID.setText(customerHash.get(cmdNIC.getSelectedItem().toString()).split(",")[0]);  
-                PDLblFname.setText(customerHash.get(cmdNIC.getSelectedItem().toString()).split(",")[1]);
-            }
+            
+            PDLblFname.setText(customerHash.get(cmdCID.getSelectedItem().toString()));
         }catch(Exception ex){ex.toString();}          
-    }//GEN-LAST:event_cmdNICItemStateChanged
+    }//GEN-LAST:event_cmdCIDItemStateChanged
 
     private void btnPDEnterAnotherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDEnterAnotherActionPerformed
         if(dataInserted)
@@ -453,7 +426,8 @@ public class EnterPayment extends javax.swing.JFrame {
         
         PaymentProcessor paymentProcessor=new PaymentProcessor();
         try {
-            Payment payment = paymentProcessor.getCustomerPaymentByNIC(cmdNIC.getSelectedItem().toString());
+            CustomerDataProcessor customerDataProcessor=new CustomerDataProcessor();
+            Payment payment = paymentProcessor.getCustomerPaymentByCID(customerDataProcessor.getCorrectCID(txtPaymentCID.getText()));
             
             for(int i=0;i<cmbMonth.getItemCount();i++) 
             {
@@ -468,8 +442,7 @@ public class EnterPayment extends javax.swing.JFrame {
             }        
             txtPaymentAmount.setText(String.valueOf(payment.getAmount()) );
             
-            cmdNIC.disable();
-            txtPaymentNIC.disable();
+            cmdCID.disable();
             txtPaymentCID.disable();
             
             btnPDEnter.setText("Update Payment");
@@ -537,7 +510,6 @@ public class EnterPayment extends javax.swing.JFrame {
     private javax.swing.JLabel PDLabelMain;
     private javax.swing.JLabel PDLbAmount;
     private javax.swing.JLabel PDLbMonth;
-    private javax.swing.JLabel PDLblCID;
     private javax.swing.JLabel PDLblFname;
     private javax.swing.JLabel PDLblNIC;
     private javax.swing.JButton btnCDHome;
@@ -547,9 +519,8 @@ public class EnterPayment extends javax.swing.JFrame {
     private javax.swing.JButton btnPDUpdate;
     private javax.swing.JComboBox<String> cmbMonth;
     private javax.swing.JComboBox<String> cmbYear;
-    private javax.swing.JComboBox<String> cmdNIC;
+    private javax.swing.JComboBox<String> cmdCID;
     private javax.swing.JTextField txtPaymentAmount;
     private javax.swing.JTextField txtPaymentCID;
-    private javax.swing.JTextField txtPaymentNIC;
     // End of variables declaration//GEN-END:variables
 }

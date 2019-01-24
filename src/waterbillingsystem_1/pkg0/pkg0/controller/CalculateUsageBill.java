@@ -41,7 +41,7 @@ public class CalculateUsageBill {
         MonthlyBill.setCid("10");
         MonthlyBill.setMonth("112018");
         MonthlyBill.setNewMeter(490);
-        MonthlyBill.setNic("12121212");
+        //MonthlyBill.setNic("12121212");
         MonthlyBill.setOldMeter(400);
         
         List<UnitPrice> unitprices=new ArrayList<>();

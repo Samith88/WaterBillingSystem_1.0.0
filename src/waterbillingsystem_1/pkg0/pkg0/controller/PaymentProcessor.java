@@ -24,8 +24,8 @@ public class PaymentProcessor {
         ProcessPayment processPayment=new ProcessPayment();
 
         
-        payment.setCid(CustomerDataDatabase.getCIDFromNIC(payment.getNic()));
-        payment.setOldOutStandingTotal(CustomerDataDatabase.getCustomerTotalOSTNIC(payment.getNic()));
+        //payment.setCid(CustomerDataDatabase.getCIDFromNIC(payment.getNic()));
+        payment.setOldOutStandingTotal(CustomerDataDatabase.getCustomerTotalOSTCID(payment.getCid()));
         payment.setNewOutStandingTotal(payment.getOldOutStandingTotal() - payment.getAmount() );
         
         
@@ -48,9 +48,9 @@ public class PaymentProcessor {
         return DateDetails.getDateYear()+DateDetails.getDateMonth()+DateDetails.getDateDate()+DateDetails.getDateHour()+DateDetails.getDateMinute()+ customerId;
     }
     
-    public Payment getCustomerPaymentByNIC(String nic) throws Exception{
+    public Payment getCustomerPaymentByCID(String cid) throws Exception{
         ProcessPayment processPayment=new ProcessPayment();
-        return processPayment.getLatestPaymentByNIC(nic);
+        return processPayment.getLatestPaymentByCID(cid);
         
     }   
     

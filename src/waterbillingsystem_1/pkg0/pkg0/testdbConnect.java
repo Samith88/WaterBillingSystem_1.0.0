@@ -66,8 +66,10 @@ public class testdbConnect {
     public static void main(String[] args) throws FileNotFoundException, JRException {
         //testdbConnect testdbConnect=new testdbConnect();
         //testdbConnect.jasperTest();
-        String id = "201901131512001";
-        System.out.println(id.substring(0, 4));
+        //String id = "201901131512001";
+        //System.out.println(id.substring(0, 4));
+        String test="";
+        System.out.println(test.length());
     }
     
    public void jasperTest() throws FileNotFoundException, JRException

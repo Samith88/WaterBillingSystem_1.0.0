@@ -20,13 +20,13 @@ import waterbillingsystem_1.pkg0.pkg0.logging.getLogger;
  */
 public class CustomerDataDatabase {
     
-    public Customer getCustomer(String nic) throws Exception{
+    public Customer getCustomer(String cid) throws Exception{
         
         RetrieveClass retrieveClass =new RetrieveClass();
         Customer customer = new Customer();
         
         try{
-            ResultSet rs  = retrieveClass.getResultsFormDB("select * from customer where nic='"+nic+"'");
+            ResultSet rs  = retrieveClass.getResultsFormDB("select * from customer where cid='"+cid+"'");
             while (rs.next()) {
                 customer.setCid(rs.getString("cid"));
                 customer.setNic(rs.getString("nic"));
@@ -42,6 +42,8 @@ public class CustomerDataDatabase {
                 customer.setCname(rs.getString("cname"));
                 customer.setCFirstName(rs.getString("CFirstName"));
                 customer.setLastPaymentDate(rs.getString("lastPaymentDate"));
+                customer.setInitialFeeTotal(rs.getString("InitialFeeTotal"));
+                customer.setInitialReceived(rs.getString("InitialReceived"));
             }
             DBConnection.disconnect();
         } catch (SQLException e) {
@@ -56,9 +58,9 @@ public class CustomerDataDatabase {
         HashMap<String, String> customerHash = new HashMap<>();
         
         try{
-            ResultSet rs  = retrieveClass.getResultsFormDB("select nic,cid,CFirstName from customer");
+            ResultSet rs  = retrieveClass.getResultsFormDB("select cid,CFirstName from customer");
             while (rs.next()) {
-                customerHash.put(rs.getString("nic"), rs.getString("cid")+","+rs.getString("CFirstName"));
+                customerHash.put(rs.getString("cid"), rs.getString("CFirstName"));
             }
             DBConnection.disconnect();
         } catch (SQLException e) {
@@ -67,30 +69,30 @@ public class CustomerDataDatabase {
         return customerHash;
     }    
     
-    public static String getCIDFromNIC(String nic) throws Exception{
+    public static String getNICFromCID(String cid) throws Exception{
         
         RetrieveClass retrieveClass =new RetrieveClass();
-        String cid="";
+        String nic="";
         
         try{
-            ResultSet rs  = retrieveClass.getResultsFormDB("select cid from customer where nic='"+nic+"'");
+            ResultSet rs  = retrieveClass.getResultsFormDB("select cid from customer where cid='"+cid+"'");
             while (rs.next()) {
-                cid= rs.getString("cid");
+                nic= rs.getString("cid");
             }
             DBConnection.disconnect();
         } catch (SQLException e) {
             getLogger.getLog().debug(e.toString());
         }     
-        return cid;
+        return nic;
     }    
     
-    public int getCurentMeterFromNIC(String nic) throws Exception{
+    public int getCurentMeterFromCID(String cid) throws Exception{
         
         RetrieveClass retrieveClass =new RetrieveClass();
         int currentMeter=0;
         
         try{
-            ResultSet rs  = retrieveClass.getResultsFormDB("select currentMeter from customer where nic='"+nic+"'");
+            ResultSet rs  = retrieveClass.getResultsFormDB("select currentMeter from customer where cid='"+cid+"'");
             while (rs.next()) {
                 currentMeter= rs.getInt("currentMeter");
             }
@@ -101,13 +103,13 @@ public class CustomerDataDatabase {
         return currentMeter;
     }     
     
-    public double getTOAFromNIC(String nic) throws Exception{
+    public double getTOAFromCID(String cid) throws Exception{
         
         RetrieveClass retrieveClass =new RetrieveClass();
         double TOA=0.0;
         
         try{
-            ResultSet rs  = retrieveClass.getResultsFormDB("select TotalOutstandingAmount from customer where nic='"+nic+"'");
+            ResultSet rs  = retrieveClass.getResultsFormDB("select TotalOutstandingAmount from customer where cid='"+cid+"'");
             while (rs.next()) {
                 TOA= rs.getDouble("TotalOutstandingAmount");
             }
@@ -118,13 +120,13 @@ public class CustomerDataDatabase {
         return TOA;
     }       
     
-    public static String getCustomerGroupIdFromNIC(String nic) throws Exception{
+    public static String getCustomerGroupIdFromCID(String cid) throws Exception{
         
         RetrieveClass retrieveClass =new RetrieveClass();
         String gid="";
         
         try{
-            ResultSet rs  = retrieveClass.getResultsFormDB("select gid from customer where nic='"+nic+"' ");
+            ResultSet rs  = retrieveClass.getResultsFormDB("select gid from customer where nic='"+cid+"' ");
             while (rs.next()) {
                 gid= rs.getString("gid");
             }
@@ -135,13 +137,13 @@ public class CustomerDataDatabase {
         return gid;
     }      
     
-    public static double getCustomerTotalOSTNIC(String nic) throws Exception{
+    public static double getCustomerTotalOSTCID(String cid) throws Exception{
         
         RetrieveClass retrieveClass =new RetrieveClass();
         double TotalOutstandingAmount=0.0;
         
         try{
-            ResultSet rs  = retrieveClass.getResultsFormDB("select TotalOutstandingAmount from customer where nic='"+nic+"' ");
+            ResultSet rs  = retrieveClass.getResultsFormDB("select TotalOutstandingAmount from customer where cid='"+cid+"' ");
             while (rs.next()) {
                 TotalOutstandingAmount= rs.getDouble("TotalOutstandingAmount");
             }
@@ -157,11 +159,13 @@ public class CustomerDataDatabase {
         InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
         
         return insertUpdateDeleteClass.insertUpdateDeleteDB("insert into Customer(cid,nic,address_1,address_2,"
-                + "address_3,gid,MeterNo,cname,currentMeter,TotalOutstandingAmount,CFirstName,lastPayment) values ("
+                + "address_3,gid,MeterNo,cname,currentMeter,TotalOutstandingAmount,CFirstName,lastPayment,InitialFeeTotal,InitialReceived) "
+                + "values ("
                 + "'"+customer.getCid()+"','"+customer.getNic()+"','"+customer.getAddress_1()+"',"
                 + "'"+customer.getAddress_2()+"','"+customer.getAddress_3()+"','"+customer.getGid()+"',"
                 + "'"+customer.getMeterNo()+"','"+customer.getCname()+"','"+customer.getCurrentMeter()+"'"
-                + ",'"+customer.getTotalOutstandingAmount()+"','"+customer.getCFirstName()+"','"+customer.getLastPayment()+"')");
+                + ",'"+customer.getTotalOutstandingAmount()+"','"+customer.getCFirstName()+"','"+customer.getLastPayment()+"',"
+                + " '"+customer.getInitialFeeTotal()+"', '"+customer.getInitialReceived()+"'  )");
     }
     
     public boolean updateCustomerData(Customer customer){
@@ -172,7 +176,8 @@ public class CustomerDataDatabase {
                 + "address_2='"+customer.getAddress_2()+"',address_3='"+customer.getAddress_3()+"',gid= '"+customer.getGid()+"',"
                 + "MeterNo='"+customer.getMeterNo()+"',cname='"+customer.getCname()+"',currentMeter='"+customer.getCurrentMeter()+"',"
                 + "TotalOutstandingAmount='"+customer.getTotalOutstandingAmount()+"',CFirstName='"+customer.getCFirstName()+"',"
-                + "lastPayment='"+customer.getLastPayment()+"' where cid='"+customer.getCid()+"'");
+                + "lastPayment='"+customer.getLastPayment()+"',InitialFeeTotal='"+customer.getInitialFeeTotal()+"'"
+                + ",InitialReceived='"+customer.getInitialReceived()+"'  where cid='"+customer.getCid()+"'");
     }  
     
     

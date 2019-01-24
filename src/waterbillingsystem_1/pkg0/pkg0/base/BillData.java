@@ -27,13 +27,6 @@ public class BillData {
         this.cid = cid;
     }
 
-    public String getNic() {
-        return nic;
-    }
-
-    public void setNic(String nic) {
-        this.nic = nic;
-    }
 
     public int getNewMeter() {
         return NewMeter;
@@ -88,7 +81,6 @@ public class BillData {
     
     private String    mbid;
     private String    cid;
-    private String nic;
     private int NewMeter;
     private int Sramadhana;
     private int AbsentCharge;

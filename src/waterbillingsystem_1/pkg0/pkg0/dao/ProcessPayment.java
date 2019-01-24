@@ -14,7 +14,6 @@ import waterbillingsystem_1.pkg0.pkg0.database.DBConnection;
 import waterbillingsystem_1.pkg0.pkg0.database.InsertUpdateDeleteClass;
 import waterbillingsystem_1.pkg0.pkg0.database.RetrieveClass;
 import waterbillingsystem_1.pkg0.pkg0.logging.getLogger;
-import waterbillingsystem_1.pkg0.pkg0.view.EnterPayment;
 
 /**
  *
@@ -34,7 +33,7 @@ public class ProcessPayment {
     
     public boolean updatePayment(Payment payment) throws Exception{
         
-        payment.setNewOutStandingTotal(getOldTOAFromNIC(payment.getNic()) - payment.getAmount());
+        payment.setNewOutStandingTotal(getOldTOAFromCID(payment.getCid()) - payment.getAmount());
         
         String sql="update payment set amount='"+payment.getAmount()+"',"
                 + "NewOutStandingTotal='"+payment.getNewOutStandingTotal()+"' where pyid='"+payment.getPyid()+"' ";
@@ -60,7 +59,7 @@ public class ProcessPayment {
         
         return insertUpdateDeleteClass.insertUpdateDeleteDB("update Customer set TotalOutstandingAmount='"+payment.getNewOutStandingTotal()+"' "
                 + ",lastPayment='"+payment.getAmount()+"',lastPaymentDate='"+payment.getDate()+"' "
-                + " where nic='"+payment.getNic()+"'");
+                + " where cid='"+payment.getCid()+"'");
     }      
     
     private boolean updateCustomerTOAWhenDelete(Payment payment) throws Exception{
@@ -68,8 +67,8 @@ public class ProcessPayment {
         InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
         
         CustomerDataDatabase CustomerDataDatabase=new CustomerDataDatabase();
-        double newTOA = CustomerDataDatabase.getTOAFromNIC(payment.getNic()) + payment.getAmount();
-        Payment latestPayment = getLatestPaymentByNIC(payment.getNic());
+        double newTOA = CustomerDataDatabase.getTOAFromCID(payment.getCid()) + payment.getAmount();
+        Payment latestPayment = getLatestPaymentByCID(payment.getCid());
         try{
             return insertUpdateDeleteClass.insertUpdateDeleteDB("update Customer set TotalOutstandingAmount='"+newTOA+"' ,"
                 + "lastPayment='"+latestPayment.getAmount()+"', lastPaymentDate='"+latestPayment.getDate()+"' "
@@ -82,9 +81,10 @@ public class ProcessPayment {
         
     } 
     
-    public Payment getLatestPaymentByNIC(String nic) throws SQLException, Exception{
+    public Payment getLatestPaymentByCID(String cid) throws SQLException, Exception{
         RetrieveClass retrieveClass=new RetrieveClass();
-        ResultSet rs = retrieveClass.getResultsFormDB("select * from Payment where nic='"+nic+"' and pyid=(select max(pyid) from Payment where nic='"+nic+"')" );
+        ResultSet rs = retrieveClass.getResultsFormDB("select * from Payment where cid='"+cid+"' "
+                + "and pyid=(select max(pyid) from Payment where cid='"+cid+"')" );
         //select * from Payment where nic='883512847v' and pyid=(select max(pyid) from Payment where nic='883512847v');
         Payment payment=new Payment();
         while(rs.next()){
@@ -108,14 +108,14 @@ public class ProcessPayment {
     
     }
     
-    private double getOldTOAFromNIC(String nic) throws Exception{
+    private double getOldTOAFromCID(String cid) throws Exception{
         
         RetrieveClass retrieveClass =new RetrieveClass();
         double oldOutStandingTotal=0.0;
         
         try{
-            ResultSet rs  = retrieveClass.getResultsFormDB("select oldOutStandingTotal from Payment where nic='"+nic+"'"
-                    + " and pyid=(select max(pyid) from Payment where nic='"+nic+"')");
+            ResultSet rs  = retrieveClass.getResultsFormDB("select oldOutStandingTotal from Payment where cid='"+cid+"'"
+                    + " and pyid=(select max(pyid) from Payment where cid='"+cid+"')");
             while (rs.next()) {
                 oldOutStandingTotal= rs.getDouble("oldOutStandingTotal");
             }

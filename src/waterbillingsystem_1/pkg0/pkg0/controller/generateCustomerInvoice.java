@@ -31,12 +31,14 @@ public class generateCustomerInvoice {
     
         File jasperFile = new File(jasperFileString);
         CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
-        Customer customer = customerDataDatabase.getCustomer(monthlyBillDetails.getNic());
+        CustomerDataProcessor customerDataProcessor=new CustomerDataProcessor();
+        monthlyBillDetails.setCid(customerDataProcessor.getCorrectCID(monthlyBillDetails.getCid()));
+        Customer customer = customerDataDatabase.getCustomer(monthlyBillDetails.getCid());
                 
         HashMap<String, Object> map = new HashMap<>();
         map.put("P_InvoiceNo",monthlyBillDetails.getInvoiceNo());
         map.put("P_cid",monthlyBillDetails.getCid());
-        map.put("P_nic", monthlyBillDetails.getNic());
+        map.put("P_nic", customer.getNic());
         map.put("P_Group", monthlyBillDetails.getGroup());
         map.put("P_OldMeter",monthlyBillDetails.getOldMeter() );
         map.put("P_NewMeter",monthlyBillDetails.getNewMeter() );

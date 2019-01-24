@@ -27,14 +27,6 @@ public class MonthlyBillDetails {
         this.cid = cid;
     }
 
-    public String getNic() {
-        return nic;
-    }
-
-    public void setNic(String nic) {
-        this.nic = nic;
-    }
-
     public int getOldMeter() {
         return OldMeter;
     }
@@ -143,7 +135,6 @@ public class MonthlyBillDetails {
     
     private String  InvoiceNo;
     private String   cid;
-    private String nic;
     private int OldMeter;
     private int NewMeter;
     private int MonthlyUsageUnit;

@@ -121,6 +121,23 @@ public class Customer {
     public void setLastPaymentDate(String lastPaymentDate) {
         this.lastPaymentDate = lastPaymentDate;
     }    
+    
+    public String getInitialFeeTotal() {
+        return InitialFeeTotal;
+    }
+
+    public void setInitialFeeTotal(String InitialFeeTotal) {
+        this.InitialFeeTotal = InitialFeeTotal;
+    }
+
+    public String getInitialReceived() {
+        return InitialReceived;
+    }
+
+    public void setInitialReceived(String InitialReceived) {
+        this.InitialReceived = InitialReceived;
+    }
+    
     private String  cid;
     private String  nic;
     private String  address_1;
@@ -135,5 +152,7 @@ public class Customer {
     private String cname;
     private String CFirstName;
     private String lastPaymentDate;
+    private String InitialFeeTotal;
+    private String InitialReceived;
 
 }
