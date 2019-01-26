@@ -17,6 +17,7 @@ import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import waterbillingsystem_1.pkg0.pkg0.logging.getLogger;
 import net.sf.jasperreports.engine.*;
@@ -24,6 +25,9 @@ import java.util.*;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
+import waterbillingsystem_1.pkg0.pkg0.base.Group;
+import waterbillingsystem_1.pkg0.pkg0.dao.GroupDetailsDB;
+import waterbillingsystem_1.pkg0.pkg0.database.DBConnection;
 
  
 /**
@@ -33,14 +37,15 @@ import net.sf.jasperreports.view.JasperViewer;
 public class testdbConnect {
      /**
      * Connect to a sample database
+     * @return 
      */
     
     //private static final Logger log = Logger.getLogger("confLogger");
-    public static void connect() {
+    public static Connection connect() {
         Connection conn = null;
         try {
             // db parameters
-            String url = "jdbc:sqlite:waterbill.db";
+            String url = "jdbc:sqlite:encwaterbill.db";
             // create a connection to the database
             conn = DriverManager.getConnection(url);
             
@@ -57,21 +62,39 @@ public class testdbConnect {
                 getLogger.getLog().debug(ex.toString());
             }
         }
+        return conn;
     }
     /**
      * @param args the command line arguments
      * @throws java.io.FileNotFoundException
      * @throws net.sf.jasperreports.engine.JRException
      */
-    public static void main(String[] args) throws FileNotFoundException, JRException {
+    public static void main(String[] args) throws FileNotFoundException, JRException, Exception {
         //testdbConnect testdbConnect=new testdbConnect();
         //testdbConnect.jasperTest();
         //String id = "201901131512001";
         //System.out.println(id.substring(0, 4));
-        String test="";
-        System.out.println(test.length());
+        ResultSet rs = null;
+        try {
+            
+            String url = "jdbc:sqlite:encwaterbill.db";
+            // create a connection to the database
+            Connection conn  = DriverManager.getConnection(url);            
+            rs = conn.createStatement().executeQuery("select * from groups");
+            
+            while (rs.next()) {
+                System.out.print(rs.getString("gid"));
+                System.out.print(rs.getString("gname"));         
+                System.out.print(rs.getString("location"));    
+                System.out.print(rs.getString("description"));                    
+            }
+            conn.close();
+        } catch (SQLException e) {
+            getLogger.getLog().debug(e.toString());
+        }   
+        
     }
-    
+     
    public void jasperTest() throws FileNotFoundException, JRException
    {
        

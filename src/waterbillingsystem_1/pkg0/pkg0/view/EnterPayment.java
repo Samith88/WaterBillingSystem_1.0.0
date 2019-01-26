@@ -274,7 +274,7 @@ public class EnterPayment extends javax.swing.JFrame {
         CustomerDataProcessor customerDataProcessor=new CustomerDataProcessor();
         payment.setCid(customerDataProcessor.getCorrectCID(cmdCID.getSelectedItem().toString()));
         payment.setAmount(Double.parseDouble(txtPaymentAmount.getText()));
-        payment.setDate(DateDetails.getDateYear()+"/"+DateDetails.getDateMonth()+"/"+DateDetails.getDateDate());
+        payment.setDate(DateDetails.getDateYear()+DateDetails.getDateMonth()+DateDetails.getDateDate());
         
         if(dataUpdate && !dataInserted)
         {
