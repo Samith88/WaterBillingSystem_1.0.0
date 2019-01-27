@@ -20,11 +20,11 @@ public class TotalInitialPayment {
     }
 
     public int getInitialPaymentRecivedCountMonthly() {
-        return InitialPaymentRecivedCountMonthly;
+        return InitialPaymentRecivedMonthlyCount;
     }
 
     public void setInitialPaymentRecivedCountMonthly(int InitialPaymentRecivedCountMonthly) {
-        this.InitialPaymentRecivedCountMonthly = InitialPaymentRecivedCountMonthly;
+        this.InitialPaymentRecivedMonthlyCount = InitialPaymentRecivedCountMonthly;
     }
 
     public double getInitialTotalPaymentRecivedMonthly() {
@@ -36,7 +36,7 @@ public class TotalInitialPayment {
     }
     
     private String billingMonth;    
-    private int InitialPaymentRecivedCountMonthly ;    
+    private int InitialPaymentRecivedMonthlyCount ;    
     private double InitialTotalPaymentRecivedMonthly ;    
     
 }

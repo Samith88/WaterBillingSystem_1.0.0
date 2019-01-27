@@ -11,6 +11,7 @@ import waterbillingsystem_1.pkg0.pkg0.codeBase.CustomerInitialPayment;
 import waterbillingsystem_1.pkg0.pkg0.codeBase.OverallMonthlyBilling;
 import waterbillingsystem_1.pkg0.pkg0.codeBase.OverallMonthlyPayment;
 import waterbillingsystem_1.pkg0.pkg0.codeBase.PaymentsCustomer;
+import waterbillingsystem_1.pkg0.pkg0.codeBase.TotalInitialPayment;
 import waterbillingsystem_1.pkg0.pkg0.database.DBConnection;
 import waterbillingsystem_1.pkg0.pkg0.database.RetrieveClass;
 import waterbillingsystem_1.pkg0.pkg0.logging.getLogger;
@@ -98,6 +99,26 @@ public class ReportingDBData {
             getLogger.getLog().debug(e.toString());
         }
         return paymentsCustomer;        
-    }     
+    }    
+    
+    public TotalInitialPayment getTotalInitialPayment(String month) throws Exception{
+    
+        RetrieveClass retrieveClass =new RetrieveClass();
+        TotalInitialPayment totalInitialPayment=new TotalInitialPayment();
+        
+            try{
+            ResultSet rs  = retrieveClass.getResultsFormDB("select sum(newlyReceivedPyament) as InitialTotalPaymentRecivedMonthly "
+                    + " , count(newlyReceivedPyament) as InitialPaymentRecivedMonthlyCount from  InitialPayment where substr(Date,0,7)='"+month+"' ");
+            while (rs.next()) {
+                totalInitialPayment.setInitialPaymentRecivedCountMonthly(rs.getInt("InitialPaymentRecivedMonthlyCount"));
+                totalInitialPayment.setInitialTotalPaymentRecivedMonthly(rs.getDouble("InitialTotalPaymentRecivedMonthly"));
+
+            }
+            DBConnection.disconnect();
+        } catch (SQLException e) {
+            getLogger.getLog().debug(e.toString());
+        }    
+        return totalInitialPayment;
+    }
     
 }

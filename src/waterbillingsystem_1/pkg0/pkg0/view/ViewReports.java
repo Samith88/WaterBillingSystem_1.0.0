@@ -11,9 +11,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
 import waterbillingsystem_1.pkg0.pkg0.Validations;
+import waterbillingsystem_1.pkg0.pkg0.codeBase.CustomerInitialPayment;
 import waterbillingsystem_1.pkg0.pkg0.codeBase.OverallMonthlyBilling;
 import waterbillingsystem_1.pkg0.pkg0.codeBase.OverallMonthlyPayment;
 import waterbillingsystem_1.pkg0.pkg0.codeBase.PaymentsCustomer;
+import waterbillingsystem_1.pkg0.pkg0.codeBase.TotalInitialPayment;
 import waterbillingsystem_1.pkg0.pkg0.controller.ReportingProcessor;
 
 /**
@@ -87,10 +89,10 @@ public class ViewReports extends javax.swing.JFrame {
         txtCIPCID = new javax.swing.JTextField();
         lblCIPCID = new javax.swing.JLabel();
         btnCIP = new javax.swing.JButton();
-        CBPLblPayCount1 = new javax.swing.JLabel();
-        CBPblTPaymentsAns1 = new javax.swing.JLabel();
-        CBPblTPayments1 = new javax.swing.JLabel();
-        CBPblPayCountAns1 = new javax.swing.JLabel();
+        lblCIPTPayment = new javax.swing.JLabel();
+        lblCIPReceivedAns = new javax.swing.JLabel();
+        lblCIPReceived = new javax.swing.JLabel();
+        javax.swing.JLabel lblCIPTPaymentAns = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         CIPLblPayCount = new javax.swing.JLabel();
         CIPLblPayAmtAns = new javax.swing.JLabel();
@@ -457,18 +459,18 @@ public class ViewReports extends javax.swing.JFrame {
             }
         });
 
-        CBPLblPayCount1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        CBPLblPayCount1.setText("Initial Total Payment");
+        lblCIPTPayment.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblCIPTPayment.setText("Initial Total Payment");
 
-        CBPblTPaymentsAns1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        CBPblTPaymentsAns1.setText("Rs.");
+        lblCIPReceivedAns.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblCIPReceivedAns.setText("Rs.");
 
-        CBPblTPayments1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        CBPblTPayments1.setText("Initial Total  Payment Received");
-        CBPblTPayments1.setToolTipText("");
+        lblCIPReceived.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblCIPReceived.setText("Initial Total  Payment Received");
+        lblCIPReceived.setToolTipText("");
 
-        CBPblPayCountAns1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        CBPblPayCountAns1.setText("Rs.");
+        lblCIPTPaymentAns.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblCIPTPaymentAns.setText("Rs.");
 
         javax.swing.GroupLayout PanelCIPLayout = new javax.swing.GroupLayout(PanelCIP);
         PanelCIP.setLayout(PanelCIPLayout);
@@ -479,17 +481,17 @@ public class ViewReports extends javax.swing.JFrame {
                 .addGroup(PanelCIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelCIPLayout.createSequentialGroup()
                         .addGroup(PanelCIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(CBPLblPayCount1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(CBPblTPayments1, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE))
+                            .addComponent(lblCIPTPayment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblCIPReceived, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE))
                         .addGap(32, 32, 32)
-                        .addComponent(CBPblTPaymentsAns1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblCIPReceivedAns, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelCIPLayout.createSequentialGroup()
                         .addComponent(lblCIPCID, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(txtCIPCID, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(PanelCIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(CBPblPayCountAns1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCIPTPaymentAns, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCIP, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(26, 26, 26))
         );
@@ -503,12 +505,12 @@ public class ViewReports extends javax.swing.JFrame {
                     .addComponent(btnCIP))
                 .addGap(30, 30, 30)
                 .addGroup(PanelCIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CBPLblPayCount1)
-                    .addComponent(CBPblPayCountAns1))
+                    .addComponent(lblCIPTPayment)
+                    .addComponent(lblCIPTPaymentAns))
                 .addGap(18, 18, 18)
                 .addGroup(PanelCIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CBPblTPayments1)
-                    .addComponent(CBPblTPaymentsAns1))
+                    .addComponent(lblCIPReceived)
+                    .addComponent(lblCIPReceivedAns))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -692,10 +694,40 @@ public class ViewReports extends javax.swing.JFrame {
 
     private void btnCIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCIPActionPerformed
         // TODO add your handling code here:
+        ReportingProcessor reportingProcessor=new ReportingProcessor();
+        CustomerInitialPayment customerInitialPayment=new CustomerInitialPayment();
+        
+        if(txtCIPCID.getText().equals(""))
+        {
+            customerInitialPayment.setInitialPaymentCID(Validations.getCorrectCID(txtCIPCID.getText()));
+            try {
+                customerInitialPayment = reportingProcessor.getCustomerInitialPayment(customerInitialPayment.getInitialPaymentCID());
+                lblCIPTPayment.setText(String.valueOf(customerInitialPayment.getInitialPaymentAmt()));
+                lblCIPReceivedAns.setText(String.valueOf(customerInitialPayment.getInitialPaymentAmtReceived()));
+                
+            } catch (Exception ex) {
+                Logger.getLogger(ViewReports.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+        
+        
     }//GEN-LAST:event_btnCIPActionPerformed
 
     private void btnCIPMonthlyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCIPMonthlyActionPerformed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            //TotalInitialPayment getTotalInitialPayment(String month)
+            ReportingProcessor reportingProcessor=new ReportingProcessor();
+            TotalInitialPayment totalInitialPayment=new TotalInitialPayment();
+            
+            totalInitialPayment = reportingProcessor.getTotalInitialPayment(cmbCIPYear.getSelectedItem().toString()+cmbCIPMonth.getSelectedItem().toString().split("-")[0]);
+            CIPLblPayCountAns.setText(String.valueOf(totalInitialPayment.getInitialPaymentRecivedCountMonthly()));
+            CIPLblPayAmtAns.setText(String.valueOf(totalInitialPayment.getInitialTotalPaymentRecivedMonthly()));
+            
+        } catch (Exception ex) {
+            Logger.getLogger(ViewReports.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnCIPMonthlyActionPerformed
 
     /**
@@ -732,13 +764,9 @@ public class ViewReports extends javax.swing.JFrame {
     private javax.swing.JLabel CBPLblMonth;
     private javax.swing.JLabel CBPLblMonthPerCus;
     private javax.swing.JLabel CBPLblPayCount;
-    private javax.swing.JLabel CBPLblPayCount1;
     private javax.swing.JLabel CBPblPayCountAns;
-    private javax.swing.JLabel CBPblPayCountAns1;
     private javax.swing.JLabel CBPblTPayments;
-    private javax.swing.JLabel CBPblTPayments1;
     private javax.swing.JLabel CBPblTPaymentsAns;
-    private javax.swing.JLabel CBPblTPaymentsAns1;
     private javax.swing.JLabel CDFLabelMain;
     private javax.swing.JLabel CDFLabelMainCBP;
     private javax.swing.JLabel CDFLabelMainCBP1;
@@ -782,6 +810,9 @@ public class ViewReports extends javax.swing.JFrame {
     private javax.swing.JLabel lblCBPMonthPayCusAns;
     private javax.swing.JLabel lblCBPMonthPayCusPendingAns;
     private javax.swing.JLabel lblCIPCID;
+    private javax.swing.JLabel lblCIPReceived;
+    private javax.swing.JLabel lblCIPReceivedAns;
+    private javax.swing.JLabel lblCIPTPayment;
     private javax.swing.JTextField txtCIPCID;
     private javax.swing.JTextField txtPPCCID;
     // End of variables declaration//GEN-END:variables

@@ -831,11 +831,11 @@
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="CBPLblPayCount1" max="32767" attributes="0"/>
-                                      <Component id="CBPblTPayments1" pref="272" max="32767" attributes="0"/>
+                                      <Component id="lblCIPTPayment" max="32767" attributes="0"/>
+                                      <Component id="lblCIPReceived" pref="272" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                  <Component id="CBPblTPaymentsAns1" min="-2" pref="143" max="-2" attributes="0"/>
+                                  <Component id="lblCIPReceivedAns" min="-2" pref="143" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="lblCIPCID" min="-2" pref="93" max="-2" attributes="0"/>
@@ -843,7 +843,7 @@
                                   <Component id="txtCIPCID" min="-2" pref="81" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="CBPblPayCountAns1" min="-2" pref="143" max="-2" attributes="0"/>
+                                      <Component id="lblCIPTPaymentAns" min="-2" pref="143" max="-2" attributes="0"/>
                                       <Component id="btnCIP" min="-2" pref="117" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -863,13 +863,13 @@
                           </Group>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="CBPLblPayCount1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="CBPblPayCountAns1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblCIPTPayment" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblCIPTPaymentAns" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="CBPblTPayments1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="CBPblTPaymentsAns1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblCIPReceived" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblCIPReceivedAns" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="20" max="32767" attributes="0"/>
                       </Group>
@@ -898,7 +898,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCIPActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="CBPLblPayCount1">
+                <Component class="javax.swing.JLabel" name="lblCIPTPayment">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="1"/>
@@ -906,7 +906,7 @@
                     <Property name="text" type="java.lang.String" value="Initial Total Payment"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="CBPblTPaymentsAns1">
+                <Component class="javax.swing.JLabel" name="lblCIPReceivedAns">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="1"/>
@@ -914,7 +914,7 @@
                     <Property name="text" type="java.lang.String" value="Rs."/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="CBPblTPayments1">
+                <Component class="javax.swing.JLabel" name="lblCIPReceived">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="1"/>
@@ -923,13 +923,17 @@
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="CBPblPayCountAns1">
+                <Component class="javax.swing.JLabel" name="lblCIPTPaymentAns">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Rs."/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="true"/>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="0"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>

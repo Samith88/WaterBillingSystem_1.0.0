@@ -3,7 +3,7 @@
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="86"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="81"/>
 	<subDataset name="Sample Dataset" uuid="389de2fa-2302-46df-88e2-d6ee19522008">
 		<field name="value" class="java.lang.String"/>
@@ -300,7 +300,7 @@
 				<textFieldExpression><![CDATA[$P{P_AbsentCharge}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="200" y="459" width="229" height="20" uuid="07b6c7e7-ece8-4e2d-bdcc-a9d11991203a"/>
+				<reportElement x="200" y="491" width="229" height="20" uuid="07b6c7e7-ece8-4e2d-bdcc-a9d11991203a"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
@@ -313,7 +313,7 @@
 				<textFieldExpression><![CDATA[$P{P_TotalMonthlyAmount}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="200" y="486" width="229" height="20" uuid="f0da6ca9-82b7-4f44-9346-8c25caf3c220"/>
+				<reportElement x="200" y="465" width="229" height="20" uuid="f0da6ca9-82b7-4f44-9346-8c25caf3c220"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>

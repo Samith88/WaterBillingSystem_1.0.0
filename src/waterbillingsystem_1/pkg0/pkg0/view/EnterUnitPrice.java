@@ -364,6 +364,9 @@ public class EnterUnitPrice extends javax.swing.JFrame {
 
     private void btnUPUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUPUpdateActionPerformed
         // TODO add your handling code here:
+        if (!dataUpdate)
+        dataUpdate = true;
+        
         String errorMessage = validateData();
         if(0 < errorMessage.length())
             JOptionPaneCustom.errorBox(errorMessage, "Unit price Data Insertion");   
@@ -371,9 +374,6 @@ public class EnterUnitPrice extends javax.swing.JFrame {
             whenUpdateButtonClicked();
     }//GEN-LAST:event_btnUPUpdateActionPerformed
     private void whenUpdateButtonClicked(){
-        if (!dataUpdate)
-        dataUpdate = true;
-
         UnitPriceProcessor unitPriceProcessor=new UnitPriceProcessor();
         try {
             UnitPrice unitPrice = unitPriceProcessor.getAUnitPrice(txUnitPriceId.getText());

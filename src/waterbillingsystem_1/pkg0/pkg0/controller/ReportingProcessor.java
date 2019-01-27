@@ -9,6 +9,7 @@ import waterbillingsystem_1.pkg0.pkg0.codeBase.CustomerInitialPayment;
 import waterbillingsystem_1.pkg0.pkg0.codeBase.OverallMonthlyBilling;
 import waterbillingsystem_1.pkg0.pkg0.codeBase.OverallMonthlyPayment;
 import waterbillingsystem_1.pkg0.pkg0.codeBase.PaymentsCustomer;
+import waterbillingsystem_1.pkg0.pkg0.codeBase.TotalInitialPayment;
 import waterbillingsystem_1.pkg0.pkg0.dao.ReportingDBData;
 
 /**
@@ -39,6 +40,12 @@ public class ReportingProcessor {
     
         ReportingDBData reportingDBData=new ReportingDBData();
         return reportingDBData.getPaymentsCustomer(month, cid);
+    }
+    
+    public TotalInitialPayment getTotalInitialPayment(String month) throws Exception{
+    
+        ReportingDBData reportingDBData=new ReportingDBData();
+        return reportingDBData.getTotalInitialPayment(month);
     }
     
 }
