@@ -36,11 +36,11 @@ public class generateCustomerInvoice {
         Customer customer = customerDataDatabase.getCustomer(monthlyBillDetails.getCid());
                 
         HashMap<String, Object> map = new HashMap<>();
-        map.put("P_InvoiceNo",monthlyBillDetails.getInvoiceNo());
-        map.put("P_cid",monthlyBillDetails.getCid());
-        map.put("P_nic", customer.getNic());
-        map.put("P_Group", monthlyBillDetails.getGroup());
-        map.put("P_OldMeter",monthlyBillDetails.getOldMeter() );
+        map.put("P_InvoiceNo",Validations.nullValidator(monthlyBillDetails.getInvoiceNo()) );
+        map.put("P_cid",Validations.nullValidator(monthlyBillDetails.getCid()));
+        map.put("P_nic", Validations.nullValidator(customer.getNic()));
+        map.put("P_Group", Validations.nullValidator(monthlyBillDetails.getGroup()));
+        map.put("P_OldMeter",monthlyBillDetails.getOldMeter()  );
         map.put("P_NewMeter",monthlyBillDetails.getNewMeter() );
         map.put("P_MonthlyConsumption",monthlyBillDetails.getMonthlyConsumption() );
         map.put("P_CurrentTotalAmount",monthlyBillDetails.getCurrentTotalAmount());
@@ -50,11 +50,11 @@ public class generateCustomerInvoice {
         map.put("P_TotalMonthlyAmount",monthlyBillDetails.getTotalMonthlyAmount() );
         map.put("P_TotalOutstandingMonthly",monthlyBillDetails.getTotalOutstandingMonthly() );
         map.put("P_MonthlyUsageUnit",monthlyBillDetails.getMonthlyUsageUnit() );
-        map.put("P_MeterNo",customer.getMeterNo());
-        map.put("P_cname",customer.getCname() );
-        map.put("P_LastPaymentDay",monthlyBillDetails.getLastPaymentDay() ); 
-        map.put("P_LastPayment",customer.getLastPayment()+" ("+customer.getLastPaymentDate()+")" ); 
-        map.put("P_Month",monthlyBillDetails.getMonth());     
+        map.put("P_MeterNo",Validations.nullValidator(customer.getMeterNo()));
+        map.put("P_cname",Validations.nullValidator(customer.getCname()) );
+        map.put("P_LastPaymentDay",Validations.nullValidator(monthlyBillDetails.getLastPaymentDay()) ); 
+        map.put("P_LastPayment",customer.getLastPayment()+" ("+Validations.nullValidator(customer.getLastPaymentDate())+")" ); 
+        map.put("P_Month",Validations.nullValidator(monthlyBillDetails.getMonth()));     
 
         //BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(jasperFile.getAbsolutePath()));
         JasperDesign jasperDesign=JRXmlLoader.load(jasperFile.getAbsolutePath());

@@ -24,4 +24,11 @@ public class Validations {
         }
     }
     
+    public static String nullValidator(String value){
+        if(value == null)
+            return " ";
+        else
+            return value;
+    }    
+    
 }

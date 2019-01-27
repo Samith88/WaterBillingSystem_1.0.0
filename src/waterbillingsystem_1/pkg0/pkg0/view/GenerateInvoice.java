@@ -103,7 +103,7 @@ public class GenerateInvoice extends javax.swing.JFrame {
             }
         });
 
-        cmbYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035" }));
+        cmbYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035" }));
 
         GCRLblUnits1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         GCRLblUnits1.setText("Billing Month");
