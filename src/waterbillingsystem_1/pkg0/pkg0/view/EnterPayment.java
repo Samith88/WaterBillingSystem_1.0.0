@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 import waterbillingsystem_1.pkg0.pkg0.DateDetails;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
+import waterbillingsystem_1.pkg0.pkg0.Validations;
 import waterbillingsystem_1.pkg0.pkg0.base.Payment;
 import waterbillingsystem_1.pkg0.pkg0.controller.CustomerDataProcessor;
 import waterbillingsystem_1.pkg0.pkg0.controller.FillGUIComponents;
@@ -271,8 +272,7 @@ public class EnterPayment extends javax.swing.JFrame {
 
     private void whenEnterDataButtonClicked() throws Exception{
         Payment payment=new Payment();
-        CustomerDataProcessor customerDataProcessor=new CustomerDataProcessor();
-        payment.setCid(customerDataProcessor.getCorrectCID(cmdCID.getSelectedItem().toString()));
+        payment.setCid(Validations.getCorrectCID(cmdCID.getSelectedItem().toString()));
         payment.setAmount(Double.parseDouble(txtPaymentAmount.getText()));
         payment.setDate(DateDetails.getDateYear()+DateDetails.getDateMonth()+DateDetails.getDateDate());
         
@@ -426,8 +426,7 @@ public class EnterPayment extends javax.swing.JFrame {
         
         PaymentProcessor paymentProcessor=new PaymentProcessor();
         try {
-            CustomerDataProcessor customerDataProcessor=new CustomerDataProcessor();
-            Payment payment = paymentProcessor.getCustomerPaymentByCID(customerDataProcessor.getCorrectCID(txtPaymentCID.getText()));
+            Payment payment = paymentProcessor.getCustomerPaymentByCID(Validations.getCorrectCID(txtPaymentCID.getText()));
             
             for(int i=0;i<cmbMonth.getItemCount();i++) 
             {

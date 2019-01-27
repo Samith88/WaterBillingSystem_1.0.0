@@ -16,6 +16,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
+import waterbillingsystem_1.pkg0.pkg0.Validations;
 import waterbillingsystem_1.pkg0.pkg0.base.Customer;
 import waterbillingsystem_1.pkg0.pkg0.controller.CustomerDataProcessor;
 import waterbillingsystem_1.pkg0.pkg0.controller.FillGUIComponents;
@@ -412,9 +413,8 @@ public class EnterCustomer extends javax.swing.JFrame {
         Customer customer=new Customer();
         
         customer.setCFirstName(txtCustomerFN.getText());
-        
-        CustomerDataProcessor customerDataProcessor=new CustomerDataProcessor();  
-        customer.setCid(customerDataProcessor.getCorrectCID(txtCustomerNo.getText()));
+         
+        customer.setCid(Validations.getCorrectCID(txtCustomerNo.getText()));
         
         customer.setNic(txtCustomerNIC.getText() );
         customer.setGid(cmbGroupId.getSelectedItem().toString().split("-")[1]);
@@ -562,7 +562,7 @@ public class EnterCustomer extends javax.swing.JFrame {
             Customer customer = customerDataProcessor.getCustomer(txtCustomerNo.getText());
             
             //txtCustomerNIC.disable();
-            txtCustomerNo.setText(customerDataProcessor.getCorrectCID(customer.getCid()));
+            txtCustomerNo.setText(Validations.getCorrectCID(customer.getCid()));
             txtCustomerFN.setText(customer.getCFirstName());
             txtCustomername.setText(customer.getCname());
             cmbGroupId.setSelectedItem(customer.getGid());

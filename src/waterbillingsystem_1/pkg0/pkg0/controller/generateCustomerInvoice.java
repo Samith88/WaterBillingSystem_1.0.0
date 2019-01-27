@@ -16,6 +16,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import waterbillingsystem_1.pkg0.pkg0.Validations;
 import waterbillingsystem_1.pkg0.pkg0.base.Customer;
 import waterbillingsystem_1.pkg0.pkg0.base.MonthlyBillDetails;
 import waterbillingsystem_1.pkg0.pkg0.dao.CustomerDataDatabase;
@@ -31,8 +32,7 @@ public class generateCustomerInvoice {
     
         File jasperFile = new File(jasperFileString);
         CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
-        CustomerDataProcessor customerDataProcessor=new CustomerDataProcessor();
-        monthlyBillDetails.setCid(customerDataProcessor.getCorrectCID(monthlyBillDetails.getCid()));
+        monthlyBillDetails.setCid(Validations.getCorrectCID(monthlyBillDetails.getCid()));
         Customer customer = customerDataDatabase.getCustomer(monthlyBillDetails.getCid());
                 
         HashMap<String, Object> map = new HashMap<>();

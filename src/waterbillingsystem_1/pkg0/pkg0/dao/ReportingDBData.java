@@ -66,10 +66,9 @@ public class ReportingDBData {
         OverallMonthlyPayment overallMonthlyPayment=new OverallMonthlyPayment();        
         try{
             ResultSet rs  = retrieveClass.getResultsFormDB("select  sum(amount) as TotalMonthlyPayments , "
-                    + "count(amount) as monthlyPaymentCount from payment"
-                    + "where substr(Date,6)='"+month+"' ");
+                    + "count(amount) as monthlyPaymentCount from payment where substr(Date,0,7) = '"+month+"'; ");
             while (rs.next()) {
-                overallMonthlyPayment.setOverallMonthlyPayments(rs.getDouble(month));
+                overallMonthlyPayment.setOverallMonthlyPayments(rs.getDouble("TotalMonthlyPayments"));
                 overallMonthlyPayment.setMonthlyPaymentCount(rs.getInt("monthlyPaymentCount"));
                 overallMonthlyPayment.setBillingMonth(month);
             }
@@ -87,7 +86,7 @@ public class ReportingDBData {
         PaymentsCustomer paymentsCustomer=new PaymentsCustomer();        
         try{
             ResultSet rs  = retrieveClass.getResultsFormDB("select sum(amount) as CustomerPaymentMonthAmt "
-                    + " and NewOutStandingTotal from  payment where substr(Date,6)='"+month+"' and cid='"+cid+"' ");
+                    + " , NewOutStandingTotal from  payment where substr(Date,0,7)='"+month+"' and cid='"+cid+"' ");
             while (rs.next()) {
                 paymentsCustomer.setCustomerPaymentMonthAmt(rs.getDouble("CustomerPaymentMonthAmt"));
                 paymentsCustomer.setCustomerPaymentMonthPendingAmt(rs.getDouble("NewOutStandingTotal"));

@@ -5,8 +5,16 @@
  */
 package waterbillingsystem_1.pkg0.pkg0.view;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
+import waterbillingsystem_1.pkg0.pkg0.Validations;
+import waterbillingsystem_1.pkg0.pkg0.codeBase.OverallMonthlyBilling;
+import waterbillingsystem_1.pkg0.pkg0.codeBase.OverallMonthlyPayment;
+import waterbillingsystem_1.pkg0.pkg0.codeBase.PaymentsCustomer;
+import waterbillingsystem_1.pkg0.pkg0.controller.ReportingProcessor;
 
 /**
  *
@@ -66,11 +74,11 @@ public class ViewReports extends javax.swing.JFrame {
         lblCBPMonthPayCus = new javax.swing.JLabel();
         lblCBPMonthPayCusPendingAns = new javax.swing.JLabel();
         javax.swing.JLabel lblCBPMonthPayCusPending = new javax.swing.JLabel();
-        txtCBDCID2 = new javax.swing.JTextField();
+        txtPPCCID = new javax.swing.JTextField();
         CBPLblMonthPerCus = new javax.swing.JLabel();
         cmbCBPMonthPerCus = new javax.swing.JComboBox<>();
         cmbCBPYearPerCus = new javax.swing.JComboBox<>();
-        btnCBPMonthPerCus = new javax.swing.JButton();
+        btnCBPMonthPaymentPerCus = new javax.swing.JButton();
         CBDLblMonth8 = new javax.swing.JLabel();
         lblCBPMonthPayCusAns = new javax.swing.JLabel();
         PanelIniPayments = new javax.swing.JPanel();
@@ -333,11 +341,11 @@ public class ViewReports extends javax.swing.JFrame {
 
         cmbCBPYearPerCus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035" }));
 
-        btnCBPMonthPerCus.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnCBPMonthPerCus.setText("Generate Data");
-        btnCBPMonthPerCus.addActionListener(new java.awt.event.ActionListener() {
+        btnCBPMonthPaymentPerCus.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnCBPMonthPaymentPerCus.setText("Generate Data");
+        btnCBPMonthPaymentPerCus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCBPMonthPerCusActionPerformed(evt);
+                btnCBPMonthPaymentPerCusActionPerformed(evt);
             }
         });
 
@@ -370,11 +378,11 @@ public class ViewReports extends javax.swing.JFrame {
                             .addGap(40, 40, 40)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(cmbCBPMonthPerCus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtCBDCID2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtPPCCID, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(cmbCBPYearPerCus, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(41, 41, 41)
-                            .addComponent(btnCBPMonthPerCus, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnCBPMonthPaymentPerCus, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addContainerGap(22, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
@@ -386,12 +394,12 @@ public class ViewReports extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(cmbCBPMonthPerCus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(cmbCBPYearPerCus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnCBPMonthPerCus)
+                        .addComponent(btnCBPMonthPaymentPerCus)
                         .addComponent(CBPLblMonthPerCus))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(CBDLblMonth8)
-                        .addComponent(txtCBDCID2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtPPCCID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(35, 35, 35)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblCBPMonthPayCus)
@@ -467,7 +475,7 @@ public class ViewReports extends javax.swing.JFrame {
         PanelCIPLayout.setHorizontalGroup(
             PanelCIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelCIPLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(29, Short.MAX_VALUE)
                 .addGroup(PanelCIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelCIPLayout.createSequentialGroup()
                         .addGroup(PanelCIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -478,7 +486,7 @@ public class ViewReports extends javax.swing.JFrame {
                     .addGroup(PanelCIPLayout.createSequentialGroup()
                         .addComponent(lblCIPCID, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txtCIPCID, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCIPCID, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(PanelCIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(CBPblPayCountAns1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -626,14 +634,60 @@ public class ViewReports extends javax.swing.JFrame {
 
     private void btnCBPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCBPActionPerformed
         // TODO add your handling code here:
+        ReportingProcessor reportingProcessor=new ReportingProcessor();
+        OverallMonthlyPayment overallMonthlyPayment=new OverallMonthlyPayment();
+        overallMonthlyPayment.setBillingMonth(cmdCBPYear.getSelectedItem().toString()+cmbCBPMonth.getSelectedItem().toString().split("-")[0]);
+        
+        try {
+            overallMonthlyPayment = reportingProcessor.getOverallMonthlyPayment(overallMonthlyPayment.getBillingMonth());
+            
+            CBPblPayCountAns.setText(String.valueOf(overallMonthlyPayment.getMonthlyPaymentCount()));
+            CBPblTPaymentsAns.setText(String.valueOf(overallMonthlyPayment.getOverallMonthlyPayments()));
+        } catch (Exception ex) {
+            Logger.getLogger(ViewReports.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnCBPActionPerformed
 
-    private void btnCBPMonthPerCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCBPMonthPerCusActionPerformed
+    private void btnCBPMonthPaymentPerCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCBPMonthPaymentPerCusActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCBPMonthPerCusActionPerformed
+        ReportingProcessor reportingProcessor=new ReportingProcessor();
+        PaymentsCustomer paymentsCustomer=new PaymentsCustomer();
+        
+        if(!txtPPCCID.getText().equals(""))
+        {
+            paymentsCustomer.setBillingMonth(cmbCBPYearPerCus.getSelectedItem().toString()+cmbCBPMonthPerCus.getSelectedItem().toString().split("-")[0]);
+            paymentsCustomer.setPaymentCID(Validations.getCorrectCID(txtPPCCID.getText()) );
+            try {
+                paymentsCustomer = reportingProcessor.getPaymentsCustomer(paymentsCustomer.getBillingMonth(), paymentsCustomer.getPaymentCID());
+                
+                lblCBPMonthPayCusAns.setText(String.valueOf(paymentsCustomer.getCustomerPaymentMonthAmt()) );
+                lblCBPMonthPayCusPendingAns.setText(String.valueOf(paymentsCustomer.getCustomerPaymentMonthPendingAmt()) );
+            } catch (Exception ex) {
+                Logger.getLogger(ViewReports.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+        else
+            JOptionPaneCustom.errorBox("Please enter correct cusomer id", "Reporting Data");
+        
+    }//GEN-LAST:event_btnCBPMonthPaymentPerCusActionPerformed
 
     private void btnOBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOBDActionPerformed
         // TODO add your handling code here:
+        ReportingProcessor reportingProcessor=new ReportingProcessor();
+        OverallMonthlyBilling overallMonthlyBilling= new OverallMonthlyBilling();
+        overallMonthlyBilling.setBillingMonth(cmdRDYear.getSelectedItem().toString()+cmbRDMonth.getSelectedItem().toString().split("-")[0]);
+        
+        try {
+            overallMonthlyBilling= reportingProcessor.getOverallMonthlyBilling(overallMonthlyBilling.getBillingMonth());
+            
+            RDLblSramadanaAns.setText(String.valueOf(overallMonthlyBilling.getTotalIncomeShramadhana()) );
+            RDLblAbAns.setText(String.valueOf(overallMonthlyBilling.getTotalIncomePanelty()) );
+            RDLblFixedAns.setText(String.valueOf(overallMonthlyBilling.getTotalIncomeFixedCharge()) );
+            RDLblTotalBillAns.setText(String.valueOf(overallMonthlyBilling.getTotalIncomeFromBill()) );
+        } catch (Exception ex) {
+            Logger.getLogger(ViewReports.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnOBDActionPerformed
 
     private void btnCIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCIPActionPerformed
@@ -708,7 +762,7 @@ public class ViewReports extends javax.swing.JFrame {
     private javax.swing.JLabel RDLblTotalBillAns;
     private javax.swing.JTabbedPane ReportjTabbedPane;
     private javax.swing.JButton btnCBP;
-    private javax.swing.JButton btnCBPMonthPerCus;
+    private javax.swing.JButton btnCBPMonthPaymentPerCus;
     private javax.swing.JButton btnCIP;
     private javax.swing.JButton btnCIPMonthly;
     private javax.swing.JButton btnOBD;
@@ -728,7 +782,7 @@ public class ViewReports extends javax.swing.JFrame {
     private javax.swing.JLabel lblCBPMonthPayCusAns;
     private javax.swing.JLabel lblCBPMonthPayCusPendingAns;
     private javax.swing.JLabel lblCIPCID;
-    private javax.swing.JTextField txtCBDCID2;
     private javax.swing.JTextField txtCIPCID;
+    private javax.swing.JTextField txtPPCCID;
     // End of variables declaration//GEN-END:variables
 }

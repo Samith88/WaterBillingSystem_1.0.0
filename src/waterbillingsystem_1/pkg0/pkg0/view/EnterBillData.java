@@ -17,6 +17,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
+import waterbillingsystem_1.pkg0.pkg0.Validations;
 import waterbillingsystem_1.pkg0.pkg0.base.BillData;
 import waterbillingsystem_1.pkg0.pkg0.controller.BillDataProcessor;
 import waterbillingsystem_1.pkg0.pkg0.controller.CustomerDataProcessor;
@@ -340,10 +341,9 @@ public class EnterBillData extends javax.swing.JFrame {
     private void whenEnterButtonClicked() throws Exception{
     
         BillData billData=new BillData();
-        CustomerDataProcessor customerDataProcessor=new CustomerDataProcessor();
         
         //billData.setNic(cmbCustomerCID.getSelectedItem().toString());
-        billData.setCid(customerDataProcessor.getCorrectCID(cmbCustomerCID.getSelectedItem().toString()));
+        billData.setCid(Validations.getCorrectCID(cmbCustomerCID.getSelectedItem().toString()));
         
         if(radioUnits.isSelected())
         {
@@ -473,8 +473,7 @@ public class EnterBillData extends javax.swing.JFrame {
         
         BillDataProcessor billDataProcessor=new BillDataProcessor();
         try {
-            CustomerDataProcessor customerDataProcessor=new CustomerDataProcessor();
-            BillData billData = billDataProcessor.getLatestMBIdFromCID(customerDataProcessor.getCorrectCID(cmbCustomerCID.getSelectedItem().toString()));
+            BillData billData = billDataProcessor.getLatestMBIdFromCID(Validations.getCorrectCID(cmbCustomerCID.getSelectedItem().toString()));
             
             txtCustomerCID.setText(billData.getCid());
             

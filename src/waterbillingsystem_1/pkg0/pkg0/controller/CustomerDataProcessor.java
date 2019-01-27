@@ -45,17 +45,4 @@ public class CustomerDataProcessor {
         return customerDataDatabase.getCurentMeterFromCID(cid);
     }
     
-    public String getCorrectCID(String currentCID){
-        
-        switch (currentCID.length()) {
-            case 1:
-                return "00"+currentCID;
-            case 2:
-                return "0"+currentCID;
-            case 3:
-                return currentCID;
-            default:
-                return currentCID;
-        }
-    }
 }

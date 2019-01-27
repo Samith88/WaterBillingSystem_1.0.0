@@ -7,6 +7,7 @@ package waterbillingsystem_1.pkg0.pkg0.controller;
 
 import waterbillingsystem_1.pkg0.pkg0.VariableStorage;
 import waterbillingsystem_1.pkg0.pkg0.DateDetails;
+import waterbillingsystem_1.pkg0.pkg0.Validations;
 import waterbillingsystem_1.pkg0.pkg0.base.BillData;
 import waterbillingsystem_1.pkg0.pkg0.base.Customer;
 import waterbillingsystem_1.pkg0.pkg0.base.MonthlyBillDetails;
@@ -93,10 +94,9 @@ public class BillDataProcessor {
         
         CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
         Customer customer = customerDataDatabase.getCustomer(billData.getCid());
-        CustomerDataProcessor customerDataProcessor=new CustomerDataProcessor();
         //customer.setCid(customerDataProcessor.getCorrectCID(customer.getCid()));
         
-        monthlyBillDetails.setCid(customerDataProcessor.getCorrectCID(customer.getCid()));
+        monthlyBillDetails.setCid(Validations.getCorrectCID(customer.getCid()));
         monthlyBillDetails.setOldMeter(customer.getPreMeter());
         billData.setOldMeter(customer.getPreMeter());
         monthlyBillDetails.setGroup(customer.getGid());

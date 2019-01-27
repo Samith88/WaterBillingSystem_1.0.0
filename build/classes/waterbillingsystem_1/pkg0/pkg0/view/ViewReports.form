@@ -593,12 +593,12 @@
                                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="cmbCBPMonthPerCus" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtCBDCID2" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
+                                          <Component id="txtPPCCID" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="cmbCBPYearPerCus" min="-2" pref="69" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                                      <Component id="btnCBPMonthPerCus" min="-2" pref="117" max="-2" attributes="0"/>
+                                      <Component id="btnCBPMonthPaymentPerCus" min="-2" pref="117" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace pref="22" max="32767" attributes="0"/>
@@ -615,13 +615,13 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="cmbCBPMonthPerCus" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="cmbCBPYearPerCus" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnCBPMonthPerCus" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnCBPMonthPaymentPerCus" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="CBPLblMonthPerCus" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="CBDLblMonth8" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtCBDCID2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtPPCCID" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -670,7 +670,7 @@
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="0"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtCBDCID2">
+                <Component class="javax.swing.JTextField" name="txtPPCCID">
                 </Component>
                 <Component class="javax.swing.JLabel" name="CBPLblMonthPerCus">
                   <Properties>
@@ -731,7 +731,7 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnCBPMonthPerCus">
+                <Component class="javax.swing.JButton" name="btnCBPMonthPaymentPerCus">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="11" style="1"/>
@@ -739,7 +739,7 @@
                     <Property name="text" type="java.lang.String" value="Generate Data"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCBPMonthPerCusActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCBPMonthPaymentPerCusActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="CBDLblMonth8">
@@ -827,7 +827,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="29" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -840,7 +840,7 @@
                               <Group type="102" attributes="0">
                                   <Component id="lblCIPCID" min="-2" pref="93" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="txtCIPCID" min="-2" pref="192" max="-2" attributes="0"/>
+                                  <Component id="txtCIPCID" min="-2" pref="81" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="CBPblPayCountAns1" min="-2" pref="143" max="-2" attributes="0"/>
