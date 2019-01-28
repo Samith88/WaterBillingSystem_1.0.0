@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 import waterbillingsystem_1.pkg0.pkg0.DateDetails;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
 import waterbillingsystem_1.pkg0.pkg0.Validations;
@@ -28,6 +29,7 @@ public class EnterInitialPayments extends javax.swing.JFrame {
 
     boolean dataInserted;    
     boolean dataUpdate;
+    double initialPayments[] = new double[2];
     /**
      * Creates new form EnterInitialCustomerPayments
      * @throws java.io.IOException
@@ -39,7 +41,7 @@ public class EnterInitialPayments extends javax.swing.JFrame {
         
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        //this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+        this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         this.setLocationRelativeTo(null);   
         ImageIcon img = new ImageIcon("images\\WaterDrop.png");
         this.setIconImage(img.getImage());  
@@ -65,14 +67,17 @@ public class EnterInitialPayments extends javax.swing.JFrame {
         return errorMessage;
     } 
     
-    private void EnterData(){
+    private void WhenEnterDataClicked(){
 
         InitialPayment initialPayment = new InitialPayment();
 
         initialPayment.setCid(Validations.getCorrectCID(txtIPCID.getText()));
         initialPayment.setTotalInitialPayment(Double.parseDouble(txtIPTIP.getText()));
-        initialPayment.setNewlyReceivedPyament(Double.parseDouble(txtIPNewPayment.getText()));//txtIPRemaining
-        initialPayment.setRemainingInitialPayment(Double.parseDouble(txtIPRemaining.getText()));
+        initialPayment.setNewlyReceivedPyament(Double.parseDouble(txtIPNewPayment.getText()));
+        if(!txtIPRemaining.getText().equals(""))
+            initialPayment.setRemainingInitialPayment(Double.parseDouble(txtIPRemaining.getText())-Double.parseDouble(txtIPNewPayment.getText()));
+        else
+            initialPayment.setRemainingInitialPayment( Double.parseDouble(txtIPTIP.getText()) - Double.parseDouble(txtIPNewPayment.getText()) );
         initialPayment.setDate(DateDetails.getDateYear()+DateDetails.getDateMonth()+DateDetails.getDateDate());
 
         if(dataUpdate && !dataInserted)
@@ -110,6 +115,11 @@ public class EnterInitialPayments extends javax.swing.JFrame {
         lblIPTIP.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblIPTIP.setText("Total Initial Payment");
 
+        txtIPTIP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtIPTIPMouseClicked(evt);
+            }
+        });
         txtIPTIP.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtIPTIPKeyTyped(evt);
@@ -291,7 +301,7 @@ public class EnterInitialPayments extends javax.swing.JFrame {
         if (0 < errorMessage.length())
             JOptionPaneCustom.infoBox(errorMessage, "Initial Payment Data Insertion");
         else
-            EnterData();
+            WhenEnterDataClicked();
     }//GEN-LAST:event_btnIPEnterActionPerformed
 
     private void btnUPUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUPUpdateActionPerformed
@@ -315,9 +325,10 @@ public class EnterInitialPayments extends javax.swing.JFrame {
         {
             ClearComponents();
             dataInserted = false;
+            initialPayments = null;
         }
         else
-            JOptionPaneCustom.errorBox("Current insertion not completed", "Unit price data Insertion");
+            JOptionPaneCustom.errorBox("Current insertion not completed", "Initial Payment data Insertion");
 
     }//GEN-LAST:event_btnIPEnterAnotherActionPerformed
 
@@ -333,6 +344,24 @@ public class EnterInitialPayments extends javax.swing.JFrame {
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_btnCDHomeActionPerformed
+
+    private void txtIPTIPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIPTIPMouseClicked
+        // TODO add your handling code here:
+        if(!txtIPCID.getText().equals(""))
+        {
+                if("".equals(txtIPTIP.getText()))
+                {
+                    InitialPaymentProcessor initialPaymentProcessor=new InitialPaymentProcessor();
+                    try {
+                        double initialPayments[] = initialPaymentProcessor.getCustomerInitialPayment(txtIPCID.getText());
+                        txtIPTIP.setText(String.valueOf(initialPayments[0]));
+                        txtIPRemaining.setText(String.valueOf(initialPayments[0]-initialPayments[1]));
+                    } catch (Exception ex) {
+                    Logger.getLogger(EnterInitialPayments.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+        }
+    }//GEN-LAST:event_txtIPTIPMouseClicked
 
     /**
      * @param args the command line arguments
@@ -387,14 +416,15 @@ public class EnterInitialPayments extends javax.swing.JFrame {
 
     private void UpdateInitialPayment(InitialPayment initialPayment) {
         InitialPaymentProcessor initialPaymentProcessor=new InitialPaymentProcessor();
-        if(initialPaymentProcessor.updateUnitPrice(initialPayment))
+        if(initialPaymentProcessor.updateInitialPayment(initialPayment))
         {
             JOptionPaneCustom.infoBox("Initial Payment update successfully", "Initial Payment updating");
             dataInserted = true; 
             ClearComponents();  
             dataUpdate=false;
             btnIPEnter.setText("Enter Payment");    
-            txtIPCID.enable();            
+            txtIPCID.enable();     
+            initialPayments = null;
         }
         else
             JOptionPaneCustom.errorBox("Initial Payment updating error", "Initial Payment updating");          
@@ -403,11 +433,16 @@ public class EnterInitialPayments extends javax.swing.JFrame {
     private void InsertInitialPayment(InitialPayment initialPayment) {
         
         InitialPaymentProcessor initialPaymentProcessor=new InitialPaymentProcessor();
-        if(initialPaymentProcessor.putInitialPayment(initialPayment))
+        initialPayments[0] = initialPayment.getTotalInitialPayment();
+        initialPayments[1] = initialPayment.getTotalInitialPayment() - initialPayment.getRemainingInitialPayment();
+        
+        if(initialPaymentProcessor.putInitialPayment(initialPayment) && 
+                initialPaymentProcessor.updateCustomerInitialPayment(initialPayments, initialPayment.getCid()) )
         {
             JOptionPaneCustom.infoBox("Initial Payment insertion successfully", "Initial Payment Insertion");
             dataInserted = true; 
-            ClearComponents();          
+            ClearComponents();    
+            initialPayments = null;
         }
         else
             JOptionPaneCustom.errorBox("Initial Payment insertion error", "Initial Payment Insertion");            

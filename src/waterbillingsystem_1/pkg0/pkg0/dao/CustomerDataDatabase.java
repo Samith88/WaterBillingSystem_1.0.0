@@ -180,5 +180,31 @@ public class CustomerDataDatabase {
                 + ",InitialReceived='"+customer.getInitialReceived()+"'  where cid='"+customer.getCid()+"'");
     }  
     
+    public double[] getCustomerInitialPayment(String cid) throws Exception{
+        
+        RetrieveClass retrieveClass =new RetrieveClass();
+        double initialPayments[] = new double[2];
+        
+        try{
+            ResultSet rs  = retrieveClass.getResultsFormDB("select InitialFeeTotal,InitialReceived from customer where cid='"+cid+"'");
+            while (rs.next()) {
+                initialPayments[0] = rs.getDouble("InitialFeeTotal");
+                initialPayments[1] = rs.getDouble("InitialReceived");
+            }
+            DBConnection.disconnect();
+        } catch (SQLException e) {
+            getLogger.getLog().debug(e.toString());
+        }     
+        return initialPayments;
+    }   
+    public boolean updateCustomerInitialPayment(double[] initialPayments,String cid){
+    
+        InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
+        
+        return insertUpdateDeleteClass.insertUpdateDeleteDB("update customer set InitialFeeTotal='"+initialPayments[0]+"',"
+                + "InitialReceived='"+initialPayments[1]+"'  where cid='"+cid+"' ");
+    }
+        
+    
     
 }

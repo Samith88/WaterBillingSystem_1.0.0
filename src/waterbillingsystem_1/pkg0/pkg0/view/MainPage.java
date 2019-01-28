@@ -55,10 +55,14 @@ public class MainPage extends javax.swing.JFrame {
         lblMainBill = new javax.swing.JLabel();
         btnMainUP = new javax.swing.JButton();
         lblMainUP = new javax.swing.JLabel();
+        btnMainIP = new javax.swing.JButton();
+        lblMainUP1 = new javax.swing.JLabel();
         LblMain1 = new javax.swing.JLabel();
         PanelMainRpt = new javax.swing.JPanel();
         btnMainInvoice = new javax.swing.JButton();
         lblMainCustomer2 = new javax.swing.JLabel();
+        btnMainInvoice1 = new javax.swing.JButton();
+        lblMainCustomer3 = new javax.swing.JLabel();
         LblMain2 = new javax.swing.JLabel();
         PanelMainUserM = new javax.swing.JPanel();
         btnMainCustomer = new javax.swing.JButton();
@@ -116,47 +120,65 @@ public class MainPage extends javax.swing.JFrame {
         });
 
         lblMainUP.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lblMainUP.setText("Unit Price");
+        lblMainUP.setText("Unit Prices");
+
+        btnMainIP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/InitPayment.png"))); // NOI18N
+        btnMainIP.setBorder(null);
+        btnMainIP.setBorderPainted(false);
+        btnMainIP.setContentAreaFilled(false);
+        btnMainIP.setFocusPainted(false);
+        btnMainIP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMainIPActionPerformed(evt);
+            }
+        });
+
+        lblMainUP1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblMainUP1.setText("Initial Payments");
 
         javax.swing.GroupLayout PanelMainTrxLayout = new javax.swing.GroupLayout(PanelMainTrx);
         PanelMainTrx.setLayout(PanelMainTrxLayout);
         PanelMainTrxLayout.setHorizontalGroup(
             PanelMainTrxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelMainTrxLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(21, 21, 21)
                 .addComponent(btnMainPayment)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblMainPayments, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(105, 105, 105)
+                .addGap(40, 40, 40)
                 .addComponent(btnMainBD)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblMainBill)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                .addGap(54, 54, 54)
                 .addComponent(btnMainUP)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblMainUP, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66))
+                .addGap(48, 48, 48)
+                .addComponent(btnMainIP)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblMainUP1, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                .addContainerGap())
         );
         PanelMainTrxLayout.setVerticalGroup(
             PanelMainTrxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelMainTrxLayout.createSequentialGroup()
                 .addGroup(PanelMainTrxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnMainIP)
                     .addComponent(btnMainPayment)
                     .addComponent(btnMainBD)
+                    .addComponent(btnMainUP)
                     .addGroup(PanelMainTrxLayout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addGroup(PanelMainTrxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMainUP1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblMainPayments, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(PanelMainTrxLayout.createSequentialGroup()
-                                .addGap(9, 9, 9)
-                                .addComponent(lblMainUP, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnMainUP)
-                            .addComponent(lblMainBill, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblMainBill, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblMainUP, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         LblMain1.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
-        LblMain1.setText("Pananwala Water Billing");
+        LblMain1.setText("Water Billing System");
 
         PanelMainRpt.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Reports", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
         PanelMainRpt.setForeground(new java.awt.Color(255, 255, 255));
@@ -177,12 +199,30 @@ public class MainPage extends javax.swing.JFrame {
         lblMainCustomer2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblMainCustomer2.setText("Generate Invoice");
 
+        btnMainInvoice1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/reports.png"))); // NOI18N
+        btnMainInvoice1.setBorder(null);
+        btnMainInvoice1.setBorderPainted(false);
+        btnMainInvoice1.setContentAreaFilled(false);
+        btnMainInvoice1.setFocusPainted(false);
+        btnMainInvoice1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMainInvoice1ActionPerformed(evt);
+            }
+        });
+
+        lblMainCustomer3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblMainCustomer3.setText("Reports");
+
         javax.swing.GroupLayout PanelMainRptLayout = new javax.swing.GroupLayout(PanelMainRpt);
         PanelMainRpt.setLayout(PanelMainRptLayout);
         PanelMainRptLayout.setHorizontalGroup(
             PanelMainRptLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelMainRptLayout.createSequentialGroup()
-                .addContainerGap(177, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
+                .addComponent(btnMainInvoice1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblMainCustomer3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(btnMainInvoice)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblMainCustomer2)
@@ -197,12 +237,17 @@ public class MainPage extends javax.swing.JFrame {
                         .addComponent(lblMainCustomer2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelMainRptLayout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addComponent(btnMainInvoice)))
+                        .addGroup(PanelMainRptLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelMainRptLayout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(lblMainCustomer3, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnMainInvoice1)
+                            .addComponent(btnMainInvoice))))
                 .addContainerGap(58, Short.MAX_VALUE))
         );
 
         LblMain2.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
-        LblMain2.setText("System");
+        LblMain2.setText("Pananwala ");
 
         PanelMainUserM.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Customer Management", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
         PanelMainUserM.setForeground(new java.awt.Color(255, 255, 255));
@@ -285,10 +330,10 @@ public class MainPage extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LblMain1)
                             .addComponent(LblMain2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(PanelMainRpt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(85, Short.MAX_VALUE)
                         .addComponent(PanelMainTrx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(44, 44, 44))
         );
@@ -306,7 +351,7 @@ public class MainPage extends javax.swing.JFrame {
                         .addComponent(LblMain1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(LblMain2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(PanelMainTrx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33))
         );
@@ -391,6 +436,32 @@ public class MainPage extends javax.swing.JFrame {
         this.dispose();             
     }//GEN-LAST:event_btnMainUPActionPerformed
 
+    private void btnMainInvoice1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMainInvoice1ActionPerformed
+        // TODO add your handling code here:
+        ViewReports viewReports = null;
+        try {
+            viewReports = new ViewReports();
+        } catch (IOException ex) {
+            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        viewReports.setVisible(true); 
+        this.setVisible(false);
+        this.dispose();          
+    }//GEN-LAST:event_btnMainInvoice1ActionPerformed
+
+    private void btnMainIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMainIPActionPerformed
+        // TODO add your handling code here:
+        EnterInitialPayments enterInitialPayments = null;
+        try {
+            enterInitialPayments = new EnterInitialPayments();
+        } catch (IOException ex) {
+            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        enterInitialPayments.setVisible(true); 
+        this.setVisible(false);
+        this.dispose();         
+    }//GEN-LAST:event_btnMainIPActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -434,14 +505,18 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JButton btnGroupD;
     private javax.swing.JButton btnMainBD;
     private javax.swing.JButton btnMainCustomer;
+    private javax.swing.JButton btnMainIP;
     private javax.swing.JButton btnMainInvoice;
+    private javax.swing.JButton btnMainInvoice1;
     private javax.swing.JButton btnMainPayment;
     private javax.swing.JButton btnMainUP;
     private javax.swing.JLabel lblMainBill;
     private javax.swing.JLabel lblMainCustomer;
     private javax.swing.JLabel lblMainCustomer2;
+    private javax.swing.JLabel lblMainCustomer3;
     private javax.swing.JLabel lblMainGD;
     private javax.swing.JLabel lblMainPayments;
     private javax.swing.JLabel lblMainUP;
+    private javax.swing.JLabel lblMainUP1;
     // End of variables declaration//GEN-END:variables
 }

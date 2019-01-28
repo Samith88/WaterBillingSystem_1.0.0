@@ -33,7 +33,7 @@ public class InitialPaymentDB {
         RetrieveClass retrieveClass =new RetrieveClass();
         InitialPayment initialPayment=new InitialPayment();        
         try{
-            ResultSet rs  = retrieveClass.getResultsFormDB("select * from InitialPayment where cid='"+cid+"',"
+            ResultSet rs  = retrieveClass.getResultsFormDB("select * from InitialPayment where cid='"+cid+"' and"
                     + " Date = (select max(Date) from InitialPayment where cid='"+cid+"') ");
             while (rs.next()) {
                 initialPayment.setCid(rs.getString("cid"));

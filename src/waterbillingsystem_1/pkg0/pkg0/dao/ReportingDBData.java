@@ -48,8 +48,8 @@ public class ReportingDBData {
         RetrieveClass retrieveClass =new RetrieveClass();
         CustomerInitialPayment customerInitialPayment=new CustomerInitialPayment();        
         try{
-            ResultSet rs  = retrieveClass.getResultsFormDB("select  InitialFeeTotal,InitialReceived from Customer"
-                    + "where cid='"+cid+"' ");
+            String sql="select  InitialFeeTotal,InitialReceived from Customer where cid='"+cid+"';";
+            ResultSet rs  = retrieveClass.getResultsFormDB(sql);
             while (rs.next()) {
                 customerInitialPayment.setInitialPaymentAmt(rs.getDouble("InitialFeeTotal"));
                 customerInitialPayment.setInitialPaymentAmtReceived(rs.getDouble("InitialReceived"));

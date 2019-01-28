@@ -120,6 +120,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtIPTIP">
       <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtIPTIPMouseClicked"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtIPTIPKeyTyped"/>
       </Events>
     </Component>

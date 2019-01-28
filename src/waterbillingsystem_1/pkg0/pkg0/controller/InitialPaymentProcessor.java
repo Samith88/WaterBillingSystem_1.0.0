@@ -6,6 +6,7 @@
 package waterbillingsystem_1.pkg0.pkg0.controller;
 
 import waterbillingsystem_1.pkg0.pkg0.base.InitialPayment;
+import waterbillingsystem_1.pkg0.pkg0.dao.CustomerDataDatabase;
 import waterbillingsystem_1.pkg0.pkg0.dao.InitialPaymentDB;
 
 /**
@@ -20,7 +21,7 @@ public class InitialPaymentProcessor {
         return initialPaymentDB.putInitialPayment(initialPayment);
     }
     
-    public boolean updateUnitPrice(InitialPayment initialPayment){
+    public boolean updateInitialPayment(InitialPayment initialPayment){
         InitialPaymentDB initialPaymentDB=new InitialPaymentDB();
         return initialPaymentDB.updateUnitPrice(initialPayment);    
     }
@@ -29,5 +30,17 @@ public class InitialPaymentProcessor {
         InitialPaymentDB initialPaymentDB=new InitialPaymentDB();
         return initialPaymentDB.getAInitialPaymentDB(cid);        
         
+    }
+    
+    public double[] getCustomerInitialPayment(String cid) throws Exception{
+    
+        CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
+        return customerDataDatabase.getCustomerInitialPayment(cid);
+    }
+
+    public boolean updateCustomerInitialPayment(double[] initialPayments,String cid){
+    
+        CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
+        return customerDataDatabase.updateCustomerInitialPayment(initialPayments, cid);
     }
 }
