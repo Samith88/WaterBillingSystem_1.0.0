@@ -111,6 +111,7 @@ public class EnterInitialPayments extends javax.swing.JFrame {
         btnCDHome = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         lblIPTIP.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblIPTIP.setText("Total Initial Payment");

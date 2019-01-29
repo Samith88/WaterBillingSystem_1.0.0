@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package waterbillingsystem_1.pkg0.pkg0.codeBase;
+package waterbillingsystem_1.pkg0.pkg0.ReportBase;
 
 /**
  *
@@ -50,11 +50,20 @@ public class OverallMonthlyBilling {
     public void setBillingMonth(String billingMonth) {
         this.billingMonth = billingMonth;
     }
+
+    public double getTotalIncomeFromUnitConsumption() {
+        return totalIncomeFromUnitConsumption;
+    }
+
+    public void setTotalIncomeFromUnitConsumption(double totalIncomeFromUnitConsumption) {
+        this.totalIncomeFromUnitConsumption = totalIncomeFromUnitConsumption;
+    }    
     
     private double totalIncomeShramadhana;
     private double totalIncomePanelty ;
     private double totalIncomeFixedCharge;
     private double totalIncomeFromBill;
+    private double totalIncomeFromUnitConsumption;
     private String billingMonth;
 
 

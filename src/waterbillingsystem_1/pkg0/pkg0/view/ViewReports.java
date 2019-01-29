@@ -15,11 +15,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
 import waterbillingsystem_1.pkg0.pkg0.Validations;
-import waterbillingsystem_1.pkg0.pkg0.codeBase.CustomerInitialPayment;
-import waterbillingsystem_1.pkg0.pkg0.codeBase.OverallMonthlyBilling;
-import waterbillingsystem_1.pkg0.pkg0.codeBase.OverallMonthlyPayment;
-import waterbillingsystem_1.pkg0.pkg0.codeBase.PaymentsCustomer;
-import waterbillingsystem_1.pkg0.pkg0.codeBase.TotalInitialPayment;
+import waterbillingsystem_1.pkg0.pkg0.ReportBase.CustomerInitialPayment;
+import waterbillingsystem_1.pkg0.pkg0.ReportBase.OverallMonthlyBilling;
+import waterbillingsystem_1.pkg0.pkg0.ReportBase.OverallMonthlyPayment;
+import waterbillingsystem_1.pkg0.pkg0.ReportBase.PaymentsCustomer;
+import waterbillingsystem_1.pkg0.pkg0.ReportBase.TotalInitialPayment;
 import waterbillingsystem_1.pkg0.pkg0.controller.ReportingProcessor;
 
 /**
@@ -44,6 +44,7 @@ public class ViewReports extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         ImageIcon img = new ImageIcon("images\\WaterDrop.png");
         this.setIconImage(img.getImage());    
+       
     }
 
     /**
@@ -71,6 +72,8 @@ public class ViewReports extends javax.swing.JFrame {
         RDLblAbAns = new javax.swing.JLabel();
         RDLblAb = new javax.swing.JLabel();
         RDLblFixedAns = new javax.swing.JLabel();
+        RDLblUnitCons = new javax.swing.JLabel();
+        RDLblUnitConsAns = new javax.swing.JLabel();
         btnCDHome1 = new javax.swing.JButton();
         PanelCusPayments = new javax.swing.JPanel();
         CDFLabelMainCBP = new javax.swing.JLabel();
@@ -115,15 +118,18 @@ public class ViewReports extends javax.swing.JFrame {
         CIPLblPayCountAns = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         ReportjTabbedPane.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         ReportjTabbedPane.setPreferredSize(new java.awt.Dimension(611, 562));
 
+        PanelOverallBilling.setBackground(new java.awt.Color(204, 255, 255));
         PanelOverallBilling.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
         CDFLabelMain.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         CDFLabelMain.setText("Overall Billing Data");
 
+        jPanel3.setBackground(new java.awt.Color(204, 255, 204));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Overall Billing", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
         RDLblFixed.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -168,37 +174,49 @@ public class ViewReports extends javax.swing.JFrame {
         RDLblFixedAns.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         RDLblFixedAns.setText("Rs.");
 
+        RDLblUnitCons.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        RDLblUnitCons.setText("Total Income From Monthly Unit Consumption");
+        RDLblUnitCons.setToolTipText("");
+
+        RDLblUnitConsAns.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        RDLblUnitConsAns.setText("Rs.");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addComponent(RDLblFixed, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(RDLblFixedAns, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addComponent(RDLblTotalBill, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(RDLblTotalBillAns, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addComponent(RDLblSramadana, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(RDLblSramadanaAns, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                            .addComponent(RDLblAb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(RDLblAbAns, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addComponent(RDLblMonth)
+                            .addGap(40, 40, 40)
+                            .addComponent(cmbRDMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(cmdRDYear, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(41, 41, 41)
+                            .addComponent(btnOBD, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(RDLblTotalBill, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(RDLblTotalBillAns, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(RDLblSramadana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(RDLblFixed, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(RDLblFixedAns, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(RDLblSramadanaAns, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(RDLblAb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(RDLblAbAns, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(RDLblMonth)
-                        .addGap(40, 40, 40)
-                        .addComponent(cmbRDMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cmdRDYear, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(btnOBD, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(RDLblUnitCons, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(RDLblUnitConsAns, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -210,23 +228,27 @@ public class ViewReports extends javax.swing.JFrame {
                     .addComponent(cmdRDYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnOBD)
                     .addComponent(RDLblMonth))
-                .addGap(51, 51, 51)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RDLblSramadanaAns)
                     .addComponent(RDLblSramadana))
-                .addGap(36, 36, 36)
+                .addGap(28, 28, 28)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RDLblAb)
                     .addComponent(RDLblAbAns))
-                .addGap(41, 41, 41)
+                .addGap(31, 31, 31)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RDLblFixed)
                     .addComponent(RDLblFixedAns))
-                .addGap(41, 41, 41)
+                .addGap(32, 32, 32)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RDLblUnitCons)
+                    .addComponent(RDLblUnitConsAns))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RDLblTotalBill)
                     .addComponent(RDLblTotalBillAns))
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addGap(57, 57, 57))
         );
 
         btnCDHome1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home_button.png"))); // NOI18N
@@ -274,9 +296,12 @@ public class ViewReports extends javax.swing.JFrame {
 
         ReportjTabbedPane.addTab("Overall Monthly Billing  ", PanelOverallBilling);
 
+        PanelCusPayments.setBackground(new java.awt.Color(204, 255, 255));
+
         CDFLabelMainCBP.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         CDFLabelMainCBP.setText("Customer Bill Payments");
 
+        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Total Payments", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
         CBPLblPayCount.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -312,7 +337,7 @@ public class ViewReports extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+                .addContainerGap(32, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -354,6 +379,7 @@ public class ViewReports extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel2.setBackground(new java.awt.Color(204, 255, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Payments Per Customer", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
         lblCBPMonthPayCus.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -392,7 +418,7 @@ public class ViewReports extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 518, Short.MAX_VALUE)
+            .addGap(0, 526, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(22, 22, 22)
@@ -416,7 +442,7 @@ public class ViewReports extends javax.swing.JFrame {
                             .addComponent(cmbCBPYearPerCus, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(41, 41, 41)
                             .addComponent(btnCBPMonthPaymentPerCus, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap(22, Short.MAX_VALUE)))
+                    .addContainerGap(30, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -449,16 +475,18 @@ public class ViewReports extends javax.swing.JFrame {
         PanelCusPaymentsLayout.setHorizontalGroup(
             PanelCusPaymentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelCusPaymentsLayout.createSequentialGroup()
-                .addGroup(PanelCusPaymentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PanelCusPaymentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PanelCusPaymentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelCusPaymentsLayout.createSequentialGroup()
+                        .addGap(185, 185, 185)
+                        .addComponent(CDFLabelMainCBP))
+                    .addGroup(PanelCusPaymentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(PanelCusPaymentsLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelCusPaymentsLayout.createSequentialGroup()
                             .addGap(35, 35, 35)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(PanelCusPaymentsLayout.createSequentialGroup()
-                            .addGap(185, 185, 185)
-                            .addComponent(CDFLabelMainCBP))))
-                .addContainerGap(41, Short.MAX_VALUE))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         PanelCusPaymentsLayout.setVerticalGroup(
             PanelCusPaymentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -474,9 +502,12 @@ public class ViewReports extends javax.swing.JFrame {
 
         ReportjTabbedPane.addTab("Customer Payments  ", PanelCusPayments);
 
+        PanelIniPayments.setBackground(new java.awt.Color(204, 255, 255));
+
         CDFLabelMainCBP1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         CDFLabelMainCBP1.setText("Customer Initial Payments");
 
+        PanelCIP.setBackground(new java.awt.Color(204, 255, 204));
         PanelCIP.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Customer Initial Payments", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
         lblCIPCID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -508,7 +539,7 @@ public class ViewReports extends javax.swing.JFrame {
         PanelCIPLayout.setHorizontalGroup(
             PanelCIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelCIPLayout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(PanelCIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelCIPLayout.createSequentialGroup()
                         .addGroup(PanelCIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -522,7 +553,7 @@ public class ViewReports extends javax.swing.JFrame {
                         .addComponent(lblCIPCID, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(txtCIPCID, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnCIP, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(26, 26, 26))
         );
@@ -545,6 +576,7 @@ public class ViewReports extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
+        jPanel4.setBackground(new java.awt.Color(204, 255, 204));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Total Initial Payments Monthly", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
         CIPLblPayCount.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -598,7 +630,7 @@ public class ViewReports extends javax.swing.JFrame {
                         .addComponent(cmbCIPYear, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addComponent(btnCIPMonthly, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -722,6 +754,7 @@ public class ViewReports extends javax.swing.JFrame {
             RDLblAbAns.setText(setLabelText(String.valueOf(overallMonthlyBilling.getTotalIncomePanelty()) ));
             RDLblFixedAns.setText(setLabelText(String.valueOf(overallMonthlyBilling.getTotalIncomeFixedCharge())) );
             RDLblTotalBillAns.setText(setLabelText(String.valueOf(overallMonthlyBilling.getTotalIncomeFromBill()) ));
+            RDLblUnitConsAns.setText(setLabelText(String.valueOf(overallMonthlyBilling.getTotalIncomeFromUnitConsumption()) ));
         } catch (Exception ex) {
             Logger.getLogger(ViewReports.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -841,6 +874,8 @@ public class ViewReports extends javax.swing.JFrame {
     private javax.swing.JLabel RDLblSramadanaAns;
     private javax.swing.JLabel RDLblTotalBill;
     private javax.swing.JLabel RDLblTotalBillAns;
+    private javax.swing.JLabel RDLblUnitCons;
+    private javax.swing.JLabel RDLblUnitConsAns;
     private javax.swing.JTabbedPane ReportjTabbedPane;
     private javax.swing.JButton btnCBP;
     private javax.swing.JButton btnCBPMonthPaymentPerCus;

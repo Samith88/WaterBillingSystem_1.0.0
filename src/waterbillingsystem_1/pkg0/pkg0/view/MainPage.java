@@ -56,13 +56,13 @@ public class MainPage extends javax.swing.JFrame {
         btnMainUP = new javax.swing.JButton();
         lblMainUP = new javax.swing.JLabel();
         btnMainIP = new javax.swing.JButton();
-        lblMainUP1 = new javax.swing.JLabel();
+        lblMainIP = new javax.swing.JLabel();
         LblMain1 = new javax.swing.JLabel();
         PanelMainRpt = new javax.swing.JPanel();
         btnMainInvoice = new javax.swing.JButton();
         lblMainCustomer2 = new javax.swing.JLabel();
-        btnMainInvoice1 = new javax.swing.JButton();
-        lblMainCustomer3 = new javax.swing.JLabel();
+        btnMainIReport = new javax.swing.JButton();
+        lblMainReport = new javax.swing.JLabel();
         LblMain2 = new javax.swing.JLabel();
         PanelMainUserM = new javax.swing.JPanel();
         btnMainCustomer = new javax.swing.JButton();
@@ -93,6 +93,11 @@ public class MainPage extends javax.swing.JFrame {
 
         lblMainPayments.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblMainPayments.setText("Payments");
+        lblMainPayments.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMainPaymentsMouseClicked(evt);
+            }
+        });
 
         btnMainBD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bill.png"))); // NOI18N
         btnMainBD.setBorder(null);
@@ -107,6 +112,11 @@ public class MainPage extends javax.swing.JFrame {
 
         lblMainBill.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblMainBill.setText("Bill Data");
+        lblMainBill.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMainBillMouseClicked(evt);
+            }
+        });
 
         btnMainUP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/uintp.png"))); // NOI18N
         btnMainUP.setBorder(null);
@@ -121,6 +131,11 @@ public class MainPage extends javax.swing.JFrame {
 
         lblMainUP.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblMainUP.setText("Unit Prices");
+        lblMainUP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMainUPMouseClicked(evt);
+            }
+        });
 
         btnMainIP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/InitPayment.png"))); // NOI18N
         btnMainIP.setBorder(null);
@@ -133,8 +148,13 @@ public class MainPage extends javax.swing.JFrame {
             }
         });
 
-        lblMainUP1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lblMainUP1.setText("Initial Payments");
+        lblMainIP.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblMainIP.setText("Initial Payments");
+        lblMainIP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMainIPMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelMainTrxLayout = new javax.swing.GroupLayout(PanelMainTrx);
         PanelMainTrx.setLayout(PanelMainTrxLayout);
@@ -156,7 +176,7 @@ public class MainPage extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addComponent(btnMainIP)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblMainUP1, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                .addComponent(lblMainIP, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
                 .addContainerGap())
         );
         PanelMainTrxLayout.setVerticalGroup(
@@ -170,7 +190,7 @@ public class MainPage extends javax.swing.JFrame {
                     .addGroup(PanelMainTrxLayout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addGroup(PanelMainTrxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMainUP1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblMainIP, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblMainPayments, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblMainBill, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblMainUP, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -198,20 +218,30 @@ public class MainPage extends javax.swing.JFrame {
 
         lblMainCustomer2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblMainCustomer2.setText("Generate Invoice");
-
-        btnMainInvoice1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/reports.png"))); // NOI18N
-        btnMainInvoice1.setBorder(null);
-        btnMainInvoice1.setBorderPainted(false);
-        btnMainInvoice1.setContentAreaFilled(false);
-        btnMainInvoice1.setFocusPainted(false);
-        btnMainInvoice1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMainInvoice1ActionPerformed(evt);
+        lblMainCustomer2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMainCustomer2MouseClicked(evt);
             }
         });
 
-        lblMainCustomer3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lblMainCustomer3.setText("Reports");
+        btnMainIReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/reports.png"))); // NOI18N
+        btnMainIReport.setBorder(null);
+        btnMainIReport.setBorderPainted(false);
+        btnMainIReport.setContentAreaFilled(false);
+        btnMainIReport.setFocusPainted(false);
+        btnMainIReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMainIReportActionPerformed(evt);
+            }
+        });
+
+        lblMainReport.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblMainReport.setText("Reports");
+        lblMainReport.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMainReportMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelMainRptLayout = new javax.swing.GroupLayout(PanelMainRpt);
         PanelMainRpt.setLayout(PanelMainRptLayout);
@@ -219,9 +249,9 @@ public class MainPage extends javax.swing.JFrame {
             PanelMainRptLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelMainRptLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addComponent(btnMainInvoice1)
+                .addComponent(btnMainIReport)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblMainCustomer3)
+                .addComponent(lblMainReport)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(btnMainInvoice)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -240,8 +270,8 @@ public class MainPage extends javax.swing.JFrame {
                         .addGroup(PanelMainRptLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PanelMainRptLayout.createSequentialGroup()
                                 .addGap(9, 9, 9)
-                                .addComponent(lblMainCustomer3, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnMainInvoice1)
+                                .addComponent(lblMainReport, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnMainIReport)
                             .addComponent(btnMainInvoice))))
                 .addContainerGap(58, Short.MAX_VALUE))
         );
@@ -278,9 +308,19 @@ public class MainPage extends javax.swing.JFrame {
 
         lblMainCustomer.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblMainCustomer.setText("Customer Data");
+        lblMainCustomer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMainCustomerMouseClicked(evt);
+            }
+        });
 
         lblMainGD.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblMainGD.setText("Group Data");
+        lblMainGD.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMainGDMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelMainUserMLayout = new javax.swing.GroupLayout(PanelMainUserM);
         PanelMainUserM.setLayout(PanelMainUserMLayout);
@@ -360,6 +400,10 @@ public class MainPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMainCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMainCustomerActionPerformed
+        openCustomerWindow();
+    }//GEN-LAST:event_btnMainCustomerActionPerformed
+
+    private void openCustomerWindow(){
         EnterCustomer enterCustomer = null;
         try {
             enterCustomer = new EnterCustomer();
@@ -368,11 +412,16 @@ public class MainPage extends javax.swing.JFrame {
         }
         enterCustomer.setVisible(true); 
         this.setVisible(false);
-        this.dispose();  
-    }//GEN-LAST:event_btnMainCustomerActionPerformed
-
+        this.dispose();      
+        
+    }
+    
     private void btnGroupDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGroupDActionPerformed
         // TODO add your handling code here:
+        openGroupDataWindow();
+    }//GEN-LAST:event_btnGroupDActionPerformed
+
+    private void openGroupDataWindow(){
         EnterGroup enterGroup = null;
         try {
             enterGroup = new EnterGroup();
@@ -381,11 +430,17 @@ public class MainPage extends javax.swing.JFrame {
         }
         enterGroup.setVisible(true); 
         this.setVisible(false);
-        this.dispose();          
-    }//GEN-LAST:event_btnGroupDActionPerformed
-
+        this.dispose();       
+        
+    }
+    
+    
     private void btnMainInvoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMainInvoiceActionPerformed
         // TODO add your handling code here:
+        openGenerateInvoiceWindow();
+    }//GEN-LAST:event_btnMainInvoiceActionPerformed
+
+    private void openGenerateInvoiceWindow(){
         GenerateInvoice generateInvoice = null;
         try {
             generateInvoice = new GenerateInvoice();
@@ -394,11 +449,16 @@ public class MainPage extends javax.swing.JFrame {
         }
         generateInvoice.setVisible(true);
         this.setVisible(false);
-        this.dispose();
-    }//GEN-LAST:event_btnMainInvoiceActionPerformed
-
+        this.dispose();    
+        
+    }
     private void btnMainPaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMainPaymentActionPerformed
         // TODO add your handling code here:
+        openPaymentWindow();
+    }//GEN-LAST:event_btnMainPaymentActionPerformed
+
+    private void openPaymentWindow(){
+    
         EnterPayment enterPayment = null;
         try {
             enterPayment = new EnterPayment();
@@ -407,11 +467,14 @@ public class MainPage extends javax.swing.JFrame {
         }
         enterPayment.setVisible(true); 
         this.setVisible(false);
-        this.dispose();            
-    }//GEN-LAST:event_btnMainPaymentActionPerformed
-
+        this.dispose();          
+    }
     private void btnMainBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMainBDActionPerformed
         // TODO add your handling code here:
+        openBillDataWindow();
+    }//GEN-LAST:event_btnMainBDActionPerformed
+
+    private void openBillDataWindow(){
         EnterBillData enterBillData = null;
         try {
             enterBillData = new EnterBillData();
@@ -420,11 +483,14 @@ public class MainPage extends javax.swing.JFrame {
         }
         enterBillData.setVisible(true); 
         this.setVisible(false);
-        this.dispose();         
-    }//GEN-LAST:event_btnMainBDActionPerformed
-
+        this.dispose();       
+    }
     private void btnMainUPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMainUPActionPerformed
         // TODO add your handling code here:
+        openUnitPriceWindow();
+    }//GEN-LAST:event_btnMainUPActionPerformed
+
+    private void openUnitPriceWindow(){
         EnterUnitPrice enterUnitPrice = null;
         try {
             enterUnitPrice = new EnterUnitPrice();
@@ -433,11 +499,15 @@ public class MainPage extends javax.swing.JFrame {
         }
         enterUnitPrice.setVisible(true); 
         this.setVisible(false);
-        this.dispose();             
-    }//GEN-LAST:event_btnMainUPActionPerformed
-
-    private void btnMainInvoice1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMainInvoice1ActionPerformed
+        this.dispose();         
+    }
+    private void btnMainIReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMainIReportActionPerformed
         // TODO add your handling code here:
+        openReportWindow();
+    }//GEN-LAST:event_btnMainIReportActionPerformed
+
+    private void openReportWindow(){
+    
         ViewReports viewReports = null;
         try {
             viewReports = new ViewReports();
@@ -447,10 +517,13 @@ public class MainPage extends javax.swing.JFrame {
         viewReports.setVisible(true); 
         this.setVisible(false);
         this.dispose();          
-    }//GEN-LAST:event_btnMainInvoice1ActionPerformed
-
+    }
     private void btnMainIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMainIPActionPerformed
         // TODO add your handling code here:
+        openInitialPaymentWindow();
+    }//GEN-LAST:event_btnMainIPActionPerformed
+
+    private void openInitialPaymentWindow(){
         EnterInitialPayments enterInitialPayments = null;
         try {
             enterInitialPayments = new EnterInitialPayments();
@@ -459,8 +532,48 @@ public class MainPage extends javax.swing.JFrame {
         }
         enterInitialPayments.setVisible(true); 
         this.setVisible(false);
-        this.dispose();         
-    }//GEN-LAST:event_btnMainIPActionPerformed
+        this.dispose();     
+        
+    }
+    private void lblMainPaymentsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMainPaymentsMouseClicked
+        // TODO add your handling code here:
+        openPaymentWindow();
+    }//GEN-LAST:event_lblMainPaymentsMouseClicked
+
+    private void lblMainIPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMainIPMouseClicked
+        // TODO add your handling code here:
+        openInitialPaymentWindow();
+    }//GEN-LAST:event_lblMainIPMouseClicked
+
+    private void lblMainCustomer2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMainCustomer2MouseClicked
+        // TODO add your handling code here:
+        openGenerateInvoiceWindow();
+    }//GEN-LAST:event_lblMainCustomer2MouseClicked
+
+    private void lblMainUPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMainUPMouseClicked
+        // TODO add your handling code here:
+        openUnitPriceWindow();
+    }//GEN-LAST:event_lblMainUPMouseClicked
+
+    private void lblMainBillMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMainBillMouseClicked
+        // TODO add your handling code here:
+        openBillDataWindow();
+    }//GEN-LAST:event_lblMainBillMouseClicked
+
+    private void lblMainReportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMainReportMouseClicked
+        // TODO add your handling code here:
+        openReportWindow();
+    }//GEN-LAST:event_lblMainReportMouseClicked
+
+    private void lblMainCustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMainCustomerMouseClicked
+        // TODO add your handling code here:
+        openCustomerWindow();
+    }//GEN-LAST:event_lblMainCustomerMouseClicked
+
+    private void lblMainGDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMainGDMouseClicked
+        // TODO add your handling code here:
+        openGroupDataWindow();
+    }//GEN-LAST:event_lblMainGDMouseClicked
 
     /**
      * @param args the command line arguments
@@ -506,17 +619,17 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JButton btnMainBD;
     private javax.swing.JButton btnMainCustomer;
     private javax.swing.JButton btnMainIP;
+    private javax.swing.JButton btnMainIReport;
     private javax.swing.JButton btnMainInvoice;
-    private javax.swing.JButton btnMainInvoice1;
     private javax.swing.JButton btnMainPayment;
     private javax.swing.JButton btnMainUP;
     private javax.swing.JLabel lblMainBill;
     private javax.swing.JLabel lblMainCustomer;
     private javax.swing.JLabel lblMainCustomer2;
-    private javax.swing.JLabel lblMainCustomer3;
     private javax.swing.JLabel lblMainGD;
+    private javax.swing.JLabel lblMainIP;
     private javax.swing.JLabel lblMainPayments;
+    private javax.swing.JLabel lblMainReport;
     private javax.swing.JLabel lblMainUP;
-    private javax.swing.JLabel lblMainUP1;
     // End of variables declaration//GEN-END:variables
 }

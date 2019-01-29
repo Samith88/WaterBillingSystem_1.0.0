@@ -7,11 +7,11 @@ package waterbillingsystem_1.pkg0.pkg0.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import waterbillingsystem_1.pkg0.pkg0.codeBase.CustomerInitialPayment;
-import waterbillingsystem_1.pkg0.pkg0.codeBase.OverallMonthlyBilling;
-import waterbillingsystem_1.pkg0.pkg0.codeBase.OverallMonthlyPayment;
-import waterbillingsystem_1.pkg0.pkg0.codeBase.PaymentsCustomer;
-import waterbillingsystem_1.pkg0.pkg0.codeBase.TotalInitialPayment;
+import waterbillingsystem_1.pkg0.pkg0.ReportBase.CustomerInitialPayment;
+import waterbillingsystem_1.pkg0.pkg0.ReportBase.OverallMonthlyBilling;
+import waterbillingsystem_1.pkg0.pkg0.ReportBase.OverallMonthlyPayment;
+import waterbillingsystem_1.pkg0.pkg0.ReportBase.PaymentsCustomer;
+import waterbillingsystem_1.pkg0.pkg0.ReportBase.TotalInitialPayment;
 import waterbillingsystem_1.pkg0.pkg0.database.DBConnection;
 import waterbillingsystem_1.pkg0.pkg0.database.RetrieveClass;
 import waterbillingsystem_1.pkg0.pkg0.logging.getLogger;
@@ -27,12 +27,14 @@ public class ReportingDBData {
         OverallMonthlyBilling overallMonthlyBilling=new OverallMonthlyBilling();        
         try{
             ResultSet rs  = retrieveClass.getResultsFormDB("select sum(Sramadhana) as SramadhanaTotal, sum(AbsentCharge) as AbsentChargeTotal, "
-                    + "sum(FixedCharge) as FixedChargeTotal, sum(TotalMonthlyAmount) TotalMonthlyAmountTotal from MonthlyBillDetails "
+                    + "sum(FixedCharge) as FixedChargeTotal,sum(MonthlyConsumption) as totalIncomeFromUnitConsumption,"
+                    + "sum(TotalMonthlyAmount) TotalMonthlyAmountTotal from MonthlyBillDetails "
                     + "where Month='"+month+"' ");
             while (rs.next()) {
                 overallMonthlyBilling.setTotalIncomeShramadhana(rs.getDouble("SramadhanaTotal"));
                 overallMonthlyBilling.setTotalIncomePanelty(rs.getDouble("AbsentChargeTotal"));
                 overallMonthlyBilling.setTotalIncomeFixedCharge(rs.getDouble("FixedChargeTotal"));
+                overallMonthlyBilling.setTotalIncomeFromUnitConsumption(rs.getDouble("totalIncomeFromUnitConsumption"));
                 overallMonthlyBilling.setTotalIncomeFromBill(rs.getDouble("TotalMonthlyAmountTotal"));
                 overallMonthlyBilling.setBillingMonth(month);
             }
