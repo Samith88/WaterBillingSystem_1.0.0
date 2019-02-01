@@ -49,7 +49,7 @@ public class UnitPricesDB {
     public boolean putUnitPrices(UnitPrice unitPrice){
     
         InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
-        return insertUpdateDeleteClass.insertUpdateDeleteDB("insert into UnitPrice(uid,lower,upper,price)"
+        return insertUpdateDeleteClass.insertUpdateDeleteDB("insert into unit_price(uid,lower,upper,price)"
                 + "values ('"+unitPrice.getUid()+"',"
                 + "'"+unitPrice.getLower()+"','"+unitPrice.getUpper()+"','"+unitPrice.getPrice()+"')");
     }
@@ -75,8 +75,15 @@ public class UnitPricesDB {
     public boolean updateUnitPrice(UnitPrice unitPrice){
     
         InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
-        return insertUpdateDeleteClass.insertUpdateDeleteDB("update UnitPrice set "
+        return insertUpdateDeleteClass.insertUpdateDeleteDB("update unit_price set "
         + "lower='"+unitPrice.getLower()+"',upper='"+unitPrice.getUpper()+"',"
         + "price='"+unitPrice.getPrice()+"' where uid='"+unitPrice.getUid()+"';");
     }    
+    
+    public boolean deleteUnitPrice(String  uid){
+    
+        InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
+        
+        return insertUpdateDeleteClass.insertUpdateDeleteDB("delete from unit_price where uid='"+uid+"' ");
+    }       
 }

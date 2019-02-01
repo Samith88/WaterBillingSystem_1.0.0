@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
 import waterbillingsystem_1.pkg0.pkg0.base.UnitPrice;
@@ -267,11 +268,11 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         String errorMessage = "";
         if(txUnitPriceId.getText().length()==0)
             errorMessage += "Enter a valid unit price Id";
-        if(txUnitPriceLower.getText().length()==0)
+        if(txUnitPriceLower.getText().length()==0 && !dataUpdate)
             errorMessage += "Enter a valid lower unit level";
-        if(txUnitPriceUpper.getText().length()==0)
+        if(txUnitPriceUpper.getText().length()==0 && !dataUpdate)
             errorMessage += "Enter a valid upper unit level";     
-        if(txUnitPrice.getText().length()==0)
+        if(txUnitPrice.getText().length()==0 && !dataUpdate)
             errorMessage += "Enter a valid unit price";  
         
         return errorMessage;
@@ -309,14 +310,43 @@ public class EnterUnitPrice extends javax.swing.JFrame {
     }    
     
     private void btnGDClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDClearActionPerformed
-        ClearComponents();
+        UnitPriceProcessor unitPriceProcessor=new UnitPriceProcessor();
+         
+        if(dataUpdate && !dataInserted)
+        {
+            if(JOptionPane.showConfirmDialog(this,"Do you want to delete this unit data ?")==JOptionPane.YES_OPTION)
+            {
+                    try {
+                        if(unitPriceProcessor.deleteUnitPrice(txUnitPriceId.getText()))
+                        {
+                            JOptionPaneCustom.infoBox("Unit price id :"+txUnitPriceId.getText()+" was deleted", "Unit price data deletion");
+                            dataInserted = true;
+                            ClearComponents();
+                            dataUpdate=false;
+                            btnGDEnter.setText("Enter UnitPrice");
+                            btnGDClear.setText("Clear Data");
+                            txUnitPriceId.enable();
+                        }
+                        else
+                            JOptionPaneCustom.errorBox("Unit price data deletion error", "Unit price Data deletion");
+                } catch (Exception ex) {
+                Logger.getLogger(EnterUnitPrice.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        else if(!dataInserted)
+        {
+            ClearComponents();
+        }  
     }//GEN-LAST:event_btnGDClearActionPerformed
 
     private void ClearComponents(){
         txUnitPriceId.setText("");
         txUnitPriceLower.setText("");
         txUnitPriceUpper.setText("");
-        txUnitPrice.setText("");    
+        txUnitPrice.setText("");  
+        
+        txUnitPriceId.enable();
     }
     private void txUnitPriceIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txUnitPriceIdKeyTyped
 
@@ -386,9 +416,10 @@ public class EnterUnitPrice extends javax.swing.JFrame {
             btnGDEnter.setText("Update UnitPrice");
             dataInserted=false;
             dataUpdate = true;
+            btnGDClear.setText("Delete UnitPrice");
 
         } catch (Exception ex) {
-            Logger.getLogger(EnterGroup.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EnterUnitPrice.class.getName()).log(Level.SEVERE, null, ex);
         }    
     }
     /**

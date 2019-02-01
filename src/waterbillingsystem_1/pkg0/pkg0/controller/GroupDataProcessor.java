@@ -30,4 +30,10 @@ public class GroupDataProcessor {
         return groupDetailsDB.getAGroup(gid);
     }
     
+    public boolean deleteGroup(String gid){
+    
+        GroupDetailsDB groupDetailsDB=new GroupDetailsDB();
+        return groupDetailsDB.deleteGroup(gid);
+    }
+    
 }

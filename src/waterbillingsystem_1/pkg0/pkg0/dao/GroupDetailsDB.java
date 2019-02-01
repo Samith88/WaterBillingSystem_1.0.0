@@ -34,6 +34,12 @@ public class GroupDetailsDB {
                 + " where gid='"+group.getGid()+"';");
     }
     
+    public boolean deleteGroup(String gid){
+        
+        InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
+        return insertUpdateDeleteClass.insertUpdateDeleteDB("delet from [group] where gid='"+gid+"';");
+    }    
+    
     public List<Group> getGroup() throws Exception{
         RetrieveClass retrieveClass =new RetrieveClass();
         List<Group> groups=new ArrayList<>();  

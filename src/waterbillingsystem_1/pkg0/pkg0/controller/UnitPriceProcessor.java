@@ -31,4 +31,11 @@ public class UnitPriceProcessor {
         UnitPricesDB unitPricesDB=new UnitPricesDB();
         return unitPricesDB.updateUnitPrice(unitPrice);
     }    
+    
+    public boolean deleteUnitPrice(String uid){
+        
+        UnitPricesDB unitPricesDB=new UnitPricesDB();
+        return unitPricesDB.deleteUnitPrice(uid);
+        
+    }
 }

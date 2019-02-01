@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
 import waterbillingsystem_1.pkg0.pkg0.base.Group;
@@ -291,7 +292,34 @@ public class EnterGroup extends javax.swing.JFrame {
     }    
     private void btnGDClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDClearActionPerformed
         // TODO add your handling code here:
-        ClearComponents();
+        GroupDataProcessor groupDataProcessor=new GroupDataProcessor();
+         
+        if(dataUpdate && !dataInserted)
+        {
+            if(JOptionPane.showConfirmDialog(this,"Do you want to delete this Group data ?")==JOptionPane.YES_OPTION)
+            {
+                    try {
+                        if(groupDataProcessor.deleteGroup(txtGroupId.getText()))
+                        {
+                            JOptionPaneCustom.infoBox("Group data id :"+txtGroupId.getText()+" was deleted", "Group data deletion");
+                            dataInserted = true;
+                            ClearComponents();
+                            dataUpdate=false;
+                            btnGDEnter.setText("Enter Group");
+                            btnGDClear.setText("Clear Data");
+                            txtGroupId.enable();
+                        }
+                        else
+                            JOptionPaneCustom.errorBox("Unit price data deletion error", "Unit price Data deletion");
+                } catch (Exception ex) {
+                Logger.getLogger(EnterGroup.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        else if(!dataInserted)
+        {
+            ClearComponents();
+        } 
     }//GEN-LAST:event_btnGDClearActionPerformed
 
     private void ClearComponents(){
@@ -331,8 +359,6 @@ public class EnterGroup extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGDEnterAnotherActionPerformed
 
     private void whenUpdateButtonClicked(){
-        if (!dataUpdate)
-            dataUpdate = true;
         
         GroupDataProcessor groupDataProcessor=new GroupDataProcessor();
         try {
@@ -344,6 +370,7 @@ public class EnterGroup extends javax.swing.JFrame {
             txtGroupDesc.setText(group.getDescription());
             
             btnGDEnter.setText("Update Group");
+            btnGDClear.setText("Delete Group");
             dataInserted=false;
             dataUpdate = true;
             
@@ -353,6 +380,9 @@ public class EnterGroup extends javax.swing.JFrame {
     }
     private void btnGDUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDUpdateActionPerformed
         // TODO add your handling code here:
+        if (!dataUpdate)
+        dataUpdate = true;        
+        
         String errorMessage = validateData();
         if(0 < errorMessage.length())
             JOptionPaneCustom.errorBox(errorMessage, "Group Data Insertion");   
