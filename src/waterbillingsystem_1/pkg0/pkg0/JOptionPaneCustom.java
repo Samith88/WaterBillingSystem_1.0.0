@@ -14,10 +14,10 @@ import javax.swing.JOptionPane;
 public class JOptionPaneCustom {
     public static void infoBox(String infoMessage, String titleBar)
     {
-        JOptionPane.showMessageDialog(null, infoMessage, "InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "<HTML><BODY>"+infoMessage+"</BODY></HTML>", "InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
     }    
     public static void errorBox(String errorMessage, String titleBar)
     {
-        JOptionPane.showMessageDialog(null, errorMessage, "ErrorBox: " + titleBar, JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, "<HTML><BODY>"+errorMessage+"</BODY></HTML>", "ErrorBox: " + titleBar, JOptionPane.ERROR_MESSAGE);
     }      
 }

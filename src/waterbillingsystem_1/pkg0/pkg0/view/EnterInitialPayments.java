@@ -58,11 +58,11 @@ public class EnterInitialPayments extends javax.swing.JFrame {
     
         String errorMessage = "";
         if(txtIPCID.getText().length()==0)
-            errorMessage += "Enter a valid customer Id";
+            errorMessage += "Enter a valid customer Id <br>";
         if(txtIPTIP.getText().length()==0 && !dataUpdate)
-            errorMessage += "Enter a valid total initial payment";
+            errorMessage += "Enter a valid total initial payment <br>";
         if(txtIPNewPayment.getText().length()==0 && !dataUpdate)
-            errorMessage += "Enter a valid newly received payment";     
+            errorMessage += "Enter a valid newly received payment <br>";     
         
         return errorMessage;
     } 

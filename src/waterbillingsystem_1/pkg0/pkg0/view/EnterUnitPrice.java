@@ -267,13 +267,13 @@ public class EnterUnitPrice extends javax.swing.JFrame {
     
         String errorMessage = "";
         if(txUnitPriceId.getText().length()==0)
-            errorMessage += "Enter a valid unit price Id";
+            errorMessage += "Enter a valid unit price Id <br>";
         if(txUnitPriceLower.getText().length()==0 && !dataUpdate)
-            errorMessage += "Enter a valid lower unit level";
+            errorMessage += "Enter a valid lower unit level <br>";
         if(txUnitPriceUpper.getText().length()==0 && !dataUpdate)
-            errorMessage += "Enter a valid upper unit level";     
+            errorMessage += "Enter a valid upper unit level <br>";     
         if(txUnitPrice.getText().length()==0 && !dataUpdate)
-            errorMessage += "Enter a valid unit price";  
+            errorMessage += "Enter a valid unit price <br>";  
         
         return errorMessage;
     }    

@@ -30,5 +30,9 @@ public class Validations {
         else
             return value;
     }    
+
+    public static String setLabelText(String value) {
+        return "Rs: " + value;
+    }
     
 }

@@ -252,7 +252,7 @@ public class GenerateInvoice extends javax.swing.JFrame {
         String errorMessage="";
         
         if(cmbCustomerCID.getSelectedItem().toString().equals("Select CID"))
-            errorMessage += "Please select customer id";
+            errorMessage += "Please select customer id <br>";
         
         return errorMessage;
     }

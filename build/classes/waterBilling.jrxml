@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="D3Rectangle" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8e0c7e98-fcdc-4afb-aa4f-f948e035dfb2">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="81"/>
+	<property name="ireport.y" value="0"/>
 	<subDataset name="Sample Dataset" uuid="389de2fa-2302-46df-88e2-d6ee19522008">
 		<field name="value" class="java.lang.String"/>
 		<field name="color" class="java.lang.String"/>
@@ -169,7 +170,7 @@
 				<text><![CDATA[ Member Group]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="39" y="144" width="128" height="13" uuid="8a702e7d-0f55-43e9-a297-92f00c9fc52f"/>
+				<reportElement x="39" y="147" width="128" height="14" uuid="8a702e7d-0f55-43e9-a297-92f00c9fc52f"/>
 				<box>
 					<pen lineWidth="1.0" lineStyle="Solid"/>
 				</box>
@@ -186,7 +187,7 @@
 				<text><![CDATA[ Meter Number]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="39" y="171" width="128" height="14" uuid="68c3125f-ff44-466c-a9d5-8c985daa9504"/>
+				<reportElement x="39" y="176" width="128" height="14" uuid="68c3125f-ff44-466c-a9d5-8c985daa9504"/>
 				<box>
 					<pen lineWidth="1.0" lineStyle="Solid"/>
 				</box>
@@ -196,7 +197,7 @@
 				<textFieldExpression><![CDATA[$P{P_InvoiceNo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="200" y="249" width="229" height="20" uuid="ce734e5a-dae7-4f03-bfd5-85395aca755b"/>
+				<reportElement x="200" y="249" width="214" height="20" uuid="ce734e5a-dae7-4f03-bfd5-85395aca755b"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
@@ -209,7 +210,7 @@
 				<textFieldExpression><![CDATA[$P{P_LastPaymentDay}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="200" y="275" width="229" height="20" uuid="c758666c-7229-4877-b245-04005dce4c58"/>
+				<reportElement x="200" y="275" width="214" height="20" uuid="c758666c-7229-4877-b245-04005dce4c58"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
@@ -222,7 +223,7 @@
 				<textFieldExpression><![CDATA[$P{P_OldMeter}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="200" y="298" width="229" height="20" uuid="177a2408-ebca-42b5-b36c-7849ef464e95"/>
+				<reportElement x="200" y="298" width="214" height="20" uuid="177a2408-ebca-42b5-b36c-7849ef464e95"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
@@ -235,7 +236,7 @@
 				<textFieldExpression><![CDATA[$P{P_NewMeter}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="200" y="328" width="229" height="20" uuid="602592b2-d362-47cf-81da-3004885613e1"/>
+				<reportElement x="200" y="328" width="214" height="20" uuid="602592b2-d362-47cf-81da-3004885613e1"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
@@ -248,7 +249,7 @@
 				<textFieldExpression><![CDATA[$P{P_MonthlyUsageUnit}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="200" y="354" width="229" height="20" uuid="b56cb3f3-e94c-4832-973a-a5f8302d64a4"/>
+				<reportElement x="200" y="354" width="214" height="20" uuid="b56cb3f3-e94c-4832-973a-a5f8302d64a4"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
@@ -261,7 +262,7 @@
 				<textFieldExpression><![CDATA[$P{P_MonthlyConsumption}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="200" y="381" width="229" height="20" uuid="c6acb2b3-04e1-4f91-8658-fb5fac608d5e"/>
+				<reportElement x="200" y="381" width="214" height="20" uuid="c6acb2b3-04e1-4f91-8658-fb5fac608d5e"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
@@ -274,7 +275,7 @@
 				<textFieldExpression><![CDATA[$P{P_FixedCharge}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="200" y="408" width="229" height="20" uuid="993207a9-f22b-4529-8f2b-1e71b9f3cfa6"/>
+				<reportElement x="200" y="410" width="214" height="20" uuid="993207a9-f22b-4529-8f2b-1e71b9f3cfa6"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
@@ -287,7 +288,7 @@
 				<textFieldExpression><![CDATA[$P{P_Sramadhana}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="200" y="434" width="229" height="20" uuid="c3588230-a6b8-4755-a62f-34d54bb89ba8"/>
+				<reportElement x="200" y="434" width="214" height="20" uuid="c3588230-a6b8-4755-a62f-34d54bb89ba8"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
@@ -300,7 +301,7 @@
 				<textFieldExpression><![CDATA[$P{P_AbsentCharge}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="200" y="491" width="229" height="20" uuid="07b6c7e7-ece8-4e2d-bdcc-a9d11991203a"/>
+				<reportElement x="200" y="459" width="214" height="20" uuid="07b6c7e7-ece8-4e2d-bdcc-a9d11991203a"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
@@ -313,7 +314,7 @@
 				<textFieldExpression><![CDATA[$P{P_TotalMonthlyAmount}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="200" y="465" width="229" height="20" uuid="f0da6ca9-82b7-4f44-9346-8c25caf3c220"/>
+				<reportElement x="200" y="486" width="214" height="20" uuid="f0da6ca9-82b7-4f44-9346-8c25caf3c220"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
@@ -326,7 +327,7 @@
 				<textFieldExpression><![CDATA[$P{P_CurrentTotalAmount}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="200" y="520" width="229" height="20" uuid="bf2efbb8-0a68-48d6-8755-4404b2da4122"/>
+				<reportElement x="200" y="520" width="214" height="20" uuid="bf2efbb8-0a68-48d6-8755-4404b2da4122"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
@@ -541,7 +542,7 @@
 				<reportElement x="610" y="330" width="170" height="20" uuid="5d865250-cf8e-40eb-89a0-53fae88f2058"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="39" y="158" width="60" height="14" uuid="e5c6ffeb-4814-44b6-926e-e898134d6cca"/>
+				<reportElement x="39" y="161" width="60" height="14" uuid="e5c6ffeb-4814-44b6-926e-e898134d6cca"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
@@ -553,9 +554,9 @@
 					<pen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="11" isBold="true"/>
+					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[ Please make sure payments were inserted.]]></text>
+				<text><![CDATA[ Please make sure payment data were inserted to system.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="30" y="220" width="148" height="12" uuid="1b04180a-5e91-4568-9d87-e241daa98a74"/>
@@ -565,7 +566,7 @@
 				<text><![CDATA[ Last payments received]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="200" y="220" width="229" height="20" uuid="7e9043cd-aa43-407e-bb4b-71c5de06833b"/>
+				<reportElement x="200" y="220" width="214" height="20" uuid="7e9043cd-aa43-407e-bb4b-71c5de06833b"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
@@ -613,7 +614,7 @@
 				<text><![CDATA[ (මිටරයේ අංකය)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="99" y="158" width="67" height="15" uuid="d3e2b353-753c-4e72-9872-01b8ea84576e"/>
+				<reportElement x="100" y="161" width="67" height="15" uuid="d3e2b353-753c-4e72-9872-01b8ea84576e"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font fontName="Iskoola Pota" size="11"/>
 				</textElement>

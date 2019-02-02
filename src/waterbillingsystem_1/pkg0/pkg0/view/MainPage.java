@@ -61,8 +61,10 @@ public class MainPage extends javax.swing.JFrame {
         PanelMainRpt = new javax.swing.JPanel();
         btnMainInvoice = new javax.swing.JButton();
         lblMainCustomer2 = new javax.swing.JLabel();
-        btnMainIReport = new javax.swing.JButton();
+        btnMainIUnitCal = new javax.swing.JButton();
         lblMainReport = new javax.swing.JLabel();
+        btnMainIReport = new javax.swing.JButton();
+        lblMainUnitCal = new javax.swing.JLabel();
         LblMain2 = new javax.swing.JLabel();
         PanelMainUserM = new javax.swing.JPanel();
         btnMainCustomer = new javax.swing.JButton();
@@ -224,14 +226,14 @@ public class MainPage extends javax.swing.JFrame {
             }
         });
 
-        btnMainIReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/reports.png"))); // NOI18N
-        btnMainIReport.setBorder(null);
-        btnMainIReport.setBorderPainted(false);
-        btnMainIReport.setContentAreaFilled(false);
-        btnMainIReport.setFocusPainted(false);
-        btnMainIReport.addActionListener(new java.awt.event.ActionListener() {
+        btnMainIUnitCal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/calculator.png"))); // NOI18N
+        btnMainIUnitCal.setBorder(null);
+        btnMainIUnitCal.setBorderPainted(false);
+        btnMainIUnitCal.setContentAreaFilled(false);
+        btnMainIUnitCal.setFocusPainted(false);
+        btnMainIUnitCal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMainIReportActionPerformed(evt);
+                btnMainIUnitCalActionPerformed(evt);
             }
         });
 
@@ -243,37 +245,64 @@ public class MainPage extends javax.swing.JFrame {
             }
         });
 
+        btnMainIReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/reports.png"))); // NOI18N
+        btnMainIReport.setBorder(null);
+        btnMainIReport.setBorderPainted(false);
+        btnMainIReport.setContentAreaFilled(false);
+        btnMainIReport.setFocusPainted(false);
+        btnMainIReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMainIReportActionPerformed(evt);
+            }
+        });
+
+        lblMainUnitCal.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblMainUnitCal.setText("Unit Calculator");
+        lblMainUnitCal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMainUnitCalMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelMainRptLayout = new javax.swing.GroupLayout(PanelMainRpt);
         PanelMainRpt.setLayout(PanelMainRptLayout);
         PanelMainRptLayout.setHorizontalGroup(
             PanelMainRptLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelMainRptLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addContainerGap()
                 .addComponent(btnMainIReport)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblMainReport)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btnMainInvoice)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblMainCustomer2)
-                .addGap(28, 28, 28))
+                .addGap(18, 18, 18)
+                .addComponent(btnMainIUnitCal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblMainUnitCal)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         PanelMainRptLayout.setVerticalGroup(
             PanelMainRptLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelMainRptLayout.createSequentialGroup()
                 .addGroup(PanelMainRptLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelMainRptLayout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(lblMainCustomer2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PanelMainRptLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
+                        .addGap(32, 32, 32)
                         .addGroup(PanelMainRptLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PanelMainRptLayout.createSequentialGroup()
                                 .addGap(9, 9, 9)
+                                .addComponent(lblMainCustomer2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PanelMainRptLayout.createSequentialGroup()
+                                .addGap(9, 9, 9)
                                 .addComponent(lblMainReport, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnMainIReport)
-                            .addComponent(btnMainInvoice))))
-                .addContainerGap(58, Short.MAX_VALUE))
+                            .addComponent(btnMainIUnitCal)
+                            .addComponent(btnMainInvoice)
+                            .addComponent(btnMainIReport)))
+                    .addGroup(PanelMainRptLayout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(lblMainUnitCal, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         LblMain2.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
@@ -353,7 +382,7 @@ public class MainPage extends javax.swing.JFrame {
                     .addGroup(PanelMainUserMLayout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(lblMainGD, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -382,16 +411,16 @@ public class MainPage extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(25, 25, 25)
                         .addComponent(PanelMainUserM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                         .addComponent(PanelMainRpt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(231, 231, 231)
                         .addComponent(LblMain1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(LblMain2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGap(31, 31, 31)
                 .addComponent(PanelMainTrx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33))
         );
@@ -501,11 +530,23 @@ public class MainPage extends javax.swing.JFrame {
         this.setVisible(false);
         this.dispose();         
     }
-    private void btnMainIReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMainIReportActionPerformed
+    private void btnMainIUnitCalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMainIUnitCalActionPerformed
         // TODO add your handling code here:
-        openReportWindow();
-    }//GEN-LAST:event_btnMainIReportActionPerformed
+        openUnitCalculator();
+    }//GEN-LAST:event_btnMainIUnitCalActionPerformed
 
+    private void openUnitCalculator(){
+        UnitCalculator unitCalculator = null;
+        try {
+            unitCalculator = new UnitCalculator();
+        } catch (IOException ex) {
+            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        unitCalculator.setVisible(true); 
+        this.setVisible(false);
+        this.dispose();     
+        
+    }
     private void openReportWindow(){
     
         ViewReports viewReports = null;
@@ -575,6 +616,16 @@ public class MainPage extends javax.swing.JFrame {
         openGroupDataWindow();
     }//GEN-LAST:event_lblMainGDMouseClicked
 
+    private void btnMainIReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMainIReportActionPerformed
+        // TODO add your handling code here:
+        openReportWindow();
+    }//GEN-LAST:event_btnMainIReportActionPerformed
+
+    private void lblMainUnitCalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMainUnitCalMouseClicked
+        // TODO add your handling code here:
+        openUnitCalculator();
+    }//GEN-LAST:event_lblMainUnitCalMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -620,6 +671,7 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JButton btnMainCustomer;
     private javax.swing.JButton btnMainIP;
     private javax.swing.JButton btnMainIReport;
+    private javax.swing.JButton btnMainIUnitCal;
     private javax.swing.JButton btnMainInvoice;
     private javax.swing.JButton btnMainPayment;
     private javax.swing.JButton btnMainUP;
@@ -631,5 +683,6 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JLabel lblMainPayments;
     private javax.swing.JLabel lblMainReport;
     private javax.swing.JLabel lblMainUP;
+    private javax.swing.JLabel lblMainUnitCal;
     // End of variables declaration//GEN-END:variables
 }

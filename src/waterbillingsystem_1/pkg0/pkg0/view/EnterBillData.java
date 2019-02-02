@@ -458,11 +458,11 @@ public class EnterBillData extends javax.swing.JFrame {
         String errorString = "";
 
         if(cmbCustomerCID.getSelectedItem().toString().length()==0)
-            errorString += "Customer NIC error";
+            errorString += "Customer NIC error <br>";
         if((!radioUnits.isSelected() && !radioMeter.isSelected()) && !dataUpdate)
-            errorString += "Please select type of meter units";
+            errorString += "Please select type of meter units <br>";
         if(txtBDUnitUsage.getText().length()==0 && !dataUpdate)
-            errorString += "Monthly Unit Usage not entered";   
+            errorString += "Monthly Unit Usage not entered <br>";   
         
         errorString +=ValidateMeterReading();
         

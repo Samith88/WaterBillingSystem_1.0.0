@@ -253,9 +253,9 @@ public class EnterGroup extends javax.swing.JFrame {
     
         String errorMessage = "";
         if(txtGroupId.getText().length()==0)
-            errorMessage += "Enter a valid group Id";
-        if(txtGroupName.getText().length()==0)
-            errorMessage += "Enter a valid group name";
+            errorMessage += "Enter a valid group Id <br>";
+        if(txtGroupName.getText().length()==0 && !dataUpdate)
+            errorMessage += "Enter a valid group name <br>";
         
         return errorMessage;
     }
@@ -310,7 +310,7 @@ public class EnterGroup extends javax.swing.JFrame {
                             txtGroupId.enable();
                         }
                         else
-                            JOptionPaneCustom.errorBox("Unit price data deletion error", "Unit price Data deletion");
+                            JOptionPaneCustom.errorBox("Group data deletion error", "Group Data deletion");
                 } catch (Exception ex) {
                 Logger.getLogger(EnterGroup.class.getName()).log(Level.SEVERE, null, ex);
                 }

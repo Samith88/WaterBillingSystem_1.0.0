@@ -443,15 +443,15 @@ public class EnterCustomer extends javax.swing.JFrame {
     
         String errorMessage = "";
         if(txtCustomerFN.getText().length()==0 && !dataUpdate)
-            errorMessage += "Enter valide First name ";
+            errorMessage += "Enter valide First name <br>";
         if(txtCustomername.getText().length()==0 && !dataUpdate)
-            errorMessage += "Enter valide name ";
+            errorMessage += "Enter valide name <br>";
         if(txtCustomerNo.getText().length()==0)
-            errorMessage += "Enter valide customer Id ";
+            errorMessage += "Enter valide customer Id <br>";
         if(txtCustomerCurrentMeter.getText().length()==0 && !dataUpdate)
-            errorMessage += "Enter valide Current Meter ";   
+            errorMessage += "Enter valide Current Meter <br>";   
         if(txtCustomerTOA.getText().length()==0 && !dataUpdate)
-            errorMessage += "Enter valide Total OutStanding value ";
+            errorMessage += "Enter valide Total OutStanding value <br>";
         
         return errorMessage;
     }

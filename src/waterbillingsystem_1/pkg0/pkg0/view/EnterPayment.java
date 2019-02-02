@@ -323,12 +323,12 @@ public class EnterPayment extends javax.swing.JFrame {
     private String validateData(){
     
         String errorMessage = "";
-        if(cmdCID.getSelectedItem().toString().equals("Select CID")) {
-            errorMessage += "Please enter a correct Customer Id ";
+        if(cmdCID.getSelectedItem().toString().equals("Select Cistomer ID <br>")) {
+            errorMessage += "Please enter a correct Customer Id <br>";
         }
         
         if(txtPaymentAmount.getText().length()==0 && !dataUpdate)
-            errorMessage += "Please enter a valid amount ";
+            errorMessage += "Please enter a valid amount <br>";
  
         return errorMessage;
     }

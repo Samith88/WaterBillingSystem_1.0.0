@@ -696,11 +696,6 @@ public class ViewReports extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private String setLabelText(String value){
-    
-        return "Rs: "+value;
-    }
     private void btnCBPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCBPActionPerformed
         // TODO add your handling code here:
         ReportingProcessor reportingProcessor=new ReportingProcessor();
@@ -711,7 +706,7 @@ public class ViewReports extends javax.swing.JFrame {
             overallMonthlyPayment = reportingProcessor.getOverallMonthlyPayment(overallMonthlyPayment.getBillingMonth());
             
             CBPblPayCountAns.setText(String.valueOf(overallMonthlyPayment.getMonthlyPaymentCount()));
-            CBPblTPaymentsAns.setText(setLabelText(String.valueOf(overallMonthlyPayment.getOverallMonthlyPayments())));
+            CBPblTPaymentsAns.setText(Validations.setLabelText(String.valueOf(overallMonthlyPayment.getOverallMonthlyPayments())));
         } catch (Exception ex) {
             Logger.getLogger(ViewReports.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -729,8 +724,8 @@ public class ViewReports extends javax.swing.JFrame {
             try {
                 paymentsCustomer = reportingProcessor.getPaymentsCustomer(paymentsCustomer.getBillingMonth(), paymentsCustomer.getPaymentCID());
                 
-                lblCBPMonthPayCusAns.setText(setLabelText(String.valueOf(paymentsCustomer.getCustomerPaymentMonthAmt()) ));
-                lblCBPMonthPayCusPendingAns.setText(setLabelText(String.valueOf(paymentsCustomer.getCustomerPaymentMonthPendingAmt())) );
+                lblCBPMonthPayCusAns.setText(Validations.setLabelText(String.valueOf(paymentsCustomer.getCustomerPaymentMonthAmt()) ));
+                lblCBPMonthPayCusPendingAns.setText(Validations.setLabelText(String.valueOf(paymentsCustomer.getCustomerPaymentMonthPendingAmt())) );
             } catch (Exception ex) {
                 Logger.getLogger(ViewReports.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -750,11 +745,11 @@ public class ViewReports extends javax.swing.JFrame {
         try {
             overallMonthlyBilling= reportingProcessor.getOverallMonthlyBilling(overallMonthlyBilling.getBillingMonth());
             
-            RDLblSramadanaAns.setText(setLabelText(String.valueOf(overallMonthlyBilling.getTotalIncomeShramadhana())) );
-            RDLblAbAns.setText(setLabelText(String.valueOf(overallMonthlyBilling.getTotalIncomePanelty()) ));
-            RDLblFixedAns.setText(setLabelText(String.valueOf(overallMonthlyBilling.getTotalIncomeFixedCharge())) );
-            RDLblTotalBillAns.setText(setLabelText(String.valueOf(overallMonthlyBilling.getTotalIncomeFromBill()) ));
-            RDLblUnitConsAns.setText(setLabelText(String.valueOf(overallMonthlyBilling.getTotalIncomeFromUnitConsumption()) ));
+            RDLblSramadanaAns.setText(Validations.setLabelText(String.valueOf(overallMonthlyBilling.getTotalIncomeShramadhana())) );
+            RDLblAbAns.setText(Validations.setLabelText(String.valueOf(overallMonthlyBilling.getTotalIncomePanelty()) ));
+            RDLblFixedAns.setText(Validations.setLabelText(String.valueOf(overallMonthlyBilling.getTotalIncomeFixedCharge())) );
+            RDLblTotalBillAns.setText(Validations.setLabelText(String.valueOf(overallMonthlyBilling.getTotalIncomeFromBill()) ));
+            RDLblUnitConsAns.setText(Validations.setLabelText(String.valueOf(overallMonthlyBilling.getTotalIncomeFromUnitConsumption()) ));
         } catch (Exception ex) {
             Logger.getLogger(ViewReports.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -770,8 +765,8 @@ public class ViewReports extends javax.swing.JFrame {
             customerInitialPayment.setInitialPaymentCID(Validations.getCorrectCID(txtCIPCID.getText()));
             try {
                 customerInitialPayment = reportingProcessor.getCustomerInitialPayment(customerInitialPayment.getInitialPaymentCID());
-                lblCIPTPayAns.setText(setLabelText(String.valueOf(customerInitialPayment.getInitialPaymentAmt())));
-                lblCIPReceivedAns.setText(setLabelText(String.valueOf(customerInitialPayment.getInitialPaymentAmtReceived())));
+                lblCIPTPayAns.setText(Validations.setLabelText(String.valueOf(customerInitialPayment.getInitialPaymentAmt())));
+                lblCIPReceivedAns.setText(Validations.setLabelText(String.valueOf(customerInitialPayment.getInitialPaymentAmtReceived())));
                 
             } catch (Exception ex) {
                 Logger.getLogger(ViewReports.class.getName()).log(Level.SEVERE, null, ex);
@@ -792,7 +787,7 @@ public class ViewReports extends javax.swing.JFrame {
             
             totalInitialPayment = reportingProcessor.getTotalInitialPayment(cmbCIPYear.getSelectedItem().toString()+cmbCIPMonth.getSelectedItem().toString().split("-")[0]);
             CIPLblPayCountAns.setText(String.valueOf(totalInitialPayment.getInitialPaymentRecivedCountMonthly()));
-            CIPLblPayAmtAns.setText(setLabelText(String.valueOf(totalInitialPayment.getInitialTotalPaymentRecivedMonthly())));
+            CIPLblPayAmtAns.setText(Validations.setLabelText(String.valueOf(totalInitialPayment.getInitialTotalPaymentRecivedMonthly())));
             
         } catch (Exception ex) {
             Logger.getLogger(ViewReports.class.getName()).log(Level.SEVERE, null, ex);

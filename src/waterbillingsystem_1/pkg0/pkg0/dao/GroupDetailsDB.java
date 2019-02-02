@@ -37,7 +37,7 @@ public class GroupDetailsDB {
     public boolean deleteGroup(String gid){
         
         InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
-        return insertUpdateDeleteClass.insertUpdateDeleteDB("delet from [group] where gid='"+gid+"';");
+        return insertUpdateDeleteClass.insertUpdateDeleteDB("delete from [group] where gid='"+gid+"';");
     }    
     
     public List<Group> getGroup() throws Exception{
