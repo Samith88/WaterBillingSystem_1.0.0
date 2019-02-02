@@ -140,7 +140,7 @@ public class EnterBillData extends javax.swing.JFrame {
 
         cmbMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01-January", "02-February", "03-March", "04-April", "05-May", "06-June", "07-July", "08-August", "09-September", "10-Octomber", "11-November", "12-December" }));
 
-        cmbYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035" }));
+        cmbYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035" }));
 
         btnBDClear.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnBDClear.setText(" Clear Bill Data");
@@ -445,7 +445,7 @@ public class EnterBillData extends javax.swing.JFrame {
     private String ValidateMeterReading() throws Exception{
     
         CustomerDataProcessor customerDataProcessor=new CustomerDataProcessor();
-        int oldMeter = customerDataProcessor.getCurentMeterFromNIC(cmbCustomerCID.getSelectedItem().toString());
+        int oldMeter = customerDataProcessor.getCurentMeterFromCID(cmbCustomerCID.getSelectedItem().toString());
         if(radioMeter.isSelected())
             if(Integer.parseInt(txtBDUnitUsage.getText()) < oldMeter)
                 return "New Meter value should be greater than old meter value. Old meter:"+oldMeter;
@@ -457,8 +457,8 @@ public class EnterBillData extends javax.swing.JFrame {
     
         String errorString = "";
 
-        if(cmbCustomerCID.getSelectedItem().toString().length()==0)
-            errorString += "Customer NIC error <br>";
+        if(cmbCustomerCID.getSelectedItem().toString().equals("Select CID"))
+            errorString += "Please enter Customer Id <br>";
         if((!radioUnits.isSelected() && !radioMeter.isSelected()) && !dataUpdate)
             errorString += "Please select type of meter units <br>";
         if(txtBDUnitUsage.getText().length()==0 && !dataUpdate)

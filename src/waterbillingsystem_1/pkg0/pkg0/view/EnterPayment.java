@@ -120,7 +120,7 @@ public class EnterPayment extends javax.swing.JFrame {
 
         cmbMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01-January", "02-February", "03-March", "04-April", "05-May", "06-June", "07-July", "08-August", "09-September", "10-Octomber", "11-November", "12-December" }));
 
-        cmbYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035" }));
+        cmbYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035" }));
 
         btnPDClear.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnPDClear.setText(" Clear Data");
@@ -323,7 +323,7 @@ public class EnterPayment extends javax.swing.JFrame {
     private String validateData(){
     
         String errorMessage = "";
-        if(cmdCID.getSelectedItem().toString().equals("Select Cistomer ID <br>")) {
+        if(cmdCID.getSelectedItem().toString().equals("Select CID")) {
             errorMessage += "Please enter a correct Customer Id <br>";
         }
         
@@ -453,7 +453,7 @@ public class EnterPayment extends javax.swing.JFrame {
             this.currentPayment = payment;
             
         } catch (Exception ex) {
-            JOptionPaneCustom.errorBox("NIC not found", "Payment Data Updating");
+            JOptionPaneCustom.errorBox("CID not found", "Payment Data Updating");
             Logger.getLogger(EnterCustomer.class.getName()).log(Level.SEVERE, null, ex);
         }    
         

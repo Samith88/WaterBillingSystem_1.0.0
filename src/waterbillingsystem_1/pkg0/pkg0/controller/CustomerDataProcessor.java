@@ -39,7 +39,7 @@ public class CustomerDataProcessor {
         return customerDataDatabase.getTOAFromCID(cid);
     }    
     
-    public int getCurentMeterFromNIC(String cid) throws Exception {
+    public int getCurentMeterFromCID(String cid) throws Exception {
     
         CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
         return customerDataDatabase.getCurentMeterFromCID(cid);
