@@ -13,6 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import java.io.File;
 import java.io.IOException;
+import waterbillingsystem_1.pkg0.pkg0.controller.ExtraChargeProcessor;
 /**
  *
  * @author UDISSSA1
@@ -76,6 +77,11 @@ public class MainPage extends javax.swing.JFrame {
         setTitle("Pananwala Water Billing System");
         setName("frmMain"); // NOI18N
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         PanelMainTrx.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Transactions", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
         PanelMainTrx.setForeground(new java.awt.Color(255, 255, 255));
@@ -286,23 +292,20 @@ public class MainPage extends javax.swing.JFrame {
         PanelMainRptLayout.setVerticalGroup(
             PanelMainRptLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelMainRptLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
                 .addGroup(PanelMainRptLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnMainIUnitCal)
+                    .addComponent(btnMainInvoice)
+                    .addComponent(btnMainIReport)
                     .addGroup(PanelMainRptLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
+                        .addGap(9, 9, 9)
                         .addGroup(PanelMainRptLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelMainRptLayout.createSequentialGroup()
-                                .addGap(9, 9, 9)
-                                .addComponent(lblMainCustomer2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(PanelMainRptLayout.createSequentialGroup()
-                                .addGap(9, 9, 9)
-                                .addComponent(lblMainReport, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnMainIUnitCal)
-                            .addComponent(btnMainInvoice)
-                            .addComponent(btnMainIReport)))
+                            .addComponent(lblMainCustomer2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblMainReport, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(PanelMainRptLayout.createSequentialGroup()
-                        .addGap(46, 46, 46)
+                        .addGap(14, 14, 14)
                         .addComponent(lblMainUnitCal, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         LblMain2.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
@@ -413,16 +416,16 @@ public class MainPage extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(PanelMainUserM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                        .addGap(37, 37, 37)
                         .addComponent(PanelMainRpt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(231, 231, 231)
                         .addComponent(LblMain1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(LblMain2)))
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(PanelMainTrx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+                .addGap(50, 50, 50))
         );
 
         pack();
@@ -625,6 +628,16 @@ public class MainPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         openUnitCalculator();
     }//GEN-LAST:event_lblMainUnitCalMouseClicked
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        ExtraChargeProcessor extraChargeProcessor=new ExtraChargeProcessor();
+        try {
+            extraChargeProcessor.setGlobeChargingVariables();
+        } catch (Exception ex) {
+            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

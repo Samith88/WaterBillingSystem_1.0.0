@@ -323,7 +323,7 @@ public class EnterPayment extends javax.swing.JFrame {
     private String validateData(){
     
         String errorMessage = "";
-        if(cmdCID.getSelectedItem().toString().equals("Select CID")) {
+        if(cmdCID.getSelectedItem().toString().equals("Select CID") || cmdCID.getSelectedItem().toString().equals("")) {
             errorMessage += "Please enter a correct Customer Id <br>";
         }
         

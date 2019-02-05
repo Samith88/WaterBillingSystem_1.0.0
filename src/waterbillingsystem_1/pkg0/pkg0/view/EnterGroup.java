@@ -363,16 +363,20 @@ public class EnterGroup extends javax.swing.JFrame {
         GroupDataProcessor groupDataProcessor=new GroupDataProcessor();
         try {
             Group group = groupDataProcessor.getGroupById(txtGroupId.getText());
+            if(group.getGid() != null)
+            {
+                txtGroupId.disable();
+                txtGroupName.setText(group.getGname());
+                txtGroupLoc.setText(group.getLocation());
+                txtGroupDesc.setText(group.getDescription());
             
-            txtGroupId.disable();
-            txtGroupName.setText(group.getGname());
-            txtGroupLoc.setText(group.getLocation());
-            txtGroupDesc.setText(group.getDescription());
-            
-            btnGDEnter.setText("Update Group");
-            btnGDClear.setText("Delete Group");
-            dataInserted=false;
-            dataUpdate = true;
+                btnGDEnter.setText("Update Group");
+                btnGDClear.setText("Delete Group");
+                dataInserted=false;
+                dataUpdate = true;
+            }
+            else
+                JOptionPaneCustom.errorBox("Group Id not exist", "Group Data Update");   
             
         } catch (Exception ex) {
             Logger.getLogger(EnterGroup.class.getName()).log(Level.SEVERE, null, ex);

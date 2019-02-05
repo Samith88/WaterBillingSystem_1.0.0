@@ -457,7 +457,7 @@ public class EnterBillData extends javax.swing.JFrame {
     
         String errorString = "";
 
-        if(cmbCustomerCID.getSelectedItem().toString().equals("Select CID"))
+        if(cmbCustomerCID.getSelectedItem().toString().equals("Select CID") || cmbCustomerCID.getSelectedItem().toString().equals(""))
             errorString += "Please enter Customer Id <br>";
         if((!radioUnits.isSelected() && !radioMeter.isSelected()) && !dataUpdate)
             errorString += "Please select type of meter units <br>";

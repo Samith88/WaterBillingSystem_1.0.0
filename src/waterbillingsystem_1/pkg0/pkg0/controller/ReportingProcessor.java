@@ -5,12 +5,22 @@
  */
 package waterbillingsystem_1.pkg0.pkg0.controller;
 
+import java.sql.SQLException;
+import java.util.HashMap;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 import waterbillingsystem_1.pkg0.pkg0.ReportBase.CustomerInitialPayment;
 import waterbillingsystem_1.pkg0.pkg0.ReportBase.OverallMonthlyBilling;
 import waterbillingsystem_1.pkg0.pkg0.ReportBase.OverallMonthlyPayment;
 import waterbillingsystem_1.pkg0.pkg0.ReportBase.PaymentsCustomer;
 import waterbillingsystem_1.pkg0.pkg0.ReportBase.TotalInitialPayment;
 import waterbillingsystem_1.pkg0.pkg0.dao.ReportingDBData;
+import waterbillingsystem_1.pkg0.pkg0.database.DBConnection;
+import waterbillingsystem_1.pkg0.pkg0.logging.getLogger;
 
 /**
  *
@@ -46,6 +56,22 @@ public class ReportingProcessor {
     
         ReportingDBData reportingDBData=new ReportingDBData();
         return reportingDBData.getTotalInitialPayment(month);
+    }
+    
+    public void generateCustomReports(String JasperSourceFile) throws SQLException, Exception{
+        try {
+            JasperReport sourceFile = JasperCompileManager.compileReport(JasperSourceFile);
+            
+            JasperPrint print = JasperFillManager.fillReport(sourceFile, new HashMap(), DBConnection.readConnect());
+			
+            JasperViewer.viewReport(print,false);           
+	
+        } catch (JRException e) {
+            getLogger.getLog().debug(e.toString());
+        } finally {
+            DBConnection.disconnect();
+        }    
+        
     }
     
 }

@@ -16,7 +16,10 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
+import waterbillingsystem_1.pkg0.pkg0.VariableStorage;
+import waterbillingsystem_1.pkg0.pkg0.base.ExtraCharges;
 import waterbillingsystem_1.pkg0.pkg0.base.UnitPrice;
+import waterbillingsystem_1.pkg0.pkg0.controller.ExtraChargeProcessor;
 import waterbillingsystem_1.pkg0.pkg0.controller.FillGUIComponents;
 import waterbillingsystem_1.pkg0.pkg0.controller.UnitPriceProcessor;
 
@@ -58,26 +61,68 @@ public class EnterUnitPrice extends javax.swing.JFrame {
     private void initComponents() {
 
         UDLabelMain = new javax.swing.JLabel();
+        btnCDHome = new javax.swing.JButton();
+        UDLbPrice = new javax.swing.JLabel();
+        btnGDClear = new javax.swing.JButton();
+        txUnitPrice = new javax.swing.JTextField();
         btnGDEnter = new javax.swing.JButton();
         UDLblUPId = new javax.swing.JLabel();
+        btnUPUpdate = new javax.swing.JButton();
         btnGDEnterAnother = new javax.swing.JButton();
         txUnitPriceId = new javax.swing.JTextField();
         UDLblLower = new javax.swing.JLabel();
         txUnitPriceLower = new javax.swing.JTextField();
         txUnitPriceUpper = new javax.swing.JTextField();
         UDLbLUpper = new javax.swing.JLabel();
-        UDLbPrice = new javax.swing.JLabel();
-        btnGDClear = new javax.swing.JButton();
-        txUnitPrice = new javax.swing.JTextField();
-        btnCDHome = new javax.swing.JButton();
-        btnUPUpdate = new javax.swing.JButton();
+        UDLblFixedCharge = new javax.swing.JLabel();
+        txtUDFFixedCharge = new javax.swing.JTextField();
+        lblUDFShramadhana = new javax.swing.JLabel();
+        txtUDFShramadhaCharge = new javax.swing.JTextField();
+        UDLblAbsent = new javax.swing.JLabel();
+        txtUBFAbsentCharge = new javax.swing.JTextField();
+        UDLabelMain1 = new javax.swing.JLabel();
+        btnExtraChargeReload = new javax.swing.JButton();
+        btnExtraCharge = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Pananwala Water Billing System");
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         UDLabelMain.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         UDLabelMain.setText("Unit Data Form");
+
+        btnCDHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home_button.png"))); // NOI18N
+        btnCDHome.setBorder(null);
+        btnCDHome.setBorderPainted(false);
+        btnCDHome.setContentAreaFilled(false);
+        btnCDHome.setFocusPainted(false);
+        btnCDHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCDHomeActionPerformed(evt);
+            }
+        });
+
+        UDLbPrice.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        UDLbPrice.setText("Unit Price");
+
+        btnGDClear.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnGDClear.setText(" Clear Data");
+        btnGDClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGDClearActionPerformed(evt);
+            }
+        });
+
+        txUnitPrice.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txUnitPriceKeyTyped(evt);
+            }
+        });
 
         btnGDEnter.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnGDEnter.setText("Enter UnitPrice");
@@ -89,6 +134,17 @@ public class EnterUnitPrice extends javax.swing.JFrame {
 
         UDLblUPId.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         UDLblUPId.setText("Unit Price Id");
+
+        btnUPUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/update.png"))); // NOI18N
+        btnUPUpdate.setBorder(null);
+        btnUPUpdate.setBorderPainted(false);
+        btnUPUpdate.setContentAreaFilled(false);
+        btnUPUpdate.setFocusPainted(false);
+        btnUPUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUPUpdateActionPerformed(evt);
+            }
+        });
 
         btnGDEnterAnother.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnGDEnterAnother.setText("Another UnitPrice");
@@ -122,42 +178,49 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         UDLbLUpper.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         UDLbLUpper.setText("Unit Upper Value");
 
-        UDLbPrice.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        UDLbPrice.setText("Unit Price");
+        UDLblFixedCharge.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        UDLblFixedCharge.setText("Fixed Monthly Charge");
 
-        btnGDClear.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnGDClear.setText(" Clear Data");
-        btnGDClear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGDClearActionPerformed(evt);
-            }
-        });
-
-        txUnitPrice.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtUDFFixedCharge.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txUnitPriceKeyTyped(evt);
+                txtUDFFixedChargeKeyTyped(evt);
             }
         });
 
-        btnCDHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home_button.png"))); // NOI18N
-        btnCDHome.setBorder(null);
-        btnCDHome.setBorderPainted(false);
-        btnCDHome.setContentAreaFilled(false);
-        btnCDHome.setFocusPainted(false);
-        btnCDHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCDHomeActionPerformed(evt);
+        lblUDFShramadhana.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblUDFShramadhana.setText("Shramadhana Charges");
+
+        txtUDFShramadhaCharge.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtUDFShramadhaChargeKeyTyped(evt);
             }
         });
 
-        btnUPUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/update.png"))); // NOI18N
-        btnUPUpdate.setBorder(null);
-        btnUPUpdate.setBorderPainted(false);
-        btnUPUpdate.setContentAreaFilled(false);
-        btnUPUpdate.setFocusPainted(false);
-        btnUPUpdate.addActionListener(new java.awt.event.ActionListener() {
+        UDLblAbsent.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        UDLblAbsent.setText("Panelty For Bad Attendence");
+
+        txtUBFAbsentCharge.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtUBFAbsentChargeKeyTyped(evt);
+            }
+        });
+
+        UDLabelMain1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        UDLabelMain1.setText("Extra Charging Details");
+
+        btnExtraChargeReload.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnExtraChargeReload.setText("Reload Values");
+        btnExtraChargeReload.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUPUpdateActionPerformed(evt);
+                btnExtraChargeReloadActionPerformed(evt);
+            }
+        });
+
+        btnExtraCharge.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnExtraCharge.setText("Update Charges");
+        btnExtraCharge.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExtraChargeActionPerformed(evt);
             }
         });
 
@@ -165,84 +228,129 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCDHome, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
             .addGroup(layout.createSequentialGroup()
-                .addGap(69, 69, 69)
+                .addGap(89, 89, 89)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnUPUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(127, 127, 127)
-                        .addComponent(UDLabelMain)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(UDLblLower, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(UDLbLUpper)
+                            .addComponent(UDLbPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txUnitPriceUpper, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txUnitPriceLower, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txUnitPrice, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(UDLblUPId, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnGDClear)
+                            .addComponent(btnUPUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnGDClear, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
-                                .addGap(51, 51, 51)
-                                .addComponent(btnGDEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(43, 43, 43)
+                                .addGap(19, 19, 19)
+                                .addComponent(btnGDEnter)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnGDEnterAnother))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(UDLblUPId, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(UDLblLower, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(UDLbLUpper)
-                                    .addComponent(UDLbPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(32, 32, 32)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txUnitPriceUpper)
-                                    .addComponent(txUnitPriceLower)
-                                    .addComponent(txUnitPriceId)
-                                    .addComponent(txUnitPrice))))
-                        .addGap(61, 61, 61))))
+                                    .addComponent(UDLabelMain)
+                                    .addComponent(txUnitPriceId, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblUDFShramadhana)
+                                .addComponent(UDLblAbsent, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(44, 44, 44)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtUBFAbsentCharge, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtUDFShramadhaCharge, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btnExtraChargeReload)
+                                .addComponent(UDLblFixedCharge, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(44, 44, 44)
+                            .addComponent(txtUDFFixedCharge, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(90, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnCDHome, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(UDLabelMain1)
+                        .addGap(202, 202, 202))))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(312, Short.MAX_VALUE)
+                    .addComponent(btnExtraCharge)
+                    .addGap(176, 176, 176)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(btnCDHome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addComponent(btnCDHome))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(btnUPUpdate)))
+                        .addGap(24, 24, 24))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(UDLabelMain)
-                        .addGap(51, 51, 51)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(UDLblUPId)
-                            .addComponent(txUnitPriceId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(UDLblLower)
-                            .addComponent(txUnitPriceLower, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(UDLbLUpper)
-                            .addComponent(txUnitPriceUpper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(UDLbPrice)
-                            .addComponent(txUnitPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btnUPUpdate))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(UDLblUPId)
+                    .addComponent(txUnitPriceId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(UDLblLower)
+                    .addComponent(txUnitPriceLower, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txUnitPriceUpper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(UDLbLUpper))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txUnitPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(UDLbPrice))
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnGDClear)
-                    .addComponent(btnGDEnterAnother)
-                    .addComponent(btnGDEnter))
-                .addGap(96, 96, 96))
+                    .addComponent(btnGDEnter)
+                    .addComponent(btnGDEnterAnother))
+                .addGap(29, 29, 29)
+                .addComponent(UDLabelMain1)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUDFShramadhana)
+                    .addComponent(txtUDFShramadhaCharge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtUBFAbsentCharge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(UDLblAbsent))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtUDFFixedCharge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(UDLblFixedCharge))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addComponent(btnExtraChargeReload)
+                .addGap(29, 29, 29))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(438, Short.MAX_VALUE)
+                    .addComponent(btnExtraCharge)
+                    .addGap(30, 30, 30)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnGDEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDEnterActionPerformed
-        String errorMessage = validateData();
-        if (0 < errorMessage.length())
-            JOptionPaneCustom.infoBox(errorMessage, "Unit Price Data Insertion");
-        else
-            EnterData();
-    }//GEN-LAST:event_btnGDEnterActionPerformed
 
     private void EnterData(){
 
@@ -309,37 +417,6 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         
     }    
     
-    private void btnGDClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDClearActionPerformed
-        UnitPriceProcessor unitPriceProcessor=new UnitPriceProcessor();
-         
-        if(dataUpdate && !dataInserted)
-        {
-            if(JOptionPane.showConfirmDialog(this,"Do you want to delete this unit data ?")==JOptionPane.YES_OPTION)
-            {
-                    try {
-                        if(unitPriceProcessor.deleteUnitPrice(txUnitPriceId.getText()))
-                        {
-                            JOptionPaneCustom.infoBox("Unit price id :"+txUnitPriceId.getText()+" was deleted", "Unit price data deletion");
-                            dataInserted = true;
-                            ClearComponents();
-                            dataUpdate=false;
-                            btnGDEnter.setText("Enter UnitPrice");
-                            btnGDClear.setText("Clear Data");
-                            txUnitPriceId.enable();
-                        }
-                        else
-                            JOptionPaneCustom.errorBox("Unit price data deletion error", "Unit price Data deletion");
-                } catch (Exception ex) {
-                Logger.getLogger(EnterUnitPrice.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        }
-        else if(!dataInserted)
-        {
-            ClearComponents();
-        }  
-    }//GEN-LAST:event_btnGDClearActionPerformed
-
     private void ClearComponents(){
         txUnitPriceId.setText("");
         txUnitPriceLower.setText("");
@@ -348,26 +425,6 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         
         txUnitPriceId.enable();
     }
-    private void txUnitPriceIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txUnitPriceIdKeyTyped
-
-        FillGUIComponents.setNumberOnlyTextBox(evt);
-    }//GEN-LAST:event_txUnitPriceIdKeyTyped
-
-    private void txUnitPriceLowerKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txUnitPriceLowerKeyTyped
-
-        FillGUIComponents.setNumberOnlyTextBox(evt);
-    }//GEN-LAST:event_txUnitPriceLowerKeyTyped
-
-    private void txUnitPriceUpperKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txUnitPriceUpperKeyTyped
-
-        FillGUIComponents.setNumberOnlyTextBox(evt);
-    }//GEN-LAST:event_txUnitPriceUpperKeyTyped
-
-    private void txUnitPriceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txUnitPriceKeyTyped
-
-        FillGUIComponents.setNumberOnlyTextBox(evt);
-    }//GEN-LAST:event_txUnitPriceKeyTyped
-
     private void btnCDHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDHomeActionPerformed
         // TODO add your handling code here:
         MainPage mainPage = null;
@@ -381,6 +438,48 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnCDHomeActionPerformed
 
+    private void txtUDFShramadhaChargeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUDFShramadhaChargeKeyTyped
+        // TODO add your handling code here:
+        FillGUIComponents.setNumberOnlyTextBox(evt);
+    }//GEN-LAST:event_txtUDFShramadhaChargeKeyTyped
+
+    private void txtUBFAbsentChargeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUBFAbsentChargeKeyTyped
+        // TODO add your handling code here:
+        FillGUIComponents.setNumberOnlyTextBox(evt);
+    }//GEN-LAST:event_txtUBFAbsentChargeKeyTyped
+
+    private void txtUDFFixedChargeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUDFFixedChargeKeyTyped
+        // TODO add your handling code here:
+        FillGUIComponents.setNumberOnlyTextBox(evt);
+    }//GEN-LAST:event_txtUDFFixedChargeKeyTyped
+
+    private void btnUPUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUPUpdateActionPerformed
+        // TODO add your handling code here:
+        if (!dataUpdate)
+        dataUpdate = true;
+
+        String errorMessage = validateData();
+        if(0 < errorMessage.length())
+        JOptionPaneCustom.errorBox(errorMessage, "Unit price Data Insertion");
+        else
+        whenUpdateButtonClicked();
+    }//GEN-LAST:event_btnUPUpdateActionPerformed
+
+    private void txUnitPriceUpperKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txUnitPriceUpperKeyTyped
+
+        FillGUIComponents.setNumberOnlyTextBox(evt);
+    }//GEN-LAST:event_txUnitPriceUpperKeyTyped
+
+    private void txUnitPriceLowerKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txUnitPriceLowerKeyTyped
+
+        FillGUIComponents.setNumberOnlyTextBox(evt);
+    }//GEN-LAST:event_txUnitPriceLowerKeyTyped
+
+    private void txUnitPriceIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txUnitPriceIdKeyTyped
+
+        FillGUIComponents.setNumberOnlyTextBox(evt);
+    }//GEN-LAST:event_txUnitPriceIdKeyTyped
+
     private void btnGDEnterAnotherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDEnterAnotherActionPerformed
         if(dataInserted)
         {
@@ -388,35 +487,136 @@ public class EnterUnitPrice extends javax.swing.JFrame {
             dataInserted = false;
         }
         else
-            JOptionPaneCustom.errorBox("Current insertion not completed", "Unit price data Insertion");
-        
+        JOptionPaneCustom.errorBox("Current insertion not completed", "Unit price data Insertion");
     }//GEN-LAST:event_btnGDEnterAnotherActionPerformed
 
-    private void btnUPUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUPUpdateActionPerformed
-        // TODO add your handling code here:
-        if (!dataUpdate)
-        dataUpdate = true;
-        
+    private void btnGDEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDEnterActionPerformed
         String errorMessage = validateData();
-        if(0 < errorMessage.length())
-            JOptionPaneCustom.errorBox(errorMessage, "Unit price Data Insertion");   
+        if (0 < errorMessage.length())
+            JOptionPaneCustom.infoBox(errorMessage, "Unit Price Data Insertion");
         else
-            whenUpdateButtonClicked();
-    }//GEN-LAST:event_btnUPUpdateActionPerformed
+            EnterData();
+    }//GEN-LAST:event_btnGDEnterActionPerformed
+
+    private void txUnitPriceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txUnitPriceKeyTyped
+
+        FillGUIComponents.setNumberOnlyTextBox(evt);
+    }//GEN-LAST:event_txUnitPriceKeyTyped
+
+    private void btnGDClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDClearActionPerformed
+        UnitPriceProcessor unitPriceProcessor=new UnitPriceProcessor();
+
+        if(dataUpdate && !dataInserted)
+        {
+            if(JOptionPane.showConfirmDialog(this,"Do you want to delete this unit data ?")==JOptionPane.YES_OPTION)
+            {
+                try {
+                    if(unitPriceProcessor.deleteUnitPrice(txUnitPriceId.getText()))
+                    {
+                        JOptionPaneCustom.infoBox("Unit price id :"+txUnitPriceId.getText()+" was deleted", "Unit price data deletion");
+                        dataInserted = true;
+                        ClearComponents();
+                        dataUpdate=false;
+                        btnGDEnter.setText("Enter UnitPrice");
+                        btnGDClear.setText("Clear Data");
+                        txUnitPriceId.enable();
+                    }
+                    else
+                    JOptionPaneCustom.errorBox("Unit price data deletion error", "Unit price Data deletion");
+                } catch (Exception ex) {
+                    Logger.getLogger(EnterUnitPrice.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        else if(!dataInserted)
+        {
+            ClearComponents();
+        }
+    }//GEN-LAST:event_btnGDClearActionPerformed
+
+    private void btnExtraChargeReloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExtraChargeReloadActionPerformed
+        
+        ExtraChargeProcessor extraChargeProcessor=new ExtraChargeProcessor();
+        try {
+            extraChargeProcessor.setGlobeChargingVariables();
+            JOptionPaneCustom.infoBox("Extra Charging Details Reloaded", "Extra Charges Reload"); 
+        } catch (Exception ex) {
+            Logger.getLogger(EnterUnitPrice.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+    }//GEN-LAST:event_btnExtraChargeReloadActionPerformed
+
+    private String ValidateExtraCharges(){
+    
+        String errorMessage = "";
+        if(txtUDFShramadhaCharge.getText().equals(""))
+            errorMessage += "Please Enter Shramadhana Charges <br>";
+        if(txtUBFAbsentCharge.getText().equals(""))
+            errorMessage += "Please Enter Panelty Charges <br>";      
+        if(txtUDFFixedCharge.getText().equals(""))
+            errorMessage += "Please Enter Fixed Amount <br>";          
+            
+        return errorMessage;
+    }
+    private void ExtraChargeUpdateClicked(){
+    
+        ExtraCharges extraCharges=new ExtraCharges();
+        extraCharges.setAbsentCharge(Double.parseDouble(txtUBFAbsentCharge.getText()));
+        extraCharges.setSramadhanaCharge(Double.parseDouble(txtUDFShramadhaCharge.getText()));
+        extraCharges.setFixedCharge(Double.parseDouble(txtUDFFixedCharge.getText()));
+        
+        ExtraChargeProcessor extraChargeProcessor=new ExtraChargeProcessor();
+        
+        if(JOptionPane.showConfirmDialog(this,"Do you update extra charging data?")==JOptionPane.YES_OPTION)
+        {
+            if(extraChargeProcessor.updateUnitPrice(extraCharges))
+                JOptionPaneCustom.infoBox("Extra Charges Data Updated", "Extra Charges Data Insertion"); 
+            else
+                JOptionPaneCustom.errorBox("Updating Extra Charges Data Error", "Extra Charges Data Insertion"); 
+        }        
+    
+    }
+    
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        ExtraChargeProcessor extraChargeProcessor=new ExtraChargeProcessor();
+        try {
+            ExtraCharges extraCharge= extraChargeProcessor.getExtraCharges();
+            txtUDFShramadhaCharge.setText(String.valueOf(extraCharge.getSramadhanaCharge()));
+            txtUBFAbsentCharge.setText(String.valueOf(extraCharge.getAbsentCharge()));
+            txtUDFFixedCharge.setText(String.valueOf(extraCharge.getFixedCharge()));
+        } catch (Exception ex) {
+            Logger.getLogger(EnterUnitPrice.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPaneCustom.errorBox("Extra Charges Loading Error", "Unit price Data Insertion"); 
+        }
+    }//GEN-LAST:event_formWindowOpened
+
+    private void btnExtraChargeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExtraChargeActionPerformed
+        // TODO add your handling code here:
+        String errorMessage = ValidateExtraCharges();
+        if(errorMessage.length() > 0)
+            JOptionPaneCustom.infoBox(errorMessage, "Extra Charge Data Insertion");
+        else
+            ExtraChargeUpdateClicked();        
+    }//GEN-LAST:event_btnExtraChargeActionPerformed
     private void whenUpdateButtonClicked(){
         UnitPriceProcessor unitPriceProcessor=new UnitPriceProcessor();
         try {
             UnitPrice unitPrice = unitPriceProcessor.getAUnitPrice(txUnitPriceId.getText());
+            if(unitPrice.getUid() != null)
+            {        
+                txUnitPriceId.disable();
+                txUnitPriceLower.setText(String.valueOf(unitPrice.getLower()) );
+                txUnitPriceUpper.setText(String.valueOf(unitPrice.getUpper()) );
+                txUnitPrice.setText(String.valueOf(unitPrice.getPrice()) );
 
-            txUnitPriceId.disable();
-            txUnitPriceLower.setText(String.valueOf(unitPrice.getLower()) );
-            txUnitPriceUpper.setText(String.valueOf(unitPrice.getUpper()) );
-            txUnitPrice.setText(String.valueOf(unitPrice.getPrice()) );
-
-            btnGDEnter.setText("Update UnitPrice");
-            dataInserted=false;
-            dataUpdate = true;
-            btnGDClear.setText("Delete UnitPrice");
+                btnGDEnter.setText("Update UnitPrice");
+                dataInserted=false;
+                dataUpdate = true;
+                btnGDClear.setText("Delete UnitPrice");
+            }
+            else
+                JOptionPaneCustom.errorBox("Unit Id Doesn't Exist", "Unit price Data Update");   
 
         } catch (Exception ex) {
             Logger.getLogger(EnterUnitPrice.class.getName()).log(Level.SEVERE, null, ex);
@@ -459,18 +659,27 @@ public class EnterUnitPrice extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel UDLabelMain;
+    private javax.swing.JLabel UDLabelMain1;
     private javax.swing.JLabel UDLbLUpper;
     private javax.swing.JLabel UDLbPrice;
+    private javax.swing.JLabel UDLblAbsent;
+    private javax.swing.JLabel UDLblFixedCharge;
     private javax.swing.JLabel UDLblLower;
     private javax.swing.JLabel UDLblUPId;
     private javax.swing.JButton btnCDHome;
+    private javax.swing.JButton btnExtraCharge;
+    private javax.swing.JButton btnExtraChargeReload;
     private javax.swing.JButton btnGDClear;
     private javax.swing.JButton btnGDEnter;
     private javax.swing.JButton btnGDEnterAnother;
     private javax.swing.JButton btnUPUpdate;
+    private javax.swing.JLabel lblUDFShramadhana;
     private javax.swing.JTextField txUnitPrice;
     private javax.swing.JTextField txUnitPriceId;
     private javax.swing.JTextField txUnitPriceLower;
     private javax.swing.JTextField txUnitPriceUpper;
+    private javax.swing.JTextField txtUBFAbsentCharge;
+    private javax.swing.JTextField txtUDFFixedCharge;
+    private javax.swing.JTextField txtUDFShramadhaCharge;
     // End of variables declaration//GEN-END:variables
 }

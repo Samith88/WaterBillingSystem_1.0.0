@@ -21,12 +21,12 @@ public class UnitCalculatorProcessor {
         UnitPricesDB unitPricesDB=new UnitPricesDB();
         double totalMonthlyBill = 0.0;
         if(Sramadhana)
-            totalMonthlyBill += VariableStorage.SramadhanaCharge;
+            totalMonthlyBill += VariableStorage.getSramadhanaCharge();
         
         if(Absent)
-            totalMonthlyBill += VariableStorage.AbsentCharge;
+            totalMonthlyBill += VariableStorage.getAbsentCharge();
         
-        totalMonthlyBill += VariableStorage.FixedCharge;
+        totalMonthlyBill += VariableStorage.getFixedCharge();
         
         CalculateUsageBill calculateUsageBill=new CalculateUsageBill();
             

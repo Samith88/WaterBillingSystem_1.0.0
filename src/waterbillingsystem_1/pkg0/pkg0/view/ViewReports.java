@@ -116,6 +116,14 @@ public class ViewReports extends javax.swing.JFrame {
         cmbCIPYear = new javax.swing.JComboBox<>();
         btnCIPMonthly = new javax.swing.JButton();
         CIPLblPayCountAns = new javax.swing.JLabel();
+        PanelMoreReports = new javax.swing.JPanel();
+        CDFLabelMainMR = new javax.swing.JLabel();
+        PanelMRCustomers = new javax.swing.JPanel();
+        lblCIPTPay1 = new javax.swing.JLabel();
+        btnMRCustomer = new javax.swing.JButton();
+        PanelMRGroups = new javax.swing.JPanel();
+        lblMRGroup = new javax.swing.JLabel();
+        btnMRGroup = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -681,6 +689,119 @@ public class ViewReports extends javax.swing.JFrame {
 
         ReportjTabbedPane.addTab("Initial Payments  ", PanelIniPayments);
 
+        PanelMoreReports.setBackground(new java.awt.Color(204, 255, 255));
+
+        CDFLabelMainMR.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        CDFLabelMainMR.setText("Overall Report");
+
+        PanelMRCustomers.setBackground(new java.awt.Color(204, 255, 204));
+        PanelMRCustomers.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Customer Report", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+
+        lblCIPTPay1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblCIPTPay1.setText("Generate All Customer Report");
+
+        btnMRCustomer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/customer.png"))); // NOI18N
+        btnMRCustomer.setBorder(null);
+        btnMRCustomer.setBorderPainted(false);
+        btnMRCustomer.setContentAreaFilled(false);
+        btnMRCustomer.setFocusPainted(false);
+        btnMRCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMRCustomerActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelMRCustomersLayout = new javax.swing.GroupLayout(PanelMRCustomers);
+        PanelMRCustomers.setLayout(PanelMRCustomersLayout);
+        PanelMRCustomersLayout.setHorizontalGroup(
+            PanelMRCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelMRCustomersLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(lblCIPTPay1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67)
+                .addComponent(btnMRCustomer)
+                .addContainerGap(126, Short.MAX_VALUE))
+        );
+        PanelMRCustomersLayout.setVerticalGroup(
+            PanelMRCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelMRCustomersLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblCIPTPay1)
+                .addContainerGap(25, Short.MAX_VALUE))
+            .addGroup(PanelMRCustomersLayout.createSequentialGroup()
+                .addComponent(btnMRCustomer)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        PanelMRGroups.setBackground(new java.awt.Color(204, 255, 204));
+        PanelMRGroups.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Group Report", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+
+        lblMRGroup.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblMRGroup.setText("Generate All Group Report");
+
+        btnMRGroup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/group.png"))); // NOI18N
+        btnMRGroup.setBorder(null);
+        btnMRGroup.setBorderPainted(false);
+        btnMRGroup.setContentAreaFilled(false);
+        btnMRGroup.setFocusPainted(false);
+        btnMRGroup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMRGroupActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelMRGroupsLayout = new javax.swing.GroupLayout(PanelMRGroups);
+        PanelMRGroups.setLayout(PanelMRGroupsLayout);
+        PanelMRGroupsLayout.setHorizontalGroup(
+            PanelMRGroupsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelMRGroupsLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(lblMRGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(61, 61, 61)
+                .addComponent(btnMRGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(128, Short.MAX_VALUE))
+        );
+        PanelMRGroupsLayout.setVerticalGroup(
+            PanelMRGroupsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelMRGroupsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblMRGroup)
+                .addContainerGap(29, Short.MAX_VALUE))
+            .addGroup(PanelMRGroupsLayout.createSequentialGroup()
+                .addComponent(btnMRGroup)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout PanelMoreReportsLayout = new javax.swing.GroupLayout(PanelMoreReports);
+        PanelMoreReports.setLayout(PanelMoreReportsLayout);
+        PanelMoreReportsLayout.setHorizontalGroup(
+            PanelMoreReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelMoreReportsLayout.createSequentialGroup()
+                .addGroup(PanelMoreReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelMoreReportsLayout.createSequentialGroup()
+                        .addGap(208, 208, 208)
+                        .addComponent(CDFLabelMainMR))
+                    .addGroup(PanelMoreReportsLayout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addGroup(PanelMoreReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PanelMRGroups, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PanelMRCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
+        PanelMoreReportsLayout.setVerticalGroup(
+            PanelMoreReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelMoreReportsLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(CDFLabelMainMR)
+                .addGap(60, 60, 60)
+                .addComponent(PanelMRCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addComponent(PanelMRGroups, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(208, Short.MAX_VALUE))
+        );
+
+        ReportjTabbedPane.addTab("More Reports", PanelMoreReports);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -807,6 +928,26 @@ public class ViewReports extends javax.swing.JFrame {
         this.dispose();        
     }//GEN-LAST:event_btnCDHome1ActionPerformed
 
+    private void btnMRCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMRCustomerActionPerformed
+
+        ReportingProcessor reportingProcessor=new ReportingProcessor();
+        try {
+            reportingProcessor.generateCustomReports("CustomerReports.jrxml");
+        } catch (Exception ex) {
+            Logger.getLogger(ViewReports.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnMRCustomerActionPerformed
+
+    private void btnMRGroupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMRGroupActionPerformed
+        ReportingProcessor reportingProcessor=new ReportingProcessor();
+        try {
+            reportingProcessor.generateCustomReports("groupReport.jrxml");
+        } catch (Exception ex) {
+            Logger.getLogger(ViewReports.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+
+    }//GEN-LAST:event_btnMRGroupActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -851,6 +992,7 @@ public class ViewReports extends javax.swing.JFrame {
     private javax.swing.JLabel CDFLabelMain;
     private javax.swing.JLabel CDFLabelMainCBP;
     private javax.swing.JLabel CDFLabelMainCBP1;
+    private javax.swing.JLabel CDFLabelMainMR;
     private javax.swing.JLabel CIPLblMonth;
     private javax.swing.JLabel CIPLblPayAmt;
     private javax.swing.JLabel CIPLblPayAmtAns;
@@ -859,6 +1001,9 @@ public class ViewReports extends javax.swing.JFrame {
     private javax.swing.JPanel PanelCIP;
     private javax.swing.JPanel PanelCusPayments;
     private javax.swing.JPanel PanelIniPayments;
+    private javax.swing.JPanel PanelMRCustomers;
+    private javax.swing.JPanel PanelMRGroups;
+    private javax.swing.JPanel PanelMoreReports;
     private javax.swing.JPanel PanelOverallBilling;
     private javax.swing.JLabel RDLblAb;
     private javax.swing.JLabel RDLblAbAns;
@@ -877,6 +1022,8 @@ public class ViewReports extends javax.swing.JFrame {
     private javax.swing.JButton btnCDHome1;
     private javax.swing.JButton btnCIP;
     private javax.swing.JButton btnCIPMonthly;
+    private javax.swing.JButton btnMRCustomer;
+    private javax.swing.JButton btnMRGroup;
     private javax.swing.JButton btnOBD;
     private javax.swing.JComboBox<String> cmbCBPMonth;
     private javax.swing.JComboBox<String> cmbCBPMonthPerCus;
@@ -897,7 +1044,9 @@ public class ViewReports extends javax.swing.JFrame {
     private javax.swing.JLabel lblCIPReceived;
     private javax.swing.JLabel lblCIPReceivedAns;
     private javax.swing.JLabel lblCIPTPay;
+    private javax.swing.JLabel lblCIPTPay1;
     private javax.swing.JLabel lblCIPTPayAns;
+    private javax.swing.JLabel lblMRGroup;
     private javax.swing.JTextField txtCIPCID;
     private javax.swing.JTextField txtPPCCID;
     // End of variables declaration//GEN-END:variables

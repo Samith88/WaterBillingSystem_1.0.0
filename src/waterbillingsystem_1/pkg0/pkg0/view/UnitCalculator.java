@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
 import waterbillingsystem_1.pkg0.pkg0.Validations;
 import waterbillingsystem_1.pkg0.pkg0.VariableStorage;
@@ -36,7 +37,7 @@ public class UnitCalculator extends javax.swing.JFrame {
         
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        //this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+        this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         this.setLocationRelativeTo(null);        
         ImageIcon img = new ImageIcon("images\\WaterDrop.png");
         this.setIconImage(img.getImage());  
@@ -272,11 +273,11 @@ public class UnitCalculator extends javax.swing.JFrame {
         txtBDCUnitUsage.setText("");
         ckBoxSramadhana.setSelected(false);
         ckBoxAbsentFee.setSelected(false);
-        BDCLblBillUnitsAns.setText("Rs:");
-        BDCLblFixedChargeAns.setText("Rs:");
-        BDCLblShramadhanaAns.setText("Rs:");
-        BDCLblPaneltyAns.setText("Rs:");
-        BDCLblMonthlyTotalAns.setText("Rs:");
+        BDCLblBillUnitsAns.setText("Rs :");
+        BDCLblFixedChargeAns.setText("Rs :");
+        BDCLblShramadhanaAns.setText("Rs :");
+        BDCLblPaneltyAns.setText("Rs :");
+        BDCLblMonthlyTotalAns.setText("Rs :");
     }//GEN-LAST:event_btnBDClearActionPerformed
 
     private void btnBDCEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBDCEnterActionPerformed
@@ -294,13 +295,13 @@ public class UnitCalculator extends javax.swing.JFrame {
         try {
             double[] charges = unitCalculatorProcessor.geteConsumingBill(Integer.parseInt(txtBDCUnitUsage.getText()), ckBoxSramadhana.isSelected(), ckBoxAbsentFee.isSelected());
             BDCLblBillUnitsAns.setText(Validations.setLabelText(String.valueOf(charges[0])));
-            BDCLblFixedChargeAns.setText(Validations.setLabelText(String.valueOf(VariableStorage.FixedCharge)));
+            BDCLblFixedChargeAns.setText(Validations.setLabelText(String.valueOf(VariableStorage.getFixedCharge())));
             if(ckBoxSramadhana.isSelected())
-                BDCLblShramadhanaAns.setText(Validations.setLabelText(String.valueOf(VariableStorage.SramadhanaCharge)));
+                BDCLblShramadhanaAns.setText(Validations.setLabelText(String.valueOf(VariableStorage.getSramadhanaCharge())));
             else
                 BDCLblShramadhanaAns.setText("Rs. 0.0");
             if(ckBoxAbsentFee.isSelected())
-                BDCLblPaneltyAns.setText(Validations.setLabelText(String.valueOf(VariableStorage.AbsentCharge)));
+                BDCLblPaneltyAns.setText(Validations.setLabelText(String.valueOf(VariableStorage.getAbsentCharge())));
             else
                 BDCLblPaneltyAns.setText("Rs. 0.0");
             BDCLblMonthlyTotalAns.setText(Validations.setLabelText(String.valueOf(charges[1])));

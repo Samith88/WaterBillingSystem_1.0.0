@@ -116,14 +116,14 @@ public class BillDataProcessor {
         UnitPricesDB unitPricesDB=new UnitPricesDB();
         CalculateUsageBill calculateUsageBill=new CalculateUsageBill();
         
-        monthlyBillDetails.setFixedCharge(VariableStorage.FixedCharge);
+        monthlyBillDetails.setFixedCharge(VariableStorage.getFixedCharge());
         
         if(billData.isAbsentCharge()==1)
-            monthlyBillDetails.setAbsentCharge(VariableStorage.AbsentCharge);
+            monthlyBillDetails.setAbsentCharge(VariableStorage.getAbsentCharge());
         else
             monthlyBillDetails.setAbsentCharge(0);
         if(billData.isSramadhana()==1)
-            monthlyBillDetails.setSramadhana(VariableStorage.SramadhanaCharge);
+            monthlyBillDetails.setSramadhana(VariableStorage.getSramadhanaCharge());
         else
             monthlyBillDetails.setSramadhana(0);
         

@@ -77,8 +77,8 @@ public class generateCustomerInvoice {
     private String getDirectories(String InvoiceId){
     
         String ParentPath = "invoices";
-        File directory=new File(ParentPath+"\\"+InvoiceId.substring(6, 9)+"\\"+InvoiceId.substring(0, 4)
-                +"\\"+InvoiceId.substring(4, 6));
+        File directory=new File(ParentPath+"\\"+InvoiceId.substring(0, 4)
+                +"\\"+InvoiceId.substring(4, 6)+"\\"+InvoiceId.substring(6, 9));
         directory.mkdirs();
         return directory.getAbsolutePath();
         
