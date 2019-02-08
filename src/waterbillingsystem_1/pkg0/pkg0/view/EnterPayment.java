@@ -86,12 +86,17 @@ public class EnterPayment extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Pananwala Water Billing System");
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         PDLabelMain.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         PDLabelMain.setText("Payment Data Form");
 
         PDLblNIC.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        PDLblNIC.setText("Customer CID");
+        PDLblNIC.setText("Customer CID *");
 
         cmdCID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select CID" }));
         cmdCID.addItemListener(new java.awt.event.ItemListener() {
@@ -113,10 +118,10 @@ public class EnterPayment extends javax.swing.JFrame {
         });
 
         PDLbAmount.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        PDLbAmount.setText("Payment Amount");
+        PDLbAmount.setText("Payment Amount *");
 
         PDLbMonth.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        PDLbMonth.setText("Billing Month");
+        PDLbMonth.setText("Billing Month *");
 
         cmbMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01-January", "02-February", "03-March", "04-April", "05-May", "06-June", "07-July", "08-August", "09-September", "10-Octomber", "11-November", "12-December" }));
 
@@ -192,10 +197,10 @@ public class EnterPayment extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(PDLblNIC, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(PDLbAmount)
-                                    .addComponent(btnPDClear))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(PDLblNIC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnPDClear)
+                                    .addComponent(PDLbAmount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(32, 32, 32)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
@@ -209,8 +214,8 @@ public class EnterPayment extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(PDLblFname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(PDLbMonth)
-                                .addGap(79, 79, 79)
+                                .addComponent(PDLbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(52, 52, 52)
                                 .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -471,6 +476,11 @@ public class EnterPayment extends javax.swing.JFrame {
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_btnCDHomeActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        FillGUIComponents fillGUIComponents=new FillGUIComponents();
+        fillGUIComponents.setCMBDates(cmbYear, cmbMonth);
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

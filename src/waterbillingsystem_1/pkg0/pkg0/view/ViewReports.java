@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
 import waterbillingsystem_1.pkg0.pkg0.Validations;
 import waterbillingsystem_1.pkg0.pkg0.ReportBase.CustomerInitialPayment;
@@ -20,6 +21,7 @@ import waterbillingsystem_1.pkg0.pkg0.ReportBase.OverallMonthlyBilling;
 import waterbillingsystem_1.pkg0.pkg0.ReportBase.OverallMonthlyPayment;
 import waterbillingsystem_1.pkg0.pkg0.ReportBase.PaymentsCustomer;
 import waterbillingsystem_1.pkg0.pkg0.ReportBase.TotalInitialPayment;
+import waterbillingsystem_1.pkg0.pkg0.controller.FillGUIComponents;
 import waterbillingsystem_1.pkg0.pkg0.controller.ReportingProcessor;
 
 /**
@@ -40,7 +42,7 @@ public class ViewReports extends javax.swing.JFrame {
         
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        //this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+        this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         this.setLocationRelativeTo(null);
         ImageIcon img = new ImageIcon("images\\WaterDrop.png");
         this.setIconImage(img.getImage());    
@@ -127,6 +129,11 @@ public class ViewReports extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         ReportjTabbedPane.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         ReportjTabbedPane.setPreferredSize(new java.awt.Dimension(611, 562));
@@ -417,7 +424,7 @@ public class ViewReports extends javax.swing.JFrame {
         });
 
         CBDLblMonth8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        CBDLblMonth8.setText("Customer Id");
+        CBDLblMonth8.setText("Customer Id *");
 
         lblCBPMonthPayCusAns.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblCBPMonthPayCusAns.setText("Rs.");
@@ -441,8 +448,8 @@ public class ViewReports extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(CBPLblMonthPerCus)
-                                .addComponent(CBDLblMonth8))
-                            .addGap(40, 40, 40)
+                                .addComponent(CBDLblMonth8, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(30, 30, 30)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(cmbCBPMonthPerCus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtPPCCID, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -519,7 +526,7 @@ public class ViewReports extends javax.swing.JFrame {
         PanelCIP.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Customer Initial Payments", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
         lblCIPCID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lblCIPCID.setText("Customer Id");
+        lblCIPCID.setText("Customer Id *");
 
         btnCIP.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnCIP.setText("Generate Data");
@@ -947,6 +954,14 @@ public class ViewReports extends javax.swing.JFrame {
         }        
 
     }//GEN-LAST:event_btnMRGroupActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        FillGUIComponents fillGUIComponents=new FillGUIComponents();
+        fillGUIComponents.setCMBDates(cmdRDYear, cmbRDMonth);
+        fillGUIComponents.setCMBDates(cmdCBPYear, cmbCBPMonth);
+        fillGUIComponents.setCMBDates(cmbCBPYearPerCus, cmbCBPMonthPerCus);
+        fillGUIComponents.setCMBDates(cmbCIPYear, cmbCIPMonth);
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

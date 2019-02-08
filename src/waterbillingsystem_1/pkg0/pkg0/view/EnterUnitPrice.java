@@ -16,7 +16,6 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
-import waterbillingsystem_1.pkg0.pkg0.VariableStorage;
 import waterbillingsystem_1.pkg0.pkg0.base.ExtraCharges;
 import waterbillingsystem_1.pkg0.pkg0.base.UnitPrice;
 import waterbillingsystem_1.pkg0.pkg0.controller.ExtraChargeProcessor;
@@ -108,7 +107,7 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         });
 
         UDLbPrice.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        UDLbPrice.setText("Unit Price");
+        UDLbPrice.setText("Unit Price *");
 
         btnGDClear.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnGDClear.setText(" Clear Data");
@@ -133,7 +132,7 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         });
 
         UDLblUPId.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        UDLblUPId.setText("Unit Price Id");
+        UDLblUPId.setText("Unit Price Id *");
 
         btnUPUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/update.png"))); // NOI18N
         btnUPUpdate.setBorder(null);
@@ -161,7 +160,7 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         });
 
         UDLblLower.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        UDLblLower.setText("Unit Lower Value");
+        UDLblLower.setText("Unit Lower Value *");
 
         txUnitPriceLower.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -176,7 +175,7 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         });
 
         UDLbLUpper.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        UDLbLUpper.setText("Unit Upper Value");
+        UDLbLUpper.setText("Unit Upper Value *");
 
         UDLblFixedCharge.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         UDLblFixedCharge.setText("Fixed Monthly Charge");
@@ -232,10 +231,10 @@ public class EnterUnitPrice extends javax.swing.JFrame {
                 .addGap(89, 89, 89)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(UDLblLower, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(UDLbLUpper)
-                            .addComponent(UDLbPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(UDLblLower, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                            .addComponent(UDLbPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(UDLbLUpper, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txUnitPriceUpper, javax.swing.GroupLayout.Alignment.LEADING)
@@ -314,7 +313,7 @@ public class EnterUnitPrice extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txUnitPriceUpper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(UDLbLUpper))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -567,7 +566,7 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         
         ExtraChargeProcessor extraChargeProcessor=new ExtraChargeProcessor();
         
-        if(JOptionPane.showConfirmDialog(this,"Do you update extra charging data?")==JOptionPane.YES_OPTION)
+        if(JOptionPane.showConfirmDialog(this,"Do you want to update extra charging data?")==JOptionPane.YES_OPTION)
         {
             if(extraChargeProcessor.updateUnitPrice(extraCharges))
                 JOptionPaneCustom.infoBox("Extra Charges Data Updated", "Extra Charges Data Insertion"); 

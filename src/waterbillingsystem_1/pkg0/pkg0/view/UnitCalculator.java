@@ -76,7 +76,7 @@ public class UnitCalculator extends javax.swing.JFrame {
 
         BDCLblUnits.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BDCLblUnits.setForeground(new java.awt.Color(0, 255, 204));
-        BDCLblUnits.setText("Monthly Unit Usage");
+        BDCLblUnits.setText("Monthly Unit Usage *");
 
         txtBDCUnitUsage.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -204,8 +204,8 @@ public class UnitCalculator extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(BDCLblBillUnitsAns, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(BDCLblUnits)
-                        .addGap(32, 32, 32)
+                        .addComponent(BDCLblUnits, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(txtBDCUnitUsage, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()

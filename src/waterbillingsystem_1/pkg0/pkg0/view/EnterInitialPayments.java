@@ -114,7 +114,7 @@ public class EnterInitialPayments extends javax.swing.JFrame {
         setResizable(false);
 
         lblIPTIP.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lblIPTIP.setText("Total Initial Payment");
+        lblIPTIP.setText("Total Initial Payment *");
 
         txtIPTIP.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -134,10 +134,10 @@ public class EnterInitialPayments extends javax.swing.JFrame {
         });
 
         lblIPNewRP.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lblIPNewRP.setText("Newly Received Payment ");
+        lblIPNewRP.setText("Newly Received Payment *");
 
         lblIPCID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lblIPCID.setText("Customer Id");
+        lblIPCID.setText("Customer Id *");
 
         txtIPCID.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {

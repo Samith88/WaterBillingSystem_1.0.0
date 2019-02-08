@@ -80,7 +80,7 @@ public class EnterGroup extends javax.swing.JFrame {
         GDLabelMain.setText("Group Data Form");
 
         GDLblGID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        GDLblGID.setText("Group Id");
+        GDLblGID.setText("Group Id *");
 
         txtGroupId.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -89,7 +89,7 @@ public class EnterGroup extends javax.swing.JFrame {
         });
 
         GDLblGName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        GDLblGName.setText("Group Name");
+        GDLblGName.setText("Group Name *");
 
         GDLbLoc.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         GDLbLoc.setText("Location");
@@ -172,15 +172,16 @@ public class EnterGroup extends javax.swing.JFrame {
                                     .addComponent(GDLbLoc)
                                     .addComponent(GDLbDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(32, 32, 32)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtGroupLoc)
-                                    .addComponent(txtGroupName)
-                                    .addComponent(txtGroupId)
-                                    .addComponent(jScrollPane1)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtGroupLoc, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtGroupName, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtGroupId, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnGDClear, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
-                                .addGap(51, 51, 51)
-                                .addComponent(btnGDEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(58, 58, 58)
+                                .addComponent(btnGDEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(51, 51, 51)
                                 .addComponent(btnGDEnterAnother)))
                         .addGap(61, 61, 61))))

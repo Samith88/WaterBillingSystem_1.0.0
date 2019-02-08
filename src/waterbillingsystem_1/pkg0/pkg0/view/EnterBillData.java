@@ -92,6 +92,11 @@ public class EnterBillData extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Pananwala Water Billing System");
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         CDFLabelMain.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         CDFLabelMain.setText("Bill Data Form");
@@ -679,6 +684,12 @@ public class EnterBillData extends javax.swing.JFrame {
         else
             whenUpdateButtonClicked();
     }//GEN-LAST:event_btnCDUpdateActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        
+        FillGUIComponents fillGUIComponents=new FillGUIComponents();
+        fillGUIComponents.setCMBDates(cmbYear, cmbMonth);
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

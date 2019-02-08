@@ -10,6 +10,9 @@
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowOpened" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowOpened"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -46,10 +49,10 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="PDLblNIC" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
-                                  <Component id="PDLbAmount" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="PDLblNIC" alignment="0" max="32767" attributes="0"/>
                                   <Component id="btnPDClear" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="PDLbAmount" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -67,9 +70,9 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="PDLbMonth" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="PDLbMonth" min="-2" pref="108" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                               <Component id="cmbMonth" min="-2" pref="117" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="cmbYear" min="-2" pref="92" max="-2" attributes="0"/>
@@ -143,7 +146,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Customer CID"/>
+        <Property name="text" type="java.lang.String" value="Customer CID *"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="cmdCID">
@@ -176,7 +179,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Payment Amount"/>
+        <Property name="text" type="java.lang.String" value="Payment Amount *"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="PDLbMonth">
@@ -184,7 +187,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Billing Month"/>
+        <Property name="text" type="java.lang.String" value="Billing Month *"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="cmbMonth">

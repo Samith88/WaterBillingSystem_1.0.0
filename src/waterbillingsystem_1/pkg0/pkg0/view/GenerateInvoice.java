@@ -72,6 +72,11 @@ public class GenerateInvoice extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Pananwala Water Billing System");
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         GILabelMain.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         GILabelMain.setText("Generate Customer Invoices");
@@ -88,7 +93,7 @@ public class GenerateInvoice extends javax.swing.JFrame {
         });
 
         GCRLblCID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        GCRLblCID.setText("Customer Id");
+        GCRLblCID.setText("Customer Id *");
 
         txtCustomerCID.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -289,6 +294,11 @@ public class GenerateInvoice extends javax.swing.JFrame {
         else
             JOptionPaneCustom.errorBox("Current generation not completed", "Customer Invoice Generation ");           
     }//GEN-LAST:event_btnGCREnterAnotherActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        FillGUIComponents fillGUIComponents=new FillGUIComponents();
+        fillGUIComponents.setCMBDates(cmbYear, cmbMonth);
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

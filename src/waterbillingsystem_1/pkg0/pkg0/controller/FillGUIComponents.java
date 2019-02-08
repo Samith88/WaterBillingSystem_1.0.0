@@ -12,6 +12,7 @@ import waterbillingsystem_1.pkg0.pkg0.dao.GroupDetailsDB;
 import java.util.Map;
 import java.util.Iterator;
 import java.util.Set;
+import waterbillingsystem_1.pkg0.pkg0.DateDetails;
 
 /**
  *
@@ -70,4 +71,19 @@ public class FillGUIComponents {
             comboBox.setSelectedItem(element);
         });
     }    
+    
+    public void setCMBDates(javax.swing.JComboBox cmbYear,javax.swing.JComboBox cmbMonth){
+    
+            for(int i=0;i<cmbMonth.getItemCount();i++) 
+            {
+                if(cmbMonth.getItemAt(i).toString().contains(DateDetails.getDateMonth()))
+                    cmbMonth.setSelectedItem(cmbMonth.getItemAt(i));
+            }    
+            
+            for(int i=0;i<cmbYear.getItemCount();i++) 
+            {
+                if(cmbYear.getItemAt(i).toString().contains(DateDetails.getDateYear()))
+                    cmbYear.setSelectedItem(cmbYear.getItemAt(i));
+            }          
+    }
 }
