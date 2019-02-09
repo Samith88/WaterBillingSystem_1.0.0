@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
 import waterbillingsystem_1.pkg0.pkg0.Validations;
+import waterbillingsystem_1.pkg0.pkg0.VariableStorage;
 import waterbillingsystem_1.pkg0.pkg0.base.BillData;
 import waterbillingsystem_1.pkg0.pkg0.controller.BillDataProcessor;
 import waterbillingsystem_1.pkg0.pkg0.controller.CustomerDataProcessor;
@@ -40,7 +41,7 @@ public class EnterBillData extends javax.swing.JFrame {
     
     public EnterBillData() throws Exception {
         
-        File imageFile = new File("images\\page.png");
+        File imageFile = new File(VariableStorage.getBackupGroundImage());
         BufferedImage myImage = ImageIO.read(imageFile);
         this.setContentPane(new ImagePanel(myImage));
         
@@ -52,7 +53,7 @@ public class EnterBillData extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);     
         dataInserted =false;
         dataUpdate=false;        
-        ImageIcon img = new ImageIcon("images\\WaterDrop.png");
+        ImageIcon img = new ImageIcon(VariableStorage.getImageIcon());
         this.setIconImage(img.getImage());        
     }
 
@@ -230,12 +231,16 @@ public class EnterBillData extends javax.swing.JFrame {
                         .addGap(60, 60, 60))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(152, 152, 152)
-                        .addComponent(cmbCustomerCID, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cmbCustomerCID, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(BDLblFN, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BDLblFname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BDLblFName, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(55, 55, 55)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(BDLblFN, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(BDLblFname, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(BDLblFName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addContainerGap(59, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -615,9 +620,9 @@ public class EnterBillData extends javax.swing.JFrame {
             }
         }
         else if(!dataInserted)
-        {
-            ClearComponents();
-        }          
+            ClearComponents(); 
+        else
+            JOptionPaneCustom.errorBox("Current Insertion Not Completed", "Bill Data deletion");   
         
     }//GEN-LAST:event_btnBDClearActionPerformed
 
@@ -671,7 +676,7 @@ public class EnterBillData extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBDEnterAnotherActionPerformed
 
     private void btnCDUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDUpdateActionPerformed
-        if (!dataUpdate)
+        if (!dataUpdate && !dataInserted)
             dataUpdate = true;
         String errorMessage = null;
         try {

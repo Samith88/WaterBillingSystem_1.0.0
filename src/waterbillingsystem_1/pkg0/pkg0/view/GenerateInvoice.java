@@ -18,6 +18,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.WindowConstants;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
+import waterbillingsystem_1.pkg0.pkg0.VariableStorage;
 import waterbillingsystem_1.pkg0.pkg0.controller.BillDataProcessor;
 import waterbillingsystem_1.pkg0.pkg0.controller.generateCustomerInvoice;
 import waterbillingsystem_1.pkg0.pkg0.dao.MonthlyBillDB;
@@ -34,7 +35,7 @@ public class GenerateInvoice extends javax.swing.JFrame {
     boolean reportGenerated; 
     
     public GenerateInvoice() throws Exception {
-        File imageFile = new File("images\\page.png");
+        File imageFile = new File(VariableStorage.getBackupGroundImage());
         BufferedImage myImage = ImageIO.read(imageFile);
         this.setContentPane(new ImagePanel(myImage));        
         CustomerDataProcessor customerDataProcessor=new CustomerDataProcessor();
@@ -43,7 +44,7 @@ public class GenerateInvoice extends javax.swing.JFrame {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         this.setLocationRelativeTo(null);      
-        ImageIcon img = new ImageIcon("images\\WaterDrop.png");
+        ImageIcon img = new ImageIcon(VariableStorage.getImageIcon());
         this.setIconImage(img.getImage());   
         reportGenerated =false;   
     }
@@ -158,11 +159,11 @@ public class GenerateInvoice extends javax.swing.JFrame {
                             .addComponent(GCRLblCID, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(GCRLblUnits1))
                         .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(cmbCustomerCID, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(PDLblFname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(cmbCustomerCID, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(PDLblFname, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtCustomerCID, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -271,7 +272,7 @@ public class GenerateInvoice extends javax.swing.JFrame {
                 
         try {
             outFileName = generateCustomerinvoice.generateJasperReport
-            ("waterBilling.jrxml", billDataProcessor.getBillId
+            (VariableStorage.getInvoiceReport(), billDataProcessor.getBillId
             (txtCustomerCID.getText(),cmbYear.getSelectedItem().toString(),cmbMonth.getSelectedItem().toString().split("-")[0]), 
             monthlyBillDB.getMonthlyBillDetailsByInvoiceNo(billDataProcessor.getBillId(txtCustomerCID.getText(),
             cmbYear.getSelectedItem().toString(),cmbMonth.getSelectedItem().toString().split("-")[0])));

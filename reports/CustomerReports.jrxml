@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_Landscape_Table_Based" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8a465670-cc4a-4270-965f-8efb86e33b71">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_Landscape_Table_Based_1" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8a465670-cc4a-4270-965f-8efb86e33b71">
 	<property name="template.engine" value="tabular_template"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="org.sqlite.JDBC"/>
@@ -40,13 +40,17 @@
 			<rightPen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
-	<subDataset name="tableDataset" uuid="39cdafbd-7132-4760-b170-18037f3e9cae">
+	<subDataset name="tableDataset" uuid="ad6b8512-1e51-4f4c-8365-ddf24bfe2ff8">
 		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="org.sqlite.JDBC"/>
 		<queryString language="SQL">
-			<![CDATA[select   Customer .cid ,  Customer .nic ,  Customer .gid ,  Customer . currentMeter,   Customer . TotalOutstandingAmount,   Customer . lastPayment,   Customer . lastPaymentDate,   Customer . InitialReceived   ,Customer . MeterNo    from Customer]]>
+			<![CDATA[select   Customer .cid ,  Customer .cname  , Customer .nic ,  Customer .gid ,  Customer . currentMeter,   Customer . TotalOutstandingAmount,   Customer . lastPayment,   Customer . InitialReceived   ,Customer . MeterNo    from Customer]]>
 		</queryString>
 		<field name="cid" class="java.lang.Object">
 			<property name="com.jaspersoft.studio.field.label" value="cid"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="Customer"/>
+		</field>
+		<field name="cname" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.label" value="cname"/>
 			<property name="com.jaspersoft.studio.field.tree.path" value="Customer"/>
 		</field>
 		<field name="nic" class="java.lang.Object">
@@ -67,10 +71,6 @@
 		</field>
 		<field name="lastPayment" class="java.lang.Object">
 			<property name="com.jaspersoft.studio.field.label" value="lastPayment"/>
-			<property name="com.jaspersoft.studio.field.tree.path" value="Customer"/>
-		</field>
-		<field name="lastPaymentDate" class="java.lang.Object">
-			<property name="com.jaspersoft.studio.field.label" value="lastPaymentDate"/>
 			<property name="com.jaspersoft.studio.field.tree.path" value="Customer"/>
 		</field>
 		<field name="InitialReceived" class="java.lang.Object">
@@ -95,35 +95,32 @@
 		<band height="200" splitType="Stretch">
 			<property name="local_mesure_unitheight" value="pixel"/>
 			<componentElement>
-				<reportElement style="Table" isPrintRepeatedValues="false" mode="Opaque" x="0" y="0" width="802" height="200" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="bd84ca2d-0581-4433-98bc-935e025e8161">
+				<reportElement x="0" y="0" width="802" height="200" uuid="c3ae3569-199d-4590-bbc4-90fcc086d489">
 					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
 					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
 					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
-					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
-					<property name="net.sf.jasperreports.export.headertoolbar.table.name" value=""/>
-					<property name="com.jaspersoft.studio.components.autoresize.next" value="true"/>
 				</reportElement>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="tableDataset" uuid="c388c2c8-e1e2-4ba1-80c4-22cf6bddd9b0">
+					<datasetRun subDataset="tableDataset" uuid="e078a7ed-e206-44ef-b3c2-e8dccfa5362a">
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
-					<jr:column width="60" uuid="1452f77b-0c5e-4460-adb1-bf3f22f5fe8e">
+					<jr:column width="50" uuid="7ffc641f-035e-4809-9613-ef49d8c4658b">
 						<jr:tableHeader style="Table_TH" height="30"/>
 						<jr:tableFooter style="Table_TH" height="30"/>
 						<jr:columnHeader style="Table_CH" height="30">
 							<staticText>
-								<reportElement x="0" y="0" width="60" height="30" uuid="77cb10f7-d795-42b7-8066-85eb6572c276"/>
+								<reportElement x="0" y="0" width="50" height="30" uuid="cab843b9-d3f0-45e0-98d2-2e52192b46b1"/>
 								<box leftPadding="2"/>
 								<textElement>
 									<font fontName="DejaVu Sans" size="12" isBold="true"/>
 								</textElement>
-								<text><![CDATA[cid]]></text>
+								<text><![CDATA[CID]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="Table_CH" height="30"/>
 						<jr:detailCell style="Table_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="60" height="30" uuid="6ea567ce-13e9-45e9-9c7b-ca7c69771016"/>
+								<reportElement x="0" y="0" width="50" height="30" uuid="37141463-8610-4639-9eb2-2da03a00b85a"/>
 								<box leftPadding="2"/>
 								<textElement>
 									<font fontName="DejaVu Sans" size="12"/>
@@ -132,23 +129,48 @@
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="100" uuid="3cc42f38-c6fe-4724-9efd-9d1a5d1c11be">
+					<jr:column width="150" uuid="9f826ff8-8d7f-459f-b282-87548d165a46">
 						<jr:tableHeader style="Table_TH" height="30"/>
 						<jr:tableFooter style="Table_TH" height="30"/>
 						<jr:columnHeader style="Table_CH" height="30">
 							<staticText>
-								<reportElement x="0" y="0" width="100" height="30" uuid="6f0c3c8d-aa44-4df5-b169-b3497ed39b2f"/>
+								<reportElement x="0" y="0" width="150" height="30" uuid="55055f7f-fc8d-44d9-a920-cd4f4bc8f86d"/>
 								<box leftPadding="2"/>
 								<textElement>
 									<font fontName="DejaVu Sans" size="12" isBold="true"/>
 								</textElement>
-								<text><![CDATA[nic]]></text>
+								<text><![CDATA[Name]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="Table_CH" height="30"/>
 						<jr:detailCell style="Table_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="100" height="30" uuid="900188ea-263a-4822-84b5-851d95feac57"/>
+								<reportElement x="0" y="0" width="150" height="30" uuid="a90b4075-8de3-4e99-b288-b021b00e97e3"/>
+								<box leftPadding="2"/>
+								<textElement>
+									<font fontName="DejaVu Sans" size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{cname}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="5fc343e2-e8b2-4cc0-80a8-5dfe86f05b0c">
+						<jr:tableHeader style="Table_TH" height="30"/>
+						<jr:tableFooter style="Table_TH" height="30"/>
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="c13b5d5f-38f3-4c5e-91b7-53e61232df9a"/>
+								<box leftPadding="2"/>
+								<textElement>
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[NIC]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table_CH" height="30"/>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="30" uuid="f0ee8ff1-2967-462f-946b-4485f105b956"/>
 								<box leftPadding="2"/>
 								<textElement>
 									<font fontName="DejaVu Sans" size="12"/>
@@ -157,23 +179,23 @@
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="60" uuid="8e3c0c3e-6046-48fd-88a6-05fcd7e5e8e8">
+					<jr:column width="50" uuid="ea6d9fe2-cb70-4015-964f-c40e7fe894e0">
 						<jr:tableHeader style="Table_TH" height="30"/>
 						<jr:tableFooter style="Table_TH" height="30"/>
 						<jr:columnHeader style="Table_CH" height="30">
 							<staticText>
-								<reportElement x="0" y="0" width="60" height="30" uuid="7afe9483-b790-440d-bb83-08b5ca0adac1"/>
+								<reportElement x="0" y="0" width="50" height="30" uuid="d7e0fb05-e225-4bd0-ae59-98c4d6127b0e"/>
 								<box leftPadding="2"/>
 								<textElement>
 									<font fontName="DejaVu Sans" size="12" isBold="true"/>
 								</textElement>
-								<text><![CDATA[gid]]></text>
+								<text><![CDATA[Group]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="Table_CH" height="30"/>
 						<jr:detailCell style="Table_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="60" height="30" uuid="b51b2a61-d5fd-437a-9b76-3622aa2dcea2"/>
+								<reportElement x="0" y="0" width="50" height="30" uuid="ff280cd9-850c-447b-94a0-3f2755110bda"/>
 								<box leftPadding="2"/>
 								<textElement>
 									<font fontName="DejaVu Sans" size="12"/>
@@ -182,23 +204,23 @@
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="80" uuid="f3ce5af8-af3f-42aa-8181-eb9523cdfdc4">
+					<jr:column width="80" uuid="2085a7f5-57a1-43e5-bcb0-66dd8183a549">
 						<jr:tableHeader style="Table_TH" height="30"/>
 						<jr:tableFooter style="Table_TH" height="30"/>
 						<jr:columnHeader style="Table_CH" height="30">
 							<staticText>
-								<reportElement x="0" y="0" width="80" height="30" uuid="342094bd-349e-4c3a-b666-4999f310d583"/>
+								<reportElement x="0" y="0" width="80" height="30" uuid="4893ffeb-2094-48fb-92bb-3bf46aa95a16"/>
 								<box leftPadding="2"/>
 								<textElement>
 									<font fontName="DejaVu Sans" size="12" isBold="true"/>
 								</textElement>
-								<text><![CDATA[MeterNow]]></text>
+								<text><![CDATA[NowMeter]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="Table_CH" height="30"/>
 						<jr:detailCell style="Table_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="80" height="30" uuid="ddef3350-3d6a-481f-824f-f370ef0e5956"/>
+								<reportElement x="0" y="0" width="80" height="30" uuid="644becc1-0e1a-4669-998b-da63b4a25b83"/>
 								<box leftPadding="2"/>
 								<textElement>
 									<font fontName="DejaVu Sans" size="12"/>
@@ -207,23 +229,23 @@
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="146" uuid="e9f95ffa-9a35-4283-95f8-c2ec9b2c37ec">
+					<jr:column width="89" uuid="66d7a54e-498d-4544-8831-bb7972f38903">
 						<jr:tableHeader style="Table_TH" height="30"/>
 						<jr:tableFooter style="Table_TH" height="30"/>
 						<jr:columnHeader style="Table_CH" height="30">
 							<staticText>
-								<reportElement x="0" y="0" width="146" height="30" uuid="0e83b08d-78df-4d29-9ef3-104298490b79"/>
+								<reportElement x="0" y="0" width="89" height="30" uuid="04cf7be9-c98f-4393-b039-ca45da8b7fef"/>
 								<box leftPadding="2"/>
 								<textElement>
 									<font fontName="DejaVu Sans" size="12" isBold="true"/>
 								</textElement>
-								<text><![CDATA[TotalOutstanding]]></text>
+								<text><![CDATA[Total]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="Table_CH" height="30"/>
 						<jr:detailCell style="Table_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="146" height="30" uuid="6b31bb83-2cb8-4a6a-afcf-0af96c0d5b83"/>
+								<reportElement x="0" y="0" width="89" height="30" uuid="0a88dd17-2948-438b-978e-ae43b37498d8"/>
 								<box leftPadding="2"/>
 								<textElement>
 									<font fontName="DejaVu Sans" size="12"/>
@@ -232,12 +254,12 @@
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="89" uuid="47a9682c-c110-4551-a6f2-72d87fb1adde">
+					<jr:column width="89" uuid="df6652f8-a819-41a2-8526-be91005fd8d9">
 						<jr:tableHeader style="Table_TH" height="30"/>
 						<jr:tableFooter style="Table_TH" height="30"/>
 						<jr:columnHeader style="Table_CH" height="30">
 							<staticText>
-								<reportElement x="0" y="0" width="89" height="30" uuid="248b7072-686d-4441-a4c0-ad4472156a5b"/>
+								<reportElement x="0" y="0" width="89" height="30" uuid="1e1a7f3f-4df8-49a6-abdf-b47eb4514a7c"/>
 								<box leftPadding="2"/>
 								<textElement>
 									<font fontName="DejaVu Sans" size="12" isBold="true"/>
@@ -248,7 +270,7 @@
 						<jr:columnFooter style="Table_CH" height="30"/>
 						<jr:detailCell style="Table_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="89" height="30" uuid="d3c8bd98-3f89-455d-aede-94c8e5a5bb3c"/>
+								<reportElement x="0" y="0" width="89" height="30" uuid="c83fdfb3-b4a8-4d95-8d7d-7ce3817eace3"/>
 								<box leftPadding="2"/>
 								<textElement>
 									<font fontName="DejaVu Sans" size="12"/>
@@ -257,48 +279,23 @@
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="89" uuid="aaf06bf6-c552-4161-bf27-99423bdfade8">
+					<jr:column width="101" uuid="fca72b86-3eda-4121-a13e-b7797932bd94">
 						<jr:tableHeader style="Table_TH" height="30"/>
 						<jr:tableFooter style="Table_TH" height="30"/>
 						<jr:columnHeader style="Table_CH" height="30">
 							<staticText>
-								<reportElement x="0" y="0" width="89" height="30" uuid="73eb652d-b6a3-466d-8321-6d7ca278f228"/>
+								<reportElement x="0" y="0" width="101" height="30" uuid="fa9979b2-8c03-4f25-8ea0-4fc9b0c83a64"/>
 								<box leftPadding="2"/>
 								<textElement>
 									<font fontName="DejaVu Sans" size="12" isBold="true"/>
 								</textElement>
-								<text><![CDATA[lastPaymentDate]]></text>
+								<text><![CDATA[Initial Pay]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="Table_CH" height="30"/>
 						<jr:detailCell style="Table_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="89" height="30" uuid="f47163b1-2eba-422a-aa34-8ea801c623e4"/>
-								<box leftPadding="2"/>
-								<textElement>
-									<font fontName="DejaVu Sans" size="12"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{lastPaymentDate}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="89" uuid="25176060-3043-4a44-96cf-e444b38f604f">
-						<jr:tableHeader style="Table_TH" height="30"/>
-						<jr:tableFooter style="Table_TH" height="30"/>
-						<jr:columnHeader style="Table_CH" height="30">
-							<staticText>
-								<reportElement x="0" y="0" width="89" height="30" uuid="d5d88df7-b66f-4fb7-8ea8-3da586292690"/>
-								<box leftPadding="2"/>
-								<textElement>
-									<font fontName="DejaVu Sans" size="12" isBold="true"/>
-								</textElement>
-								<text><![CDATA[Initial Payment]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:columnFooter style="Table_CH" height="30"/>
-						<jr:detailCell style="Table_TD" height="30">
-							<textField>
-								<reportElement x="0" y="0" width="89" height="30" uuid="87f598ed-280f-41d3-b806-db543ecb6c71"/>
+								<reportElement x="0" y="0" width="101" height="30" uuid="66fc9958-6b14-4d7a-a2f6-45d7788682a0"/>
 								<box leftPadding="2"/>
 								<textElement>
 									<font fontName="DejaVu Sans" size="12"/>
@@ -307,12 +304,12 @@
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="89" uuid="18d0598f-ad1e-427e-a71a-ed57793a00b0">
+					<jr:column width="89" uuid="f6f71a78-80d2-45ed-8704-48da353b63eb">
 						<jr:tableHeader style="Table_TH" height="30"/>
 						<jr:tableFooter style="Table_TH" height="30"/>
 						<jr:columnHeader style="Table_CH" height="30">
 							<staticText>
-								<reportElement x="0" y="0" width="89" height="30" uuid="d8b03d7d-b7cf-4906-9468-a7b2f26f4664"/>
+								<reportElement x="0" y="0" width="89" height="30" uuid="c9b06137-9e73-41e1-b693-5ab98b33fd1f"/>
 								<box leftPadding="2"/>
 								<textElement>
 									<font fontName="DejaVu Sans" size="12" isBold="true"/>
@@ -323,7 +320,7 @@
 						<jr:columnFooter style="Table_CH" height="30"/>
 						<jr:detailCell style="Table_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="89" height="30" uuid="406ac748-2f28-4e90-a515-54018b3d8eb5"/>
+								<reportElement x="0" y="0" width="89" height="30" uuid="504275df-17be-4246-8f0e-e2e62de483d5"/>
 								<box leftPadding="2"/>
 								<textElement>
 									<font fontName="DejaVu Sans" size="12"/>

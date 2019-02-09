@@ -17,6 +17,7 @@ import javax.swing.WindowConstants;
 import waterbillingsystem_1.pkg0.pkg0.DateDetails;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
 import waterbillingsystem_1.pkg0.pkg0.Validations;
+import waterbillingsystem_1.pkg0.pkg0.VariableStorage;
 import waterbillingsystem_1.pkg0.pkg0.base.InitialPayment;
 import waterbillingsystem_1.pkg0.pkg0.controller.FillGUIComponents;
 import waterbillingsystem_1.pkg0.pkg0.controller.InitialPaymentProcessor;
@@ -35,7 +36,7 @@ public class EnterInitialPayments extends javax.swing.JFrame {
      * @throws java.io.IOException
      */
     public EnterInitialPayments() throws IOException {
-        File imageFile = new File("images\\page.png");
+        File imageFile = new File(VariableStorage.getBackupGroundImage());
         BufferedImage myImage = ImageIO.read(imageFile);
         this.setContentPane(new ImagePanel(myImage));
         
@@ -43,7 +44,7 @@ public class EnterInitialPayments extends javax.swing.JFrame {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         this.setLocationRelativeTo(null);   
-        ImageIcon img = new ImageIcon("images\\WaterDrop.png");
+        ImageIcon img = new ImageIcon(VariableStorage.getImageIcon());
         this.setIconImage(img.getImage());  
         dataInserted =false;   
         dataUpdate = false;        
@@ -307,7 +308,7 @@ public class EnterInitialPayments extends javax.swing.JFrame {
 
     private void btnUPUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUPUpdateActionPerformed
         // TODO add your handling code here:
-        if (!dataUpdate)
+        if (!dataUpdate && !dataInserted)
         dataUpdate = true;
         
         String errorMessage = validateData();
@@ -318,7 +319,11 @@ public class EnterInitialPayments extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUPUpdateActionPerformed
 
     private void btnIPClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIPClearActionPerformed
-        ClearComponents();
+
+        if(dataInserted)
+            ClearComponents();
+        else
+            JOptionPaneCustom.errorBox("Current Insertion Not Completed", "Initial Payment Data Insertion");     
     }//GEN-LAST:event_btnIPClearActionPerformed
 
     private void btnIPEnterAnotherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIPEnterAnotherActionPerformed

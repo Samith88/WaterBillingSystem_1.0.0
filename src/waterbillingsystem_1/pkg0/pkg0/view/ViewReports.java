@@ -21,6 +21,7 @@ import waterbillingsystem_1.pkg0.pkg0.ReportBase.OverallMonthlyBilling;
 import waterbillingsystem_1.pkg0.pkg0.ReportBase.OverallMonthlyPayment;
 import waterbillingsystem_1.pkg0.pkg0.ReportBase.PaymentsCustomer;
 import waterbillingsystem_1.pkg0.pkg0.ReportBase.TotalInitialPayment;
+import waterbillingsystem_1.pkg0.pkg0.VariableStorage;
 import waterbillingsystem_1.pkg0.pkg0.controller.FillGUIComponents;
 import waterbillingsystem_1.pkg0.pkg0.controller.ReportingProcessor;
 
@@ -36,7 +37,7 @@ public class ViewReports extends javax.swing.JFrame {
      */
     public ViewReports() throws IOException {
         
-        File imageFile = new File("images\\page.png");
+        File imageFile = new File(VariableStorage.getBackupGroundImage());
         BufferedImage myImage = ImageIO.read(imageFile);
         this.setContentPane(new ImagePanel(myImage));
         
@@ -44,7 +45,7 @@ public class ViewReports extends javax.swing.JFrame {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         this.setLocationRelativeTo(null);
-        ImageIcon img = new ImageIcon("images\\WaterDrop.png");
+        ImageIcon img = new ImageIcon(VariableStorage.getImageIcon());
         this.setIconImage(img.getImage());    
        
     }
@@ -939,7 +940,7 @@ public class ViewReports extends javax.swing.JFrame {
 
         ReportingProcessor reportingProcessor=new ReportingProcessor();
         try {
-            reportingProcessor.generateCustomReports("CustomerReports.jrxml");
+            reportingProcessor.generateCustomReports(VariableStorage.getCustomerReport());
         } catch (Exception ex) {
             Logger.getLogger(ViewReports.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -948,7 +949,7 @@ public class ViewReports extends javax.swing.JFrame {
     private void btnMRGroupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMRGroupActionPerformed
         ReportingProcessor reportingProcessor=new ReportingProcessor();
         try {
-            reportingProcessor.generateCustomReports("groupReport.jrxml");
+            reportingProcessor.generateCustomReports(VariableStorage.getGroupReport());
         } catch (Exception ex) {
             Logger.getLogger(ViewReports.class.getName()).log(Level.SEVERE, null, ex);
         }        

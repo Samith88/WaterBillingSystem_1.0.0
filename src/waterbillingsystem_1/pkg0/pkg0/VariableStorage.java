@@ -30,13 +30,47 @@ public class VariableStorage {
     public static double getFixedCharge() {
         return FixedCharge;
     }
+    public static String getInvoiceReport() {
+        return InvoiceReport;
+    }
 
+    public static String getCustomerReport() {
+        return CustomerReport;
+    }
+
+    public static String getGroupReport() {
+        return GroupReport;
+    }
     public static void setFixedCharge(double FixedCharge) {
         VariableStorage.FixedCharge = FixedCharge;
     }
+    public static String getBackupGroundImage() {
+        return BackupGroundImage;
+    }
+
+    public static String getImageIcon() {
+        return ImageIcon;
+    }
+
+    public static String getMainBackupGroundImage() {
+        return MainBackupGroundImage;
+    }
+
+    public static String getCalBackupGroundImage() {
+        return CalBackupGroundImage;
+    }    
     
     private  static double SramadhanaCharge;
     private  static double AbsentCharge;
     private  static double FixedCharge;
+    
+    private static final String MainBackupGroundImage = "images\\wallpaper.png";
+    private static final String CalBackupGroundImage = "images\\calbg.jpg";
+    private static final String InvoiceReport = "reports\\waterBilling.jrxml";
+    private static final String CustomerReport = "reports\\CustomerReports.jrxml";
+    private static final String GroupReport = "reports\\groupReport.jrxml";
+    private static final String BackupGroundImage = "images\\page.png";
+    private static final String ImageIcon = "images\\WaterDrop.png";
+
        
 }

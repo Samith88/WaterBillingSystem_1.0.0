@@ -31,7 +31,7 @@ public class UnitCalculator extends javax.swing.JFrame {
      * @throws java.io.IOException
      */
     public UnitCalculator() throws IOException {
-        File imageFile = new File("images\\calbg.jpg");
+        File imageFile = new File(VariableStorage.getCalBackupGroundImage());
         BufferedImage myImage = ImageIO.read(imageFile);
         this.setContentPane(new ImagePanel(myImage));
         
@@ -39,7 +39,7 @@ public class UnitCalculator extends javax.swing.JFrame {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         this.setLocationRelativeTo(null);        
-        ImageIcon img = new ImageIcon("images\\WaterDrop.png");
+        ImageIcon img = new ImageIcon(VariableStorage.getImageIcon());
         this.setIconImage(img.getImage());  
     }
 

@@ -16,6 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
+import waterbillingsystem_1.pkg0.pkg0.VariableStorage;
 import waterbillingsystem_1.pkg0.pkg0.base.ExtraCharges;
 import waterbillingsystem_1.pkg0.pkg0.base.UnitPrice;
 import waterbillingsystem_1.pkg0.pkg0.controller.ExtraChargeProcessor;
@@ -36,7 +37,7 @@ public class EnterUnitPrice extends javax.swing.JFrame {
     
     public EnterUnitPrice() throws IOException {
         
-        File imageFile = new File("images\\page.png");
+        File imageFile = new File(VariableStorage.getBackupGroundImage());
         BufferedImage myImage = ImageIO.read(imageFile);
         this.setContentPane(new ImagePanel(myImage));
         
@@ -46,7 +47,7 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);   
         dataInserted =false;   
         dataUpdate = false;
-        ImageIcon img = new ImageIcon("images\\WaterDrop.png");
+        ImageIcon img = new ImageIcon(VariableStorage.getImageIcon());
         this.setIconImage(img.getImage());        
     }
 
@@ -454,7 +455,7 @@ public class EnterUnitPrice extends javax.swing.JFrame {
 
     private void btnUPUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUPUpdateActionPerformed
         // TODO add your handling code here:
-        if (!dataUpdate)
+        if (!dataUpdate && !dataInserted)
         dataUpdate = true;
 
         String errorMessage = validateData();
@@ -531,6 +532,8 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         {
             ClearComponents();
         }
+        else
+            JOptionPaneCustom.errorBox("Current Insertion Not Completed", "Unit Price Data Insertion");     
     }//GEN-LAST:event_btnGDClearActionPerformed
 
     private void btnExtraChargeReloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExtraChargeReloadActionPerformed
