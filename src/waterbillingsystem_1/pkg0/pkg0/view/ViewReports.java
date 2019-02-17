@@ -100,6 +100,7 @@ public class ViewReports extends javax.swing.JFrame {
         btnCBPMonthPaymentPerCus = new javax.swing.JButton();
         CBDLblMonth8 = new javax.swing.JLabel();
         lblCBPMonthPayCusAns = new javax.swing.JLabel();
+        btnCDHome2 = new javax.swing.JButton();
         PanelIniPayments = new javax.swing.JPanel();
         CDFLabelMainCBP1 = new javax.swing.JLabel();
         PanelCIP = new javax.swing.JPanel();
@@ -119,6 +120,7 @@ public class ViewReports extends javax.swing.JFrame {
         cmbCIPYear = new javax.swing.JComboBox<>();
         btnCIPMonthly = new javax.swing.JButton();
         CIPLblPayCountAns = new javax.swing.JLabel();
+        btnCDHome3 = new javax.swing.JButton();
         PanelMoreReports = new javax.swing.JPanel();
         CDFLabelMainMR = new javax.swing.JLabel();
         PanelMRCustomers = new javax.swing.JPanel();
@@ -127,6 +129,7 @@ public class ViewReports extends javax.swing.JFrame {
         PanelMRGroups = new javax.swing.JPanel();
         lblMRGroup = new javax.swing.JLabel();
         btnMRGroup = new javax.swing.JButton();
+        btnCDHome4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -486,29 +489,47 @@ public class ViewReports extends javax.swing.JFrame {
                     .addContainerGap(22, Short.MAX_VALUE)))
         );
 
+        btnCDHome2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home_button.png"))); // NOI18N
+        btnCDHome2.setBorder(null);
+        btnCDHome2.setBorderPainted(false);
+        btnCDHome2.setContentAreaFilled(false);
+        btnCDHome2.setFocusPainted(false);
+        btnCDHome2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCDHome2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelCusPaymentsLayout = new javax.swing.GroupLayout(PanelCusPayments);
         PanelCusPayments.setLayout(PanelCusPaymentsLayout);
         PanelCusPaymentsLayout.setHorizontalGroup(
             PanelCusPaymentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelCusPaymentsLayout.createSequentialGroup()
-                .addGroup(PanelCusPaymentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PanelCusPaymentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(PanelCusPaymentsLayout.createSequentialGroup()
-                        .addGap(185, 185, 185)
-                        .addComponent(CDFLabelMainCBP))
-                    .addGroup(PanelCusPaymentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(PanelCusPaymentsLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelCusPaymentsLayout.createSequentialGroup()
-                            .addGap(35, 35, 35)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelCusPaymentsLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(33, Short.MAX_VALUE))
+            .addGroup(PanelCusPaymentsLayout.createSequentialGroup()
+                .addGap(185, 185, 185)
+                .addComponent(CDFLabelMainCBP)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCDHome2)
+                .addGap(18, 18, 18))
         );
         PanelCusPaymentsLayout.setVerticalGroup(
             PanelCusPaymentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelCusPaymentsLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(CDFLabelMainCBP)
+                .addGroup(PanelCusPaymentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelCusPaymentsLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(CDFLabelMainCBP))
+                    .addGroup(PanelCusPaymentsLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnCDHome2)))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -668,6 +689,17 @@ public class ViewReports extends javax.swing.JFrame {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
+        btnCDHome3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home_button.png"))); // NOI18N
+        btnCDHome3.setBorder(null);
+        btnCDHome3.setBorderPainted(false);
+        btnCDHome3.setContentAreaFilled(false);
+        btnCDHome3.setFocusPainted(false);
+        btnCDHome3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCDHome3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelIniPaymentsLayout = new javax.swing.GroupLayout(PanelIniPayments);
         PanelIniPayments.setLayout(PanelIniPaymentsLayout);
         PanelIniPaymentsLayout.setHorizontalGroup(
@@ -675,7 +707,9 @@ public class ViewReports extends javax.swing.JFrame {
             .addGroup(PanelIniPaymentsLayout.createSequentialGroup()
                 .addContainerGap(187, Short.MAX_VALUE)
                 .addComponent(CDFLabelMainCBP1)
-                .addGap(179, 179, 179))
+                .addGap(68, 68, 68)
+                .addComponent(btnCDHome3)
+                .addGap(19, 19, 19))
             .addGroup(PanelIniPaymentsLayout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addGroup(PanelIniPaymentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -686,8 +720,13 @@ public class ViewReports extends javax.swing.JFrame {
         PanelIniPaymentsLayout.setVerticalGroup(
             PanelIniPaymentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelIniPaymentsLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(CDFLabelMainCBP1)
+                .addGroup(PanelIniPaymentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelIniPaymentsLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(CDFLabelMainCBP1))
+                    .addGroup(PanelIniPaymentsLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnCDHome3)))
                 .addGap(27, 27, 27)
                 .addComponent(PanelCIP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -780,27 +819,44 @@ public class ViewReports extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        btnCDHome4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home_button.png"))); // NOI18N
+        btnCDHome4.setBorder(null);
+        btnCDHome4.setBorderPainted(false);
+        btnCDHome4.setContentAreaFilled(false);
+        btnCDHome4.setFocusPainted(false);
+        btnCDHome4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCDHome4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelMoreReportsLayout = new javax.swing.GroupLayout(PanelMoreReports);
         PanelMoreReports.setLayout(PanelMoreReportsLayout);
         PanelMoreReportsLayout.setHorizontalGroup(
             PanelMoreReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelMoreReportsLayout.createSequentialGroup()
+                .addGap(55, 55, 55)
                 .addGroup(PanelMoreReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelMoreReportsLayout.createSequentialGroup()
-                        .addGap(208, 208, 208)
-                        .addComponent(CDFLabelMainMR))
-                    .addGroup(PanelMoreReportsLayout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addGroup(PanelMoreReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(PanelMRGroups, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PanelMRCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(PanelMRGroups, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PanelMRCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(58, Short.MAX_VALUE))
+            .addGroup(PanelMoreReportsLayout.createSequentialGroup()
+                .addGap(208, 208, 208)
+                .addComponent(CDFLabelMainMR)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCDHome4)
+                .addGap(18, 18, 18))
         );
         PanelMoreReportsLayout.setVerticalGroup(
             PanelMoreReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelMoreReportsLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(CDFLabelMainMR)
+                .addGroup(PanelMoreReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelMoreReportsLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(CDFLabelMainMR))
+                    .addGroup(PanelMoreReportsLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnCDHome4)))
                 .addGap(60, 60, 60)
                 .addComponent(PanelMRCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
@@ -924,7 +980,11 @@ public class ViewReports extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCIPMonthlyActionPerformed
 
     private void btnCDHome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDHome1ActionPerformed
-        // TODO add your handling code here:
+        getMainPage();
+      
+    }//GEN-LAST:event_btnCDHome1ActionPerformed
+
+    private void getMainPage(){
         MainPage mainPage = null;
         try {
             mainPage = new MainPage();
@@ -933,9 +993,9 @@ public class ViewReports extends javax.swing.JFrame {
         }
         mainPage.setVisible(true);
         this.setVisible(false);
-        this.dispose();        
-    }//GEN-LAST:event_btnCDHome1ActionPerformed
-
+        this.dispose();      
+        
+    }
     private void btnMRCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMRCustomerActionPerformed
 
         ReportingProcessor reportingProcessor=new ReportingProcessor();
@@ -963,6 +1023,18 @@ public class ViewReports extends javax.swing.JFrame {
         fillGUIComponents.setCMBDates(cmbCBPYearPerCus, cmbCBPMonthPerCus);
         fillGUIComponents.setCMBDates(cmbCIPYear, cmbCIPMonth);
     }//GEN-LAST:event_formWindowOpened
+
+    private void btnCDHome2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDHome2ActionPerformed
+        getMainPage();
+    }//GEN-LAST:event_btnCDHome2ActionPerformed
+
+    private void btnCDHome3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDHome3ActionPerformed
+        getMainPage();
+    }//GEN-LAST:event_btnCDHome3ActionPerformed
+
+    private void btnCDHome4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDHome4ActionPerformed
+        getMainPage();
+    }//GEN-LAST:event_btnCDHome4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1036,6 +1108,9 @@ public class ViewReports extends javax.swing.JFrame {
     private javax.swing.JButton btnCBP;
     private javax.swing.JButton btnCBPMonthPaymentPerCus;
     private javax.swing.JButton btnCDHome1;
+    private javax.swing.JButton btnCDHome2;
+    private javax.swing.JButton btnCDHome3;
+    private javax.swing.JButton btnCDHome4;
     private javax.swing.JButton btnCIP;
     private javax.swing.JButton btnCIPMonthly;
     private javax.swing.JButton btnMRCustomer;
