@@ -58,9 +58,9 @@ public class CustomerDataDatabase {
         HashMap<String, String> customerHash = new HashMap<>();
         
         try{
-            ResultSet rs  = retrieveClass.getResultsFormDB("select cid,CFirstName from customer");
+            ResultSet rs  = retrieveClass.getResultsFormDB("select CFirstName,cid from customer");
             while (rs.next()) {
-                customerHash.put(rs.getString("cid"), rs.getString("CFirstName"));
+                customerHash.put( rs.getString("CFirstName"),rs.getString("cid"));
             }
             DBConnection.disconnect();
         } catch (SQLException e) {

@@ -48,26 +48,26 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="GCRLblCID" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
-                          <Component id="GCRLblUnits1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="GCRLblUnits1" min="-2" max="-2" attributes="0"/>
+                          <Component id="GCRLblCFName" min="-2" pref="134" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="cmbMonth" min="-2" pref="117" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                              <Component id="cmbYear" min="-2" pref="80" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="txtCustomerFName" alignment="0" min="-2" pref="264" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="cmbCustomerCID" min="-2" pref="94" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="PDLblFname" min="-2" pref="172" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="txtCustomerCID" alignment="0" min="-2" pref="276" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="cmbMonth" min="-2" pref="117" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="cmbYear" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="PDLblFname" min="-2" pref="160" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="100" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -80,8 +80,8 @@
               <Component id="GILabelMain" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtCustomerCID" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="GCRLblCID" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtCustomerFName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="GCRLblCFName" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -129,17 +129,17 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCDHomeActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="GCRLblCID">
+    <Component class="javax.swing.JLabel" name="GCRLblCFName">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Customer Id *"/>
+        <Property name="text" type="java.lang.String" value="Customer First Name*"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtCustomerCID">
+    <Component class="javax.swing.JTextField" name="txtCustomerFName">
       <Events>
-        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCustomerCIDKeyTyped"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCustomerFNameKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="cmbCustomerCID">

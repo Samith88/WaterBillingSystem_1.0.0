@@ -50,7 +50,7 @@ public class FillGUIComponents {
         } 
     }    
     
-    public void LoadCustomerData(HashMap<String, String> customerHash ,String cid,javax.swing.JComboBox comboBox) throws Exception{
+    public void LoadCustomerData(HashMap<String, String> customerHash ,String Fname,javax.swing.JComboBox comboBox) throws Exception{
     
         comboBox.removeAllItems();
         
@@ -59,10 +59,21 @@ public class FillGUIComponents {
         
         while(iterator.hasNext()) {
             Map.Entry mentry = (Map.Entry)iterator.next();
-            if(mentry.getKey().toString().contains(cid))
-                comboBox.addItem(mentry.getKey());
+            if(mentry.getKey().toString().contains(Fname))
+                comboBox.addItem(mentry.getValue());
         } 
     }
+    public void LoadFName(HashMap<String, String> customerHash ,String cid,javax.swing.JLabel FnameJLabel) throws Exception{
+    
+        Set set = customerHash.entrySet();
+        Iterator iterator = set.iterator();
+        
+        while(iterator.hasNext()) {
+            Map.Entry mentry = (Map.Entry)iterator.next();
+            if(mentry.getValue().toString().contains(cid))
+                FnameJLabel.setText(mentry.getKey().toString());
+        } 
+    }    
     public void updateCmb(javax.swing.JComboBox comboBox,String selected) throws SQLException, Exception{
         
         GroupDetailsDB groupDetailsDB=new GroupDetailsDB();

@@ -416,7 +416,7 @@ public class EnterCustomer extends javax.swing.JFrame {
         customer.setCid(Validations.getCorrectCID(txtCustomerNo.getText()));
         
         customer.setNic(txtCustomerNIC.getText() );
-        customer.setGid(cmbGroupId.getSelectedItem().toString().split("-")[1]);
+        customer.setGid(cmbGroupId.getSelectedItem().toString().split("-")[0]);
         customer.setAddress_1(txtCustomerAd1.getText());
         customer.setAddress_2(txtCustomerAd2.getText());
         customer.setAddress_3(txtCustomerAd3.getText());
@@ -445,7 +445,7 @@ public class EnterCustomer extends javax.swing.JFrame {
             errorMessage += "Enter valide First name <br>";
         if(txtCustomername.getText().length()==0 && !dataUpdate)
             errorMessage += "Enter valide name <br>";
-        if(txtCustomerNo.getText().length()==0)
+        if(txtCustomerNo.getText().length() < 3)
             errorMessage += "Enter valide customer Id <br>";
         if(txtCustomerCurrentMeter.getText().length()==0 && !dataUpdate)
             errorMessage += "Enter valide Current Meter <br>";   

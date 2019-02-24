@@ -69,8 +69,8 @@ public class EnterBillData extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         CDFLabelMain = new javax.swing.JLabel();
         cmbCustomerCID = new javax.swing.JComboBox<>();
-        BDLblCID = new javax.swing.JLabel();
-        txtCustomerCID = new javax.swing.JTextField();
+        BDLblCFName = new javax.swing.JLabel();
+        txtCustomerFName = new javax.swing.JTextField();
         BDLblUnits = new javax.swing.JLabel();
         radioUnits = new javax.swing.JRadioButton();
         radioMeter = new javax.swing.JRadioButton();
@@ -109,12 +109,12 @@ public class EnterBillData extends javax.swing.JFrame {
             }
         });
 
-        BDLblCID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        BDLblCID.setText("Customer Id");
+        BDLblCFName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BDLblCFName.setText("Customer First Name");
 
-        txtCustomerCID.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtCustomerFName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtCustomerCIDKeyTyped(evt);
+                txtCustomerFNameKeyTyped(evt);
             }
         });
 
@@ -225,9 +225,9 @@ public class EnterBillData extends javax.swing.JFrame {
                                     .addComponent(ckBoxSramadhana)))
                             .addComponent(PDlblWarning)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(BDLblCID, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(txtCustomerCID)))
+                                .addComponent(BDLblCFName, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtCustomerFName)))
                         .addGap(60, 60, 60))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(152, 152, 152)
@@ -294,8 +294,8 @@ public class EnterBillData extends javax.swing.JFrame {
                         .addComponent(btnCDUpdate)
                         .addGap(37, 37, 37)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtCustomerCID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BDLblCID))
+                            .addComponent(txtCustomerFName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BDLblCFName))
                         .addGap(61, 61, 61)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(BDLblUnits)
@@ -485,7 +485,7 @@ public class EnterBillData extends javax.swing.JFrame {
         try {
             BillData billData = billDataProcessor.getLatestMBIdFromCID(Validations.getCorrectCID(cmbCustomerCID.getSelectedItem().toString()));
             
-            txtCustomerCID.setText(billData.getCid());
+            txtCustomerFName.setText(billData.getCid());
             
             if(billData.getMonthlyUsageUnit()==0)
             {
@@ -580,7 +580,7 @@ public class EnterBillData extends javax.swing.JFrame {
         }
     }
     private void ClearComponents(){
-        txtCustomerCID.setText("");
+        txtCustomerFName.setText("");
         txtBDUnitUsage.setText("");
         if(radioUnits.isSelected() || radioMeter.isSelected())
             buttonGroup1.clearSelection();
@@ -626,17 +626,17 @@ public class EnterBillData extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnBDClearActionPerformed
 
-    private void txtCustomerCIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCustomerCIDKeyTyped
-        // TODO add your handling code here:
-        FillGUIComponents.setNumberOnlyTextBox(evt);
+    private void txtCustomerFNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCustomerFNameKeyTyped
+
+        //FillGUIComponents.setNumberOnlyTextBox(evt);
         
         FillGUIComponents fillGUIComponents=new FillGUIComponents();
         try {
-            fillGUIComponents.LoadCustomerData(customerHash,txtCustomerCID.getText(), cmbCustomerCID);
+            fillGUIComponents.LoadCustomerData(customerHash,txtCustomerFName.getText(), cmbCustomerCID);
         } catch (Exception ex) {
             Logger.getLogger(EnterBillData.class.getName()).log(Level.SEVERE, null, ex);
         }          
-    }//GEN-LAST:event_txtCustomerCIDKeyTyped
+    }//GEN-LAST:event_txtCustomerFNameKeyTyped
 
     private void txtBDUnitUsageKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBDUnitUsageKeyTyped
         // TODO add your handling code here:
@@ -657,9 +657,9 @@ public class EnterBillData extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCDHomeActionPerformed
 
     private void cmbCustomerCIDItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbCustomerCIDItemStateChanged
-        // TODO add your handling code here:
-        try{ 
-            BDLblFName.setText(customerHash.get(cmbCustomerCID.getSelectedItem().toString()));                
+        FillGUIComponents fillGUIComponents=new FillGUIComponents();
+        try{       
+            fillGUIComponents.LoadFName(customerHash ,cmbCustomerCID.getSelectedItem().toString(),BDLblFName);
         }catch(Exception ex){ex.toString();}
     }//GEN-LAST:event_cmbCustomerCIDItemStateChanged
 
@@ -730,7 +730,7 @@ public class EnterBillData extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel BDLblCID;
+    private javax.swing.JLabel BDLblCFName;
     private javax.swing.JLabel BDLblFN;
     private javax.swing.JLabel BDLblFName;
     private javax.swing.JLabel BDLblFname;
@@ -752,6 +752,6 @@ public class EnterBillData extends javax.swing.JFrame {
     private javax.swing.JRadioButton radioMeter;
     private javax.swing.JRadioButton radioUnits;
     private javax.swing.JTextField txtBDUnitUsage;
-    private javax.swing.JTextField txtCustomerCID;
+    private javax.swing.JTextField txtCustomerFName;
     // End of variables declaration//GEN-END:variables
 }
