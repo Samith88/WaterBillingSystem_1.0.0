@@ -19,6 +19,7 @@ public class RetrieveClass {
         ResultSet result = null;
         try {
             result = DBConnection.readConnect().createStatement().executeQuery(sql);
+            getLogger.getLog().debug(sql);
         } catch (SQLException e) {
             getLogger.getLog().debug(e.toString());
         }

@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import org.sqlite.SQLiteConfig;
+import waterbillingsystem_1.pkg0.pkg0.VariableStorage;
 
 /**
  *
@@ -18,7 +19,7 @@ public class DBConnection {
     public static Connection connection;
     
     public static Connection connect() throws Exception{
-        connection = DriverManager.getConnection("jdbc:sqlite:waterbill.db");
+        connection = DriverManager.getConnection("jdbc:sqlite:"+VariableStorage.getDbFileName());
         return connection;
     }
 
@@ -29,7 +30,7 @@ public class DBConnection {
     public static Connection readConnect() throws SQLException{
         SQLiteConfig config = new SQLiteConfig();
         config.setReadOnly(true);
-        connection = DriverManager.getConnection("jdbc:sqlite:waterbill.db",config.toProperties());
+        connection = DriverManager.getConnection("jdbc:sqlite:"+VariableStorage.getDbFileName(),config.toProperties());
         return connection;
     }    
 }

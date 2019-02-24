@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.IOException;
 import waterbillingsystem_1.pkg0.pkg0.VariableStorage;
 import waterbillingsystem_1.pkg0.pkg0.controller.ExtraChargeProcessor;
+import waterbillingsystem_1.pkg0.pkg0.controller.FileBackupController;
 /**
  *
  * @author UDISSSA1
@@ -396,9 +397,6 @@ public class MainPage extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(PanelMainUserM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(54, 54, 54)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LblMain1)
@@ -406,9 +404,10 @@ public class MainPage extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                         .addComponent(PanelMainRpt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(PanelMainTrx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(PanelMainTrx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PanelMainUserM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(44, 44, 44))
         );
         layout.setVerticalGroup(
@@ -425,9 +424,9 @@ public class MainPage extends javax.swing.JFrame {
                         .addComponent(LblMain1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(LblMain2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(PanelMainTrx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(40, 40, 40))
         );
 
         pack();
@@ -639,6 +638,14 @@ public class MainPage extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        if(VariableStorage.isGetBackup())
+        {
+            FileBackupController FileBackupController=new FileBackupController();
+            FileBackupController.getBackup(VariableStorage.getDbFileName(), 
+                    VariableStorage.getBackupFolder()+"//"+VariableStorage.getDbFile());
+            VariableStorage.setGetBackup(false);
+        }        
     }//GEN-LAST:event_formWindowOpened
 
     /**

@@ -60,9 +60,33 @@ public class VariableStorage {
         return CalBackupGroundImage;
     }    
     
+    public static String getDbFileName() {
+        return dbFileName;
+    }
+    public static String getBackupFolder() {
+        return dbBackupFolder;
+    }
+    
+    public static String getDbFile() {
+        return dbFile;
+    }
+
+    public static String getDbBackupFolder() {
+        return dbBackupFolder;
+    }
+    public static boolean isGetBackup() {
+        return getBackup;
+    }
+
+    public static void setGetBackup(boolean getBackup) {
+        VariableStorage.getBackup = getBackup;
+    }
+    
     private  static double SramadhanaCharge;
     private  static double AbsentCharge;
     private  static double FixedCharge;
+
+    private static boolean getBackup = true;
     
     private static final String MainBackupGroundImage = "images\\wallpaper.png";
     private static final String CalBackupGroundImage = "images\\calbg.jpg";
@@ -72,5 +96,8 @@ public class VariableStorage {
     private static final String BackupGroundImage = "images\\page.png";
     private static final String ImageIcon = "images\\WaterDrop.png";
 
+    private final static String dbFileName = "db\\waterbill.db";
+    private final static String dbFile = "waterbill.db";
+    private final static String dbBackupFolder = "db\\backups";
        
 }

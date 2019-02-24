@@ -23,6 +23,7 @@ public class InsertUpdateDeleteClass {
             int res;
             try (PreparedStatement statement = (PreparedStatement) connection.prepareStatement(sql)) {
                 res = statement.executeUpdate();
+                getLogger.getLog().debug(sql);
             }
             if(res>0){
                 result = true;
