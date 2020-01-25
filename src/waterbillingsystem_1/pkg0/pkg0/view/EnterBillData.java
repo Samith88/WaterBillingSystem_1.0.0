@@ -467,14 +467,25 @@ public class EnterBillData extends javax.swing.JFrame {
     
         String errorString = "";
 
-        if(cmbCustomerCID.getSelectedItem().toString().equals("Select CID") || cmbCustomerCID.getSelectedItem().toString().equals(""))
-            errorString += "Please enter Customer Id <br>";
+        if(cmbCustomerCID.getItemCount()!=0)
+        {
+            if(cmbCustomerCID.getSelectedItem().toString().equals("Select CID") || cmbCustomerCID.getSelectedItem().toString().equals(""))
+                errorString += "Please enter a correct Customer Id <br>";
+        }
+        else
+            errorString += "Please enter a correct Customer Id <br>";
+        
         if((!radioUnits.isSelected() && !radioMeter.isSelected()) && !dataUpdate)
             errorString += "Please select type of meter units <br>";
+        try{
         if(txtBDUnitUsage.getText().length()==0 && !dataUpdate)
             errorString += "Monthly Unit Usage not entered <br>";   
-        
-        errorString +=ValidateMeterReading();
+        }catch(Exception ex){
+            errorString += "Monthly Unit Usage not entered <br>";
+            Logger.getLogger(EnterBillData.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if(errorString.length()==0)
+            errorString +=ValidateMeterReading();
         
         return errorString;
     }
@@ -629,13 +640,15 @@ public class EnterBillData extends javax.swing.JFrame {
     private void txtCustomerFNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCustomerFNameKeyTyped
 
         //FillGUIComponents.setNumberOnlyTextBox(evt);
-        
-        FillGUIComponents fillGUIComponents=new FillGUIComponents();
-        try {
-            fillGUIComponents.LoadCustomerData(customerHash,txtCustomerFName.getText(), cmbCustomerCID);
-        } catch (Exception ex) {
-            Logger.getLogger(EnterBillData.class.getName()).log(Level.SEVERE, null, ex);
-        }          
+        if(txtCustomerFName.getText().length()>=2)
+        {
+            FillGUIComponents fillGUIComponents=new FillGUIComponents();
+            try {
+                fillGUIComponents.LoadCustomerData(customerHash,txtCustomerFName.getText(), cmbCustomerCID);
+            } catch (Exception ex) {
+                Logger.getLogger(EnterBillData.class.getName()).log(Level.SEVERE, null, ex);
+            }    
+        }
     }//GEN-LAST:event_txtCustomerFNameKeyTyped
 
     private void txtBDUnitUsageKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBDUnitUsageKeyTyped
@@ -658,7 +671,8 @@ public class EnterBillData extends javax.swing.JFrame {
 
     private void cmbCustomerCIDItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbCustomerCIDItemStateChanged
         FillGUIComponents fillGUIComponents=new FillGUIComponents();
-        try{       
+        try{    
+            BDLblFName.setText("");
             fillGUIComponents.LoadFName(customerHash ,cmbCustomerCID.getSelectedItem().toString(),BDLblFName);
         }catch(Exception ex){ex.toString();}
     }//GEN-LAST:event_cmbCustomerCIDItemStateChanged

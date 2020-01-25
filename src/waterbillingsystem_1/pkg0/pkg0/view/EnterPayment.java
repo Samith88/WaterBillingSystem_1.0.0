@@ -329,9 +329,14 @@ public class EnterPayment extends javax.swing.JFrame {
     private String validateData(){
     
         String errorMessage = "";
-        if(cmdCID.getSelectedItem().toString().equals("Select CID") || cmdCID.getSelectedItem().toString().equals("")) {
-            errorMessage += "Please enter a correct Customer Id <br>";
+        if(cmdCID.getItemCount()!=0)
+        {
+            if(cmdCID.getSelectedItem().toString().equals("Select CID") || cmdCID.getSelectedItem().toString().equals("")) {
+                errorMessage += "Please enter a correct Customer Id <br>";
+            }
         }
+        else
+            errorMessage += "Please enter a correct Customer Id <br>";
         
         if(txtPaymentAmount.getText().length()==0 && !dataUpdate)
             errorMessage += "Please enter a valid amount <br>";
@@ -384,12 +389,15 @@ public class EnterPayment extends javax.swing.JFrame {
     }
     private void txtPaymentFNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPaymentFNameKeyTyped
 
-        FillGUIComponents fillGUIComponents=new FillGUIComponents();
-        try {
-            fillGUIComponents.LoadCustomerData(customerHash,txtPaymentFName.getText(), cmdCID);
-        } catch (Exception ex) {
-            Logger.getLogger(EnterBillData.class.getName()).log(Level.SEVERE, null, ex);
-        }         
+        if(txtPaymentFName.getText().length()>=2){
+            FillGUIComponents fillGUIComponents=new FillGUIComponents();
+            try {
+                fillGUIComponents.LoadCustomerData(customerHash,txtPaymentFName.getText(), cmdCID);
+            } catch (Exception ex) {
+                Logger.getLogger(EnterBillData.class.getName()).log(Level.SEVERE, null, ex);
+            }        
+        }
+         
     }//GEN-LAST:event_txtPaymentFNameKeyTyped
 
     private void txtPaymentAmountKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPaymentAmountKeyTyped
@@ -399,6 +407,7 @@ public class EnterPayment extends javax.swing.JFrame {
     private void cmdCIDItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmdCIDItemStateChanged
         FillGUIComponents fillGUIComponents=new FillGUIComponents();
         try{       
+            PDLblFname.setText("");
             fillGUIComponents.LoadFName(customerHash ,cmdCID.getSelectedItem().toString(),PDLblFname);
         }catch(Exception ex){ex.toString();}        
     }//GEN-LAST:event_cmdCIDItemStateChanged

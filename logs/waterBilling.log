@@ -21,3 +21,104 @@
 2020-01-25 10:48:11 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select currentMeter from customer where cid='56'
 2020-01-25 10:48:11 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from BillData where cid='056' and mbid=(select max(mbid) from BillData where cid='056')
 2020-01-25 10:49:29 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 10:54:54 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select gid,gname from [group]
+2020-01-25 10:55:16 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from customer where cid='101'
+2020-01-25 10:56:31 DEBUG [AWT-EventQueue-0] (InsertUpdateDeleteClass.java:26) - update Customer set nic='883512847v',address_1='"Sinha Sevana",Panawala',address_2='Thalatuoya',address_3='via Kandy',gid= '1',MeterNo='101101',cname='Test',currentMeter='0',TotalOutstandingAmount='0.0',CFirstName='Samith',lastPayment='0.0',InitialFeeTotal='12000',InitialReceived='12000'  where cid='101'
+2020-01-25 10:57:06 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 10:57:07 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select gid,gname from [group]
+2020-01-25 10:57:56 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 11:00:15 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 11:00:15 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2020-01-25 11:01:09 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 11:01:09 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2020-01-25 11:01:17 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 11:02:25 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 11:02:25 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2020-01-25 11:02:30 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 11:04:44 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 11:04:44 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2020-01-25 11:04:47 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 11:09:33 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 11:09:33 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2020-01-25 11:09:35 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 11:19:16 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 11:19:16 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2020-01-25 11:19:19 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 11:20:31 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 11:20:31 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2020-01-25 11:20:33 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 17:36:57 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 17:36:58 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2020-01-25 17:36:59 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 17:42:40 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 17:42:40 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2020-01-25 17:42:42 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 17:43:36 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 17:43:36 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2020-01-25 17:43:38 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 17:44:50 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 17:44:50 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2020-01-25 17:44:52 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 17:50:00 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 17:50:00 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2020-01-25 17:50:02 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 17:52:03 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 17:52:03 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2020-01-25 17:52:05 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 17:52:44 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 17:52:44 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2020-01-25 17:52:45 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 17:54:58 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 17:54:58 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2020-01-25 17:54:59 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 17:59:27 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 17:59:27 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2020-01-25 17:59:29 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 18:04:27 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 18:04:27 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2020-01-25 18:04:29 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 18:08:02 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 18:08:02 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2020-01-25 18:08:03 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 18:10:45 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 18:10:45 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2020-01-25 18:10:45 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 18:11:28 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 18:11:28 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2020-01-25 18:11:29 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 18:13:01 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 18:13:01 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2020-01-25 18:13:09 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 18:13:09 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2020-01-25 18:13:10 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 18:14:43 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 18:14:43 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2020-01-25 18:14:45 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 18:16:34 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select currentMeter from customer where cid='86'
+2020-01-25 18:16:37 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from BillData where cid='086' and mbid=(select max(mbid) from BillData where cid='086')
+2020-01-25 18:17:13 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 18:18:32 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 18:18:32 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2020-01-25 18:18:33 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 18:18:51 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 18:20:37 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 18:20:37 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2020-01-25 18:20:38 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 18:21:06 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 18:21:18 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 18:21:18 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2020-01-25 18:21:20 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 18:23:09 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 18:30:45 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 18:30:45 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2020-01-25 18:30:49 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 18:32:37 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 18:32:39 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select gid,gname from [group]
+2020-01-25 18:42:44 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 18:42:53 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 18:42:53 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2020-01-25 18:42:54 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 18:42:59 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 18:43:10 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 18:43:12 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 18:43:30 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
