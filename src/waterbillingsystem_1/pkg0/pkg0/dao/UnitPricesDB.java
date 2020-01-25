@@ -29,7 +29,7 @@ public class UnitPricesDB {
         RetrieveClass retrieveClass =new RetrieveClass();
         List<UnitPrice> unitprices=new ArrayList<>();
         try{
-            ResultSet rs  = retrieveClass.getResultsFormDB("select * from unit_price");
+            ResultSet rs  = retrieveClass.getResultsFormDB("select * from unit_price order by uid");
             while (rs.next()) {
                 UnitPrice unitPrice=new UnitPrice();
                 unitPrice.setUid(rs.getString("uid"));
@@ -83,7 +83,6 @@ public class UnitPricesDB {
     public boolean deleteUnitPrice(String  uid){
     
         InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
-        
         return insertUpdateDeleteClass.insertUpdateDeleteDB("delete from unit_price where uid='"+uid+"' ");
     }       
 }

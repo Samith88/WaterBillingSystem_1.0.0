@@ -105,7 +105,7 @@ public class UnitCalculator extends javax.swing.JFrame {
         });
 
         btnBDCEnter.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnBDCEnter.setText("Enter Bill");
+        btnBDCEnter.setText("Generate Bill");
         btnBDCEnter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBDCEnterActionPerformed(evt);

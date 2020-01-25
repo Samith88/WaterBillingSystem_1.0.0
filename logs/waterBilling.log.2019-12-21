@@ -1,0 +1,11 @@
+2019-12-21 10:09:44 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2019-12-21 10:09:45 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2019-12-21 10:09:46 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2019-12-21 10:09:51 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2019-12-21 10:10:10 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from unit_price order by uid
+2019-12-21 10:10:20 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2019-12-21 10:11:45 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2019-12-21 10:11:45 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2019-12-21 10:13:11 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2019-12-21 10:13:19 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2019-12-21 10:13:31 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges

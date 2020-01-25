@@ -1,0 +1,6 @@
+2019-02-25 00:00:04 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2019-02-25 00:00:05 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2019-02-25 00:00:07 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2019-02-25 00:00:10 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2019-02-25 00:00:12 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2019-02-25 00:00:13 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges

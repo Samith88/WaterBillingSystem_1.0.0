@@ -1,6 +1,23 @@
-2019-02-25 00:00:04 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
-2019-02-25 00:00:05 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
-2019-02-25 00:00:07 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
-2019-02-25 00:00:10 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
-2019-02-25 00:00:12 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
-2019-02-25 00:00:13 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 10:43:52 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 10:43:52 DEBUG [AWT-EventQueue-0] (FileBackupController.java:32) - DB File copied to backup location
+2020-01-25 10:43:58 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select gid,gname from [group]
+2020-01-25 10:44:07 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 10:44:12 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 10:44:14 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 10:44:32 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 10:45:05 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 10:45:13 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 10:45:50 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 10:46:01 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from unit_price order by uid
+2020-01-25 10:46:03 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from unit_price order by uid
+2020-01-25 10:46:10 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from unit_price order by uid
+2020-01-25 10:46:16 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from unit_price order by uid
+2020-01-25 10:47:04 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 10:47:36 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 10:47:39 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 10:47:41 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 10:47:42 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
+2020-01-25 10:47:43 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select CFirstName,cid from customer
+2020-01-25 10:48:11 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select currentMeter from customer where cid='56'
+2020-01-25 10:48:11 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from BillData where cid='056' and mbid=(select max(mbid) from BillData where cid='056')
+2020-01-25 10:49:29 DEBUG [AWT-EventQueue-0] (RetrieveClass.java:22) - select * from ExtraCharges
