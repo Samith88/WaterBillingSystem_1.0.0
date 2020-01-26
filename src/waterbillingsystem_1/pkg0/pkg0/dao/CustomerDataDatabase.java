@@ -69,22 +69,38 @@ public class CustomerDataDatabase {
         return customerHash;
     }    
     
-    public static String getNICFromCID(String cid) throws Exception{
+    public boolean isCIDExist(String cid) throws Exception{
         
         RetrieveClass retrieveClass =new RetrieveClass();
-        String nic="";
+        String cidcount="";
         
         try{
-            ResultSet rs  = retrieveClass.getResultsFormDB("select cid from customer where cid='"+cid+"'");
+            ResultSet rs  = retrieveClass.getResultsFormDB("select count(cid) as cidcount from customer where cid='"+cid+"'");
             while (rs.next()) {
-                nic= rs.getString("cid");
+                cidcount= rs.getString("cidcount");
             }
             DBConnection.disconnect();
         } catch (SQLException e) {
             getLogger.getLog().debug(e.toString());
         }     
-        return nic;
+        return Integer.parseInt(cidcount)>0;
     }    
+    
+    public String getNextCID() throws Exception{
+        
+        RetrieveClass retrieveClass =new RetrieveClass();
+        String cidcount="";
+        try{
+            ResultSet rs  = retrieveClass.getResultsFormDB("select max(cid) as cidcount from customer");
+            while (rs.next()) {
+                cidcount= rs.getString("cidcount");
+            }
+            DBConnection.disconnect();
+        } catch (SQLException e) {
+            getLogger.getLog().debug(e.toString());
+        }     
+        return String.valueOf(Integer.parseInt(cidcount)+1) ;
+    } 
     
     public int getCurentMeterFromCID(String cid) throws Exception{
         

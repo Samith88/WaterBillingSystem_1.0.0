@@ -215,17 +215,22 @@ public class GenerateInvoice extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCDHomeActionPerformed
 
     private void txtCustomerFNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCustomerFNameKeyTyped
-        FillGUIComponents fillGUIComponents=new FillGUIComponents();
-        try {
-            fillGUIComponents.LoadCustomerData(customerHash,txtCustomerFName.getText(), cmbCustomerCID);
-        } catch (Exception ex) {
-            Logger.getLogger(EnterBillData.class.getName()).log(Level.SEVERE, null, ex);
-        }        
+        
+        if(txtCustomerFName.getText().length()>=2)
+        {
+            FillGUIComponents fillGUIComponents=new FillGUIComponents();
+            try {
+                fillGUIComponents.LoadCustomerData(customerHash,txtCustomerFName.getText(), cmbCustomerCID);
+            } catch (Exception ex) {
+                Logger.getLogger(EnterBillData.class.getName()).log(Level.SEVERE, null, ex);
+            }  
+        }
     }//GEN-LAST:event_txtCustomerFNameKeyTyped
 
     private void cmbCustomerCIDItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbCustomerCIDItemStateChanged
         FillGUIComponents fillGUIComponents=new FillGUIComponents();
         try{       
+            PDLblFname.setText("");
             fillGUIComponents.LoadFName(customerHash ,cmbCustomerCID.getSelectedItem().toString(),PDLblFname);
         }catch(Exception ex){ex.toString();}
     }//GEN-LAST:event_cmbCustomerCIDItemStateChanged
@@ -237,6 +242,7 @@ public class GenerateInvoice extends javax.swing.JFrame {
         cmbYear.setSelectedIndex(0);
         cmbCustomerCID.removeAllItems();
         cmbCustomerCID.setSelectedItem("Select NIC");
+        setForm();
     }
     private void btnGCREnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGCREnterActionPerformed
         // generateJasperReport(File jasperFile,File outFile ,MonthlyBillDetails monthlyBillDetails)
@@ -248,16 +254,27 @@ public class GenerateInvoice extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGCREnterActionPerformed
 
     private void generateReport(){
-        JOptionPaneCustom.infoBox("Invoice "+GenerateCustomerInvoce()+" was generated.", "Customer invoice generation");
+        try{
+            if(!GenerateCustomerInvoce().equals(""))
+                JOptionPaneCustom.infoBox(GenerateCustomerInvoce(), "Customer invoice generation");
         ClearComponents();        
+        }catch(Exception ex)
+        {
+            JOptionPaneCustom.errorBox("Invoice was not generated. "+ex.getMessage(), "Customer invoice generation");
+        }
     }
     private String validateData(){
-        String errorMessage="";
+        String errorString="";
+    
+        if(cmbCustomerCID.getItemCount()!=0)
+        {
+            if(cmbCustomerCID.getSelectedItem().toString().equals("Select CID") || cmbCustomerCID.getSelectedItem().toString().equals(""))
+                errorString += "Please select correct customer Id <br>";
+        }
+        else
+            errorString += "Please enter a correct Customer Id <br>";
         
-        if(cmbCustomerCID.getSelectedItem().toString().equals("Select CID"))
-            errorMessage += "Please select customer id <br>";
-        
-        return errorMessage;
+        return errorString;
     }
     private String GenerateCustomerInvoce(){
         String outFileName ="";
@@ -271,15 +288,18 @@ public class GenerateInvoice extends javax.swing.JFrame {
             outFileName = generateCustomerinvoice.generateJasperReport
             (VariableStorage.getInvoiceReport(), billDataProcessor.getBillId
             (txtCustomerFName.getText(),cmbYear.getSelectedItem().toString(),cmbMonth.getSelectedItem().toString().split("-")[0]), 
-            monthlyBillDB.getMonthlyBillDetailsByInvoiceNo(billDataProcessor.getBillId(txtCustomerFName.getText(),
+            monthlyBillDB.getMonthlyBillDetailsByInvoiceNo(billDataProcessor.getBillId(cmbCustomerCID.getSelectedItem().toString(),
             cmbYear.getSelectedItem().toString(),cmbMonth.getSelectedItem().toString().split("-")[0])));
-            
+            reportGenerated =true;
+            return "Invoice: "+outFileName+ "was generated.";
         } catch (Exception ex) {
-            JOptionPaneCustom.errorBox("Invoice generation error", "Customer Invoice Generation ");
+            JOptionPaneCustom.errorBox("Invoice generation error.Data may not exist for selected time range", "Customer Invoice Generation ");
             Logger.getLogger(GenerateInvoice.class.getName()).log(Level.SEVERE, null, ex);
+            reportGenerated =false;
+            return "";
         }  
-        reportGenerated =true;
-        return outFileName;
+        
+        
     }
     private void btnGCREnterAnotherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGCREnterAnotherActionPerformed
         // TODO add your handling code here:
@@ -294,10 +314,14 @@ public class GenerateInvoice extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGCREnterAnotherActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        FillGUIComponents fillGUIComponents=new FillGUIComponents();
-        fillGUIComponents.setCMBDates(cmbYear, cmbMonth);
+
+        setForm();
     }//GEN-LAST:event_formWindowOpened
 
+    private void setForm(){
+        FillGUIComponents fillGUIComponents=new FillGUIComponents();
+        fillGUIComponents.setCMBDates(cmbYear, cmbMonth);        
+    }
     /**
      * @param args the command line arguments
      */

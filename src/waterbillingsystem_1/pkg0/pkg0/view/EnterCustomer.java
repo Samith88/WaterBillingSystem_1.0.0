@@ -93,6 +93,7 @@ public class EnterCustomer extends javax.swing.JFrame {
         txtCustomerInitialReceived = new javax.swing.JTextField();
         lblCDFInitialFee = new javax.swing.JLabel();
         txtCustomername = new javax.swing.JTextField();
+        btnCDFCheckCID = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -197,7 +198,7 @@ public class EnterCustomer extends javax.swing.JFrame {
         lblCDFTOA.setText("Total Outstanding Amount *");
 
         CDFLabelCFN.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        CDFLabelCFN.setText("Customer First Name *");
+        CDFLabelCFN.setText("Customer Identifying Name *");
 
         btnCDHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home_button.png"))); // NOI18N
         btnCDHome.setBorder(null);
@@ -239,6 +240,14 @@ public class EnterCustomer extends javax.swing.JFrame {
         lblCDFInitialFee.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblCDFInitialFee.setText("Initial Fee");
 
+        btnCDFCheckCID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnCDFCheckCID.setText("?");
+        btnCDFCheckCID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCDFCheckCIDActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -258,10 +267,10 @@ public class EnterCustomer extends javax.swing.JFrame {
                         .addComponent(btnCDUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(CDFLabelMain)
-                        .addGap(87, 87, 87)
+                        .addGap(95, 95, 95)
                         .addComponent(btnCDHome, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(CDFLabel3)
@@ -288,7 +297,7 @@ public class EnterCustomer extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(txtCustomername, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(CDFLabelCFN, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(CDFLabelCFN)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(txtCustomerFN, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
@@ -319,7 +328,9 @@ public class EnterCustomer extends javax.swing.JFrame {
                                         .addComponent(CDFLabel6)
                                         .addGap(59, 59, 59)
                                         .addComponent(txtCustomerAd2, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(54, 54, 54))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCDFCheckCID, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -335,7 +346,8 @@ public class EnterCustomer extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CDFLabel8)
-                    .addComponent(txtCustomerNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCustomerNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCDFCheckCID, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CDFLabel3)
@@ -625,6 +637,24 @@ public class EnterCustomer extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCustomerInitialReceivedKeyTyped
 
+    private void btnCDFCheckCIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDFCheckCIDActionPerformed
+        // TODO add your handling code here:
+        CustomerDataProcessor customerDataProcessor=new CustomerDataProcessor();
+        try {
+            if(txtCustomerNo.getText().length()==0)
+                JOptionPaneCustom.infoBox("You may use: "+customerDataProcessor.getNextCID()+ " as next CID", "Customer Data Insertion");
+            else{
+                if(customerDataProcessor.isCIDExist(txtCustomerNo.getText()))
+                    JOptionPaneCustom.errorBox("Customer Id Already Exist. You may use: "+customerDataProcessor.getNextCID(), "Customer Data Insertion");
+                else
+                    JOptionPaneCustom.infoBox("Customer Id Available", "Customer Data Insertion");           
+                }
+        } catch (Exception ex) {
+            Logger.getLogger(EnterCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_btnCDFCheckCIDActionPerformed
+
     /**
      * @param args the command line arguments
      * @throws java.lang.InstantiationException
@@ -671,6 +701,7 @@ public class EnterCustomer extends javax.swing.JFrame {
     private javax.swing.JLabel CDFLabelCM;
     private javax.swing.JLabel CDFLabelInitialRecivedPayment;
     private javax.swing.JLabel CDFLabelMain;
+    private javax.swing.JButton btnCDFCheckCID;
     private javax.swing.JButton btnCDFClear;
     private javax.swing.JButton btnCDFEnter;
     private javax.swing.JButton btnCDFEnterAnother;

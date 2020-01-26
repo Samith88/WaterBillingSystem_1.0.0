@@ -6,9 +6,11 @@
 package waterbillingsystem_1.pkg0.pkg0.controller;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
+import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -56,6 +58,7 @@ public class generateCustomerInvoice {
         map.put("P_LastPayment",customer.getLastPayment()+" ("+Validations.nullValidator(customer.getLastPaymentDate())+")" ); 
         map.put("P_Month",Validations.nullValidator(monthlyBillDetails.getMonth()));     
 
+        try{
         //BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(jasperFile.getAbsolutePath()));
         JasperDesign jasperDesign=JRXmlLoader.load(jasperFile.getAbsolutePath());
 
@@ -70,8 +73,10 @@ public class generateCustomerInvoice {
         JasperExportManager.exportReportToPdfStream(JPrint, outputStream);
         //System.exit(0);
         // VIEW THE REPORT
-        //JasperViewer.viewReport(JPrint,false);      
+        //JasperViewer.viewReport(JPrint,false); 
         return "Invoice_"+outFileString+".pdf";
+        }catch(FileNotFoundException | JRException ex)
+        {return ex.getMessage();}
     }
     
     private String getDirectories(String InvoiceId){

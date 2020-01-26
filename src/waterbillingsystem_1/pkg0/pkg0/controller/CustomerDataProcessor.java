@@ -44,5 +44,16 @@ public class CustomerDataProcessor {
         CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
         return customerDataDatabase.getCurentMeterFromCID(cid);
     }
+    public boolean isCIDExist(String cid) throws Exception{
+        CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
+        return customerDataDatabase.isCIDExist(cid);
+        
+    }
+
+    public String getNextCID() throws Exception{
+        CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
+        return customerDataDatabase.getNextCID();
+        
+    }    
     
 }
