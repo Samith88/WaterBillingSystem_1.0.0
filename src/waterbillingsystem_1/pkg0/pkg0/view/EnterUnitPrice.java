@@ -418,6 +418,8 @@ public class EnterUnitPrice extends javax.swing.JFrame {
     }    
     
     private void ClearComponents(){
+        if(txUnitPriceId.isEnabled())
+            txUnitPriceId.enable();
         txUnitPriceId.setText("");
         txUnitPriceLower.setText("");
         txUnitPriceUpper.setText("");
@@ -454,15 +456,14 @@ public class EnterUnitPrice extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUDFFixedChargeKeyTyped
 
     private void btnUPUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUPUpdateActionPerformed
-        // TODO add your handling code here:
-        if (!dataUpdate && !dataInserted)
-        dataUpdate = true;
 
+        if (!dataUpdate && !dataInserted)
+            dataUpdate = true;
         String errorMessage = validateData();
         if(0 < errorMessage.length())
-        JOptionPaneCustom.errorBox(errorMessage, "Unit price Data Insertion");
-        else
-        whenUpdateButtonClicked();
+            JOptionPaneCustom.errorBox(errorMessage, "Unit price Data Insertion");
+        else  
+            whenUpdateButtonClicked();
     }//GEN-LAST:event_btnUPUpdateActionPerformed
 
     private void txUnitPriceUpperKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txUnitPriceUpperKeyTyped
@@ -487,7 +488,14 @@ public class EnterUnitPrice extends javax.swing.JFrame {
             dataInserted = false;
         }
         else
-        JOptionPaneCustom.errorBox("Current insertion not completed", "Unit price data Insertion");
+        {
+            if(JOptionPane.showOptionDialog(null, "We have some non-completed operations.Are you sure you want continue?", 
+                    "None-Completed Operations", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null) == JOptionPane.OK_OPTION)
+            {
+                ClearComponents();
+                dataInserted = false;
+            }     
+        }
     }//GEN-LAST:event_btnGDEnterAnotherActionPerformed
 
     private void btnGDEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDEnterActionPerformed

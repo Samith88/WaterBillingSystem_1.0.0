@@ -326,6 +326,8 @@ public class EnterGroup extends javax.swing.JFrame {
 
     private void ClearComponents(){
     
+        if(!txtGroupId.isEnabled())
+            txtGroupId.enable();
         txtGroupId.setText("");
         txtGroupName.setText("");
         txtGroupLoc.setText("");
@@ -357,7 +359,14 @@ public class EnterGroup extends javax.swing.JFrame {
             dataInserted = false;
         }
         else
-            JOptionPaneCustom.errorBox("Current insertion not completed", "Group Data Insertion");        
+        {
+            if(JOptionPane.showOptionDialog(null, "We have some non-completed operations.Are you sure you want to continue?", 
+                    "None-Completed Operations", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null) == JOptionPane.OK_OPTION)
+            {
+                ClearComponents();
+                dataInserted = false;
+            }     
+        }        
     }//GEN-LAST:event_btnGDEnterAnotherActionPerformed
 
     private void whenUpdateButtonClicked(){
@@ -385,14 +394,14 @@ public class EnterGroup extends javax.swing.JFrame {
         }        
     }
     private void btnGDUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDUpdateActionPerformed
-        // TODO add your handling code here:
+
         if (!dataUpdate && !dataInserted)
-        dataUpdate = true;        
-        
+            dataUpdate = true;  
+
         String errorMessage = validateData();
         if(0 < errorMessage.length())
             JOptionPaneCustom.errorBox(errorMessage, "Group Data Insertion");   
-        else
+        else   
             whenUpdateButtonClicked();
     }//GEN-LAST:event_btnGDUpdateActionPerformed
 

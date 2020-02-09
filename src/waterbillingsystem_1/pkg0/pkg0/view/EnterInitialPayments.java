@@ -307,14 +307,14 @@ public class EnterInitialPayments extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIPEnterActionPerformed
 
     private void btnUPUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUPUpdateActionPerformed
-        // TODO add your handling code here:
+
         if (!dataUpdate && !dataInserted)
-        dataUpdate = true;
-        
+            dataUpdate = true;
+            
         String errorMessage = validateData();
         if(0 < errorMessage.length())
             JOptionPaneCustom.errorBox(errorMessage, "Initial Payment Data Insertion");
-        else
+        else  
             whenUpdateButtonClicked();
     }//GEN-LAST:event_btnUPUpdateActionPerformed
 

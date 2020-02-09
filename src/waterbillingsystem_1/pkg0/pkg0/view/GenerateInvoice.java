@@ -291,7 +291,7 @@ public class GenerateInvoice extends javax.swing.JFrame {
             monthlyBillDB.getMonthlyBillDetailsByInvoiceNo(billDataProcessor.getBillId(cmbCustomerCID.getSelectedItem().toString(),
             cmbYear.getSelectedItem().toString(),cmbMonth.getSelectedItem().toString().split("-")[0])));
             reportGenerated =true;
-            return "Invoice: "+outFileName+ "was generated.";
+            return "Invoice: "+outFileName+ " was generated.";
         } catch (Exception ex) {
             JOptionPaneCustom.errorBox("Invoice generation error.Data may not exist for selected time range", "Customer Invoice Generation ");
             Logger.getLogger(GenerateInvoice.class.getName()).log(Level.SEVERE, null, ex);

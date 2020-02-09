@@ -81,6 +81,10 @@ public class VariableStorage {
     public static void setGetBackup(boolean getBackup) {
         VariableStorage.getBackup = getBackup;
     }
+
+    public static String getEmptyString() {
+        return emptyString;
+    }
     
     private  static double SramadhanaCharge;
     private  static double AbsentCharge;
@@ -99,5 +103,8 @@ public class VariableStorage {
     private final static String dbFileName = "db\\waterbill.db";
     private final static String dbFile = "waterbill.db";
     private final static String dbBackupFolder = "db\\backups";
+    private final static String emptyString = "	...";
+
+
        
 }

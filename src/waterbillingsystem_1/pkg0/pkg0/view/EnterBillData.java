@@ -690,8 +690,10 @@ public class EnterBillData extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBDEnterAnotherActionPerformed
 
     private void btnCDUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDUpdateActionPerformed
+
         if (!dataUpdate && !dataInserted)
             dataUpdate = true;
+        
         String errorMessage = null;
         try {
             errorMessage = ValidateData();
@@ -700,7 +702,7 @@ public class EnterBillData extends javax.swing.JFrame {
         }
         if(0 < errorMessage.length())
             JOptionPaneCustom.errorBox(errorMessage, "Bill Data update");
-        else
+        else   
             whenUpdateButtonClicked();
     }//GEN-LAST:event_btnCDUpdateActionPerformed
 

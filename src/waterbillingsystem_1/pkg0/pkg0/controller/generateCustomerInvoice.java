@@ -5,6 +5,7 @@
  */
 package waterbillingsystem_1.pkg0.pkg0.controller;
 
+import java.awt.Desktop;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -74,6 +75,7 @@ public class generateCustomerInvoice {
         //System.exit(0);
         // VIEW THE REPORT
         //JasperViewer.viewReport(JPrint,false); 
+        Desktop.getDesktop().open(new File( getDirectories(monthlyBillDetails.getInvoiceNo()) ));
         return "Invoice_"+outFileString+".pdf";
         }catch(FileNotFoundException | JRException ex)
         {return ex.getMessage();}
