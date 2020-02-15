@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import waterbillingsystem_1.pkg0.pkg0.base.InitialPayment;
 import waterbillingsystem_1.pkg0.pkg0.database.DBConnection;
 import waterbillingsystem_1.pkg0.pkg0.database.InsertUpdateDeleteClass;
-import waterbillingsystem_1.pkg0.pkg0.database.RetrieveClass;
+import waterbillingsystem_1.pkg0.pkg0.database.RetrieveData;
 import waterbillingsystem_1.pkg0.pkg0.logging.getLogger;
 
 /**
@@ -30,7 +30,7 @@ public class InitialPaymentDB {
     }    
     
     public InitialPayment getAInitialPaymentDB(String cid) throws Exception{
-        RetrieveClass retrieveClass =new RetrieveClass();
+        RetrieveData retrieveClass =new RetrieveData();
         InitialPayment initialPayment=new InitialPayment();        
         try{
             ResultSet rs  = retrieveClass.getResultsFormDB("select * from InitialPayment where cid='"+cid+"' and"

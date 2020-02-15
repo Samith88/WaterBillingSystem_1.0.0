@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
 import waterbillingsystem_1.pkg0.pkg0.VariableStorage;
@@ -310,7 +311,14 @@ public class GenerateInvoice extends javax.swing.JFrame {
             reportGenerated = false;
         }
         else
-            JOptionPaneCustom.errorBox("Current generation not completed", "Customer Invoice Generation ");           
+        {
+            if(JOptionPane.showOptionDialog(null, "We have some non-completed operations.Are you sure you want continue?", 
+                    "None-Completed Operations", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null) == JOptionPane.OK_OPTION)
+            {
+                ClearComponents();
+                reportGenerated = false;
+            }     
+        }         
     }//GEN-LAST:event_btnGCREnterAnotherActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

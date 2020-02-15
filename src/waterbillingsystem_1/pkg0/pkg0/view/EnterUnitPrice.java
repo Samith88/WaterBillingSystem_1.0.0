@@ -408,8 +408,7 @@ public class EnterUnitPrice extends javax.swing.JFrame {
             JOptionPaneCustom.infoBox("Unit Price update successfully", "Unit Price updating");
             dataInserted = true; 
             ClearComponents();  
-            dataUpdate=false;
-            btnGDEnter.setText("Enter UnitPrice");    
+            dataUpdate=false;    
             txUnitPriceId.enable();            
         }
         else
@@ -424,8 +423,9 @@ public class EnterUnitPrice extends javax.swing.JFrame {
         txUnitPriceLower.setText("");
         txUnitPriceUpper.setText("");
         txUnitPrice.setText("");  
-        
         txUnitPriceId.enable();
+        btnGDEnter.setText("Enter UnitPrice");
+        btnGDClear.setText("Clear Data");
     }
     private void btnCDHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDHomeActionPerformed
         // TODO add your handling code here:

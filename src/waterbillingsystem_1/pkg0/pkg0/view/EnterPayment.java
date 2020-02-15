@@ -385,7 +385,8 @@ public class EnterPayment extends javax.swing.JFrame {
         txtPaymentAmount.setText("");
         cmbMonth.setSelectedIndex(0);
         cmbYear.setSelectedIndex(0);
-        cmdCID.setSelectedItem("Select CID");        
+        cmdCID.setSelectedItem("Select CID");  
+        btnPDClear.setText("Clear Data");
     }
     private void txtPaymentFNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPaymentFNameKeyTyped
 

@@ -427,8 +427,7 @@ public class EnterInitialPayments extends javax.swing.JFrame {
             JOptionPaneCustom.infoBox("Initial Payment update successfully", "Initial Payment updating");
             dataInserted = true; 
             ClearComponents();  
-            dataUpdate=false;
-            btnIPEnter.setText("Enter Payment");    
+            dataUpdate=false;    
             txtIPCID.enable();     
             initialPayments = null;
         }
@@ -460,6 +459,7 @@ public class EnterInitialPayments extends javax.swing.JFrame {
         txtIPTIP.setText("");
         txtIPNewPayment.setText("");
         txtIPRemaining.setText("");
+        btnIPEnter.setText("Enter Payment"); 
     }
 
     private void whenUpdateButtonClicked() {

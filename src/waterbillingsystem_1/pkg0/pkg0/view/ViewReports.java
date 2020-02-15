@@ -152,14 +152,14 @@ public class ViewReports extends javax.swing.JFrame {
         jPanelOverallBilling.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Overall Billing", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
         RDLblFixed.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        RDLblFixed.setText("Total Income From Fixed Monthly Charge");
+        RDLblFixed.setText("Total Billing For Fixed Monthly Charge");
         RDLblFixed.setToolTipText("");
 
         RDLblTotalBillAns.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         RDLblTotalBillAns.setText("Rs.");
 
         RDLblTotalBill.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        RDLblTotalBill.setText("Total Monthly Income From Bills");
+        RDLblTotalBill.setText("Total Monthly Billing For Bills");
         RDLblTotalBill.setToolTipText("");
 
         RDLblMonth.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -181,20 +181,20 @@ public class ViewReports extends javax.swing.JFrame {
         RDLblSramadanaAns.setText("Rs.");
 
         RDLblSramadana.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        RDLblSramadana.setText("Total Income From Shramadhana");
+        RDLblSramadana.setText("Total Billing For Shramadhana");
 
         RDLblAbAns.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         RDLblAbAns.setText("Rs.");
 
         RDLblAb.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        RDLblAb.setText("Total Income From Absent Penalty");
+        RDLblAb.setText("Total Billing For Absent Penalty");
         RDLblAb.setToolTipText("");
 
         RDLblFixedAns.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         RDLblFixedAns.setText("Rs.");
 
         RDLblUnitCons.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        RDLblUnitCons.setText("Total Income From Monthly Unit Consumption");
+        RDLblUnitCons.setText("Total Billing For Monthly Unit Consumption");
         RDLblUnitCons.setToolTipText("");
 
         RDLblUnitConsAns.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -372,7 +372,7 @@ public class ViewReports extends javax.swing.JFrame {
                         .addGap(20, 20, 20))
                     .addGroup(jPanelTotalPaymentsLayout.createSequentialGroup()
                         .addComponent(CBPLblMonth)
-                        .addGap(40, 40, 40)
+                        .addGap(32, 32, 32)
                         .addComponent(cmbCBPMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cmdCBPYear, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -590,9 +590,9 @@ public class ViewReports extends javax.swing.JFrame {
                             .addComponent(lblCIPTPayAns, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(PanelCIPLayout.createSequentialGroup()
                         .addComponent(lblCIPCID, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtCIPCID, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtCIPCID, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
                         .addComponent(btnCIP, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(9, 9, 9)))
                 .addGap(26, 26, 26))

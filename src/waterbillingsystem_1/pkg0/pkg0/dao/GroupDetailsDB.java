@@ -12,7 +12,7 @@ import java.util.List;
 import waterbillingsystem_1.pkg0.pkg0.base.Group;
 import waterbillingsystem_1.pkg0.pkg0.database.DBConnection;
 import waterbillingsystem_1.pkg0.pkg0.database.InsertUpdateDeleteClass;
-import waterbillingsystem_1.pkg0.pkg0.database.RetrieveClass;
+import waterbillingsystem_1.pkg0.pkg0.database.RetrieveData;
 import waterbillingsystem_1.pkg0.pkg0.logging.getLogger;
 /**
  *
@@ -41,7 +41,7 @@ public class GroupDetailsDB {
     }    
     
     public List<Group> getGroup() throws Exception{
-        RetrieveClass retrieveClass =new RetrieveClass();
+        RetrieveData retrieveClass =new RetrieveData();
         List<Group> groups=new ArrayList<>();  
         Group group=null;
         try{
@@ -64,7 +64,7 @@ public class GroupDetailsDB {
       
     
     public Group getAGroup(String groupId) throws Exception{
-        RetrieveClass retrieveClass =new RetrieveClass();  
+        RetrieveData retrieveClass =new RetrieveData();  
         Group group=new Group();
         try{
             ResultSet rs  = retrieveClass.getResultsFormDB("select * from [group] where gid='"+groupId+"'");
@@ -82,7 +82,7 @@ public class GroupDetailsDB {
     }
 
     public List<String> getGroupAString() throws Exception{
-        RetrieveClass retrieveClass =new RetrieveClass();
+        RetrieveData retrieveClass =new RetrieveData();
         List<String> groupIds=new ArrayList<>();  
         try{
             ResultSet rs  = retrieveClass.getResultsFormDB("select gid,gname from [group]");

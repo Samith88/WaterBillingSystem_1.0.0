@@ -11,7 +11,7 @@ import waterbillingsystem_1.pkg0.pkg0.base.ExtraCharges;
 import waterbillingsystem_1.pkg0.pkg0.base.UnitPrice;
 import waterbillingsystem_1.pkg0.pkg0.database.DBConnection;
 import waterbillingsystem_1.pkg0.pkg0.database.InsertUpdateDeleteClass;
-import waterbillingsystem_1.pkg0.pkg0.database.RetrieveClass;
+import waterbillingsystem_1.pkg0.pkg0.database.RetrieveData;
 import waterbillingsystem_1.pkg0.pkg0.logging.getLogger;
 
 /**
@@ -22,7 +22,7 @@ public class ExtraChargeDB {
     
     public ExtraCharges getExtraCharges() throws Exception{
     
-        RetrieveClass retrieveClass =new RetrieveClass();
+        RetrieveData retrieveClass =new RetrieveData();
         ExtraCharges extraCharges=new ExtraCharges();
         
         try{

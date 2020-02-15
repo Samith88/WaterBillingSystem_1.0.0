@@ -20,7 +20,7 @@ import waterbillingsystem_1.pkg0.pkg0.ReportBase.OverallMonthlyPayment;
 import waterbillingsystem_1.pkg0.pkg0.ReportBase.PaymentsCustomer;
 import waterbillingsystem_1.pkg0.pkg0.ReportBase.TotalInitialPayment;
 import waterbillingsystem_1.pkg0.pkg0.database.DBConnection;
-import waterbillingsystem_1.pkg0.pkg0.database.RetrieveClass;
+import waterbillingsystem_1.pkg0.pkg0.database.RetrieveData;
 import waterbillingsystem_1.pkg0.pkg0.logging.getLogger;
 /**
  *
@@ -30,7 +30,7 @@ public class ReportingDBData {
     
     public OverallMonthlyBilling getOverallMonthlyBilling(String month) throws Exception{
         
-        RetrieveClass retrieveClass =new RetrieveClass();
+        RetrieveData retrieveClass =new RetrieveData();
         OverallMonthlyBilling overallMonthlyBilling=new OverallMonthlyBilling();        
         try{
             ResultSet rs  = retrieveClass.getResultsFormDB("select sum(Sramadhana) as SramadhanaTotal, sum(AbsentCharge) as AbsentChargeTotal, "
@@ -54,7 +54,7 @@ public class ReportingDBData {
     
     public CustomerInitialPayment getCustomerInitialPayment(String cid) throws Exception{
         
-        RetrieveClass retrieveClass =new RetrieveClass();
+        RetrieveData retrieveClass =new RetrieveData();
         CustomerInitialPayment customerInitialPayment=new CustomerInitialPayment();        
         try{
             String sql="select  InitialFeeTotal,InitialReceived from Customer where cid='"+cid+"';";
@@ -72,7 +72,7 @@ public class ReportingDBData {
     
     public OverallMonthlyPayment getOverallMonthlyPayment(String month) throws Exception{
         
-        RetrieveClass retrieveClass =new RetrieveClass();
+        RetrieveData retrieveClass =new RetrieveData();
         OverallMonthlyPayment overallMonthlyPayment=new OverallMonthlyPayment();        
         try{
             ResultSet rs  = retrieveClass.getResultsFormDB("select  sum(amount) as TotalMonthlyPayments , "
@@ -92,7 +92,7 @@ public class ReportingDBData {
     
     public PaymentsCustomer getPaymentsCustomer(String month,String cid) throws Exception{
         
-        RetrieveClass retrieveClass =new RetrieveClass();
+        RetrieveData retrieveClass =new RetrieveData();
         PaymentsCustomer paymentsCustomer=new PaymentsCustomer();        
         try{
             ResultSet rs  = retrieveClass.getResultsFormDB("select sum(amount) as CustomerPaymentMonthAmt "
@@ -112,7 +112,7 @@ public class ReportingDBData {
     
     public TotalInitialPayment getTotalInitialPayment(String month) throws Exception{
     
-        RetrieveClass retrieveClass =new RetrieveClass();
+        RetrieveData retrieveClass =new RetrieveData();
         TotalInitialPayment totalInitialPayment=new TotalInitialPayment();
         
             try{

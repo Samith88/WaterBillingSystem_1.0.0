@@ -7,7 +7,7 @@ package waterbillingsystem_1.pkg0.pkg0.controller;
 
 import java.util.HashMap;
 import waterbillingsystem_1.pkg0.pkg0.base.Customer;
-import waterbillingsystem_1.pkg0.pkg0.dao.CustomerDataDatabase;
+import waterbillingsystem_1.pkg0.pkg0.dao.CustomerDB;
 
 /**
  *
@@ -16,42 +16,42 @@ import waterbillingsystem_1.pkg0.pkg0.dao.CustomerDataDatabase;
 public class CustomerDataProcessor {
     
     public static boolean putCustomer(Customer customer){
-        CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
+        CustomerDB customerDataDatabase=new CustomerDB();
         return customerDataDatabase.putCustomerData(customer);   
     }
     public static boolean updateCustomer(Customer customer){
-        CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
+        CustomerDB customerDataDatabase=new CustomerDB();
         return customerDataDatabase.updateCustomerData(customer);   
     }    
     public HashMap<String, String> getCustomerCIDNName() throws Exception{
         
-        CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
+        CustomerDB customerDataDatabase=new CustomerDB();
         return customerDataDatabase.getAllCustomers();
     }    
     
     public Customer getCustomer(String cid) throws Exception{
-        CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
+        CustomerDB customerDataDatabase=new CustomerDB();
         return customerDataDatabase.getCustomer(cid);
     }
     
     public double getTOAOfCustomer(String cid) throws Exception{
-        CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
+        CustomerDB customerDataDatabase=new CustomerDB();
         return customerDataDatabase.getTOAFromCID(cid);
     }    
     
     public int getCurentMeterFromCID(String cid) throws Exception {
     
-        CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
+        CustomerDB customerDataDatabase=new CustomerDB();
         return customerDataDatabase.getCurentMeterFromCID(cid);
     }
     public boolean isCIDExist(String cid) throws Exception{
-        CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
+        CustomerDB customerDataDatabase=new CustomerDB();
         return customerDataDatabase.isCIDExist(cid);
         
     }
 
     public String getNextCID() throws Exception{
-        CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
+        CustomerDB customerDataDatabase=new CustomerDB();
         return customerDataDatabase.getNextCID();
         
     }    

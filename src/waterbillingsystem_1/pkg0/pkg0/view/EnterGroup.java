@@ -284,8 +284,7 @@ public class EnterGroup extends javax.swing.JFrame {
             JOptionPaneCustom.infoBox("Group data inserted successfully", "Group Data Insertion");
             dataInserted = true;  
             ClearComponents();  
-            dataUpdate=false;
-            btnGDEnter.setText("Enter Group");    
+            dataUpdate=false;    
             txtGroupId.enable();
         }
         else
@@ -331,7 +330,9 @@ public class EnterGroup extends javax.swing.JFrame {
         txtGroupId.setText("");
         txtGroupName.setText("");
         txtGroupLoc.setText("");
-        txtGroupDesc.setText("");        
+        txtGroupDesc.setText(""); 
+        btnGDEnter.setText("Enter Group");
+        btnGDClear.setText("Clear Data");
     }
     private void txtGroupIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtGroupIdKeyTyped
 

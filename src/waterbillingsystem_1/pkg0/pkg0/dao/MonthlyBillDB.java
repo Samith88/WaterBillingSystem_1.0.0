@@ -13,7 +13,7 @@ import waterbillingsystem_1.pkg0.pkg0.base.BillData;
 import waterbillingsystem_1.pkg0.pkg0.base.MonthlyBillDetails;
 import waterbillingsystem_1.pkg0.pkg0.database.DBConnection;
 import waterbillingsystem_1.pkg0.pkg0.database.InsertUpdateDeleteClass;
-import waterbillingsystem_1.pkg0.pkg0.database.RetrieveClass;
+import waterbillingsystem_1.pkg0.pkg0.database.RetrieveData;
 import waterbillingsystem_1.pkg0.pkg0.logging.getLogger;
 import waterbillingsystem_1.pkg0.pkg0.view.EnterPayment;
 
@@ -59,7 +59,7 @@ public class MonthlyBillDB {
     public MonthlyBillDetails getMonthlyBillDetailsByInvoiceNo(String InvoiceNo) throws Exception{
         
         MonthlyBillDetails monthlyBillDetails=new MonthlyBillDetails();
-        RetrieveClass retrieveClass=new RetrieveClass();
+        RetrieveData retrieveClass=new RetrieveData();
         try{
             ResultSet rs  = retrieveClass.getResultsFormDB("select * from MonthlyBillDetails where InvoiceNo='"+InvoiceNo+"'");
             while (rs.next()) {
@@ -89,7 +89,7 @@ public class MonthlyBillDB {
     public MonthlyBillDetails getLatestMonthlyBillDetailsByNIC(BillData billData) throws Exception{
         
         MonthlyBillDetails monthlyBillDetails=new MonthlyBillDetails();
-        RetrieveClass retrieveClass=new RetrieveClass();
+        RetrieveData retrieveClass=new RetrieveData();
         try{
             ResultSet rs  = retrieveClass.getResultsFormDB("select * from MonthlyBillDetails where cid='"+billData.getCid()+"' "
                     + "and InvoiceNo=(select max(InvoiceNo) from MonthlyBillDetails where nic='"+billData.getCid()+"' ");
@@ -169,7 +169,7 @@ public class MonthlyBillDB {
     
     public BillData getLatestMBIdFromCID(String cid) throws Exception{
     
-        RetrieveClass retrieveClass=new RetrieveClass();
+        RetrieveData retrieveClass=new RetrieveData();
         BillData billData=new BillData();
         try{
             ResultSet rs  = retrieveClass.getResultsFormDB("select * from BillData where cid='"+cid+"' "

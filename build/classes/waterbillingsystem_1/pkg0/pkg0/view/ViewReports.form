@@ -226,7 +226,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Total Income From Fixed Monthly Charge"/>
+                    <Property name="text" type="java.lang.String" value="Total Billing For Fixed Monthly Charge"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                 </Component>
@@ -243,7 +243,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Total Monthly Income From Bills"/>
+                    <Property name="text" type="java.lang.String" value="Total Monthly Billing For Bills"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                 </Component>
@@ -330,7 +330,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Total Income From Shramadhana"/>
+                    <Property name="text" type="java.lang.String" value="Total Billing For Shramadhana"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="RDLblAbAns">
@@ -346,7 +346,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Total Income From Absent Penalty"/>
+                    <Property name="text" type="java.lang.String" value="Total Billing For Absent Penalty"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                 </Component>
@@ -363,7 +363,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Total Income From Monthly Unit Consumption"/>
+                    <Property name="text" type="java.lang.String" value="Total Billing For Monthly Unit Consumption"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                 </Component>
@@ -504,7 +504,7 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="CBPLblMonth" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                                   <Component id="cmbCBPMonth" min="-2" pref="116" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="cmdCBPYear" min="-2" pref="69" max="-2" attributes="0"/>
@@ -969,9 +969,9 @@
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="lblCIPCID" min="-2" pref="93" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="txtCIPCID" min="-2" pref="81" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="txtCIPCID" min="-2" pref="81" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                   <Component id="btnCIP" min="-2" pref="117" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                               </Group>

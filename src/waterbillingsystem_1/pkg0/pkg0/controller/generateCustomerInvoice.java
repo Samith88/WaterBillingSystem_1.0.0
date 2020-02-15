@@ -22,7 +22,7 @@ import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import waterbillingsystem_1.pkg0.pkg0.Validations;
 import waterbillingsystem_1.pkg0.pkg0.base.Customer;
 import waterbillingsystem_1.pkg0.pkg0.base.MonthlyBillDetails;
-import waterbillingsystem_1.pkg0.pkg0.dao.CustomerDataDatabase;
+import waterbillingsystem_1.pkg0.pkg0.dao.CustomerDB;
 
 /**
  *
@@ -34,7 +34,7 @@ public class generateCustomerInvoice {
     public String generateJasperReport(String jasperFileString,String outFileString ,MonthlyBillDetails monthlyBillDetails) throws Exception{
     
         File jasperFile = new File(jasperFileString);
-        CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
+        CustomerDB customerDataDatabase=new CustomerDB();
         monthlyBillDetails.setCid(Validations.getCorrectCID(monthlyBillDetails.getCid()));
         Customer customer = customerDataDatabase.getCustomer(monthlyBillDetails.getCid());
                 

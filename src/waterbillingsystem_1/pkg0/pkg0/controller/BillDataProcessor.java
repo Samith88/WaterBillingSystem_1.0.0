@@ -11,7 +11,7 @@ import waterbillingsystem_1.pkg0.pkg0.Validations;
 import waterbillingsystem_1.pkg0.pkg0.base.BillData;
 import waterbillingsystem_1.pkg0.pkg0.base.Customer;
 import waterbillingsystem_1.pkg0.pkg0.base.MonthlyBillDetails;
-import waterbillingsystem_1.pkg0.pkg0.dao.CustomerDataDatabase;
+import waterbillingsystem_1.pkg0.pkg0.dao.CustomerDB;
 import waterbillingsystem_1.pkg0.pkg0.dao.MonthlyBillDB;
 import waterbillingsystem_1.pkg0.pkg0.dao.UnitPricesDB;
 
@@ -47,7 +47,7 @@ public class BillDataProcessor {
         monthlyBillDetails.setInvoiceNo(billData.getMbid());
         monthlyBillDetails.setCid(billData.getCid());
         //monthlyBillDetails.setNic(billData.getNic());
-        monthlyBillDetails.setGroup(CustomerDataDatabase.getCustomerGroupIdFromCID(billData.getCid()));
+        monthlyBillDetails.setGroup(CustomerDB.getCustomerGroupIdFromCID(billData.getCid()));
         
         monthlyBillDetails = getUpdatedBillDetails( monthlyBillDetails, billData,"insert");
         
@@ -92,7 +92,7 @@ public class BillDataProcessor {
     
     private MonthlyBillDetails getUpdatedBillDetails(MonthlyBillDetails monthlyBillDetails,BillData billData,String event) throws Exception{
         
-        CustomerDataDatabase customerDataDatabase=new CustomerDataDatabase();
+        CustomerDB customerDataDatabase=new CustomerDB();
         Customer customer = customerDataDatabase.getCustomer(billData.getCid());
         //customer.setCid(customerDataProcessor.getCorrectCID(customer.getCid()));
         

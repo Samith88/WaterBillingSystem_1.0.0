@@ -16,7 +16,7 @@ import java.util.List;
 import waterbillingsystem_1.pkg0.pkg0.base.UnitPrice;
 import waterbillingsystem_1.pkg0.pkg0.database.DBConnection;
 import waterbillingsystem_1.pkg0.pkg0.database.InsertUpdateDeleteClass;
-import waterbillingsystem_1.pkg0.pkg0.database.RetrieveClass;
+import waterbillingsystem_1.pkg0.pkg0.database.RetrieveData;
 import waterbillingsystem_1.pkg0.pkg0.logging.getLogger;
 
 /**
@@ -26,7 +26,7 @@ import waterbillingsystem_1.pkg0.pkg0.logging.getLogger;
 public class UnitPricesDB {
     
     public List<UnitPrice> getUnitPricesFromDB() throws Exception{
-        RetrieveClass retrieveClass =new RetrieveClass();
+        RetrieveData retrieveClass =new RetrieveData();
         List<UnitPrice> unitprices=new ArrayList<>();
         try{
             ResultSet rs  = retrieveClass.getResultsFormDB("select * from unit_price order by uid");
@@ -55,7 +55,7 @@ public class UnitPricesDB {
     }
     
     public UnitPrice getAUnitPriceFromDB(String unitPriceId) throws Exception{
-        RetrieveClass retrieveClass =new RetrieveClass();
+        RetrieveData retrieveClass =new RetrieveData();
         UnitPrice unitPrice=new UnitPrice();        
         try{
             ResultSet rs  = retrieveClass.getResultsFormDB("select * from unit_price where uid='"+unitPriceId+"' ");

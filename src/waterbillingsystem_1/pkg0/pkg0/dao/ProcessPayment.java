@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 import waterbillingsystem_1.pkg0.pkg0.base.Payment;
 import waterbillingsystem_1.pkg0.pkg0.database.DBConnection;
 import waterbillingsystem_1.pkg0.pkg0.database.InsertUpdateDeleteClass;
-import waterbillingsystem_1.pkg0.pkg0.database.RetrieveClass;
+import waterbillingsystem_1.pkg0.pkg0.database.RetrieveData;
 import waterbillingsystem_1.pkg0.pkg0.logging.getLogger;
 
 /**
@@ -66,7 +66,7 @@ public class ProcessPayment {
     
         InsertUpdateDeleteClass insertUpdateDeleteClass =new InsertUpdateDeleteClass(); 
         
-        CustomerDataDatabase CustomerDataDatabase=new CustomerDataDatabase();
+        CustomerDB CustomerDataDatabase=new CustomerDB();
         double newTOA = CustomerDataDatabase.getTOAFromCID(payment.getCid()) + payment.getAmount();
         Payment latestPayment = getLatestPaymentByCID(payment.getCid());
         try{
@@ -82,7 +82,7 @@ public class ProcessPayment {
     } 
     
     public Payment getLatestPaymentByCID(String cid) throws SQLException, Exception{
-        RetrieveClass retrieveClass=new RetrieveClass();
+        RetrieveData retrieveClass=new RetrieveData();
         ResultSet rs = retrieveClass.getResultsFormDB("select * from Payment where cid='"+cid+"' "
                 + "and pyid=(select max(pyid) from Payment where cid='"+cid+"')" );
         //select * from Payment where nic='883512847v' and pyid=(select max(pyid) from Payment where nic='883512847v');
@@ -110,7 +110,7 @@ public class ProcessPayment {
     
     private double getOldTOAFromCID(String cid) throws Exception{
         
-        RetrieveClass retrieveClass =new RetrieveClass();
+        RetrieveData retrieveClass =new RetrieveData();
         double oldOutStandingTotal=0.0;
         
         try{

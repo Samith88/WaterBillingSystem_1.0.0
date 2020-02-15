@@ -496,7 +496,6 @@ public class EnterCustomer extends javax.swing.JFrame {
             dataInserted = false;
             ClearComponents();  
             dataUpdate=false;
-            btnCDFEnter.setText("Enter Customer");
             txtCustomerNo.enable();
         }
         else 
@@ -538,6 +537,7 @@ public class EnterCustomer extends javax.swing.JFrame {
         txtCustomerFN.setText("");
         txtCustomerInitialReceived.setText("");
         txtCustomerInitialFee.setText("");
+        btnCDFEnter.setText("Enter Customer");
         
     }
     
@@ -631,7 +631,6 @@ public class EnterCustomer extends javax.swing.JFrame {
 
     private void btnCDFEnterAnotherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDFEnterAnotherActionPerformed
 
-        
         if(dataInserted)
         {
             ClearComponents();

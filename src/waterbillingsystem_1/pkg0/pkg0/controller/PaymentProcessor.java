@@ -7,7 +7,7 @@ package waterbillingsystem_1.pkg0.pkg0.controller;
 
 import waterbillingsystem_1.pkg0.pkg0.DateDetails;
 import waterbillingsystem_1.pkg0.pkg0.base.Payment;
-import waterbillingsystem_1.pkg0.pkg0.dao.CustomerDataDatabase;
+import waterbillingsystem_1.pkg0.pkg0.dao.CustomerDB;
 import waterbillingsystem_1.pkg0.pkg0.dao.ProcessPayment;
 
 /**
@@ -25,7 +25,7 @@ public class PaymentProcessor {
 
         
         //payment.setCid(CustomerDataDatabase.getCIDFromNIC(payment.getNic()));
-        payment.setOldOutStandingTotal(CustomerDataDatabase.getCustomerTotalOSTCID(payment.getCid()));
+        payment.setOldOutStandingTotal(CustomerDB.getCustomerTotalOSTCID(payment.getCid()));
         payment.setNewOutStandingTotal(payment.getOldOutStandingTotal() - payment.getAmount() );
         
         

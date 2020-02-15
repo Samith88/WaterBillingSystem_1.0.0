@@ -11,18 +11,18 @@ import java.util.HashMap;
 import waterbillingsystem_1.pkg0.pkg0.base.Customer;
 import waterbillingsystem_1.pkg0.pkg0.database.DBConnection;
 import waterbillingsystem_1.pkg0.pkg0.database.InsertUpdateDeleteClass;
-import waterbillingsystem_1.pkg0.pkg0.database.RetrieveClass;
+import waterbillingsystem_1.pkg0.pkg0.database.RetrieveData;
 import waterbillingsystem_1.pkg0.pkg0.logging.getLogger;
 
 /**
  *
  * @author UDISSSA1
  */
-public class CustomerDataDatabase {
+public class CustomerDB {
     
     public Customer getCustomer(String cid) throws Exception{
         
-        RetrieveClass retrieveClass =new RetrieveClass();
+        RetrieveData retrieveClass =new RetrieveData();
         Customer customer = new Customer();
         
         try{
@@ -54,7 +54,7 @@ public class CustomerDataDatabase {
     
     public HashMap<String, String> getAllCustomers() throws Exception{
         
-        RetrieveClass retrieveClass =new RetrieveClass();
+        RetrieveData retrieveClass =new RetrieveData();
         HashMap<String, String> customerHash = new HashMap<>();
         
         try{
@@ -71,7 +71,7 @@ public class CustomerDataDatabase {
     
     public boolean isCIDExist(String cid) throws Exception{
         
-        RetrieveClass retrieveClass =new RetrieveClass();
+        RetrieveData retrieveClass =new RetrieveData();
         String cidcount="";
         
         try{
@@ -88,7 +88,7 @@ public class CustomerDataDatabase {
     
     public String getNextCID() throws Exception{
         
-        RetrieveClass retrieveClass =new RetrieveClass();
+        RetrieveData retrieveClass =new RetrieveData();
         String cidcount="";
         try{
             ResultSet rs  = retrieveClass.getResultsFormDB("select max(cid) as cidcount from customer");
@@ -104,7 +104,7 @@ public class CustomerDataDatabase {
     
     public int getCurentMeterFromCID(String cid) throws Exception{
         
-        RetrieveClass retrieveClass =new RetrieveClass();
+        RetrieveData retrieveClass =new RetrieveData();
         int currentMeter=0;
         
         try{
@@ -121,7 +121,7 @@ public class CustomerDataDatabase {
     
     public double getTOAFromCID(String cid) throws Exception{
         
-        RetrieveClass retrieveClass =new RetrieveClass();
+        RetrieveData retrieveClass =new RetrieveData();
         double TOA=0.0;
         
         try{
@@ -138,7 +138,7 @@ public class CustomerDataDatabase {
     
     public static String getCustomerGroupIdFromCID(String cid) throws Exception{
         
-        RetrieveClass retrieveClass =new RetrieveClass();
+        RetrieveData retrieveClass =new RetrieveData();
         String gid="";
         
         try{
@@ -155,7 +155,7 @@ public class CustomerDataDatabase {
     
     public static double getCustomerTotalOSTCID(String cid) throws Exception{
         
-        RetrieveClass retrieveClass =new RetrieveClass();
+        RetrieveData retrieveClass =new RetrieveData();
         double TotalOutstandingAmount=0.0;
         
         try{
@@ -198,7 +198,7 @@ public class CustomerDataDatabase {
     
     public double[] getCustomerInitialPayment(String cid) throws Exception{
         
-        RetrieveClass retrieveClass =new RetrieveClass();
+        RetrieveData retrieveClass =new RetrieveData();
         double initialPayments[] = new double[2];
         
         try{

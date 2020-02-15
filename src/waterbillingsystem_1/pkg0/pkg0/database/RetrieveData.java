@@ -13,7 +13,7 @@ import waterbillingsystem_1.pkg0.pkg0.logging.getLogger;
  *
  * @author UDISSSA1
  */
-public class RetrieveClass {
+public class RetrieveData {
     
     public ResultSet getResultsFormDB(String sql) throws Exception{
         ResultSet result = null;
