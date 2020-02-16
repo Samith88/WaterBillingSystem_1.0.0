@@ -45,6 +45,7 @@ public class BillDataProcessor {
     
         MonthlyBillDetails monthlyBillDetails =new MonthlyBillDetails();
         monthlyBillDetails.setInvoiceNo(billData.getMbid());
+        //monthlyBillDetails.setOldMeter(billData.getOldMeter()+billData.getMonthlyUsageUnit());
         monthlyBillDetails.setCid(billData.getCid());
         //monthlyBillDetails.setNic(billData.getNic());
         monthlyBillDetails.setGroup(CustomerDB.getCustomerGroupIdFromCID(billData.getCid()));
@@ -97,8 +98,8 @@ public class BillDataProcessor {
         //customer.setCid(customerDataProcessor.getCorrectCID(customer.getCid()));
         
         monthlyBillDetails.setCid(Validations.getCorrectCID(customer.getCid()));
-        monthlyBillDetails.setOldMeter(customer.getPreMeter());
-        billData.setOldMeter(customer.getPreMeter());
+        monthlyBillDetails.setOldMeter(customer.getCurrentMeter());
+        //billData.setOldMeter(customer.getPreMeter());
         monthlyBillDetails.setGroup(customer.getGid());
         
         if(billData.getNewMeter()==0 && billData.getMonthlyUsageUnit() > 0)

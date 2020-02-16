@@ -383,10 +383,12 @@ public class EnterPayment extends javax.swing.JFrame {
         txtPaymentFName.setText("");
         txtPaymentFName.setText("");
         txtPaymentAmount.setText("");
-        cmbMonth.setSelectedIndex(0);
-        cmbYear.setSelectedIndex(0);
         cmdCID.setSelectedItem("Select CID");  
+        if(!cmdCID.isEnabled())
+            cmdCID.enable();
         btnPDClear.setText("Clear Data");
+        btnPDEnter.setText("Enter Payment");
+        setForm();
     }
     private void txtPaymentFNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPaymentFNameKeyTyped
 
@@ -420,7 +422,14 @@ public class EnterPayment extends javax.swing.JFrame {
             dataInserted = false;
         }
         else
-            JOptionPaneCustom.errorBox("Current Insertion not completed", "Payment Data Insertion");
+        {
+            if(JOptionPane.showOptionDialog(null, "We have some non-completed operations.Are you sure you want continue?", 
+                    "None-Completed Operations", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null) == JOptionPane.OK_OPTION)
+            {
+                ClearComponents();
+                dataInserted = false;
+            }     
+        }
         
     }//GEN-LAST:event_btnPDEnterAnotherActionPerformed
 
@@ -440,7 +449,7 @@ public class EnterPayment extends javax.swing.JFrame {
         
         PaymentProcessor paymentProcessor=new PaymentProcessor();
         try {
-            Payment payment = paymentProcessor.getCustomerPaymentByCID(Validations.getCorrectCID(txtPaymentFName.getText()));
+            Payment payment = paymentProcessor.getCustomerPaymentByCID(Validations.getCorrectCID(cmdCID.getSelectedItem().toString()));
             
             for(int i=0;i<cmbMonth.getItemCount();i++) 
             {
@@ -487,10 +496,13 @@ public class EnterPayment extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCDHomeActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        FillGUIComponents fillGUIComponents=new FillGUIComponents();
-        fillGUIComponents.setCMBDates(cmbYear, cmbMonth);
+        setForm();
     }//GEN-LAST:event_formWindowOpened
 
+    private void setForm(){
+        FillGUIComponents fillGUIComponents=new FillGUIComponents();
+        fillGUIComponents.setCMBDates(cmbYear, cmbMonth);        
+    }     
     /**
      * @param args the command line arguments
      */

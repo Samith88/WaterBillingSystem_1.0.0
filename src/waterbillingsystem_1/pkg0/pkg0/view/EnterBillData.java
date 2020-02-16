@@ -377,6 +377,9 @@ public class EnterBillData extends javax.swing.JFrame {
         
         billData.setMonth(cmbYear.getSelectedItem().toString()+cmbMonth.getSelectedItem().toString().split("-")[0]);
         
+        CustomerDataProcessor customerDataProcessor=new CustomerDataProcessor();
+        billData.setOldMeter(customerDataProcessor.getCurentMeterFromCID(cmbCustomerCID.getSelectedItem().toString()));
+        
         if(dataUpdate && !dataInserted)
         {
             UpdateBillData(billData);
@@ -591,14 +594,16 @@ public class EnterBillData extends javax.swing.JFrame {
         }
     }
     private void ClearComponents(){
+        setForm();   
         txtCustomerFName.setText("");
         txtBDUnitUsage.setText("");
         if(radioUnits.isSelected() || radioMeter.isSelected())
             buttonGroup1.clearSelection();
+        if(!cmbCustomerCID.isEnabled())
+            cmbCustomerCID.enable();
+        cmbCustomerCID.setSelectedItem("Select CID");
         ckBoxSramadhana.setSelected(false);
-        ckBoxAbsentFee.setSelected(false);
-        cmbMonth.setSelectedIndex(0);
-        cmbYear.setSelectedIndex(0);    
+        ckBoxAbsentFee.setSelected(false);  
     }
     
     private void btnBDClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBDClearActionPerformed
@@ -678,14 +683,20 @@ public class EnterBillData extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbCustomerCIDItemStateChanged
 
     private void btnBDEnterAnotherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBDEnterAnotherActionPerformed
-        // TODO add your handling code here:
         if(dataInserted)
         {
             ClearComponents();
             dataInserted = false;
         }
         else
-            JOptionPaneCustom.errorBox("Current insertion not completed", "Bill Data Insertion");
+        {
+            if(JOptionPane.showOptionDialog(null, "We have some non-completed operations.Are you sure you want continue?", 
+                    "None-Completed Operations", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null) == JOptionPane.OK_OPTION)
+            {
+                ClearComponents();
+                dataInserted = false;
+            }     
+        }
             
     }//GEN-LAST:event_btnBDEnterAnotherActionPerformed
 
@@ -707,11 +718,13 @@ public class EnterBillData extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCDUpdateActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        
-        FillGUIComponents fillGUIComponents=new FillGUIComponents();
-        fillGUIComponents.setCMBDates(cmbYear, cmbMonth);
+        setForm();
     }//GEN-LAST:event_formWindowOpened
 
+    private void setForm(){
+        FillGUIComponents fillGUIComponents=new FillGUIComponents();
+        fillGUIComponents.setCMBDates(cmbYear, cmbMonth);        
+    }    
     /**
      * @param args the command line arguments
      */

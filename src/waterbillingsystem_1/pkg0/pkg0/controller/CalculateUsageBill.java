@@ -18,16 +18,16 @@ public class CalculateUsageBill {
     
     public double calculateConsumingBill(int thisMonthUsage ,List<UnitPrice> unitprices){
         
-        int  unitPriceCount= unitprices.size();
+        int  unitPriceIndex= unitprices.size();
         double currentBill = 0;
         int unitPerRange = 0;
         
-        while(unitPriceCount>0){
-            unitPerRange = thisMonthUsage-unitprices.get(unitPriceCount-1).getLower();
+        while(unitPriceIndex>0){
+            unitPerRange = thisMonthUsage-unitprices.get(unitPriceIndex-1).getLower();
             if(unitPerRange > 0)
-                currentBill += unitPerRange * unitprices.get(unitPriceCount-1).getPrice();
+                currentBill += unitPerRange * unitprices.get(unitPriceIndex-1).getPrice();
             
-            unitPriceCount--;
+            unitPriceIndex--;
             
             if(unitPerRange > 0)
                 thisMonthUsage -= unitPerRange;

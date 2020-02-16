@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 import waterbillingsystem_1.pkg0.pkg0.DateDetails;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
@@ -334,7 +335,15 @@ public class EnterInitialPayments extends javax.swing.JFrame {
             initialPayments = null;
         }
         else
-            JOptionPaneCustom.errorBox("Current insertion not completed", "Initial Payment data Insertion");
+        {
+            if(JOptionPane.showOptionDialog(null, "We have some non-completed operations.Are you sure you want continue?", 
+                    "None-Completed Operations", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null) == JOptionPane.OK_OPTION)
+            {
+                ClearComponents();
+                dataInserted = false;
+		initialPayments = null;
+            }     
+        }
 
     }//GEN-LAST:event_btnIPEnterAnotherActionPerformed
 
@@ -460,6 +469,8 @@ public class EnterInitialPayments extends javax.swing.JFrame {
         txtIPNewPayment.setText("");
         txtIPRemaining.setText("");
         btnIPEnter.setText("Enter Payment"); 
+        if(!txtIPCID.isEnabled())
+            txtIPCID.enable();
     }
 
     private void whenUpdateButtonClicked() {

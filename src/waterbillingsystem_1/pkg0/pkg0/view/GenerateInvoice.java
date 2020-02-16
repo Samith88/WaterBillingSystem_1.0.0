@@ -239,10 +239,10 @@ public class GenerateInvoice extends javax.swing.JFrame {
     private void ClearComponents(){
     
         txtCustomerFName.setText("");
-        cmbMonth.setSelectedIndex(0);
-        cmbYear.setSelectedIndex(0);
         cmbCustomerCID.removeAllItems();
         cmbCustomerCID.setSelectedItem("Select NIC");
+        if(cmbCustomerCID.isEnabled())
+            cmbCustomerCID.enable();
         setForm();
     }
     private void btnGCREnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGCREnterActionPerformed
