@@ -5,6 +5,8 @@
  */
 package waterbillingsystem_1.pkg0.pkg0.database;
 
+import java.io.IOException;
+import java.security.GeneralSecurityException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -19,18 +21,21 @@ public class DBConnection {
     public static Connection connection;
     
     public static Connection connect() throws Exception{
-        connection = DriverManager.getConnection("jdbc:sqlite:"+VariableStorage.getDbFileName());
+        waterbillingsystem_1.pkg0.pkg0.controller.FileEncryptor.decryptFile();
+        connection = DriverManager.getConnection("jdbc:sqlite:"+VariableStorage.getDbFile());
         return connection;
     }
 
     public static void disconnect() throws Exception{
         connection.close();
+        waterbillingsystem_1.pkg0.pkg0.controller.FileEncryptor.encryptFile();
     }
     
-    public static Connection readConnect() throws SQLException{
+    public static Connection readConnect() throws SQLException, GeneralSecurityException, IOException{
         SQLiteConfig config = new SQLiteConfig();
         config.setReadOnly(true);
-        connection = DriverManager.getConnection("jdbc:sqlite:"+VariableStorage.getDbFileName(),config.toProperties());
+        waterbillingsystem_1.pkg0.pkg0.controller.FileEncryptor.decryptFile();
+        connection = DriverManager.getConnection("jdbc:sqlite:"+VariableStorage.getDbFile(),config.toProperties());
         return connection;
     }    
 }

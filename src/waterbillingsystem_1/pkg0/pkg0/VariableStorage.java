@@ -60,9 +60,6 @@ public class VariableStorage {
         return CalBackupGroundImage;
     }    
     
-    public static String getDbFileName() {
-        return dbFileName;
-    }
     public static String getBackupFolder() {
         return dbBackupFolder;
     }
@@ -70,7 +67,10 @@ public class VariableStorage {
     public static String getDbFile() {
         return dbFile;
     }
-
+    
+    public static String getFileKey() {
+        return FileKey;
+    }
     public static String getDbBackupFolder() {
         return dbBackupFolder;
     }
@@ -78,12 +78,21 @@ public class VariableStorage {
         return getBackup;
     }
 
+
+    public static String getKeyFactory() {
+        return keyFactory;
+    }
+    
     public static void setGetBackup(boolean getBackup) {
         VariableStorage.getBackup = getBackup;
     }
 
     public static String getEmptyString() {
         return emptyString;
+    }
+
+    public static String getTempFile() {
+        return TempFile;
     }
     
     private  static double SramadhanaCharge;
@@ -99,11 +108,14 @@ public class VariableStorage {
     private static final String GroupReport = "reports\\groupReport.jrxml";
     private static final String BackupGroundImage = "images\\page.png";
     private static final String ImageIcon = "images\\WaterDrop.png";
+    private static final String FileKey = "t0d!050r0#qf0090";
+    private static final String keyFactory = "PBEWithMD5AndTripleDES";
 
-    private final static String dbFileName = "db\\waterbill.db";
-    private final static String dbFile = "waterbill.db";
+    private final static String dbFile = "db\\waterbill.db";
     private final static String dbBackupFolder = "db\\backups";
     private final static String emptyString = "	...";
+    private final static String TempFile = "TempFile.txt";
+
 
 
        

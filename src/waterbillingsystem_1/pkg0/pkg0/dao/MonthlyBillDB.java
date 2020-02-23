@@ -7,8 +7,11 @@ package waterbillingsystem_1.pkg0.pkg0.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import waterbillingsystem_1.pkg0.pkg0.DateDetails;
 import waterbillingsystem_1.pkg0.pkg0.base.BillData;
 import waterbillingsystem_1.pkg0.pkg0.base.MonthlyBillDetails;
 import waterbillingsystem_1.pkg0.pkg0.database.DBConnection;
@@ -84,6 +87,40 @@ public class MonthlyBillDB {
             getLogger.getLog().debug(e.toString());
         }      
         return monthlyBillDetails;
+    }
+    
+    public List<MonthlyBillDetails> getAllMonthlyBillDetails() throws Exception{
+        
+        List<MonthlyBillDetails> MonthlyBillDetailsList = new ArrayList<MonthlyBillDetails>();
+        RetrieveData retrieveClass=new RetrieveData();
+        try{
+            ResultSet rs  = retrieveClass.getResultsFormDB("select * from MonthlyBillDetails where "
+                    + "InvoiceNo like '"+DateDetails.getDateYear()+DateDetails.getDateMonth()+"%' ");
+            while (rs.next()) {
+                MonthlyBillDetails monthlyBillDetails=new MonthlyBillDetails();
+                monthlyBillDetails.setInvoiceNo(rs.getString("InvoiceNo"));
+                monthlyBillDetails.setCid(rs.getString("cid"));
+                monthlyBillDetails.setGroup(rs.getString("GroupId"));
+                monthlyBillDetails.setOldMeter(rs.getInt("OldMeter"));
+                monthlyBillDetails.setNewMeter(rs.getInt("NewMeter"));
+                monthlyBillDetails.setMonthlyConsumption(rs.getDouble("MonthlyConsumption"));
+                monthlyBillDetails.setCurrentTotalAmount(rs.getDouble("CurrentTotalAmount"));
+                monthlyBillDetails.setFixedCharge(rs.getDouble("FixedCharge"));
+                monthlyBillDetails.setSramadhana(rs.getDouble("Sramadhana"));
+                monthlyBillDetails.setAbsentCharge(rs.getDouble("AbsentCharge"));
+                monthlyBillDetails.setTotalMonthlyAmount(rs.getDouble("TotalMonthlyAmount"));
+                monthlyBillDetails.setMonth(rs.getString("Month"));
+                monthlyBillDetails.setTotalOutstandingMonthly(rs.getDouble("TotalOutstandingMonthly"));
+                monthlyBillDetails.setMonthlyUsageUnit(rs.getInt("MonthlyUsageUnit"));
+                monthlyBillDetails.setLastPaymentDay(rs.getString("LastPaymentDay"));
+                
+                MonthlyBillDetailsList.add(monthlyBillDetails);
+            }
+            DBConnection.disconnect();
+        } catch (SQLException e) {
+            getLogger.getLog().debug(e.toString());
+        }      
+        return MonthlyBillDetailsList;
     }
     
     public MonthlyBillDetails getLatestMonthlyBillDetailsByNIC(BillData billData) throws Exception{

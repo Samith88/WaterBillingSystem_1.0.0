@@ -35,12 +35,4 @@ public class FileBackupController {
             }        
     }
     
-    //public static void main(String[] args) {
-    //    
-    //    FileBackupController fileBackupController=new FileBackupController();
-    //    fileBackupController.getBackup(VariableStorage.getDbFileName(), 
-    //            VariableStorage.getBackupFolder()+"//"+VariableStorage.getDbFile());
-    //    
-    //}
-    
 }

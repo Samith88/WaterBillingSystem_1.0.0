@@ -8,7 +8,9 @@ package waterbillingsystem_1.pkg0.pkg0.view;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import javax.swing.JFrame;
 import waterbillingsystem_1.pkg0.pkg0.controller.CustomerDataProcessor;
 import waterbillingsystem_1.pkg0.pkg0.controller.FillGUIComponents;
@@ -20,6 +22,7 @@ import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 import waterbillingsystem_1.pkg0.pkg0.JOptionPaneCustom;
 import waterbillingsystem_1.pkg0.pkg0.VariableStorage;
+import waterbillingsystem_1.pkg0.pkg0.base.MonthlyBillDetails;
 import waterbillingsystem_1.pkg0.pkg0.controller.BillDataProcessor;
 import waterbillingsystem_1.pkg0.pkg0.controller.generateCustomerInvoice;
 import waterbillingsystem_1.pkg0.pkg0.dao.MonthlyBillDB;
@@ -70,6 +73,7 @@ public class GenerateInvoice extends javax.swing.JFrame {
         btnGCREnter = new javax.swing.JButton();
         btnGCREnterAnother = new javax.swing.JButton();
         PDLblFname = new javax.swing.JLabel();
+        btnGCRAllEnter = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Pananwala Water Billing System");
@@ -136,24 +140,23 @@ public class GenerateInvoice extends javax.swing.JFrame {
         PDLblFname.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         PDLblFname.setText("FName");
 
+        btnGCRAllEnter.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnGCRAllEnter.setText("Generate All Invoices");
+        btnGCRAllEnter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGCRAllEnterActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(472, Short.MAX_VALUE)
-                .addComponent(btnCDHome, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(173, 173, 173)
                         .addComponent(GILabelMain))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(112, 112, 112)
-                        .addComponent(btnGCREnter, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(75, 75, 75)
-                        .addComponent(btnGCREnterAnother, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(75, 75, 75)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,16 +164,31 @@ public class GenerateInvoice extends javax.swing.JFrame {
                             .addComponent(GCRLblCFName, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(39, 39, 39)
-                                .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtCustomerFName, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(cmbCustomerCID, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(PDLblFname, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(100, Short.MAX_VALUE))
+                                .addComponent(PDLblFname, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(247, 247, 247)
+                                .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(39, 39, 39))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(btnGCRAllEnter)
+                                .addGap(25, 25, 25)
+                                .addComponent(btnGCREnter, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnGCREnterAnother, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(64, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCDHome, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,7 +213,8 @@ public class GenerateInvoice extends javax.swing.JFrame {
                 .addGap(83, 83, 83)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGCREnterAnother)
-                    .addComponent(btnGCREnter))
+                    .addComponent(btnGCREnter)
+                    .addComponent(btnGCRAllEnter))
                 .addContainerGap(122, Short.MAX_VALUE))
         );
 
@@ -282,8 +301,6 @@ public class GenerateInvoice extends javax.swing.JFrame {
         MonthlyBillDB monthlyBillDB=new MonthlyBillDB();
         generateCustomerInvoice generateCustomerinvoice=new generateCustomerInvoice();
         BillDataProcessor billDataProcessor=new BillDataProcessor();
-        //String Year = cmbYear.getSelectedItem().toString();
-        //String Month = cmbMonth.getSelectedItem().toString().split("-")[0];
                 
         try {
             outFileName = generateCustomerinvoice.generateJasperReport
@@ -299,8 +316,28 @@ public class GenerateInvoice extends javax.swing.JFrame {
             reportGenerated =false;
             return "";
         }  
-        
-        
+    }    
+    
+    private void GenerateCustomerInvocesAll() throws Exception{
+        String outFileName ="";
+        MonthlyBillDB monthlyBillDB=new MonthlyBillDB();
+        generateCustomerInvoice generateCustomerinvoice=new generateCustomerInvoice();
+        List<MonthlyBillDetails> MonthlyBillDetailsList = monthlyBillDB.getAllMonthlyBillDetails();
+        for (MonthlyBillDetails monthlyBillDetails:MonthlyBillDetailsList)
+        {
+                
+            try {
+                outFileName = generateCustomerinvoice.generateJasperReport
+                (VariableStorage.getInvoiceReport(),monthlyBillDetails.getInvoiceNo(), monthlyBillDetails );
+                reportGenerated =true;
+                JOptionPaneCustom.infoBox("Invoice: "+outFileName+ " was generated.", "Customer Invoice Generation ");
+            } catch (Exception ex) {
+                JOptionPaneCustom.errorBox("Multi-Invoice generation error.", "Customer Invoice Generation ");
+                Logger.getLogger(GenerateInvoice.class.getName()).log(Level.SEVERE, null, ex);
+                reportGenerated =false;
+            } 
+            java.util.concurrent.TimeUnit.SECONDS.sleep(2);
+        } 
     }
     private void btnGCREnterAnotherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGCREnterAnotherActionPerformed
         // TODO add your handling code here:
@@ -325,6 +362,18 @@ public class GenerateInvoice extends javax.swing.JFrame {
 
         setForm();
     }//GEN-LAST:event_formWindowOpened
+
+    private void btnGCRAllEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGCRAllEnterActionPerformed
+        if(JOptionPane.showOptionDialog(null, "This will generate all invoices for the month. Are you want to continue?", 
+                "All invoices per current month", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null) == JOptionPane.OK_OPTION)
+        {
+            try {
+                GenerateCustomerInvocesAll();
+            } catch (Exception ex) {
+                Logger.getLogger(GenerateInvoice.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } 
+    }//GEN-LAST:event_btnGCRAllEnterActionPerformed
 
     private void setForm(){
         FillGUIComponents fillGUIComponents=new FillGUIComponents();
@@ -369,6 +418,7 @@ public class GenerateInvoice extends javax.swing.JFrame {
     private javax.swing.JLabel GILabelMain;
     private javax.swing.JLabel PDLblFname;
     private javax.swing.JButton btnCDHome;
+    private javax.swing.JButton btnGCRAllEnter;
     private javax.swing.JButton btnGCREnter;
     private javax.swing.JButton btnGCREnterAnother;
     private javax.swing.JComboBox<String> cmbCustomerCID;
