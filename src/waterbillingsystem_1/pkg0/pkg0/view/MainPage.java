@@ -647,7 +647,7 @@ public class MainPage extends javax.swing.JFrame {
         {
             FileBackupController FileBackupController=new FileBackupController();
             FileBackupController.getBackup(VariableStorage.getDbFile(), 
-                    VariableStorage.getBackupFolder()+"//"+VariableStorage.getDbFile());
+                    VariableStorage.getBackupFolder()+"//"+VariableStorage.getDbFileName());
             VariableStorage.setGetBackup(false);
         }        
     }//GEN-LAST:event_formWindowOpened

@@ -94,6 +94,10 @@ public class VariableStorage {
     public static String getTempFile() {
         return TempFile;
     }
+
+    public static String getDbFileName() {
+        return dbFileName;
+    }
     
     private  static double SramadhanaCharge;
     private  static double AbsentCharge;
@@ -112,6 +116,7 @@ public class VariableStorage {
     private static final String keyFactory = "PBEWithMD5AndTripleDES";
 
     private final static String dbFile = "db\\waterbill.db";
+    private final static String dbFileName = "waterbill.db";
     private final static String dbBackupFolder = "db\\backups";
     private final static String emptyString = "	...";
     private final static String TempFile = "TempFile.txt";
